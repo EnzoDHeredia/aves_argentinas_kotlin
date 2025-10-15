@@ -230,23 +230,25 @@ class MainActivity : AppCompatActivity() {
                     showMessage(cropResult.message)
                 }
                 is CropResult.Success -> {
-                    val bitmapToSave = cropResult.bitmap
-                    val coordinates = locationProvider.getCurrentLocation(this@MainActivity)
-                    val saveResult = observationLogger.saveObservation(bitmapToSave, prediction, coordinates)
+                    val focusBitmap = cropResult.bitmap
+                    try {
+                        val coordinates = locationProvider.getCurrentLocation(this@MainActivity)
+                        val saveResult = observationLogger.saveObservation(original, prediction, coordinates)
 
-                    if (bitmapToSave != original) {
-                        bitmapToSave.recycle()
-                    }
-
-                    when (saveResult) {
-                        is ObservationLogger.Result.Success -> {
-                            Toast.makeText(
-                                this@MainActivity,
-                                getString(R.string.observation_saved),
-                                Toast.LENGTH_SHORT
-                            ).show()
+                        when (saveResult) {
+                            is ObservationLogger.Result.Success -> {
+                                Toast.makeText(
+                                    this@MainActivity,
+                                    getString(R.string.observation_saved),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            is ObservationLogger.Result.Error -> showMessage(saveResult.message)
                         }
-                        is ObservationLogger.Result.Error -> showMessage(saveResult.message)
+                    } finally {
+                        if (focusBitmap != original) {
+                            focusBitmap.recycle()
+                        }
                     }
                 }
             }

@@ -31,6 +31,7 @@ class ObservationLogActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
+        toolbar.title = getString(R.string.observation_log_title)
         toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }

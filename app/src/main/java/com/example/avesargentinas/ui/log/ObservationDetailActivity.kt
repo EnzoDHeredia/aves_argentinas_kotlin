@@ -37,6 +37,7 @@ class ObservationDetailActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
+        toolbar.title = getString(R.string.observation_detail_title)
         toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
@@ -77,6 +78,7 @@ class ObservationDetailActivity : AppCompatActivity() {
 
         Glide.with(this)
             .load(observation.imageUri)
+            .fitCenter()
             .placeholder(R.drawable.ic_image_placeholder)
             .into(image)
 
