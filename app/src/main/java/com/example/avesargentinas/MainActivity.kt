@@ -1,6 +1,7 @@
 package com.example.avesargentinas
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
@@ -16,8 +17,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.lifecycleScope
+import com.example.avesargentinas.data.ObservationRepository
+import com.example.avesargentinas.ui.log.ObservationLogActivity
 import com.jsibbold.zoomage.AutoResetMode
-import com.jsibbold.zoomage.ZoomageView
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -41,6 +43,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var emptyState: View
     private lateinit var btnPick: MaterialButton
     private lateinit var btnCamera: MaterialButton
+    private lateinit var btnSave: MaterialButton
+    private lateinit var btnLog: MaterialButton
 
     // Estado
     private var originalBitmap: Bitmap? = null
@@ -50,10 +54,17 @@ class MainActivity : AppCompatActivity() {
     private var ignoreMatrixChanges = false
     private var lastMatrixChangeTime = 0L
     private var pendingMatrixChange = false
+    private var lastPrediction: Prediction? = null
+    private var pendingSaveAfterPermission = false
 
     // Configuración
     private val CONF_THRESH = 0.55f
     private val MATRIX_CHANGE_DEBOUNCE_MS = 500L
+
+    // Dependencias auxiliares
+    private lateinit var observationRepository: ObservationRepository
+    private lateinit var observationLogger: ObservationLogger
+    private lateinit var locationProvider: LocationProvider
 
     // Activity Result Launchers
     private val requestPermissions =
@@ -76,6 +87,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    private val requestLocationPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+            if (pendingSaveAfterPermission) {
+                lifecycleScope.launch {
+                    performSaveObservation()
+                }
+            }
+            pendingSaveAfterPermission = false
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -89,13 +110,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeViews() {
-    photoView = findViewById(R.id.photoView)
+        photoView = findViewById(R.id.photoView)
         focusOverlay = findViewById(R.id.focusOverlay)
         txtResult = findViewById(R.id.txt)
         progressBar = findViewById(R.id.progress)
         emptyState = findViewById(R.id.emptyState)
         btnPick = findViewById(R.id.btnPick)
         btnCamera = findViewById(R.id.btnCamera)
+        btnSave = findViewById(R.id.btnSave)
+        btnLog = findViewById(R.id.btnLog)
     }
 
     private fun initializeComponents() {
@@ -112,6 +135,11 @@ class MainActivity : AppCompatActivity() {
         )
 
         focusManager = FocusManager(photoView, focusOverlay, imageProcessor)
+
+        observationRepository = ObservationRepository.getInstance(applicationContext)
+        val imageSaver = ImageSaver(applicationContext)
+        locationProvider = LocationProvider(applicationContext)
+        observationLogger = ObservationLogger(observationRepository, imageSaver)
     }
 
     private fun setupPhotoView() {
@@ -142,6 +170,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupButtons() {
         btnPick.setOnClickListener { openGallery() }
         btnCamera.setOnClickListener { openCamera() }
+        btnSave.setOnClickListener { handleSaveObservationClick() }
+        btnLog.setOnClickListener {
+            startActivity(Intent(this, ObservationLogActivity::class.java))
+        }
     }
 
     private fun setupEmptyState() {
@@ -165,6 +197,67 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun handleSaveObservationClick() {
+        if (!hasLocationPermission()) {
+            pendingSaveAfterPermission = true
+            requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        } else {
+            pendingSaveAfterPermission = false
+            lifecycleScope.launch {
+                performSaveObservation()
+            }
+        }
+    }
+
+    private suspend fun performSaveObservation() {
+        val prediction = lastPrediction ?: run {
+            showMessage(getString(R.string.observation_save_missing_prediction))
+            btnSave.isEnabled = false
+            return
+        }
+
+        val original = originalBitmap ?: run {
+            showMessage(getString(R.string.observation_save_missing_image))
+            btnSave.isEnabled = false
+            return
+        }
+
+        btnSave.isEnabled = false
+
+        try {
+            when (val cropResult = focusManager.cropToFocus(original)) {
+                is CropResult.Error -> {
+                    showMessage(cropResult.message)
+                }
+                is CropResult.Success -> {
+                    val bitmapToSave = cropResult.bitmap
+                    val coordinates = locationProvider.getCurrentLocation(this@MainActivity)
+                    val saveResult = observationLogger.saveObservation(bitmapToSave, prediction, coordinates)
+
+                    if (bitmapToSave != original) {
+                        bitmapToSave.recycle()
+                    }
+
+                    when (saveResult) {
+                        is ObservationLogger.Result.Success -> {
+                            Toast.makeText(
+                                this@MainActivity,
+                                getString(R.string.observation_saved),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        is ObservationLogger.Result.Error -> showMessage(saveResult.message)
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error al guardar observación: ${e.message}", e)
+            showMessage("Error al guardar: ${e.message}")
+        } finally {
+            btnSave.isEnabled = lastPrediction != null
+        }
+    }
+
     // ==================== Gestión de Imágenes ====================
 
     private fun loadAndClassifyImage(uri: Uri) {
@@ -180,6 +273,8 @@ class MainActivity : AppCompatActivity() {
         // Cancelar cualquier clasificación pendiente
         reclassifyJob?.cancel()
         pendingMatrixChange = false
+    lastPrediction = null
+    btnSave.isEnabled = false
 
         // Limpiar bitmap anterior
         originalBitmap?.recycle()
@@ -279,6 +374,8 @@ class MainActivity : AppCompatActivity() {
                 is CropResult.Error -> {
                     withContext(Dispatchers.Main) {
                         showMessage(cropResult.message)
+                        lastPrediction = null
+                        btnSave.isEnabled = false
                     }
                 }
             }
@@ -287,6 +384,8 @@ class MainActivity : AppCompatActivity() {
             Log.e("MainActivity", "Error en clasificación: ${e.message}", e)
             withContext(Dispatchers.Main) {
                 showMessage("Error: ${e.message}")
+                lastPrediction = null
+                btnSave.isEnabled = false
             }
         } finally {
             setLoading(false)
@@ -324,6 +423,8 @@ class MainActivity : AppCompatActivity() {
 
         withContext(Dispatchers.Main) {
             txtResult.text = resultText
+            lastPrediction = result.topPrediction
+            btnSave.isEnabled = lastPrediction != null
         }
     }
 
@@ -374,6 +475,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        if (!hasLocationPermission()) {
+            permissions.add(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+
         if (permissions.isNotEmpty()) {
             requestPermissions.launch(permissions.toTypedArray())
         }
@@ -395,6 +500,18 @@ class MainActivity : AppCompatActivity() {
                 this, Manifest.permission.READ_EXTERNAL_STORAGE
             ) == PackageManager.PERMISSION_GRANTED
         }
+    }
+
+    private fun hasLocationPermission(): Boolean {
+        val fineGranted = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        val coarseGranted = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+        return fineGranted || coarseGranted
     }
 
     // ==================== UI Helpers ====================

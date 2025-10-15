@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Aves Argentinas</string>
+    <string name="observation_thumbnail">Miniatura de observación</string>
+    <string name="observation_log_title">Historial de observaciones</string>
+    <string name="observation_log_empty">Aún no guardaste observaciones.</string>
+    <string name="observation_delete">Eliminar</string>
+    <string name="observation_share">Compartir</string>
+    <string name="observation_detail_title">Detalle de observación</string>
+    <string name="observation_confidence_format">Confianza %.1f%%</string>
+    <string name="observation_location_format">Ubicación: %.5f, %.5f</string>
+    <string name="observation_location_unknown">Ubicación no disponible</string>
+    <string name="observation_deleted">Observación eliminada</string>
+    <string name="observation_not_found">Observación no encontrada</string>
+    <string name="observation_share_title">Compartir observación</string>
+    <string name="observation_saved">Observación guardada</string>
+    <string name="observation_save_missing_prediction">Necesitás una clasificación válida antes de guardar.</string>
+    <string name="observation_save_missing_image">Cargá una imagen antes de guardar.</string>
+    <string name="observation_scientific_format">Nombre científico: %1$s</string>
+    <string name="observation_regional_format">Nombre regional: %1$s</string>
+    <string name="observation_timestamp_format">Registrado: %1$s</string>
 </resources>
