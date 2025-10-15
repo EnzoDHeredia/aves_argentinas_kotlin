@@ -4,11 +4,14 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -235,19 +238,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showObservationCountDialog(onCountConfirmed: (Int) -> Unit) {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_observation_count, null)
-        val inputLayout = dialogView.findViewById<TextInputLayout>(R.id.inputCountLayout)
-        val input = dialogView.findViewById<TextInputEditText>(R.id.editCount)
-        val decrement = dialogView.findViewById<MaterialButton>(R.id.btnDecrement)
-        val increment = dialogView.findViewById<MaterialButton>(R.id.btnIncrement)
+    val dialogView = layoutInflater.inflate(R.layout.dialog_observation_count, null)
+    val inputLayout = dialogView.findViewById<TextInputLayout>(R.id.inputCountLayout)
+    val input = dialogView.findViewById<TextInputEditText>(R.id.editCount)
+    val decrement = dialogView.findViewById<MaterialButton>(R.id.btnDecrement)
+    val increment = dialogView.findViewById<MaterialButton>(R.id.btnIncrement)
+    val cancel = dialogView.findViewById<MaterialButton>(R.id.btnCancel)
+    val confirm = dialogView.findViewById<MaterialButton>(R.id.btnConfirm)
 
         var currentCount = pendingObservationCount.coerceAtLeast(1)
         var programmaticChange = false
 
         fun updateCount(newValue: Int) {
             val sanitized = newValue.coerceAtLeast(1)
-            if (currentCount == sanitized && !programmaticChange) return
             currentCount = sanitized
+            val existingValue = input.text?.toString()?.toIntOrNull()
+            if (!programmaticChange && existingValue == sanitized) {
+                inputLayout.error = null
+                return
+            }
             programmaticChange = true
             input.setText(currentCount.toString())
             input.setSelection(input.text?.length ?: 0)
@@ -276,15 +285,46 @@ class MainActivity : AppCompatActivity() {
 
         updateCount(currentCount)
 
-        MaterialAlertDialogBuilder(this)
+        val dialog = MaterialAlertDialogBuilder(this)
             .setView(dialogView)
-            .setPositiveButton(R.string.observation_count_positive) { _, _ ->
-                val value = input.text?.toString()?.toIntOrNull()
-                val sanitized = value?.takeIf { it > 0 } ?: currentCount
-                onCountConfirmed(sanitized)
+            .create()
+
+        cancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        confirm.setOnClickListener {
+            val typedValue = input.text?.toString()?.toIntOrNull()
+            if (typedValue == null || typedValue <= 0) {
+                inputLayout.error = getString(R.string.observation_count_invalid)
+                programmaticChange = true
+                input.setText(currentCount.toString())
+                input.setSelection(input.text?.length ?: 0)
+                programmaticChange = false
+                return@setOnClickListener
             }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
+
+            updateCount(typedValue)
+            onCountConfirmed(currentCount)
+            dialog.dismiss()
+        }
+
+        dialog.setOnShowListener {
+            dialog.window?.let { window ->
+                window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                val horizontalInset = resources.getDimensionPixelSize(R.dimen.dialog_horizontal_inset)
+                val displayWidth = resources.displayMetrics.widthPixels
+                val targetWidth = if (displayWidth > horizontalInset * 2) {
+                    displayWidth - horizontalInset * 2
+                } else {
+                    displayWidth
+                }
+                window.setLayout(targetWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
+            }
+            updateCount(currentCount)
+        }
+
+        dialog.show()
     }
 
     private suspend fun performSaveObservation(individualCount: Int) {

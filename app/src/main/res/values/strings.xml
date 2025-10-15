@@ -22,6 +22,11 @@
     <string name="observation_count_title">Cantidad de individuos</string>
     <string name="observation_count_hint">Número de individuos observados</string>
     <string name="observation_count_positive">Guardar</string>
+    <string name="observation_count_subtitle">Elegí cuántos individuos registraste</string>
+    <string name="observation_count_description">Podés ajustar el número con los botones o escribirlo manualmente.</string>
+    <string name="observation_count_cancel">Cancelar</string>
+    <string name="observation_count_increment">Incrementar cantidad</string>
+    <string name="observation_count_decrement">Disminuir cantidad</string>
     <string name="observation_list_subtitle">%1$s · %2$s · %3$s</string>
     <string name="observation_count_invalid">Ingresá un número mayor o igual a 1</string>
     <plurals name="observation_individuals">

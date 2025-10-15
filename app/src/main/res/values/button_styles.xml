@@ -55,4 +55,17 @@
         <item name="strokeWidth">1.5dp</item>
     </style>
 
+    <style name="Widget.AvesArgentinas.Button.Stepper" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:elevation">0dp</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="backgroundTint">@color/brand_primary_light</item>
+        <item name="iconTint">@color/brand_primary</item>
+        <item name="rippleColor">@color/brand_primary_light</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+
 </resources>
