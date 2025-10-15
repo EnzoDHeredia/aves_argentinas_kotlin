@@ -50,6 +50,7 @@
         <item name="strokeColor">@color/brand_primary</item>
         <item name="android:textColor">@color/brand_primary</item>
         <item name="iconTint">@color/brand_primary</item>
+        <item name="backgroundTint">@color/brand_surface_variant</item>
         <item name="rippleColor">@color/brand_primary_light</item>
         <item name="cornerRadius">12dp</item>
         <item name="strokeWidth">1.5dp</item>

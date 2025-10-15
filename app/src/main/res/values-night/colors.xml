@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_primary">#7FA5FF</color>
+    <color name="brand_primary_dark">#5C7FE0</color>
+    <color name="brand_primary_light">#B3C6FF</color>
+    <color name="brand_on_primary">#071427</color>
+    <color name="brand_on_primary_container">#11264F</color>
+
+    <color name="brand_secondary">#FFC77A</color>
+    <color name="brand_on_secondary">#24190A</color>
+    <color name="brand_secondary_container">#5A3A12</color>
+    <color name="brand_on_secondary_container">#FFE6BF</color>
+
+    <color name="brand_tertiary">#82C5FF</color>
+    <color name="brand_on_tertiary">#031D31</color>
+    <color name="brand_tertiary_container">#1C3F5C</color>
+    <color name="brand_on_tertiary_container">#D9EEFF</color>
+
+    <color name="brand_background">#091224</color>
+    <color name="brand_on_background">#E6ECFE</color>
+    <color name="brand_surface">#111C31</color>
+    <color name="brand_on_surface">#E1E6F9</color>
+    <color name="brand_surface_variant">#1C2942</color>
+    <color name="brand_on_surface_variant">#A9B6D9</color>
+    <color name="brand_outline">#324067</color>
+
+    <color name="text_primary">#F3F6FF</color>
+    <color name="text_secondary">#C0CAE6</color>
+
+    <color name="accent_soft">#152340</color>
+
+    <color name="result_card_background">#111A2E</color>
+    <color name="result_card_gradient_start">#1B2742</color>
+    <color name="result_card_gradient_end">#111A2E</color>
+
+    <color name="progress_tint">#80AAFF</color>
+</resources>

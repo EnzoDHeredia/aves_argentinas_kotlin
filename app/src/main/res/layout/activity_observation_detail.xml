@@ -39,13 +39,23 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:fillViewport="true"
-        android:overScrollMode="never">
+        android:overScrollMode="never"
+        android:paddingBottom="12dp">
 
-        <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/brand_surface"
+            app:strokeColor="@color/brand_outline"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
             <ImageView
                 android:id="@+id/imgObservation"
@@ -114,7 +124,9 @@
                 android:layout_marginTop="8dp"
                 android:visibility="gone" />
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
     </ScrollView>
 
     <LinearLayout
@@ -126,20 +138,22 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnShare"
-            style="@style/Widget.AvesArgentinas.ActionButton"
+            style="@style/Widget.AvesArgentinas.Button.Primary"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_weight="1"
             android:text="@string/observation_share"
+            android:textStyle="bold"
             android:layout_marginEnd="8dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDelete"
-            style="@style/Widget.AvesArgentinas.ActionButton"
+            style="@style/Widget.AvesArgentinas.Button.Primary"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_weight="1"
             android:text="@string/observation_delete"
+            android:textStyle="bold"
             android:layout_marginStart="8dp" />
 
     </LinearLayout>
