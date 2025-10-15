@@ -47,12 +47,6 @@
                 android:foreground="?attr/selectableItemBackground"
                 android:visibility="visible">
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="72sp"-->
-<!--                    android:layout_marginBottom="16dp"/>-->
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -61,7 +55,7 @@
                     android:textColor="@color/text_primary"
                     android:textStyle="bold"
                     android:gravity="center"/>
-                
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,60 +157,94 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="16dp">
 
+            <!-- Botones principales: Galería y Cámara -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="4dp">
+                android:gravity="center">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnPick"
-                    style="@style/Widget.AvesArgentinas.ActionButton"
+                    style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="64dp"
                     android:layout_weight="1"
                     android:text="Galería"
-                    android:layout_marginEnd="8dp"/>
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="6dp"
+                    app:icon="@android:drawable/ic_menu_gallery"
+                    app:iconGravity="textStart"
+                    app:iconSize="24dp"
+                    app:cornerRadius="14dp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCamera"
-                    style="@style/Widget.AvesArgentinas.ActionButton"
+                    style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="64dp"
                     android:layout_weight="1"
                     android:text="Cámara"
-                    android:layout_marginStart="8dp"/>
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="6dp"
+                    app:icon="@android:drawable/ic_menu_camera"
+                    app:iconGravity="textStart"
+                    app:iconSize="24dp"
+                    app:cornerRadius="14dp"/>
 
             </LinearLayout>
 
+            <!-- Separador visual -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/brand_outline"
+                android:alpha="0.3"/>
+
+            <!-- Botones secundarios: Guardar e Historial -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="12dp">
+                android:gravity="center">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSave"
-                    style="@style/Widget.AvesArgentinas.ActionButton"
+                    style="@style/Widget.Material3.Button.TonalButton.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:enabled="false"
                     android:text="Guardar"
-                    android:layout_marginEnd="8dp"/>
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="6dp"
+                    app:icon="@android:drawable/ic_menu_save"
+                    app:iconGravity="textStart"
+                    app:iconSize="22dp"
+                    app:cornerRadius="12dp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLog"
-                    style="@style/Widget.AvesArgentinas.ActionButton"
+                    style="@style/Widget.Material3.Button.OutlinedButton.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:text="Historial"
-                    android:layout_marginStart="8dp"/>
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="6dp"
+                    app:icon="@android:drawable/ic_menu_recent_history"
+                    app:iconGravity="textStart"
+                    app:iconSize="22dp"
+                    app:cornerRadius="12dp"
+                    app:strokeWidth="1.5dp"/>
 
             </LinearLayout>
 

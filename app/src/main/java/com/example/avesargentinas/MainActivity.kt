@@ -277,7 +277,6 @@ class MainActivity : AppCompatActivity() {
         updateCount(currentCount)
 
         MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.observation_count_title)
             .setView(dialogView)
             .setPositiveButton(R.string.observation_count_positive) { _, _ ->
                 val value = input.text?.toString()?.toIntOrNull()

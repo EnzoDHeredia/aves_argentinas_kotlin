@@ -19,4 +19,40 @@
     <style name="ShapeAppearance.AvesArgentinas.ActionButton" parent="@style/ShapeAppearance.Material3.MediumComponent">
         <item name="cornerSize">18dp</item>
     </style>
+
+    <!-- Agregando estilos personalizados para los nuevos botones con iconos -->
+
+    <!-- Estilo para botones principales (Galería y Cámara) -->
+    <style name="Widget.AvesArgentinas.Button.Primary" parent="Widget.Material3.Button.Icon">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="backgroundTint">@color/brand_primary</item>
+        <item name="android:textColor">@color/brand_on_primary</item>
+        <item name="iconTint">@color/brand_on_primary</item>
+        <item name="rippleColor">@color/brand_primary_light</item>
+        <item name="cornerRadius">14dp</item>
+    </style>
+
+    <!-- Estilo para botón de guardar (tonal) -->
+    <style name="Widget.AvesArgentinas.Button.Tonal" parent="Widget.Material3.Button.TonalButton.Icon">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="backgroundTint">@color/brand_secondary_container</item>
+        <item name="android:textColor">@color/brand_on_secondary_container</item>
+        <item name="iconTint">@color/brand_on_secondary_container</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Estilo para botón de historial (outlined) -->
+    <style name="Widget.AvesArgentinas.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton.Icon">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="strokeColor">@color/brand_primary</item>
+        <item name="android:textColor">@color/brand_primary</item>
+        <item name="iconTint">@color/brand_primary</item>
+        <item name="rippleColor">@color/brand_primary_light</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeWidth">1.5dp</item>
+    </style>
+
 </resources>
