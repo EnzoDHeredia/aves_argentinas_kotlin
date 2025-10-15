@@ -4,19 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/brand_background">
+    android:background="@color/brand_background"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="12dp"
+    android:paddingTop="32dp">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/brand_surface"
-        android:navigationIcon="@drawable/ic_arrow_back"
-        android:title="@string/observation_log_title"
-        android:titleTextColor="@color/text_primary"
-        app:layout_scrollFlags="scroll|enterAlways"
-        app:titleCentered="true" />
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="@color/brand_surface"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/brand_outline"
+        app:strokeWidth="1dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:navigationIcon="@drawable/ic_arrow_back"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:title="@string/observation_log_title"
+            android:titleTextColor="@color/text_primary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleCentered="true" />
+
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerObservations"
