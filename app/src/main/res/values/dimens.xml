@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dialog_horizontal_inset">28dp</dimen>
+    <dimen name="dialog_horizontal_inset">5dp</dimen>
 </resources>

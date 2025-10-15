@@ -238,13 +238,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showObservationCountDialog(onCountConfirmed: (Int) -> Unit) {
-    val dialogView = layoutInflater.inflate(R.layout.dialog_observation_count, null)
-    val inputLayout = dialogView.findViewById<TextInputLayout>(R.id.inputCountLayout)
-    val input = dialogView.findViewById<TextInputEditText>(R.id.editCount)
-    val decrement = dialogView.findViewById<MaterialButton>(R.id.btnDecrement)
-    val increment = dialogView.findViewById<MaterialButton>(R.id.btnIncrement)
-    val cancel = dialogView.findViewById<MaterialButton>(R.id.btnCancel)
-    val confirm = dialogView.findViewById<MaterialButton>(R.id.btnConfirm)
+        val dialogView = layoutInflater.inflate(R.layout.dialog_observation_count, null)
+        val inputLayout = dialogView.findViewById<TextInputLayout>(R.id.inputCountLayout)
+        val input = dialogView.findViewById<TextInputEditText>(R.id.editCount)
+        val decrement = dialogView.findViewById<MaterialButton>(R.id.btnDecrement)
+        val increment = dialogView.findViewById<MaterialButton>(R.id.btnIncrement)
+        val cancel = dialogView.findViewById<MaterialButton>(R.id.btnCancel)
+        val confirm = dialogView.findViewById<MaterialButton>(R.id.btnConfirm)
+
+        val horizontalInset = resources.getDimensionPixelSize(R.dimen.dialog_horizontal_inset)
+        val displayWidth = resources.displayMetrics.widthPixels
+        val targetWidth = (displayWidth - horizontalInset * 2).coerceAtLeast(displayWidth / 2)
+        dialogView.layoutParams = ViewGroup.LayoutParams(targetWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
 
         var currentCount = pendingObservationCount.coerceAtLeast(1)
         var programmaticChange = false
@@ -287,6 +292,7 @@ class MainActivity : AppCompatActivity() {
 
         val dialog = MaterialAlertDialogBuilder(this)
             .setView(dialogView)
+            .setBackground(ColorDrawable(Color.TRANSPARENT))
             .create()
 
         cancel.setOnClickListener {
@@ -309,22 +315,8 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
-        dialog.setOnShowListener {
-            dialog.window?.let { window ->
-                window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                val horizontalInset = resources.getDimensionPixelSize(R.dimen.dialog_horizontal_inset)
-                val displayWidth = resources.displayMetrics.widthPixels
-                val targetWidth = if (displayWidth > horizontalInset * 2) {
-                    displayWidth - horizontalInset * 2
-                } else {
-                    displayWidth
-                }
-                window.setLayout(targetWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
-            }
-            updateCount(currentCount)
-        }
-
         dialog.show()
+        dialog.window?.setLayout(targetWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     private suspend fun performSaveObservation(individualCount: Int) {
@@ -559,12 +551,14 @@ class MainActivity : AppCompatActivity() {
             birdClassifier.classify(bitmap, topK = 3)
         }
 
+        val topPrediction = result.topPrediction
+        val meetsThreshold = topPrediction?.probability?.let { it >= CONF_THRESH } == true
         val resultText = buildResultText(result)
 
         withContext(Dispatchers.Main) {
             txtResult.text = resultText
-            lastPrediction = result.topPrediction
-            btnSave.isEnabled = lastPrediction != null
+            lastPrediction = if (meetsThreshold) topPrediction else null
+            btnSave.isEnabled = meetsThreshold
         }
     }
 

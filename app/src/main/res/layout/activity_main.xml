@@ -1,7 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="12dp"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingBottom="12dp"
+    android:paddingTop="32dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brand_background">
@@ -82,7 +85,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="160dp"
             android:background="@drawable/bg_result_panel"
             android:clipToPadding="false">
 
@@ -157,7 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="12dp">
 
             <!-- Botones principales: Galería y Cámara -->
             <LinearLayout
@@ -170,7 +173,7 @@
                     android:id="@+id/btnPick"
                     style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="64dp"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:text="Galería"
                     android:textSize="15sp"
@@ -185,7 +188,7 @@
                     android:id="@+id/btnCamera"
                     style="@style/Widget.Material3.Button.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="64dp"
+                    android:layout_height="56dp"
                     android:layout_weight="1"
                     android:text="Cámara"
                     android:textSize="15sp"
@@ -202,8 +205,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:background="@color/brand_outline"
                 android:alpha="0.3"/>
 
@@ -218,7 +221,7 @@
                     android:id="@+id/btnSave"
                     style="@style/Widget.Material3.Button.TonalButton.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:enabled="false"
                     android:text="Guardar"
@@ -234,7 +237,7 @@
                     android:id="@+id/btnLog"
                     style="@style/Widget.Material3.Button.OutlinedButton.Icon"
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:text="Historial"
                     android:textSize="15sp"
