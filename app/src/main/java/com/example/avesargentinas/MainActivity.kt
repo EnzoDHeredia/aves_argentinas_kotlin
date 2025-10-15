@@ -16,11 +16,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.example.avesargentinas.data.ObservationRepository
 import com.example.avesargentinas.ui.log.ObservationLogActivity
 import com.jsibbold.zoomage.AutoResetMode
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputLayout
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -56,6 +60,7 @@ class MainActivity : AppCompatActivity() {
     private var pendingMatrixChange = false
     private var lastPrediction: Prediction? = null
     private var pendingSaveAfterPermission = false
+    private var pendingObservationCount: Int = 1
 
     // Configuración
     private val CONF_THRESH = 0.55f
@@ -91,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             if (pendingSaveAfterPermission) {
                 lifecycleScope.launch {
-                    performSaveObservation()
+                    performSaveObservation(pendingObservationCount)
                 }
             }
             pendingSaveAfterPermission = false
@@ -198,18 +203,92 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleSaveObservationClick() {
-        if (!hasLocationPermission()) {
-            pendingSaveAfterPermission = true
-            requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-        } else {
-            pendingSaveAfterPermission = false
-            lifecycleScope.launch {
-                performSaveObservation()
+        val predictionAvailable = lastPrediction != null
+        val hasBitmap = originalBitmap != null
+
+        if (!predictionAvailable) {
+            showMessage(getString(R.string.observation_save_missing_prediction))
+            btnSave.isEnabled = false
+            return
+        }
+
+        if (!hasBitmap) {
+            showMessage(getString(R.string.observation_save_missing_image))
+            btnSave.isEnabled = false
+            return
+        }
+
+        cancelReclassifyJob()
+
+        showObservationCountDialog { count ->
+            pendingObservationCount = count
+            if (!hasLocationPermission()) {
+                pendingSaveAfterPermission = true
+                requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+            } else {
+                pendingSaveAfterPermission = false
+                lifecycleScope.launch {
+                    performSaveObservation(count)
+                }
             }
         }
     }
 
-    private suspend fun performSaveObservation() {
+    private fun showObservationCountDialog(onCountConfirmed: (Int) -> Unit) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_observation_count, null)
+        val inputLayout = dialogView.findViewById<TextInputLayout>(R.id.inputCountLayout)
+        val input = dialogView.findViewById<TextInputEditText>(R.id.editCount)
+        val decrement = dialogView.findViewById<MaterialButton>(R.id.btnDecrement)
+        val increment = dialogView.findViewById<MaterialButton>(R.id.btnIncrement)
+
+        var currentCount = pendingObservationCount.coerceAtLeast(1)
+        var programmaticChange = false
+
+        fun updateCount(newValue: Int) {
+            val sanitized = newValue.coerceAtLeast(1)
+            if (currentCount == sanitized && !programmaticChange) return
+            currentCount = sanitized
+            programmaticChange = true
+            input.setText(currentCount.toString())
+            input.setSelection(input.text?.length ?: 0)
+            programmaticChange = false
+            inputLayout.error = null
+        }
+
+        input.doAfterTextChanged { editable ->
+            if (programmaticChange) return@doAfterTextChanged
+            val value = editable?.toString()?.toIntOrNull()
+            if (value != null && value > 0) {
+                currentCount = value
+                inputLayout.error = null
+            } else {
+                inputLayout.error = getString(R.string.observation_count_invalid)
+            }
+        }
+
+        decrement.setOnClickListener {
+            updateCount(currentCount - 1)
+        }
+
+        increment.setOnClickListener {
+            updateCount(currentCount + 1)
+        }
+
+        updateCount(currentCount)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.observation_count_title)
+            .setView(dialogView)
+            .setPositiveButton(R.string.observation_count_positive) { _, _ ->
+                val value = input.text?.toString()?.toIntOrNull()
+                val sanitized = value?.takeIf { it > 0 } ?: currentCount
+                onCountConfirmed(sanitized)
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private suspend fun performSaveObservation(individualCount: Int) {
         val prediction = lastPrediction ?: run {
             showMessage(getString(R.string.observation_save_missing_prediction))
             btnSave.isEnabled = false
@@ -222,7 +301,13 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        cancelReclassifyJob()
+
+        val previousIgnore = ignoreMatrixChanges
+        ignoreMatrixChanges = true
+
         btnSave.isEnabled = false
+        var saveCompleted = false
 
         try {
             when (val cropResult = focusManager.cropToFocus(original)) {
@@ -233,7 +318,12 @@ class MainActivity : AppCompatActivity() {
                     val focusBitmap = cropResult.bitmap
                     try {
                         val coordinates = locationProvider.getCurrentLocation(this@MainActivity)
-                        val saveResult = observationLogger.saveObservation(original, prediction, coordinates)
+                        val saveResult = observationLogger.saveObservation(
+                            original,
+                            prediction,
+                            coordinates,
+                            individualCount
+                        )
 
                         when (saveResult) {
                             is ObservationLogger.Result.Success -> {
@@ -242,6 +332,7 @@ class MainActivity : AppCompatActivity() {
                                     getString(R.string.observation_saved),
                                     Toast.LENGTH_SHORT
                                 ).show()
+                                saveCompleted = true
                             }
                             is ObservationLogger.Result.Error -> showMessage(saveResult.message)
                         }
@@ -256,7 +347,9 @@ class MainActivity : AppCompatActivity() {
             Log.e("MainActivity", "Error al guardar observación: ${e.message}", e)
             showMessage("Error al guardar: ${e.message}")
         } finally {
+            ignoreMatrixChanges = previousIgnore
             btnSave.isEnabled = lastPrediction != null
+            pendingObservationCount = if (saveCompleted) 1 else individualCount
         }
     }
 
@@ -343,6 +436,12 @@ class MainActivity : AppCompatActivity() {
                 classifyCurrentView()
             }
         }
+    }
+
+    private fun cancelReclassifyJob() {
+        reclassifyJob?.cancel()
+        reclassifyJob = null
+        pendingMatrixChange = false
     }
 
     private suspend fun classifyCurrentView() {

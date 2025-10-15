@@ -1,9 +1,9 @@
 package com.example.avesargentinas
 
 import android.graphics.Bitmap
+import com.example.avesargentinas.LocationProvider.Coordinates
 import com.example.avesargentinas.data.Observation
 import com.example.avesargentinas.data.ObservationRepository
-import com.example.avesargentinas.LocationProvider.Coordinates
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
@@ -24,6 +24,7 @@ class ObservationLogger(
         bitmap: Bitmap,
         prediction: Prediction,
         coordinates: Coordinates?,
+        individualCount: Int,
         notes: String? = null
     ): Result = withContext(Dispatchers.Default) {
         val savedUri = imageSaver.saveBitmap(bitmap, APP_FOLDER_NAME)
@@ -38,6 +39,7 @@ class ObservationLogger(
             scientificName = prediction.scientificName,
             confidence = prediction.confidencePercentage,
             regionalName = prediction.regionalName,
+            individualCount = individualCount,
             latitude = coordinates?.latitude,
             longitude = coordinates?.longitude,
             capturedAt = timestamp,
@@ -62,6 +64,12 @@ class ObservationLogger(
             builder.appendLine("Nombre común: ${observation.displayName}")
             builder.appendLine("Nombre científico: ${observation.scientificName}")
             builder.appendLine("Confianza: ${"%.1f".format(Locale.getDefault(), observation.confidence)}%")
+            val countLabel = if (observation.individualCount == 1) {
+                "1 individuo"
+            } else {
+                "${observation.individualCount} individuos"
+            }
+            builder.appendLine("Individuos observados: $countLabel")
             observation.regionalName?.let {
                 builder.appendLine("Nombre regional: $it")
             }

@@ -40,6 +40,8 @@ class ObservationAdapter(
         private val timestamp: TextView = itemView.findViewById(R.id.txtTimestamp)
 
         fun bind(observation: Observation) {
+            val context = itemView.context
+
             Glide.with(thumbnail)
                 .load(observation.imageUri)
                 .centerCrop()
@@ -47,9 +49,22 @@ class ObservationAdapter(
                 .into(thumbnail)
 
             title.text = observation.displayName
-            val confidenceText = "Confianza ${"%.1f".format(Locale.getDefault(), observation.confidence)}%"
+            val confidenceText = context.getString(
+                R.string.observation_confidence_format,
+                observation.confidence
+            )
             val scientific = observation.scientificName
-            subtitle.text = "$scientific · $confidenceText"
+            val countLabel = context.resources.getQuantityString(
+                R.plurals.observation_individuals,
+                observation.individualCount,
+                observation.individualCount
+            )
+            subtitle.text = context.getString(
+                R.string.observation_list_subtitle,
+                scientific,
+                confidenceText,
+                countLabel
+            )
             timestamp.text = formatTimestamp(observation.capturedAt)
 
             itemView.setOnClickListener { onClick(observation) }

@@ -70,6 +70,7 @@ class ObservationDetailActivity : AppCompatActivity() {
     private fun bindData(observation: Observation) {
         val image: ImageView = findViewById(R.id.imgObservation)
         val title: TextView = findViewById(R.id.txtTitle)
+    val count: TextView = findViewById(R.id.txtCount)
         val scientific: TextView = findViewById(R.id.txtScientific)
         val confidence: TextView = findViewById(R.id.txtConfidence)
         val location: TextView = findViewById(R.id.txtLocation)
@@ -83,6 +84,12 @@ class ObservationDetailActivity : AppCompatActivity() {
             .into(image)
 
         title.text = observation.displayName
+        val countLabel = resources.getQuantityString(
+            R.plurals.observation_individuals,
+            observation.individualCount,
+            observation.individualCount
+        )
+        count.text = getString(R.string.observation_detail_count_format, countLabel)
         scientific.text = getString(
             R.string.observation_scientific_format,
             observation.scientificName

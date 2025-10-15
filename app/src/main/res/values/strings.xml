@@ -18,4 +18,14 @@
     <string name="observation_scientific_format">Nombre científico: %1$s</string>
     <string name="observation_regional_format">Nombre regional: %1$s</string>
     <string name="observation_timestamp_format">Registrado: %1$s</string>
+    <string name="observation_detail_count_format">Individuos observados: %1$s</string>
+    <string name="observation_count_title">Cantidad de individuos</string>
+    <string name="observation_count_hint">Número de individuos observados</string>
+    <string name="observation_count_positive">Guardar</string>
+    <string name="observation_list_subtitle">%1$s · %2$s · %3$s</string>
+    <string name="observation_count_invalid">Ingresá un número mayor o igual a 1</string>
+    <plurals name="observation_individuals">
+        <item quantity="one">%d individuo</item>
+        <item quantity="other">%d individuos</item>
+    </plurals>
 </resources>

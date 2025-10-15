@@ -12,6 +12,7 @@ data class Observation(
     val scientificName: String,
     val confidence: Float,
     val regionalName: String?,
+    val individualCount: Int = 1,
     val latitude: Double?,
     val longitude: Double?,
     val capturedAt: Long,

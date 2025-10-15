@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = [Observation::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class ObservationDatabase : RoomDatabase() {
@@ -24,12 +26,20 @@ abstract class ObservationDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "ALTER TABLE observations ADD COLUMN individualCount INTEGER NOT NULL DEFAULT 1"
+                )
+            }
+        }
+
         private fun buildDatabase(context: Context): ObservationDatabase {
             return Room.databaseBuilder(
                 context,
                 ObservationDatabase::class.java,
                 "observation_db"
-            ).build()
+            ).addMigrations(MIGRATION_1_2).build()
         }
     }
 }
