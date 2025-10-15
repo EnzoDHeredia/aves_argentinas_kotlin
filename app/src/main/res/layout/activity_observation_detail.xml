@@ -28,7 +28,6 @@
             android:navigationIcon="@drawable/ic_arrow_back"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:title="@string/observation_detail_title"
             android:titleTextColor="@color/text_primary"
             app:titleCentered="true" />
 

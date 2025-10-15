@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.avesargentinas.ObservationLogger
 import com.example.avesargentinas.R
+import com.example.avesargentinas.ThemeManager
 import com.example.avesargentinas.data.Observation
 import com.example.avesargentinas.data.ObservationRepository
 import com.google.android.material.appbar.MaterialToolbar
@@ -27,6 +28,7 @@ class ObservationDetailActivity : AppCompatActivity() {
     private var currentObservation: Observation? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeManager.applySavedTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_observation_detail)
 

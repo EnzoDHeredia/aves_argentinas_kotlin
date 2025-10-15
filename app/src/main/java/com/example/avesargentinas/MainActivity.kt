@@ -2,6 +2,7 @@ package com.example.avesargentinas
 
 import android.Manifest
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -12,11 +13,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.widget.doAfterTextChanged
@@ -52,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnCamera: MaterialButton
     private lateinit var btnSave: MaterialButton
     private lateinit var btnLog: MaterialButton
+    private lateinit var btnThemeToggle: ImageButton
 
     // Estado
     private var originalBitmap: Bitmap? = null
@@ -64,6 +68,7 @@ class MainActivity : AppCompatActivity() {
     private var lastPrediction: Prediction? = null
     private var pendingSaveAfterPermission = false
     private var pendingObservationCount: Int = 1
+    private var currentImageUri: Uri? = null
 
     // Configuración
     private val CONF_THRESH = 0.55f
@@ -106,6 +111,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeManager.applySavedTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -113,8 +119,10 @@ class MainActivity : AppCompatActivity() {
         initializeComponents()
         setupPhotoView()
         setupButtons()
+        updateThemeToggleIcon()
         setupEmptyState()
         checkAndRequestPermissions()
+        restoreState(savedInstanceState)
     }
 
     private fun initializeViews() {
@@ -127,6 +135,7 @@ class MainActivity : AppCompatActivity() {
         btnCamera = findViewById(R.id.btnCamera)
         btnSave = findViewById(R.id.btnSave)
         btnLog = findViewById(R.id.btnLog)
+        btnThemeToggle = findViewById(R.id.btnThemeToggle)
     }
 
     private fun initializeComponents() {
@@ -182,10 +191,40 @@ class MainActivity : AppCompatActivity() {
         btnLog.setOnClickListener {
             startActivity(Intent(this, ObservationLogActivity::class.java))
         }
+        btnThemeToggle.setOnClickListener {
+            ThemeManager.toggleTheme(this)
+            updateThemeToggleIcon()
+        }
     }
 
     private fun setupEmptyState() {
         emptyState.setOnClickListener { openGallery() }
+    }
+
+    private fun restoreState(savedInstanceState: Bundle?) {
+        val uriString = savedInstanceState?.getString(KEY_CURRENT_IMAGE_URI)
+        if (!uriString.isNullOrBlank()) {
+            val uri = Uri.parse(uriString)
+            photoView.post { loadAndClassifyImage(uri, restored = true) }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        currentImageUri?.let { uri ->
+            outState.putString(KEY_CURRENT_IMAGE_URI, uri.toString())
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    private fun updateThemeToggleIcon() {
+        val isDark = ThemeManager.isDarkTheme(this)
+        val iconRes = if (isDark) R.drawable.ic_sun else R.drawable.ic_moon
+        val descriptionRes = if (isDark) R.string.theme_toggle_light else R.string.theme_toggle_dark
+        btnThemeToggle.setImageDrawable(AppCompatResources.getDrawable(this, iconRes))
+        btnThemeToggle.contentDescription = getString(descriptionRes)
+        btnThemeToggle.imageTintList = ColorStateList.valueOf(
+            ContextCompat.getColor(this, R.color.brand_on_surface)
+        )
     }
 
     private fun openGallery() {
@@ -386,12 +425,15 @@ class MainActivity : AppCompatActivity() {
 
     // ==================== Gestión de Imágenes ====================
 
-    private fun loadAndClassifyImage(uri: Uri) {
+    private fun loadAndClassifyImage(uri: Uri, restored: Boolean = false) {
         val bitmap = imageProcessor.decodeBitmap(contentResolver, uri)
         if (bitmap == null) {
-            showMessage("No se pudo leer la imagen")
+            if (!restored) {
+                showMessage("No se pudo leer la imagen")
+            }
             return
         }
+        currentImageUri = uri
         displayImageAndClassify(bitmap)
     }
 
@@ -399,8 +441,8 @@ class MainActivity : AppCompatActivity() {
         // Cancelar cualquier clasificación pendiente
         reclassifyJob?.cancel()
         pendingMatrixChange = false
-    lastPrediction = null
-    btnSave.isEnabled = false
+        lastPrediction = null
+        btnSave.isEnabled = false
 
         // Limpiar bitmap anterior
         originalBitmap?.recycle()
@@ -670,5 +712,9 @@ class MainActivity : AppCompatActivity() {
         reclassifyJob?.cancel()
         originalBitmap?.recycle()
         birdClassifier.close()
+    }
+
+    companion object {
+        private const val KEY_CURRENT_IMAGE_URI = "current_image_uri"
     }
 }

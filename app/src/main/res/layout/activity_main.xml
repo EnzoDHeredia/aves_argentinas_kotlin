@@ -69,6 +69,18 @@
                     android:gravity="center"/>
             </LinearLayout>
 
+            <ImageButton
+                android:id="@+id/btnThemeToggle"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/theme_toggle_dark"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_sun"
+                app:tint="@color/brand_on_surface"/>
+
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
 

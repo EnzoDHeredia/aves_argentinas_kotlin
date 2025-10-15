@@ -10,6 +10,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.avesargentinas.R
+import com.example.avesargentinas.ThemeManager
 import com.example.avesargentinas.data.ObservationRepository
 import com.google.android.material.appbar.MaterialToolbar
 import kotlinx.coroutines.launch
@@ -20,6 +21,7 @@ class ObservationLogActivity : AppCompatActivity() {
     private lateinit var adapter: ObservationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeManager.applySavedTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_observation_log)
 
