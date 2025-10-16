@@ -1,10 +1,14 @@
 package com.example.avesargentinas.ui.log
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +21,8 @@ import com.example.avesargentinas.data.Observation
 import com.example.avesargentinas.data.ObservationRepository
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -26,6 +32,7 @@ class ObservationDetailActivity : AppCompatActivity() {
 
     private lateinit var repository: ObservationRepository
     private var currentObservation: Observation? = null
+    private var notesChanged = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.applySavedTheme(this)
@@ -35,6 +42,59 @@ class ObservationDetailActivity : AppCompatActivity() {
         repository = ObservationRepository.getInstance(applicationContext)
         setupToolbar()
         loadObservation()
+        setupTouchListener()
+    }
+
+    /**
+     * Configura el listener para cerrar el teclado al tocar fuera del campo
+     */
+    private fun setupTouchListener() {
+        val rootLayout = findViewById<View>(R.id.rootLayout)
+        val scrollView = findViewById<ScrollView>(R.id.scrollView)
+        
+        // Listener en el root layout
+        rootLayout.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                handleTouchOutside(event)
+            }
+            false
+        }
+        
+        // Listener en el scroll view también
+        scrollView.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                handleTouchOutside(event)
+            }
+            false
+        }
+    }
+    
+    private fun handleTouchOutside(event: MotionEvent) {
+        val edtNotes: TextInputEditText? = findViewById(R.id.edtNotes)
+        if (edtNotes != null && edtNotes.isFocused) {
+            // Obtener las coordenadas del campo de notas
+            val location = IntArray(2)
+            edtNotes.getLocationOnScreen(location)
+            val x = location[0]
+            val y = location[1]
+            val width = edtNotes.width
+            val height = edtNotes.height
+            
+            // Verificar si el toque fue fuera del campo
+            if (event.rawX < x || event.rawX > x + width ||
+                event.rawY < y || event.rawY > y + height) {
+                // Cerrar teclado y quitar foco (el guardado se hace en onFocusChange)
+                edtNotes.clearFocus()
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(edtNotes.windowToken, 0)
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Guardar automáticamente al salir de la pantalla
+        saveNotesIfChanged()
     }
 
     private fun setupToolbar() {
@@ -72,18 +132,26 @@ class ObservationDetailActivity : AppCompatActivity() {
     private fun bindData(observation: Observation) {
         val image: ImageView = findViewById(R.id.imgObservation)
         val title: TextView = findViewById(R.id.txtTitle)
-    val count: TextView = findViewById(R.id.txtCount)
+        val count: TextView = findViewById(R.id.txtCount)
         val scientific: TextView = findViewById(R.id.txtScientific)
         val confidence: TextView = findViewById(R.id.txtConfidence)
         val location: TextView = findViewById(R.id.txtLocation)
         val timestamp: TextView = findViewById(R.id.txtTimestamp)
-        val notes: TextView = findViewById(R.id.txtNotes)
+        val regionalName: TextView = findViewById(R.id.txtRegionalName)
+        val edtNotes: TextInputEditText = findViewById(R.id.edtNotes)
 
         Glide.with(this)
             .load(observation.imageUri)
             .fitCenter()
             .placeholder(R.drawable.ic_image_placeholder)
             .into(image)
+
+        // Hacer la imagen clickeable para zoom
+        image.setOnClickListener {
+            val intent = Intent(this, ImageZoomActivity::class.java)
+            intent.putExtra(ImageZoomActivity.EXTRA_IMAGE_URI, observation.imageUri)
+            startActivity(intent)
+        }
 
         title.text = observation.displayName
         val countLabel = resources.getQuantityString(
@@ -116,24 +184,83 @@ class ObservationDetailActivity : AppCompatActivity() {
             formatTimestamp(observation.capturedAt)
         )
 
-        val regionalAndNotes = buildString {
-            observation.regionalName?.let {
-                append(
-                    getString(R.string.observation_regional_format, it)
-                )
-            }
-            val userNotes = observation.notes
-            if (!userNotes.isNullOrBlank()) {
-                if (isNotEmpty()) append("\n")
-                append(userNotes)
+        // Mostrar nombre regional si existe
+        observation.regionalName?.let {
+            regionalName.visibility = View.VISIBLE
+            regionalName.text = getString(R.string.observation_regional_format, it)
+        } ?: run {
+            regionalName.visibility = View.GONE
+        }
+
+        // Cargar notas existentes
+        edtNotes.setText(observation.notes ?: "")
+
+        val scrollView: ScrollView = findViewById(R.id.scrollView)
+        
+        // Detectar cambios en el foco
+        edtNotes.setOnFocusChangeListener { view, hasFocus ->
+            if (hasFocus) {
+                // Cuando obtiene el foco, hacer scroll hacia el campo después del teclado
+                view.postDelayed({
+                    // Calcular la posición del campo en el scroll
+                    val scrollViewLocation = IntArray(2)
+                    scrollView.getLocationOnScreen(scrollViewLocation)
+                    
+                    val fieldLocation = IntArray(2)
+                    view.getLocationOnScreen(fieldLocation)
+                    
+                    val scrollY = fieldLocation[1] - scrollViewLocation[1] - 50
+                    scrollView.smoothScrollTo(0, scrollY)
+                }, 500) // Delay mayor para esperar al teclado
+            } else {
+                // Cuando pierde el foco, guardar
+                saveNotesIfChanged()
             }
         }
 
-        if (regionalAndNotes.isNotBlank()) {
-            notes.visibility = View.VISIBLE
-            notes.text = regionalAndNotes
-        } else {
-            notes.visibility = View.GONE
+        // Marcar que hubo cambios al escribir
+        edtNotes.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                notesChanged = true
+            }
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
+
+        // Cerrar teclado con la acción Done (el guardado se hace en onFocusChange)
+        edtNotes.setOnEditorActionListener { v, _, _ ->
+            // Ocultar teclado y quitar foco
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(v.windowToken, 0)
+            v.clearFocus()
+            true
+        }
+    }
+
+    private fun saveNotesIfChanged() {
+        if (!notesChanged) return
+        
+        val observation = currentObservation ?: return
+        val edtNotes: TextInputEditText? = findViewById(R.id.edtNotes)
+        
+        if (edtNotes == null) return
+        
+        val newNotes = edtNotes.text?.toString()?.takeIf { it.isNotBlank() }
+        
+        lifecycleScope.launch {
+            val updated = observation.copy(notes = newNotes)
+            repository.update(updated)
+            currentObservation = updated
+            notesChanged = false
+            
+            // Mostrar mensaje con Toast
+            runOnUiThread {
+                Toast.makeText(
+                    this@ObservationDetailActivity,
+                    "Notas guardadas",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 

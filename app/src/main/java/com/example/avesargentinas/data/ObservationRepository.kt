@@ -15,6 +15,10 @@ class ObservationRepository private constructor(
         dao.insert(observation)
     }
 
+    suspend fun update(observation: Observation) = withContext(Dispatchers.IO) {
+        dao.update(observation)
+    }
+
     suspend fun delete(observation: Observation) = withContext(Dispatchers.IO) {
         dao.delete(observation)
     }

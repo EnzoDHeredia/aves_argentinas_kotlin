@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/brand_background"
-    android:paddingStart="12dp"
-    android:paddingEnd="12dp"
-    android:paddingBottom="12dp"
-    android:paddingTop="32dp">
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbarCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="12dp"
         app:cardBackgroundColor="@color/brand_surface"
         app:cardCornerRadius="18dp"
@@ -34,12 +38,20 @@
     </com.google.android.material.card.MaterialCardView>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:overScrollMode="never"
-        android:paddingBottom="12dp">
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarCard"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:fillViewport="false"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -115,7 +127,7 @@
                 android:layout_marginTop="8dp" />
 
             <TextView
-                android:id="@+id/txtNotes"
+                android:id="@+id/txtRegionalName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_secondary"
@@ -123,38 +135,75 @@
                 android:layout_marginTop="8dp"
                 android:visibility="gone" />
 
+            <!-- Campo de notas editables -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notas:"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Agrega notas sobre esta observación"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@color/brand_primary"
+                app:hintTextColor="@color/brand_primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLines="5"
+                    android:minLines="3"
+                    android:gravity="top|start"
+                    android:scrollbars="vertical"
+                    android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botones de acción dentro del scroll -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                style="@style/Widget.AvesArgentinas.Button.Primary"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="@string/observation_share"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                style="@style/Widget.AvesArgentinas.Button.Primary"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="@string/observation_delete"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+        </LinearLayout>
+
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShare"
-            style="@style/Widget.AvesArgentinas.Button.Primary"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_weight="1"
-            android:text="@string/observation_share"
-            android:textStyle="bold"
-            android:layout_marginEnd="8dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDelete"
-            style="@style/Widget.AvesArgentinas.Button.Primary"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_weight="1"
-            android:text="@string/observation_delete"
-            android:textStyle="bold"
-            android:layout_marginStart="8dp" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

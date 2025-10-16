@@ -13,6 +13,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -278,15 +280,45 @@ class MainActivity : AppCompatActivity() {
 
         cancelReclassifyJob()
 
-        showObservationCountDialog { count ->
-            pendingObservationCount = count
-            if (!hasLocationPermission()) {
-                pendingSaveAfterPermission = true
-                requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-            } else {
-                pendingSaveAfterPermission = false
-                lifecycleScope.launch {
-                    performSaveObservation(count)
+        // En modo experto, mostrar selector de ave primero
+        val isExpertMode = SettingsManager.isExpertMode(this@MainActivity)
+        if (isExpertMode) {
+            showBirdSelectorDialog { scientificName, commonName ->
+                // Actualizar la predicción con la ave seleccionada
+                val currentPrediction = lastPrediction
+                if (currentPrediction != null) {
+                    lastPrediction = currentPrediction.copy(
+                        displayName = commonName,
+                        scientificName = scientificName
+                    )
+                }
+                
+                // Mostrar diálogo de cantidad
+                showObservationCountDialog { count ->
+                    pendingObservationCount = count
+                    if (!hasLocationPermission()) {
+                        pendingSaveAfterPermission = true
+                        requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                    } else {
+                        pendingSaveAfterPermission = false
+                        lifecycleScope.launch {
+                            performSaveObservation(count)
+                        }
+                    }
+                }
+            }
+        } else {
+            // Modo normal: ir directo a cantidad
+            showObservationCountDialog { count ->
+                pendingObservationCount = count
+                if (!hasLocationPermission()) {
+                    pendingSaveAfterPermission = true
+                    requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                } else {
+                    pendingSaveAfterPermission = false
+                    lifecycleScope.launch {
+                        performSaveObservation(count)
+                    }
                 }
             }
         }
@@ -372,6 +404,83 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
         dialog.window?.setLayout(targetWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
+    }
+
+    private fun showBirdSelectorDialog(onBirdSelected: (scientificName: String, commonName: String) -> Unit) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_bird_selector, null)
+        val autoComplete = dialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteBird)
+        val txtScientific = dialogView.findViewById<TextView>(R.id.txtScientificName)
+        val btnCancel = dialogView.findViewById<MaterialButton>(R.id.btnCancelBird)
+        val btnConfirm = dialogView.findViewById<MaterialButton>(R.id.btnConfirmBird)
+        
+        // Cargar nombres comunes
+        val commonNames = BirdLabelsManager.getCommonNamesArray(this)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, commonNames)
+        autoComplete.setAdapter(adapter)
+        
+        var selectedScientificName: String? = null
+        var selectedCommonName: String? = null
+        
+        // Función auxiliar para formatear el nombre científico
+        fun formatScientificName(name: String): String {
+            return name.replace("_", " ")
+                .split(" ")
+                .joinToString(" ") { word ->
+                    word.replaceFirstChar { it.uppercase() }
+                }
+        }
+        
+        // Listener para actualizar el nombre científico
+        autoComplete.setOnItemClickListener { _, _, position, _ ->
+            val capitalizedName = adapter.getItem(position)
+            selectedCommonName = capitalizedName
+            selectedScientificName = BirdLabelsManager.getScientificName(this, capitalizedName!!)
+            
+            txtScientific.visibility = View.VISIBLE
+            txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+            btnConfirm.isEnabled = true
+        }
+        
+        // También detectar cuando se escribe manualmente
+        autoComplete.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: android.text.Editable?) {
+                val text = s?.toString()?.trim() ?: ""
+                val matchingName = commonNames.find { it.equals(text, ignoreCase = true) }
+                
+                if (matchingName != null) {
+                    selectedCommonName = matchingName
+                    selectedScientificName = BirdLabelsManager.getScientificName(this@MainActivity, matchingName)
+                    txtScientific.visibility = View.VISIBLE
+                    txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+                    btnConfirm.isEnabled = true
+                } else {
+                    selectedScientificName = null
+                    selectedCommonName = null
+                    txtScientific.visibility = View.GONE
+                    btnConfirm.isEnabled = false
+                }
+            }
+        })
+        
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+            .create()
+        
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+        
+        btnConfirm.setOnClickListener {
+            if (selectedScientificName != null && selectedCommonName != null) {
+                onBirdSelected(selectedScientificName!!, selectedCommonName!!)
+                dialog.dismiss()
+            }
+        }
+        
+        dialog.show()
     }
 
     private suspend fun performSaveObservation(individualCount: Int) {

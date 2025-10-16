@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -14,6 +15,9 @@ interface ObservationDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(observation: Observation): Long
+
+    @Update
+    suspend fun update(observation: Observation)
 
     @Delete
     suspend fun delete(observation: Observation)

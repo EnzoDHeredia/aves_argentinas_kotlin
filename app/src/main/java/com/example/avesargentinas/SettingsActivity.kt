@@ -3,7 +3,6 @@ package com.example.avesargentinas
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
@@ -11,6 +10,7 @@ import com.google.android.material.textfield.TextInputEditText
  * Actividad de configuración.
  * Permite ajustar nombre de usuario, modo experto, ofuscación de ubicación,
  * captura instantánea y tema oscuro/claro.
+ * Los cambios se guardan solo al presionar "Guardar y Cerrar".
  */
 class SettingsActivity : AppCompatActivity() {
 
@@ -33,30 +33,21 @@ class SettingsActivity : AppCompatActivity() {
         switchInstant.isChecked = SettingsManager.isInstantCapture(this)
         switchDark.isChecked = ThemeManager.isDarkTheme(this)
 
-        // Listeners para guardar cambios
-        edtUserName.doAfterTextChanged { text ->
-            SettingsManager.setUserName(this, text?.toString() ?: "")
-        }
-
-        switchExpert.setOnCheckedChangeListener { _, isChecked ->
-            SettingsManager.setExpertMode(this, isChecked)
-        }
-
-        switchObfuscate.setOnCheckedChangeListener { _, isChecked ->
-            SettingsManager.setObfuscateLocation(this, isChecked)
-        }
-
-        switchInstant.setOnCheckedChangeListener { _, isChecked ->
-            SettingsManager.setInstantCapture(this, isChecked)
-        }
-
-        switchDark.setOnCheckedChangeListener { _, _ ->
-            // Alternar tema y actualizar el estado del switch
-            ThemeManager.toggleTheme(this)
-            // El tema cambiará y recreará la activity, así que no es necesario actualizar manualmente
-        }
-
+        // Guardar solo al presionar el botón
         btnClose.setOnClickListener {
+            // Guardar todas las preferencias
+            SettingsManager.setUserName(this, edtUserName.text?.toString() ?: "")
+            SettingsManager.setExpertMode(this, switchExpert.isChecked)
+            SettingsManager.setObfuscateLocation(this, switchObfuscate.isChecked)
+            SettingsManager.setInstantCapture(this, switchInstant.isChecked)
+            
+            // Si cambió el tema, aplicarlo
+            val newDarkMode = switchDark.isChecked
+            val currentDarkMode = ThemeManager.isDarkTheme(this)
+            if (newDarkMode != currentDarkMode) {
+                ThemeManager.toggleTheme(this)
+            }
+            
             finish()
         }
     }

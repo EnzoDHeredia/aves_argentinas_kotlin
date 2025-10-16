@@ -34,10 +34,17 @@
             android:name=".SettingsActivity"
             android:exported="false" />
 
+        <!-- Zoom de imagen -->
+        <activity
+            android:name=".ui.log.ImageZoomActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <!-- Detalle de observación -->
         <activity
             android:name=".ui.log.ObservationDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <!-- Historial de observaciones -->
         <activity
