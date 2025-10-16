@@ -19,22 +19,35 @@
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/Theme.AvesArgentinas">
 
+        <!-- Menú principal (nuevo LAUNCHER) -->
         <activity
-            android:name=".ui.log.ObservationDetailActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.log.ObservationLogActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".MainActivity"
+            android:name=".MainMenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Pantalla de opciones -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+
+        <!-- Detalle de observación -->
+        <activity
+            android:name=".ui.log.ObservationDetailActivity"
+            android:exported="false" />
+
+        <!-- Historial de observaciones -->
+        <activity
+            android:name=".ui.log.ObservationLogActivity"
+            android:exported="false" />
+
+        <!-- Pantalla de captura/identificación -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

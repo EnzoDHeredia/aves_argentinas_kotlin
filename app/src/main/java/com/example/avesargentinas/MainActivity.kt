@@ -17,6 +17,7 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -119,6 +120,7 @@ class MainActivity : AppCompatActivity() {
         initializeComponents()
         setupPhotoView()
         setupButtons()
+        setupBackNavigation()
         updateThemeToggleIcon()
         setupEmptyState()
         checkAndRequestPermissions()
@@ -195,6 +197,20 @@ class MainActivity : AppCompatActivity() {
             ThemeManager.toggleTheme(this)
             updateThemeToggleIcon()
         }
+    }
+
+    private fun setupBackNavigation() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Al presionar atrás, ir al menú principal
+                // Añadir flag para indicar que venimos de un back press
+                val intent = Intent(this@MainActivity, MainMenuActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                intent.putExtra("from_back_press", true)
+                startActivity(intent)
+                finish()
+            }
+        })
     }
 
     private fun setupEmptyState() {
@@ -594,13 +610,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         val topPrediction = result.topPrediction
+        val isExpertMode = SettingsManager.isExpertMode(this@MainActivity)
         val meetsThreshold = topPrediction?.probability?.let { it >= CONF_THRESH } == true
         val resultText = buildResultText(result)
 
         withContext(Dispatchers.Main) {
             txtResult.text = resultText
-            lastPrediction = if (meetsThreshold) topPrediction else null
-            btnSave.isEnabled = meetsThreshold
+            // En modo experto, permitir guardar siempre que haya predicción
+            // En modo normal, solo si cumple el umbral
+            lastPrediction = if (isExpertMode || meetsThreshold) topPrediction else null
+            btnSave.isEnabled = (isExpertMode || meetsThreshold) && topPrediction != null
         }
     }
 
@@ -612,10 +631,17 @@ class MainActivity : AppCompatActivity() {
                 return@buildString
             }
 
-            if (best.probability >= CONF_THRESH) {
+            val isExpertMode = SettingsManager.isExpertMode(this@MainActivity)
+            val meetsThreshold = best.probability >= CONF_THRESH
+
+            if (meetsThreshold || isExpertMode) {
                 append(best.displayName)
                 append("\nNombre científico: ${best.scientificName}")
                 append("\nConfianza: ${best.confidencePercentage.format(1)}%")
+                
+                if (!meetsThreshold && isExpertMode) {
+                    append(" ⚠️ (Modo experto)")
+                }
 
                 val alternatives = result.predictions.drop(1).filter { it.probability > 0.1f }
                 if (alternatives.isNotEmpty()) {
