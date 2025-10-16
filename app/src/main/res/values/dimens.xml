@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Espaciado estándar -->
+    <dimen name="screen_padding_horizontal">20dp</dimen>
+    <dimen name="screen_padding_vertical">16dp</dimen>
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="screen_padding_small">12dp</dimen>
+    <dimen name="screen_padding_large">24dp</dimen>
+    
+    <!-- Diálogos -->
     <dimen name="dialog_horizontal_inset">5dp</dimen>
 </resources>

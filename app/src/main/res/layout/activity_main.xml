@@ -3,12 +3,11 @@
     android:orientation="vertical"
     android:paddingStart="12dp"
     android:paddingEnd="12dp"
-    android:paddingBottom="12dp"
     android:paddingTop="32dp"
+    android:paddingBottom="12dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand_background"
-    android:fitsSystemWindows="true">
+    android:background="@color/brand_background">
 
     <!-- Vista de imagen con zoom -->
     <com.google.android.material.card.MaterialCardView

@@ -3,24 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="32dp"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand_background"
-    android:fitsSystemWindows="true">
+    android:background="@color/brand_background">
 
     <!-- Logo y título -->
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="310dp"
-        android:layout_marginBottom="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="185dp"
-            android:layout_height="188dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="16dp"
             android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher" />
 
@@ -28,11 +30,11 @@
             android:id="@+id/txtAppTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="6dp"
             android:letterSpacing="0.02"
             android:text="Aves Argentinas"
             android:textColor="@color/text_primary"
-            android:textSize="36sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -41,7 +43,7 @@
             android:alpha="0.8"
             android:text="Identificación de aves con IA"
             android:textColor="@color/text_secondary"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -49,28 +51,28 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
         app:cardBackgroundColor="@color/brand_primary">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCapture"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="64dp"
             android:text="Capturar / Identificar"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
+            android:textColor="@color/brand_on_primary"
             android:letterSpacing="0.02"
             app:backgroundTint="@color/brand_primary"
-            app:cornerRadius="20dp"
+            app:cornerRadius="16dp"
             app:elevation="0dp"
             app:icon="@android:drawable/ic_menu_camera"
             app:iconGravity="textStart"
-            app:iconSize="28dp"
-            app:iconTint="@android:color/white"
-            app:iconPadding="12dp" />
+            app:iconSize="24dp"
+            app:iconTint="@color/brand_on_primary"
+            app:iconPadding="10dp" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -85,16 +87,16 @@
             android:id="@+id/btnObservationLog"
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:text="Mis Observaciones"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textColor="@color/text_primary"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="10dp"
             app:cornerRadius="12dp"
             app:strokeColor="@color/brand_outline"
             app:strokeWidth="1dp"
             app:iconGravity="textStart"
-            app:iconSize="20dp"
+            app:iconSize="18dp"
             app:iconTint="@color/brand_primary"
             app:iconPadding="8dp" />
 
@@ -102,15 +104,15 @@
             android:id="@+id/btnSettings"
             style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="48dp"
             android:text="Opciones"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textColor="@color/text_primary"
             app:cornerRadius="12dp"
             app:strokeColor="@color/brand_outline"
             app:strokeWidth="1dp"
             app:iconGravity="textStart"
-            app:iconSize="20dp"
+            app:iconSize="18dp"
             app:iconTint="@color/brand_primary"
             app:iconPadding="8dp" />
 
