@@ -152,7 +152,7 @@ class ObservationLogActivity : AppCompatActivity() {
         }
 
         MaterialAlertDialogBuilder(this)
-            .setTitle("📦 Exportar Historial Completo")
+            .setTitle("Exportar Historial Completo")
             .setMessage(
                 "Se exportarán $observationCount observaciones con sus imágenes en formato ZIP.\n\n" +
                 "El archivo incluirá:\n" +

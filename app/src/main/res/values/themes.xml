@@ -29,6 +29,10 @@
         <item name="android:navigationBarColor">@color/brand_background</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">true</item>
+        
+        <!-- Ajuste automático para barras del sistema -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:fitsSystemWindows">false</item>
     </style>
 
     <style name="Theme.AvesArgentinas" parent="Base.Theme.AvesArgentinas" />
