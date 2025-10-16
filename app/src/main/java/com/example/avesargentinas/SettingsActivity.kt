@@ -1,7 +1,6 @@
 package com.example.avesargentinas
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -12,7 +11,7 @@ import com.google.android.material.textfield.TextInputEditText
  * captura instantánea y tema oscuro/claro.
  * Los cambios se guardan solo al presionar "Guardar y Cerrar".
  */
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.applySavedTheme(this)

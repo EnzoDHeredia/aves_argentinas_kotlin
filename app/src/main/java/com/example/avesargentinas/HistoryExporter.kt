@@ -109,8 +109,11 @@ class HistoryExporter(private val context: Context) {
     private fun generateCsv(observations: List<Observation>): String {
         val csv = StringBuilder()
         
+        // Obtener nombre de usuario desde configuración
+        val userName = SettingsManager.getUserName(context)
+        
         // Encabezados
-        csv.append("ID,Especie,Nombre Común,Nombre Científico,Confianza (%),Conteo,Fecha,Hora,Latitud,Longitud,Notas,Nombre Imagen\n")
+        csv.append("ID,Especie,Nombre Común,Nombre Científico,Confianza (%),Conteo,Fecha,Hora,Latitud,Longitud,Usuario,Notas,Nombre Imagen\n")
         
         // Datos
         observations.forEach { obs ->
@@ -133,6 +136,7 @@ class HistoryExporter(private val context: Context) {
             csv.append("\"$time\",")
             csv.append("${obs.latitude ?: ""},")
             csv.append("${obs.longitude ?: ""},")
+            csv.append("\"${escapeCsv(userName)}\",")
             csv.append("\"${escapeCsv(obs.notes ?: "")}\",")
             csv.append("\"$imageName\"\n")
         }

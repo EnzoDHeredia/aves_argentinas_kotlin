@@ -2,120 +2,137 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center"
-    android:paddingStart="12dp"
-    android:paddingEnd="12dp"
-    android:paddingTop="32dp"
-    android:paddingBottom="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand_background">
+    android:background="@color/brand_background"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="12dp"
+    android:gravity="center_horizontal">
 
-    <!-- Logo y título -->
-    <LinearLayout
+    <!-- Espaciador flexible superior -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Logo -->
+    <ImageView
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/app_name"
+        android:src="@mipmap/ic_launcher" />
+
+    <!-- Espaciador flexible inferior -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3" />
+
+    <!-- Título y subtítulo -->
+    <TextView
+        android:id="@+id/txtAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:text="Aves de la Argentina"
+        android:textColor="@color/text_primary"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.01" />
 
-        <ImageView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="6dp"
+        android:text="Identificación de aves con IA"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        android:alpha="0.8" />
 
-        <TextView
-            android:id="@+id/txtAppTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:letterSpacing="0.02"
-            android:text="Aves Argentinas"
-            android:textColor="@color/text_primary"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+    <!-- Espaciador flexible medio -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.8"
-            android:text="Identificación de aves con IA"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
-
-    </LinearLayout>
-
-    <!-- Botón principal destacado -->
+    <!-- Botón principal con card -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        app:cardCornerRadius="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="18dp"
+        app:cardCornerRadius="18dp"
         app:cardElevation="6dp"
         app:cardBackgroundColor="@color/brand_primary">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCapture"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="62dp"
             android:text="Capturar / Identificar"
             android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@color/brand_on_primary"
-            android:letterSpacing="0.02"
+            android:letterSpacing="0.01"
             app:backgroundTint="@color/brand_primary"
-            app:cornerRadius="16dp"
+            app:cornerRadius="18dp"
             app:elevation="0dp"
             app:icon="@android:drawable/ic_menu_camera"
             app:iconGravity="textStart"
-            app:iconSize="24dp"
+            app:iconSize="26dp"
             app:iconTint="@color/brand_on_primary"
             app:iconPadding="10dp" />
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Botones secundarios más compactos -->
-    <LinearLayout
+    <!-- Botones secundarios -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnObservationLog"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="14dp"
+        android:text="Mis Observaciones"
+        android:textSize="15sp"
+        android:textColor="@color/text_primary"
+        app:cornerRadius="16dp"
+        app:strokeColor="@color/brand_outline"
+        app:strokeWidth="2dp"
+        app:iconGravity="textStart"
+        app:iconSize="22dp"
+        app:iconTint="@color/brand_primary"
+        app:iconPadding="8dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnObservationLog"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Mis Observaciones"
-            android:textSize="14sp"
-            android:textColor="@color/text_primary"
-            android:layout_marginBottom="10dp"
-            app:cornerRadius="12dp"
-            app:strokeColor="@color/brand_outline"
-            app:strokeWidth="1dp"
-            app:iconGravity="textStart"
-            app:iconSize="18dp"
-            app:iconTint="@color/brand_primary"
-            app:iconPadding="8dp" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSettings"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Opciones"
+        android:textSize="15sp"
+        android:textColor="@color/text_primary"
+        app:cornerRadius="16dp"
+        app:strokeColor="@color/brand_outline"
+        app:strokeWidth="2dp"
+        app:iconGravity="textStart"
+        app:iconSize="22dp"
+        app:iconTint="@color/brand_primary"
+        app:iconPadding="8dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSettings"
-            style="@style/Widget.Material3.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Opciones"
-            android:textSize="14sp"
-            android:textColor="@color/text_primary"
-            app:cornerRadius="12dp"
-            app:strokeColor="@color/brand_outline"
-            app:strokeWidth="1dp"
-            app:iconGravity="textStart"
-            app:iconSize="18dp"
-            app:iconTint="@color/brand_primary"
-            app:iconPadding="8dp" />
-
-    </LinearLayout>
+    <!-- Espaciador flexible inferior -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

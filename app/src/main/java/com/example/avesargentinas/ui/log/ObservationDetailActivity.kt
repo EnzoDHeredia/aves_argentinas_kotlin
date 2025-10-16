@@ -11,9 +11,9 @@ import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
+import com.example.avesargentinas.BaseActivity
 import com.example.avesargentinas.ObservationLogger
 import com.example.avesargentinas.R
 import com.example.avesargentinas.ThemeManager
@@ -28,7 +28,10 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ObservationDetailActivity : AppCompatActivity() {
+class ObservationDetailActivity : BaseActivity() {
+
+    // Permitir que el sistema ajuste el contenido cuando aparece el teclado
+    override val allowKeyboardAdjustments: Boolean = true
 
     private lateinit var repository: ObservationRepository
     private var currentObservation: Observation? = null
@@ -200,18 +203,11 @@ class ObservationDetailActivity : AppCompatActivity() {
         // Detectar cambios en el foco
         edtNotes.setOnFocusChangeListener { view, hasFocus ->
             if (hasFocus) {
-                // Cuando obtiene el foco, hacer scroll hacia el campo después del teclado
+                // Cuando obtiene el foco, hacer scroll hacia el final
                 view.postDelayed({
-                    // Calcular la posición del campo en el scroll
-                    val scrollViewLocation = IntArray(2)
-                    scrollView.getLocationOnScreen(scrollViewLocation)
-                    
-                    val fieldLocation = IntArray(2)
-                    view.getLocationOnScreen(fieldLocation)
-                    
-                    val scrollY = fieldLocation[1] - scrollViewLocation[1] - 50
-                    scrollView.smoothScrollTo(0, scrollY)
-                }, 500) // Delay mayor para esperar al teclado
+                    // Hacer scroll hasta el final del contenido para que el campo sea completamente visible
+                    scrollView.fullScroll(ScrollView.FOCUS_DOWN)
+                }, 300) // Delay para esperar a que el teclado aparezca
             } else {
                 // Cuando pierde el foco, guardar
                 saveNotesIfChanged()

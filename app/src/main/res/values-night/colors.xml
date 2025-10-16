@@ -16,9 +16,9 @@
     <color name="brand_tertiary_container">#1C3F5C</color>
     <color name="brand_on_tertiary_container">#D9EEFF</color>
 
-    <color name="brand_background">#091224</color>
+    <color name="brand_background">#0D1420</color>
     <color name="brand_on_background">#E6ECFE</color>
-    <color name="brand_surface">#111C31</color>
+    <color name="brand_surface">#151F2E</color>
     <color name="brand_on_surface">#E1E6F9</color>
     <color name="brand_surface_variant">#1C2942</color>
     <color name="brand_on_surface_variant">#A9B6D9</color>
@@ -27,7 +27,7 @@
     <color name="text_primary">#F3F6FF</color>
     <color name="text_secondary">#C0CAE6</color>
 
-    <color name="accent_soft">#152340</color>
+    <color name="accent_soft">#1A2638</color>
 
     <color name="result_card_background">#111A2E</color>
     <color name="result_card_gradient_start">#1B2742</color>

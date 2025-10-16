@@ -6,12 +6,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.graphics.Typeface
+import android.util.TypedValue
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import com.example.avesargentinas.BaseActivity
 import com.example.avesargentinas.HistoryExporter
 import com.example.avesargentinas.R
 import com.example.avesargentinas.ThemeManager
@@ -21,7 +26,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
 
-class ObservationLogActivity : AppCompatActivity() {
+class ObservationLogActivity : BaseActivity() {
 
     private lateinit var repository: ObservationRepository
     private lateinit var adapter: ObservationAdapter
@@ -151,7 +156,7 @@ class ObservationLogActivity : AppCompatActivity() {
             return
         }
 
-        MaterialAlertDialogBuilder(this)
+        val dialog = MaterialAlertDialogBuilder(this, R.style.Theme_AvesArgentinas_Dialog)
             .setTitle("Exportar Historial Completo")
             .setMessage(
                 "Se exportarán $observationCount observaciones con sus imágenes en formato ZIP.\n\n" +
@@ -164,7 +169,10 @@ class ObservationLogActivity : AppCompatActivity() {
                 exportHistory()
             }
             .setNegativeButton("Cancelar", null)
-            .show()
+            .create()
+        
+        dialog.show()
+        styleDialogText(dialog)
     }
 
     /**
@@ -267,7 +275,7 @@ class ObservationLogActivity : AppCompatActivity() {
      * Muestra diálogo de confirmación para eliminar observaciones seleccionadas
      */
     private fun showDeleteConfirmationDialog(count: Int) {
-        MaterialAlertDialogBuilder(this)
+        val dialog = MaterialAlertDialogBuilder(this, R.style.Theme_AvesArgentinas_Dialog)
             .setTitle("Eliminar observaciones")
             .setMessage(
                 if (count == 1) {
@@ -280,7 +288,10 @@ class ObservationLogActivity : AppCompatActivity() {
                 deleteSelectedObservations()
             }
             .setNegativeButton("Cancelar", null)
-            .show()
+            .create()
+        
+        dialog.show()
+        styleDialogText(dialog)
     }
 
     /**
@@ -313,6 +324,36 @@ class ObservationLogActivity : AppCompatActivity() {
                 ).show()
                 Log.e("ObservationLog", "Error al eliminar observaciones", e)
             }
+        }
+    }
+
+    /**
+     * Aplica estilos personalizados al texto del diálogo
+     */
+    private fun styleDialogText(dialog: AlertDialog) {
+        // Estilizar título
+        dialog.window?.findViewById<TextView>(androidx.appcompat.R.id.alertTitle)?.apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
+            setTypeface(typeface, Typeface.BOLD)
+            setTextColor(ContextCompat.getColor(context, R.color.text_primary))
+        }
+        
+        // Estilizar mensaje
+        dialog.window?.findViewById<TextView>(android.R.id.message)?.apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 17f)
+            setTextColor(ContextCompat.getColor(context, R.color.text_primary))
+            lineHeight = (textSize * 1.4f).toInt()
+        }
+        
+        // Estilizar botones
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE)?.apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+            setTypeface(typeface, Typeface.BOLD)
+        }
+        
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE)?.apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+            setTypeface(typeface, Typeface.BOLD)
         }
     }
 

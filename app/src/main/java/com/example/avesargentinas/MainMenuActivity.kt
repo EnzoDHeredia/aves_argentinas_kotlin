@@ -2,7 +2,6 @@ package com.example.avesargentinas
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.avesargentinas.ui.log.ObservationLogActivity
 import com.google.android.material.button.MaterialButton
 
@@ -10,7 +9,7 @@ import com.google.android.material.button.MaterialButton
  * Actividad principal del menú.
  * Permite navegar a identificación, historial de observaciones y opciones.
  */
-class MainMenuActivity : AppCompatActivity() {
+class MainMenuActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.applySavedTheme(this)
