@@ -26,7 +26,9 @@ class ObservationLogActivity : AppCompatActivity() {
     private lateinit var repository: ObservationRepository
     private lateinit var adapter: ObservationAdapter
     private lateinit var fabExport: FloatingActionButton
+    private lateinit var fabSelectMode: FloatingActionButton
     private lateinit var historyExporter: HistoryExporter
+    private var isSelectionMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.applySavedTheme(this)
@@ -39,6 +41,7 @@ class ObservationLogActivity : AppCompatActivity() {
         setupToolbar()
         setupRecycler()
         setupExportButton()
+        setupSelectionMode()
         observeData()
     }
 
@@ -52,11 +55,16 @@ class ObservationLogActivity : AppCompatActivity() {
 
     private fun setupRecycler() {
         val recycler: RecyclerView = findViewById(R.id.recyclerObservations)
-        adapter = ObservationAdapter { observation ->
-            val intent = Intent(this, ObservationDetailActivity::class.java)
-            intent.putExtra(ObservationDetailActivity.EXTRA_OBSERVATION_ID, observation.id)
-            startActivity(intent)
-        }
+        adapter = ObservationAdapter(
+            onObservationSelected = { observation ->
+                val intent = Intent(this, ObservationDetailActivity::class.java)
+                intent.putExtra(ObservationDetailActivity.EXTRA_OBSERVATION_ID, observation.id)
+                startActivity(intent)
+            },
+            onSelectionChanged = {
+                updateSelectionCount()
+            }
+        )
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
     }
@@ -66,6 +74,56 @@ class ObservationLogActivity : AppCompatActivity() {
         fabExport.setOnClickListener {
             showExportConfirmationDialog()
         }
+    }
+
+    private fun setupSelectionMode() {
+        fabSelectMode = findViewById(R.id.fabSelectMode)
+        val cardSelectionToolbar = findViewById<View>(R.id.cardSelectionToolbar)
+        val txtSelectionCount = findViewById<android.widget.TextView>(R.id.txtSelectionCount)
+        val btnCancelSelection = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnCancelSelection)
+        val btnDeleteSelected = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnDeleteSelected)
+
+        // Activar modo selección
+        fabSelectMode.setOnClickListener {
+            isSelectionMode = true
+            adapter.isSelectionMode = true
+            cardSelectionToolbar.visibility = View.VISIBLE
+            fabSelectMode.visibility = View.GONE
+            fabExport.visibility = View.GONE
+            updateSelectionCount()
+        }
+
+        // Cancelar selección
+        btnCancelSelection.setOnClickListener {
+            exitSelectionMode()
+        }
+
+        // Eliminar seleccionados
+        btnDeleteSelected.setOnClickListener {
+            val selectedCount = adapter.getSelectedCount()
+            if (selectedCount > 0) {
+                showDeleteConfirmationDialog(selectedCount)
+            } else {
+                Toast.makeText(this, "Selecciona al menos una observación", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun exitSelectionMode() {
+        isSelectionMode = false
+        adapter.isSelectionMode = false
+        findViewById<View>(R.id.cardSelectionToolbar).visibility = View.GONE
+        fabSelectMode.visibility = View.VISIBLE
+        // Mostrar fabExport solo si hay observaciones
+        if (adapter.currentList.isNotEmpty()) {
+            fabExport.visibility = View.VISIBLE
+        }
+    }
+
+    private fun updateSelectionCount() {
+        val txtSelectionCount = findViewById<android.widget.TextView>(R.id.txtSelectionCount)
+        val count = adapter.getSelectedCount()
+        txtSelectionCount.text = if (count == 1) "1 seleccionado" else "$count seleccionados"
     }
 
     private fun observeData() {
@@ -202,6 +260,67 @@ class ObservationLogActivity : AppCompatActivity() {
             startActivity(intent)
         } catch (e: Exception) {
             Toast.makeText(this, "No se pudo abrir Descargas", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * Muestra diálogo de confirmación para eliminar observaciones seleccionadas
+     */
+    private fun showDeleteConfirmationDialog(count: Int) {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Eliminar observaciones")
+            .setMessage(
+                if (count == 1) {
+                    "Se eliminará 1 observación permanentemente."
+                } else {
+                    "Se eliminarán $count observaciones permanentemente."
+                }
+            )
+            .setPositiveButton("Eliminar") { _, _ ->
+                deleteSelectedObservations()
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
+    }
+
+    /**
+     * Elimina las observaciones seleccionadas
+     */
+    private fun deleteSelectedObservations() {
+        val selectedObservations = adapter.getSelectedObservations()
+        val count = selectedObservations.size
+
+        lifecycleScope.launch {
+            try {
+                selectedObservations.forEach { observation ->
+                    repository.delete(observation)
+                }
+                
+                val message = if (count == 1) {
+                    "Observación eliminada"
+                } else {
+                    "$count observaciones eliminadas"
+                }
+                Toast.makeText(this@ObservationLogActivity, message, Toast.LENGTH_SHORT).show()
+                
+                exitSelectionMode()
+                
+            } catch (e: Exception) {
+                Toast.makeText(
+                    this@ObservationLogActivity,
+                    "Error al eliminar",
+                    Toast.LENGTH_SHORT
+                ).show()
+                Log.e("ObservationLog", "Error al eliminar observaciones", e)
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (isSelectionMode) {
+            exitSelectionMode()
+        } else {
+            super.onBackPressed()
         }
     }
 }

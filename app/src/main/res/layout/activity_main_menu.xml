@@ -3,60 +3,116 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp"
+    android:padding="32dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brand_background">
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginBottom="24dp"
-        android:contentDescription="@string/app_name" />
-
-    <TextView
-        android:id="@+id/txtAppTitle"
+    <!-- Logo y título -->
+    <LinearLayout
         android:layout_width="wrap_content"
+        android:layout_height="310dp"
+        android:layout_marginBottom="64dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="185dp"
+            android:layout_height="188dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/txtAppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.02"
+            android:text="Aves Argentinas"
+            android:textColor="@color/text_primary"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:text="Identificación de aves con IA"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <!-- Botón principal destacado -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aves Argentinas"
-        android:textSize="32sp"
-        android:textColor="@color/text_primary"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="32dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/brand_primary">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCapture"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:text="Capturar / Identificar"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:letterSpacing="0.02"
+            app:backgroundTint="@color/brand_primary"
+            app:cornerRadius="20dp"
+            app:elevation="0dp"
+            app:icon="@android:drawable/ic_menu_camera"
+            app:iconGravity="textStart"
+            app:iconSize="28dp"
+            app:iconTint="@android:color/white"
+            app:iconPadding="12dp" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Botones secundarios más compactos -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Identificación de aves con IA"
-        android:textSize="16sp"
-        android:textColor="@color/text_secondary"
-        android:layout_marginBottom="48dp" />
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCapture"
-        style="@style/Widget.AvesArgentinas.Button.Primary"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Capturar / Identificar"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnObservationLog"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Mis Observaciones"
+            android:textSize="15sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp"
+            app:cornerRadius="12dp"
+            app:strokeColor="@color/brand_outline"
+            app:strokeWidth="1dp"
+            app:iconGravity="textStart"
+            app:iconSize="20dp"
+            app:iconTint="@color/brand_primary"
+            app:iconPadding="8dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnObservationLog"
-        style="@style/Widget.AvesArgentinas.Button.Outlined"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Mis Observaciones"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Opciones"
+            android:textSize="15sp"
+            android:textColor="@color/text_primary"
+            app:cornerRadius="12dp"
+            app:strokeColor="@color/brand_outline"
+            app:strokeWidth="1dp"
+            app:iconGravity="textStart"
+            app:iconSize="20dp"
+            app:iconTint="@color/brand_primary"
+            app:iconPadding="8dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSettings"
-        style="@style/Widget.AvesArgentinas.Button.Outlined"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Opciones"
-        android:textSize="16sp" />
+    </LinearLayout>
 
 </LinearLayout>

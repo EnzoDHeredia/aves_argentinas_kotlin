@@ -153,13 +153,16 @@
                 android:hint="Agrega notas sobre esta observación"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 app:boxStrokeColor="@color/brand_primary"
-                app:hintTextColor="@color/brand_primary">
+                app:hintTextColor="@color/brand_primary"
+                app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edtNotes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Agrega notas sobre esta observación"
                     android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
                     android:inputType="textMultiLine|textCapSentences"
                     android:maxLines="5"
                     android:minLines="3"
@@ -168,39 +171,49 @@
                     android:imeOptions="actionDone" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Separador sutil -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/brand_outline"
+                android:alpha="0.3" />
+
+            <!-- Botones de acción dentro del card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShare"
+                    style="@style/Widget.AvesArgentinas.Button.Primary"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="@string/observation_share"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDelete"
+                    style="@style/Widget.AvesArgentinas.Button.Primary"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:text="@string/observation_delete"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
-
-        <!-- Botones de acción dentro del scroll -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:gravity="center">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnShare"
-                style="@style/Widget.AvesArgentinas.Button.Primary"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:text="@string/observation_share"
-                android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDelete"
-                style="@style/Widget.AvesArgentinas.Button.Primary"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:text="@string/observation_delete"
-                android:textStyle="bold"
-                android:layout_marginStart="8dp" />
-
-        </LinearLayout>
 
         </LinearLayout>
 

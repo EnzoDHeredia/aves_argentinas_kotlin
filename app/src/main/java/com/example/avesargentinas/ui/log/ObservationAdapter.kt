@@ -3,8 +3,10 @@ package com.example.avesargentinas.ui.log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -16,8 +18,41 @@ import java.util.Date
 import java.util.Locale
 
 class ObservationAdapter(
-    private val onObservationSelected: (Observation) -> Unit
+    private val onObservationSelected: (Observation) -> Unit,
+    private val onSelectionChanged: (() -> Unit)? = null
 ) : ListAdapter<Observation, ObservationAdapter.ViewHolder>(DiffCallback) {
+
+    private val selectedItems = mutableSetOf<Long>()
+    var isSelectionMode = false
+        set(value) {
+            field = value
+            if (!value) {
+                selectedItems.clear()
+            }
+            notifyDataSetChanged()
+        }
+
+    fun toggleSelection(observationId: Long) {
+        if (selectedItems.contains(observationId)) {
+            selectedItems.remove(observationId)
+        } else {
+            selectedItems.add(observationId)
+        }
+        onSelectionChanged?.invoke()
+        notifyDataSetChanged()
+    }
+
+    fun getSelectedObservations(): List<Observation> {
+        val selected = mutableListOf<Observation>()
+        for (observation in currentList) {
+            if (observation.id in selectedItems) {
+                selected.add(observation)
+            }
+        }
+        return selected
+    }
+
+    fun getSelectedCount(): Int = selectedItems.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -29,11 +64,13 @@ class ObservationAdapter(
         holder.bind(getItem(position))
     }
 
-    class ViewHolder(
+    inner class ViewHolder(
         itemView: View,
         private val onClick: (Observation) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
 
+        private val cardObservation: CardView = itemView.findViewById(R.id.cardObservation)
+        private val checkboxSelect: CheckBox = itemView.findViewById(R.id.checkboxSelect)
         private val thumbnail: ImageView = itemView.findViewById(R.id.imgThumbnail)
         private val title: TextView = itemView.findViewById(R.id.txtTitle)
         private val subtitle: TextView = itemView.findViewById(R.id.txtSubtitle)
@@ -67,7 +104,24 @@ class ObservationAdapter(
             )
             timestamp.text = formatTimestamp(observation.capturedAt)
 
-            itemView.setOnClickListener { onClick(observation) }
+            // Configurar modo selección
+            if (isSelectionMode) {
+                checkboxSelect.visibility = View.VISIBLE
+                checkboxSelect.isChecked = selectedItems.contains(observation.id)
+                
+                // Click en checkbox
+                checkboxSelect.setOnClickListener {
+                    this@ObservationAdapter.toggleSelection(observation.id)
+                }
+                
+                // Click en el item en modo selección
+                cardObservation.setOnClickListener {
+                    this@ObservationAdapter.toggleSelection(observation.id)
+                }
+            } else {
+                checkboxSelect.visibility = View.GONE
+                cardObservation.setOnClickListener { onClick(observation) }
+            }
         }
 
         private fun formatTimestamp(timestamp: Long): String {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardObservation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
@@ -15,6 +16,16 @@
         android:orientation="horizontal"
         android:padding="12dp"
         android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/checkboxSelect"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:buttonTint="@color/brand_primary" />
 
         <ImageView
             android:id="@+id/imgThumbnail"
