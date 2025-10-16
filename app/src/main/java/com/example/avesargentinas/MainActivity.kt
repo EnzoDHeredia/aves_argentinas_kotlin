@@ -73,7 +73,7 @@ class MainActivity : BaseActivity() {
     private var currentImageUri: Uri? = null
 
     // Configuración
-    private val CONF_THRESH = 0.55f
+    private val CONF_THRESH = 0.65f
     private val MATRIX_CHANGE_DEBOUNCE_MS = 500L
 
     // Dependencias auxiliares
@@ -414,7 +414,7 @@ class MainActivity : BaseActivity() {
         
         // Cargar nombres comunes
         val commonNames = BirdLabelsManager.getCommonNamesArray(this)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, commonNames)
+        val adapter = ArrayAdapter(this, R.layout.dropdown_item_bird, commonNames)
         autoComplete.setAdapter(adapter)
         
         var selectedScientificName: String? = null

@@ -34,7 +34,7 @@
     <!-- Título y subtítulo -->
     <TextView
         android:id="@+id/txtAppTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
@@ -42,17 +42,33 @@
         android:textColor="@color/text_primary"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:letterSpacing="0.01" />
+        android:letterSpacing="0.01"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="32sp"
+        android:autoSizeStepGranularity="1sp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="6dp"
         android:text="Identificación de aves con IA"
         android:textColor="@color/text_secondary"
         android:textSize="14sp"
-        android:alpha="0.8" />
+        android:alpha="0.8"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="10sp"
+        android:autoSizeMaxTextSize="14sp"
+        android:autoSizeStepGranularity="1sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
 
     <!-- Espaciador flexible medio -->
     <Space
@@ -75,7 +91,7 @@
             android:id="@+id/btnCapture"
             android:layout_width="match_parent"
             android:layout_height="62dp"
-            android:text="Capturar / Identificar"
+            android:text="Indentificar Ave"
             android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@color/brand_on_primary"
