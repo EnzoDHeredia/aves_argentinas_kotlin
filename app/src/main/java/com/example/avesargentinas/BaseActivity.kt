@@ -37,16 +37,26 @@ abstract class BaseActivity : AppCompatActivity() {
      * Compatible con todas las versiones de Android usando AndroidX.
      */
     private fun setupImmersiveMode() {
-        // Indicar si la app debe ajustarse para las barras del sistema y teclado
-        WindowCompat.setDecorFitsSystemWindows(window, allowKeyboardAdjustments)
-        
-        val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-        windowInsetsController?.let { controller ->
-            // Ocultar las barras de navegación y estado
-            controller.hide(WindowInsetsCompat.Type.systemBars())
+        if (allowKeyboardAdjustments) {
+            // En actividades con campos de texto, permitir que el sistema maneje
+            // el ajuste del layout para el teclado. Esto es CRÍTICO para que
+            // adjustResize funcione correctamente.
+            WindowCompat.setDecorFitsSystemWindows(window, true)
             
-            // Configurar comportamiento inmersivo sticky (las barras reaparecen temporalmente al deslizar)
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            // No ocultamos las barras del sistema en estas pantallas para mejor UX
+            // y para evitar conflictos con el ajuste del teclado
+        } else {
+            // En actividades sin campos de texto, usar modo inmersivo completo
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            
+            val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
+            windowInsetsController?.let { controller ->
+                // Ocultar las barras de navegación y estado
+                controller.hide(WindowInsetsCompat.Type.systemBars())
+                
+                // Configurar comportamiento inmersivo sticky (las barras reaparecen temporalmente al deslizar)
+                controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            }
         }
     }
 }

@@ -6,11 +6,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
-import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.avesargentinas.BaseActivity
@@ -43,9 +46,44 @@ class ObservationDetailActivity : BaseActivity() {
         setContentView(R.layout.activity_observation_detail)
 
         repository = ObservationRepository.getInstance(applicationContext)
+        setupWindowInsets()
         setupToolbar()
         loadObservation()
         setupTouchListener()
+    }
+    
+    /**
+     * Configura el manejo de window insets para el teclado
+     * Esto es más robusto que adjustResize en dispositivos modernos
+     */
+    private fun setupWindowInsets() {
+        val rootLayout = findViewById<View>(R.id.rootLayout)
+        val scrollView = findViewById<NestedScrollView>(R.id.scrollView)
+        
+        ViewCompat.setOnApplyWindowInsetsListener(rootLayout) { view, insets ->
+            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+            val systemInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            
+            // Aplicar padding inferior cuando aparece el teclado
+            scrollView.setPadding(
+                scrollView.paddingLeft,
+                scrollView.paddingTop,
+                scrollView.paddingRight,
+                imeInsets.bottom
+            )
+            
+            // Cuando el teclado aparece, hacer scroll al campo enfocado
+            if (imeInsets.bottom > 0) {
+                scrollView.post {
+                    val edtNotes: TextInputEditText? = findViewById(R.id.edtNotes)
+                    if (edtNotes != null && edtNotes.isFocused) {
+                        scrollView.smoothScrollTo(0, edtNotes.bottom + imeInsets.bottom)
+                    }
+                }
+            }
+            
+            insets
+        }
     }
 
     /**
@@ -53,7 +91,7 @@ class ObservationDetailActivity : BaseActivity() {
      */
     private fun setupTouchListener() {
         val rootLayout = findViewById<View>(R.id.rootLayout)
-        val scrollView = findViewById<ScrollView>(R.id.scrollView)
+        val scrollView = findViewById<NestedScrollView>(R.id.scrollView)
         
         // Listener en el root layout
         rootLayout.setOnTouchListener { _, event ->
@@ -198,16 +236,27 @@ class ObservationDetailActivity : BaseActivity() {
         // Cargar notas existentes
         edtNotes.setText(observation.notes ?: "")
 
-        val scrollView: ScrollView = findViewById(R.id.scrollView)
+        val scrollView: NestedScrollView = findViewById(R.id.scrollView)
         
         // Detectar cambios en el foco
         edtNotes.setOnFocusChangeListener { view, hasFocus ->
             if (hasFocus) {
                 // Cuando obtiene el foco, hacer scroll hacia el final
+                // Usar múltiples intentos para asegurar que funcione en todos los dispositivos
+                view.post {
+                    scrollView.fullScroll(View.FOCUS_DOWN)
+                }
                 view.postDelayed({
-                    // Hacer scroll hasta el final del contenido para que el campo sea completamente visible
-                    scrollView.fullScroll(ScrollView.FOCUS_DOWN)
-                }, 300) // Delay para esperar a que el teclado aparezca
+                    scrollView.fullScroll(View.FOCUS_DOWN)
+                    // Hacer scroll específicamente al campo de notas
+                    view.requestRectangleOnScreen(
+                        android.graphics.Rect(0, 0, view.width, view.height),
+                        false
+                    )
+                }, 100)
+                view.postDelayed({
+                    scrollView.fullScroll(View.FOCUS_DOWN)
+                }, 300)
             } else {
                 // Cuando pierde el foco, guardar
                 saveNotesIfChanged()

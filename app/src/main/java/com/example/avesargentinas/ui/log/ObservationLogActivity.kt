@@ -118,9 +118,9 @@ class ObservationLogActivity : BaseActivity() {
         isSelectionMode = false
         adapter.isSelectionMode = false
         findViewById<View>(R.id.cardSelectionToolbar).visibility = View.GONE
-        fabSelectMode.visibility = View.VISIBLE
-        // Mostrar fabExport solo si hay observaciones
+        // Mostrar FABs solo si hay observaciones
         if (adapter.currentList.isNotEmpty()) {
+            fabSelectMode.visibility = View.VISIBLE
             fabExport.visibility = View.VISIBLE
         }
     }
@@ -138,8 +138,14 @@ class ObservationLogActivity : BaseActivity() {
                 repository.observeAll().collect { observations ->
                     adapter.submitList(observations)
                     emptyView.visibility = if (observations.isEmpty()) View.VISIBLE else View.GONE
-                    // Mostrar/ocultar FAB según si hay observaciones
-                    fabExport.visibility = if (observations.isEmpty()) View.GONE else View.VISIBLE
+                    // Mostrar/ocultar FABs según si hay observaciones
+                    if (observations.isEmpty()) {
+                        fabExport.visibility = View.GONE
+                        fabSelectMode.visibility = View.GONE
+                    } else {
+                        fabExport.visibility = View.VISIBLE
+                        fabSelectMode.visibility = View.VISIBLE
+                    }
                 }
             }
         }

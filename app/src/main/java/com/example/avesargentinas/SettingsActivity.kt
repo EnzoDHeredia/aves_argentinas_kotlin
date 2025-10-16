@@ -13,6 +13,9 @@ import com.google.android.material.textfield.TextInputEditText
  */
 class SettingsActivity : BaseActivity() {
 
+    // Permitir que el sistema ajuste el contenido cuando aparece el teclado
+    override val allowKeyboardAdjustments: Boolean = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.applySavedTheme(this)
         super.onCreate(savedInstanceState)

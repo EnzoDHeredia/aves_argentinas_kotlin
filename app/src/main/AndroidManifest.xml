@@ -32,7 +32,8 @@
         <!-- Pantalla de opciones -->
         <activity
             android:name=".SettingsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <!-- Zoom de imagen -->
         <activity

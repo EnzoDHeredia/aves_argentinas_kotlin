@@ -107,25 +107,49 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerObservations"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:clipToPadding="false"
-            android:paddingTop="16dp"
-            android:paddingBottom="80dp"
-            android:overScrollMode="never" />
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/txtEmpty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/observation_log_empty"
-            android:textColor="@color/text_secondary"
-            android:textAlignment="center"
-            android:visibility="gone"
-            android:padding="24dp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerObservations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingTop="16dp"
+                android:paddingBottom="80dp"
+                android:overScrollMode="never" />
+
+            <!-- Estado vacío con diseño más atractivo -->
+            <LinearLayout
+                android:id="@+id/txtEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone"
+                android:paddingBottom="120dp">
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:alpha="0.3"
+                    android:contentDescription="Sin avistamientos" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/observation_log_empty"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
 
     </LinearLayout>
 
