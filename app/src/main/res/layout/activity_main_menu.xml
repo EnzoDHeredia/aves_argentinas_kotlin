@@ -1,154 +1,195 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/brand_background"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:paddingTop="32dp"
-    android:paddingBottom="12dp"
-    android:gravity="center_horizontal">
+    android:layout_height="match_parent">
 
-    <!-- Espaciador flexible superior -->
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <!-- Logo -->
+    <!-- Imagen de fondo -->
     <ImageView
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_gravity="center"
-        android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_launcher" />
-
-    <!-- Espaciador flexible inferior -->
-    <Space
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3" />
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/campus" />
 
-    <!-- Título y subtítulo -->
-    <TextView
-        android:id="@+id/txtAppTitle"
+    <!-- Filtro atenuado - Ajusta la opacidad aquí: #CC = 80%, #B3 = 70%, #99 = 60%, #80 = 50% -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        android:text="Aves de la Argentina"
-        android:textColor="@color/text_primary"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.01"
-        android:gravity="center"
-        android:maxLines="1"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="20sp"
-        android:autoSizeMaxTextSize="32sp"
-        android:autoSizeStepGranularity="1sp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp" />
+        android:layout_height="match_parent"
+        android:background="#CC000000" />
 
-    <TextView
+    <!-- Contenido principal -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="6dp"
-        android:text="Identificación de aves con IA"
-        android:textColor="@color/text_secondary"
-        android:textSize="14sp"
-        android:alpha="0.8"
-        android:gravity="center"
-        android:maxLines="1"
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="10sp"
-        android:autoSizeMaxTextSize="14sp"
-        android:autoSizeStepGranularity="1sp"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp" />
-
-    <!-- Espaciador flexible medio -->
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5" />
-
-    <!-- Botón principal con card -->
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="18dp"
-        app:cardCornerRadius="18dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/brand_primary">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCapture"
+        android:paddingEnd="16dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="12dp"
+        android:gravity="center_horizontal">
+        <!-- Espaciador flexible superior -->
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:text="Indentificar Ave"
-            android:textSize="17sp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/ic_launcher" />
+
+        <!-- Espaciador flexible inferior -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3" />
+
+        <!-- Título y subtítulo -->
+        <TextView
+            android:id="@+id/txtAppTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="Aves de la Argentina"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
             android:textStyle="bold"
-            android:textColor="@color/brand_on_primary"
             android:letterSpacing="0.01"
-            app:backgroundTint="@color/brand_primary"
-            app:cornerRadius="18dp"
-            app:elevation="0dp"
-            app:icon="@android:drawable/ic_menu_camera"
-            app:iconGravity="textStart"
-            app:iconSize="26dp"
-            app:iconTint="@color/brand_on_primary"
-            app:iconPadding="10dp" />
+            android:gravity="center"
+            android:maxLines="1"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="20sp"
+            android:autoSizeMaxTextSize="32sp"
+            android:autoSizeStepGranularity="1sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
 
-    </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
+            android:text="Identificación de aves con IA"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="10sp"
+            android:autoSizeMaxTextSize="14sp"
+            android:autoSizeStepGranularity="1sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
 
-    <!-- Botones secundarios -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnObservationLog"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="14dp"
-        android:text="Mis Observaciones"
-        android:textSize="15sp"
-        android:textColor="@color/text_primary"
-        app:cornerRadius="16dp"
-        app:strokeColor="@color/brand_outline"
-        app:strokeWidth="2dp"
-        app:iconGravity="textStart"
-        app:iconSize="22dp"
-        app:iconTint="@color/brand_primary"
-        app:iconPadding="8dp" />
+        <!-- Espaciador flexible medio -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSettings"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Opciones"
-        android:textSize="15sp"
-        android:textColor="@color/text_primary"
-        app:cornerRadius="16dp"
-        app:strokeColor="@color/brand_outline"
-        app:strokeWidth="2dp"
-        app:iconGravity="textStart"
-        app:iconSize="22dp"
-        app:iconTint="@color/brand_primary"
-        app:iconPadding="8dp" />
+        <!-- Botón principal con card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="18dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/brand_primary"
+            app:strokeColor="#40FFFFFF"
+            app:strokeWidth="0dp">
 
-    <!-- Espaciador flexible inferior -->
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCapture"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:text="Indentificar Ave"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/brand_on_primary"
+                android:letterSpacing="0.01"
+                app:backgroundTint="@color/brand_primary"
+                app:cornerRadius="18dp"
+                app:elevation="0dp"
+                app:icon="@android:drawable/ic_menu_camera"
+                app:iconGravity="textStart"
+                app:iconSize="26dp"
+                app:iconTint="@color/brand_on_primary"
+                app:iconPadding="10dp" />
 
-</LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botones secundarios con fondo sólido -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="14dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/brand_surface"
+            app:strokeColor="@color/brand_outline"
+            app:strokeWidth="2dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnObservationLog"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Mis Observaciones"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                app:backgroundTint="@android:color/transparent"
+                app:cornerRadius="16dp"
+                app:iconGravity="textStart"
+                app:iconSize="22dp"
+                app:iconTint="@color/brand_primary"
+                app:iconPadding="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/brand_surface"
+            app:strokeColor="@color/brand_outline"
+            app:strokeWidth="2dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSettings"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Opciones"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                app:backgroundTint="@android:color/transparent"
+                app:cornerRadius="16dp"
+                app:iconGravity="textStart"
+                app:iconSize="22dp"
+                app:iconTint="@color/brand_primary"
+                app:iconPadding="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Espaciador flexible inferior -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</FrameLayout>

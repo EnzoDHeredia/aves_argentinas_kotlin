@@ -142,7 +142,7 @@
                 android:layout_marginTop="8dp"
                 android:visibility="gone" />
 
-            <!-- Campo de notas editables -->
+            <!-- Campo de notas - Botón para abrir diálogo -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,31 +152,31 @@
                 android:textSize="16sp"
                 android:layout_marginTop="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilNotes"
+            <TextView
+                android:id="@+id/txtNotesPreview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:hint="Agrega notas sobre esta observación"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                app:boxStrokeColor="@color/brand_primary"
-                app:hintTextColor="@color/brand_primary"
-                app:hintEnabled="false">
+                android:text="Sin notas"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:minLines="2"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:padding="12dp"
+                android:background="@drawable/bg_dialog_observation"
+                android:alpha="0.7" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtNotes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Agrega notas sobre esta observación"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary"
-                    android:inputType="textMultiLine|textCapSentences"
-                    android:maxLines="5"
-                    android:minLines="3"
-                    android:gravity="top|start"
-                    android:scrollbars="vertical"
-                    android:imeOptions="actionDone" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditNotes"
+                style="@style/Widget.AvesArgentinas.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Editar Notas"
+                android:textSize="14sp"
+                app:icon="@drawable/ic_edit"
+                app:iconGravity="textStart" />
 
             <!-- Separador sutil -->
             <View

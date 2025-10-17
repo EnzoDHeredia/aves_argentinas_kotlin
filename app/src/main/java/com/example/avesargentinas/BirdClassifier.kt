@@ -39,10 +39,11 @@ class BirdClassifier(
 
     private lateinit var tflite: Interpreter
     private lateinit var labelInfos: List<LabelInfo>
-    private val inputSize = 256
+    private val inputSize = 256  // Tamaño de entrada que espera el modelo
     private var numClasses = 0
 
-    // Configuración de normalización ImageNet
+    // Configuración de normalización: ImageNet (usado en entrenamiento PyTorch)
+    // mean and std order: R, G, B
     private val mean = floatArrayOf(0.485f, 0.456f, 0.406f)
     private val std = floatArrayOf(0.229f, 0.224f, 0.225f)
 
@@ -52,25 +53,37 @@ class BirdClassifier(
      */
     fun initialize(): Result<Unit> {
         return try {
-            // Cargar modelo
-            val opts = Interpreter.Options().apply { numThreads = this@BirdClassifier.numThreads }
-            tflite = Interpreter(loadAssetBytes(MODEL_FILE), opts)
+            Log.d(TAG, "=== INICIANDO CARGA DEL MODELO ===")
             
-            try {
-                tflite.resizeInput(0, intArrayOf(1, 3, inputSize, inputSize))
-                tflite.allocateTensors()
-            } catch (e: Exception) {
-                Log.w(TAG, "No se pudo redimensionar input: ${e.message}")
+            // Cargar modelo con configuración optimizada para TFLite 2.16.1
+            val modelBuffer = loadAssetBytes(MODEL_FILE)
+            Log.d(TAG, "Modelo cargado desde assets: ${modelBuffer.capacity()} bytes")
+            
+            val opts = Interpreter.Options().apply {
+                numThreads = this@BirdClassifier.numThreads
+                setUseNNAPI(false)  // Desactivar NNAPI para evitar crashes en algunos dispositivos
             }
+            Log.d(TAG, "Opciones configuradas: threads=$numThreads, NNAPI=false")
+            
+            tflite = Interpreter(modelBuffer, opts)
+            Log.d(TAG, "Intérprete TFLite creado exitosamente")
+            
+            // El modelo convertido desde PyTorch usa formato NCHW [1, 3, 256, 256]
+            // No es necesario redimensionar aquí; ajustamos el buffer antes de inferencia
 
             val regionalNames = loadRegionalNames()
+            Log.d(TAG, "Nombres regionales cargados: ${regionalNames.size}")
+            
             labelInfos = loadLabels(regionalNames)
+            Log.d(TAG, "Etiquetas cargadas: ${labelInfos.size}")
+            
             numClasses = labelInfos.size
             
-            Log.i(TAG, "Modelo inicializado correctamente: $numClasses clases")
+            Log.i(TAG, "✅✅✅ Modelo inicializado correctamente: $numClasses clases ✅✅✅")
             Result.success(Unit)
         } catch (e: Exception) {
-            Log.e(TAG, "Error al inicializar modelo: ${e.message}")
+            Log.e(TAG, "❌❌❌ Error al inicializar modelo: ${e.message}", e)
+            e.printStackTrace()
             Result.failure(e)
         }
     }
@@ -84,7 +97,7 @@ class BirdClassifier(
         }
 
         val resized = Bitmap.createScaledBitmap(bitmap, inputSize, inputSize, true)
-        val input = bitmapToCHWBuffer(resized)
+    val input = bitmapToNCHWBuffer(resized)  // Formato NCHW [1, 3, 256, 256] para modelo PyTorch
         val output = Array(1) { FloatArray(numClasses) }
         
         tflite.run(input, output)
@@ -119,29 +132,36 @@ class BirdClassifier(
     }
 
     /**
-     * Convierte bitmap a ByteBuffer en formato CHW (Channel-Height-Width)
+     * Convierte bitmap a ByteBuffer en formato NCHW (Batch-Channel-Height-Width)
+     * Aplica normalización ImageNet: (pixel/255 - mean) / std para cada canal
+     * Formato compatible con el modelo PyTorch convertido: [1, 3, 256, 256]
      */
-    private fun bitmapToCHWBuffer(bitmap: Bitmap): ByteBuffer {
+    private fun bitmapToNCHWBuffer(bitmap: Bitmap): ByteBuffer {
         val size = bitmap.width
-        val buf = ByteBuffer.allocateDirect(1 * 3 * size * size * 4)
+        val bufferSize = 1 * 3 * size * size * 4  // 1 batch, 3 channels, HxW, 4 bytes per float
+        val buf = ByteBuffer.allocateDirect(bufferSize)
             .order(ByteOrder.nativeOrder())
 
         val pixels = IntArray(size * size)
         bitmap.getPixels(pixels, 0, size, 0, 0, size, size)
 
+        // Formato NCHW: escribir TODOS los valores R, luego TODOS los G, luego TODOS los B
+        // Aplicamos normalización ImageNet por canal
         // Canal R
-        for (i in pixels.indices) {
-            val r = ((pixels[i] ushr 16) and 0xFF) / 255f
+        for (pixel in pixels) {
+            val r = ((pixel ushr 16) and 0xFF).toFloat() / 255f
             buf.putFloat((r - mean[0]) / std[0])
         }
+
         // Canal G
-        for (i in pixels.indices) {
-            val g = ((pixels[i] ushr 8) and 0xFF) / 255f
+        for (pixel in pixels) {
+            val g = ((pixel ushr 8) and 0xFF).toFloat() / 255f
             buf.putFloat((g - mean[1]) / std[1])
         }
+
         // Canal B
-        for (i in pixels.indices) {
-            val b = (pixels[i] and 0xFF) / 255f
+        for (pixel in pixels) {
+            val b = (pixel and 0xFF).toFloat() / 255f
             buf.putFloat((b - mean[2]) / std[2])
         }
 

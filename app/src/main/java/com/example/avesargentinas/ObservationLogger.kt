@@ -83,7 +83,7 @@ class ObservationLogger(
             )
             observation.notes?.let {
                 builder.appendLine()
-                builder.appendLine(it)
+                builder.appendLine("Notas: $it")
             }
             return builder.toString()
         }
