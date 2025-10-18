@@ -183,8 +183,10 @@ class ObservationDetailActivity : BaseActivity() {
         updateNotesPreview(observation.notes, txtNotesPreview)
 
         // Configurar botón de editar notas
+        // Usar currentObservation si está disponible para evitar cargar una instancia antigua
         btnEditNotes.setOnClickListener {
-            showNotesDialog(observation)
+            val target = currentObservation ?: observation
+            showNotesDialog(target)
         }
     }
 
@@ -216,9 +218,28 @@ class ObservationDetailActivity : BaseActivity() {
         edtNotes.setText(observation.notes ?: "")
 
         btnSaveNotes.setOnClickListener {
-            val newNotes = edtNotes.text?.toString()?.takeIf { it.isNotBlank() }
-            saveNotes(observation, newNotes)
-            dialog.dismiss()
+            // Guardar notas en background y mantener el diálogo abierto mostrando el valor guardado
+            lifecycleScope.launch {
+                val newNotes = edtNotes.text?.toString()?.takeIf { it.isNotBlank() }
+                val updated = saveNotes(observation, newNotes)
+
+                // Actualizar EditText del diálogo con el valor guardado (por si hubo normalización)
+                edtNotes.setText(updated.notes ?: "")
+
+                // Actualizar preview de la pantalla principal
+                val txtNotesPreview: TextView = findViewById(R.id.txtNotesPreview)
+                updateNotesPreview(updated.notes, txtNotesPreview)
+
+                Toast.makeText(
+                    this@ObservationDetailActivity,
+                    "Notas guardadas",
+                    Toast.LENGTH_SHORT
+                ).show()
+                // Cerrar el diálogo tras guardar
+                if (dialog.isShowing) {
+                    dialog.dismiss()
+                }
+            }
         }
 
         btnCancelNotes.setOnClickListener {
@@ -226,22 +247,12 @@ class ObservationDetailActivity : BaseActivity() {
         }
     }
 
-    private fun saveNotes(observation: Observation, notes: String?) {
-        lifecycleScope.launch {
-            val updated = observation.copy(notes = notes)
-            repository.update(updated)
-            currentObservation = updated
-
-            runOnUiThread {
-                val txtNotesPreview: TextView = findViewById(R.id.txtNotesPreview)
-                updateNotesPreview(notes, txtNotesPreview)
-                Toast.makeText(
-                    this@ObservationDetailActivity,
-                    "Notas guardadas",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+    // Ahora es suspend y devuelve la observación actualizada
+    private suspend fun saveNotes(observation: Observation, notes: String?): Observation {
+        val updated = observation.copy(notes = notes)
+        repository.update(updated)
+        currentObservation = updated
+        return updated
     }
 
     private fun setupActions() {
