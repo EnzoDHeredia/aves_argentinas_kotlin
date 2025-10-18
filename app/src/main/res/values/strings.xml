@@ -31,6 +31,8 @@
     <string name="observation_count_invalid">Ingresá un número mayor o igual a 1</string>
     <string name="theme_toggle_dark">Cambiar a tema oscuro</string>
     <string name="theme_toggle_light">Cambiar a tema claro</string>
+    <string name="back">Volver</string>
+
     <plurals name="observation_individuals">
         <item quantity="one">%d individuo</item>
         <item quantity="other">%d individuos</item>

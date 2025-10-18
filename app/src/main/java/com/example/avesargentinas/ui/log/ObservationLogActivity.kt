@@ -16,6 +16,9 @@ import android.util.TypedValue
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.avesargentinas.BaseActivity
 import com.example.avesargentinas.HistoryExporter
 import com.example.avesargentinas.R
@@ -48,11 +51,29 @@ class ObservationLogActivity : BaseActivity() {
         setupExportButton()
         setupSelectionMode()
         observeData()
+
+        // Ajuste dinámico de insets para el card de la toolbar (se aplica marginTop para separarla de la status bar)
+        val toolbarCard = findViewById<View>(R.id.toolbarCard)
+        ViewCompat.setOnApplyWindowInsetsListener(toolbarCard) { v, insets ->
+            val statusBarTop = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            val extraTopPx = (32 * resources.displayMetrics.density).toInt() // 32dp de separación visual (duplicado)
+            val lp = v.layoutParams as? ViewGroup.MarginLayoutParams
+            lp?.topMargin = statusBarTop + extraTopPx
+            v.layoutParams = lp
+            insets
+        }
+        ViewCompat.requestApplyInsets(toolbarCard)
+
+        val btnBackLog: android.widget.ImageButton? = findViewById(R.id.btnBackLog)
+        btnBackLog?.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     private fun setupToolbar() {
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
         toolbar.title = getString(R.string.observation_log_title)
+        // Único handler para navigation icon
         toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }

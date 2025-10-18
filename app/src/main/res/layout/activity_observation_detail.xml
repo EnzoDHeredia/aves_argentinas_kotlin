@@ -6,8 +6,7 @@
     android:background="@color/brand_background"
     android:clickable="true"
     android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:fitsSystemWindows="true">
+    android:focusableInTouchMode="true">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/toolbarCard"
@@ -15,10 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginTop="32dp"
         app:cardBackgroundColor="@color/brand_surface"
         app:cardCornerRadius="18dp"
-        app:cardElevation="0dp"
         app:strokeColor="@color/brand_outline"
         app:strokeWidth="1dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,6 +32,18 @@
             android:paddingEnd="8dp"
             android:titleTextColor="@color/text_primary"
             app:titleCentered="true" />
+
+        <ImageButton
+            android:id="@+id/btnBackDetail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/brand_on_surface"/>
 
     </com.google.android.material.card.MaterialCardView>
 

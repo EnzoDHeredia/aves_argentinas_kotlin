@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -24,6 +25,8 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class ObservationDetailActivity : BaseActivity() {
 
@@ -39,13 +42,50 @@ class ObservationDetailActivity : BaseActivity() {
         setContentView(R.layout.activity_observation_detail)
 
         repository = ObservationRepository.getInstance(applicationContext)
+        // Ajuste dinámico para status bar / notch sobre el card de la toolbar
+        val toolbarCard = findViewById<android.view.View>(R.id.toolbarCard)
+        ViewCompat.setOnApplyWindowInsetsListener(toolbarCard) { v, insets ->
+            val statusBarTop = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            val extraTopPx = (32 * resources.displayMetrics.density).toInt() // 32dp de separación visual (duplicado)
+            val lp = v.layoutParams as? ViewGroup.MarginLayoutParams
+            lp?.topMargin = statusBarTop + extraTopPx
+            v.layoutParams = lp
+            insets
+        }
+        ViewCompat.requestApplyInsets(toolbarCard)
+
         setupToolbar()
         loadObservation()
+
+        val btnBackDetail: android.widget.ImageButton? = findViewById(R.id.btnBackDetail)
+        btnBackDetail?.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        // Reaplicar margin en onCreate (post) y en onResume para asegurarnos del orden de layout
+        toolbarCard.post { applyTopMargin() }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        applyTopMargin()
+    }
+
+    private fun applyTopMargin() {
+        val rootView = findViewById<View>(android.R.id.content)
+        val insets = ViewCompat.getRootWindowInsets(rootView)
+        val statusBarTop = insets?.getInsets(WindowInsetsCompat.Type.statusBars())?.top ?: 0
+        val extraTopPx = (32 * resources.displayMetrics.density).toInt()
+        val toolbarCard = findViewById<View>(R.id.toolbarCard)
+        val lp = toolbarCard.layoutParams as? ViewGroup.MarginLayoutParams
+        lp?.topMargin = statusBarTop + extraTopPx
+        toolbarCard.layoutParams = lp
     }
 
     private fun setupToolbar() {
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
         toolbar.title = getString(R.string.observation_detail_title)
+        // Único handler para navigation icon
         toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
@@ -168,6 +208,10 @@ class ObservationDetailActivity : BaseActivity() {
         val btnSaveNotes: MaterialButton = dialog.findViewById(R.id.btnSaveNotes)
         val btnCancelNotes: MaterialButton = dialog.findViewById(R.id.btnCancelNotes)
 
+        dialog.show()
+        val width = (resources.displayMetrics.widthPixels * 0.9).toInt()
+        dialog.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+
         // Cargar notas actuales
         edtNotes.setText(observation.notes ?: "")
 
@@ -180,8 +224,6 @@ class ObservationDetailActivity : BaseActivity() {
         btnCancelNotes.setOnClickListener {
             dialog.dismiss()
         }
-
-        dialog.show()
     }
 
     private fun saveNotes(observation: Observation, notes: String?) {

@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:paddingStart="12dp"
     android:paddingEnd="12dp"
-    android:paddingTop="32dp"
+    android:paddingTop="0dp"
     android:paddingBottom="12dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,6 +11,7 @@
 
     <!-- Vista de imagen con zoom -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/topCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -79,6 +80,18 @@
                 android:contentDescription="@string/theme_toggle_dark"
                 android:padding="8dp"
                 app:srcCompat="@drawable/ic_sun"
+                app:tint="@color/brand_on_surface"/>
+
+            <ImageButton
+                android:id="@+id/btnBackMain"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Volver"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_arrow_back"
                 app:tint="@color/brand_on_surface"/>
 
         </FrameLayout>

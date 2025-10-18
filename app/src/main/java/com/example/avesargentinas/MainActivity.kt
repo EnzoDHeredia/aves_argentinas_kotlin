@@ -25,6 +25,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.widget.doAfterTextChanged
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.avesargentinas.data.ObservationRepository
 import com.example.avesargentinas.ui.log.ObservationLogActivity
@@ -58,6 +60,7 @@ class MainActivity : BaseActivity() {
     private lateinit var btnSave: MaterialButton
     private lateinit var btnLog: MaterialButton
     private lateinit var btnThemeToggle: ImageButton
+    private lateinit var btnBackMain: ImageButton
 
     // Estado
     private var originalBitmap: Bitmap? = null
@@ -117,6 +120,18 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Ajuste dinámico del topCard para separar del status bar (statusBar + 32dp)
+        val topCard = findViewById<View>(R.id.topCard)
+        ViewCompat.setOnApplyWindowInsetsListener(topCard) { v, insets ->
+            val statusBarTop = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            val extraTopPx = (32 * resources.displayMetrics.density).toInt()
+            val lp = v.layoutParams as? ViewGroup.MarginLayoutParams
+            lp?.topMargin = statusBarTop + extraTopPx
+            v.layoutParams = lp
+            insets
+        }
+        ViewCompat.requestApplyInsets(topCard)
+
         initializeViews()
         initializeComponents()
         setupPhotoView()
@@ -126,6 +141,7 @@ class MainActivity : BaseActivity() {
         setupEmptyState()
         checkAndRequestPermissions()
         restoreState(savedInstanceState)
+
     }
 
     private fun initializeViews() {
@@ -139,6 +155,7 @@ class MainActivity : BaseActivity() {
         btnSave = findViewById(R.id.btnSave)
         btnLog = findViewById(R.id.btnLog)
         btnThemeToggle = findViewById(R.id.btnThemeToggle)
+        btnBackMain = findViewById(R.id.btnBackMain)
     }
 
     private fun initializeComponents() {
@@ -197,6 +214,9 @@ class MainActivity : BaseActivity() {
         btnThemeToggle.setOnClickListener {
             ThemeManager.toggleTheme(this)
             updateThemeToggleIcon()
+        }
+        btnBackMain.setOnClickListener {
+            finish()
         }
     }
 
