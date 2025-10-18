@@ -500,6 +500,24 @@ class MainActivity : BaseActivity() {
         }
         
         dialog.show()
+
+        // Preseleccionar la predicción del modelo si existe (buscar coincidencia exacta en adapter)
+        lastPrediction?.displayName?.let { predictedCommonRaw ->
+            val predictedCommon = predictedCommonRaw.trim()
+            if (predictedCommon.isNotEmpty()) {
+                // Buscar en la lista de nombres comunes (case-insensitive) y usar la entrada exacta del adapter
+                val match = commonNames.find { it.equals(predictedCommon, ignoreCase = true) }
+                if (match != null) {
+                    autoComplete.setText(match, false)
+                    selectedCommonName = match
+                    selectedScientificName = lastPrediction?.scientificName ?: BirdLabelsManager.getScientificName(this, match)
+                    txtScientific.visibility = View.VISIBLE
+                    txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+                    btnConfirm.isEnabled = true
+                    // no desplegar las opciones automáticamente; dejar el valor preseleccionado
+                }
+            }
+        }
     }
 
     private suspend fun performSaveObservation(individualCount: Int) {
