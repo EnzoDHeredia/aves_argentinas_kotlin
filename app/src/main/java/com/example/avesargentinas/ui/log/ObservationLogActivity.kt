@@ -52,17 +52,7 @@ class ObservationLogActivity : BaseActivity() {
         setupSelectionMode()
         observeData()
 
-        // Ajuste dinámico de insets para el card de la toolbar (se aplica marginTop para separarla de la status bar)
-        val toolbarCard = findViewById<View>(R.id.toolbarCard)
-        ViewCompat.setOnApplyWindowInsetsListener(toolbarCard) { v, insets ->
-            val statusBarTop = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            val extraTopPx = (32 * resources.displayMetrics.density).toInt() // 32dp de separación visual (duplicado)
-            val lp = v.layoutParams as? ViewGroup.MarginLayoutParams
-            lp?.topMargin = statusBarTop + extraTopPx
-            v.layoutParams = lp
-            insets
-        }
-        ViewCompat.requestApplyInsets(toolbarCard)
+        // Sin listener de insets; el layout usa m�rgenes fijos.
 
         val btnBackLog: android.widget.ImageButton? = findViewById(R.id.btnBackLog)
         btnBackLog?.setOnClickListener {

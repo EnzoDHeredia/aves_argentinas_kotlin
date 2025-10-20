@@ -25,38 +25,14 @@ abstract class BaseActivity : AppCompatActivity() {
         setupImmersiveMode()
     }
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            setupImmersiveMode()
-        }
-    }
+    // Nota: no re-aplicamos inmersivo en onWindowFocusChanged para permitir
+    // que los gestos del sistema (atrás) funcionen en un solo swipe.
 
     /**
-     * Configura el modo inmersivo para ocultar las barras de navegación y estado.
-     * Compatible con todas las versiones de Android usando AndroidX.
+     * Modo estándar sin ocultar barras: el sistema aplica WindowInsets
+     * y gestiona gestos de navegación correctamente.
      */
     private fun setupImmersiveMode() {
-        if (allowKeyboardAdjustments) {
-            // En actividades con campos de texto, permitir que el sistema maneje
-            // el ajuste del layout para el teclado. Esto es CRÍTICO para que
-            // adjustResize funcione correctamente.
-            WindowCompat.setDecorFitsSystemWindows(window, true)
-            
-            // No ocultamos las barras del sistema en estas pantallas para mejor UX
-            // y para evitar conflictos con el ajuste del teclado
-        } else {
-            // En actividades sin campos de texto, usar modo inmersivo completo
-            WindowCompat.setDecorFitsSystemWindows(window, false)
-            
-            val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
-            windowInsetsController?.let { controller ->
-                // Ocultar las barras de navegación y estado
-                controller.hide(WindowInsetsCompat.Type.systemBars())
-                
-                // Configurar comportamiento inmersivo sticky (las barras reaparecen temporalmente al deslizar)
-                controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-            }
-        }
+        WindowCompat.setDecorFitsSystemWindows(window, true)
     }
 }
