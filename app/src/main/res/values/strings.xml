@@ -32,6 +32,7 @@
     <string name="theme_toggle_dark">Cambiar a tema oscuro</string>
     <string name="theme_toggle_light">Cambiar a tema claro</string>
     <string name="back">Volver</string>
+    <string name="settings">Opciones</string>
 
     <plurals name="observation_individuals">
         <item quantity="one">%d individuo</item>

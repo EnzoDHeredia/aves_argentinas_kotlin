@@ -1,177 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/brand_background">
+    android:orientation="vertical"
+    android:background="@color/brand_background"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="12dp"
+    android:clipToPadding="false">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Toolbar dentro de Card con botón volver -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbarCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:paddingTop="32dp"
-        android:paddingBottom="12dp">
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@color/brand_surface"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/brand_outline"
+        app:strokeWidth="1dp">
 
-        <TextView
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opciones"
-            android:textSize="28sp"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
+            android:title="@string/settings"
+            android:background="@android:color/transparent"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:titleTextColor="@color/text_primary"
+            app:titleCentered="true" />
 
-        <!-- Sección: Usuario -->
-        <TextView
+        <ImageButton
+            android:id="@+id/btnBackSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/brand_on_surface"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usuario"
-            android:textSize="16sp"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:paddingTop="12dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Opciones"-->
+<!--                android:textSize="28sp"-->
+<!--                android:textColor="@color/text_primary"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginBottom="24dp" />-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtUserName"
+            <!-- Sección: Usuario -->
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre de usuario"
+                android:text="Usuario"
+                android:textSize="16sp"
                 android:textColor="@color/text_primary"
-                android:textColorHint="@color/text_secondary"
-                android:inputType="textPersonName"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Sección: Identificación -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Identificación"
-            android:textSize="16sp"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchExpertMode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Modo experto"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre de usuario"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:inputType="textPersonName"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Permite guardar observaciones sin importar el porcentaje de confianza del modelo"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:layout_marginBottom="16dp" />
+            <!-- Sección: Identificación -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Identificación"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchInstantCapture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Captura instantánea"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchExpertMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Modo experto"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Al abrir la app, ir directamente a la pantalla de captura/identificación saltándose el menú principal"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:layout_marginBottom="24dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Permite guardar observaciones sin importar el porcentaje de confianza del modelo"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="16dp" />
 
-        <!-- Sección: Privacidad -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Privacidad"
-            android:textSize="16sp"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchInstantCapture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Captura instantánea"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchObfuscateLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ofuscar ubicación exacta"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Al abrir la app, ir directamente a la pantalla de captura/identificación saltándose el menú principal"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="24dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Añade un desplazamiento aleatorio a las coordenadas GPS para proteger tu ubicación exacta"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:layout_marginBottom="24dp" />
+            <!-- Sección: Privacidad -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Privacidad"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Sección: Apariencia -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Apariencia"
-            android:textSize="16sp"
-            android:textColor="@color/text_primary"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchObfuscateLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ofuscar ubicación exacta"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchDarkMode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Modo oscuro"
-            android:textColor="@color/text_primary"
-            android:textSize="16sp"
-            android:layout_marginBottom="4dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Añade un desplazamiento aleatorio a las coordenadas GPS para proteger tu ubicación exacta"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="24dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Activa o desactiva el tema oscuro"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:layout_marginBottom="32dp" />
+            <!-- Sección: Apariencia -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apariencia"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Botón cerrar -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCloseSettings"
-            style="@style/Widget.AvesArgentinas.Button.Primary"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Guardar y Cerrar"
-            android:layout_marginTop="8dp"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchDarkMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Modo oscuro"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Activa o desactiva el tema oscuro"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Botón cerrar -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCloseSettings"
+                style="@style/Widget.AvesArgentinas.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Guardar y Cerrar"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

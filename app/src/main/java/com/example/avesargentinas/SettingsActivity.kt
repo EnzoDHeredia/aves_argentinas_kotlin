@@ -2,6 +2,7 @@ package com.example.avesargentinas
 
 import android.os.Bundle
 import androidx.appcompat.widget.SwitchCompat
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
@@ -20,6 +21,15 @@ class SettingsActivity : BaseActivity() {
         ThemeManager.applySavedTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        // Toolbar: título y botón Volver
+        findViewById<MaterialToolbar>(R.id.toolbar)?.apply {
+            title = getString(R.string.settings)
+            setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+        }
+        findViewById<android.widget.ImageButton>(R.id.btnBackSettings)?.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
         val edtUserName = findViewById<TextInputEditText>(R.id.edtUserName)
         val switchExpert = findViewById<SwitchCompat>(R.id.switchExpertMode)

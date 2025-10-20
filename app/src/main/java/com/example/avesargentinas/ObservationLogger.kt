@@ -70,9 +70,9 @@ class ObservationLogger(
                 "${observation.individualCount} individuos"
             }
             builder.appendLine("Individuos observados: $countLabel")
-            observation.regionalName?.let {
-                builder.appendLine("Nombre regional: $it")
-            }
+//            observation.regionalName?.let {
+//                builder.appendLine("Nombre regional: $it")
+//            }
             if (observation.latitude != null && observation.longitude != null) {
                 builder.appendLine(
                     "Coordenadas: %.5f, %.5f".format(Locale.getDefault(), observation.latitude, observation.longitude)

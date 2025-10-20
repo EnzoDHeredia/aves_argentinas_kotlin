@@ -74,6 +74,9 @@ class MainActivity : BaseActivity() {
     private var pendingSaveAfterPermission = false
     private var pendingObservationCount: Int = 1
     private var currentImageUri: Uri? = null
+    // Inset superior de la status bar "congelado" para evitar saltos al abrir la galería
+    private var frozenStatusBarInsetTop: Int? = null
+    private var didFreezeStatusBarInset: Boolean = false
 
     // Configuración
     private val CONF_THRESH = 0.65f
@@ -123,12 +126,22 @@ class MainActivity : BaseActivity() {
         // Ajuste dinámico del topCard para separar del status bar (statusBar + 32dp)
         val topCard = findViewById<View>(R.id.topCard)
         ViewCompat.setOnApplyWindowInsetsListener(topCard) { v, insets ->
-            val statusBarTop = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            val currentTop = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+
+            // Congelamos el primer valor recibido para que no cambie
+            if (!didFreezeStatusBarInset) {
+                frozenStatusBarInsetTop = currentTop
+                didFreezeStatusBarInset = true
+            }
+            val statusBarTop = frozenStatusBarInsetTop ?: currentTop
+
             val extraTopPx = (32 * resources.displayMetrics.density).toInt()
             val lp = v.layoutParams as? ViewGroup.MarginLayoutParams
             lp?.topMargin = statusBarTop + extraTopPx
             v.layoutParams = lp
-            insets
+
+            // Consumimos los insets para evitar que otros views ajusten padding/margins
+            WindowInsetsCompat.CONSUMED
         }
         ViewCompat.requestApplyInsets(topCard)
 
