@@ -2,10 +2,12 @@ package com.example.avesargentinas
 
 import android.os.Build
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.ViewCompat
 
 /**
  * Actividad base que configura el modo inmersivo para ocultar las barras del sistema.
@@ -33,6 +35,42 @@ abstract class BaseActivity : AppCompatActivity() {
      * y gestiona gestos de navegación correctamente.
      */
     private fun setupImmersiveMode() {
+        // Mantenemos el ajuste estándar del sistema
         WindowCompat.setDecorFitsSystemWindows(window, true)
+
+        // Aplicar padding dinámico inferior solo cuando haya barra de navegación
+        applyBottomInsetPaddingToRoot()
+    }
+
+    private fun applyBottomInsetPaddingToRoot() {
+        val content = findViewById<ViewGroup>(android.R.id.content) ?: return
+        val root = content.getChildAt(0) ?: return
+
+        // Guardar paddings iniciales para sumarlos al valor de insets
+        val initialStart = root.paddingStart
+        val initialTop = root.paddingTop
+        val initialEnd = root.paddingEnd
+        val initialBottom = root.paddingBottom
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
+            // Tomar solo la barra de navegación. Si la actividad permite ajustes
+            // por teclado, considerar también el IME para evitar superposición.
+            val navInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+
+            val bottomInset = if (allowKeyboardAdjustments && insets.isVisible(WindowInsetsCompat.Type.ime())) {
+                imeInsets.bottom
+            } else {
+                navInsets.bottom
+            }
+
+            // Agregar padding inferior solo si hay barra/IME visible
+            val newBottom = initialBottom + bottomInset
+            v.setPaddingRelative(initialStart, initialTop, initialEnd, newBottom)
+            insets
+        }
+
+        // Forzar cálculo de insets
+        root.requestApplyInsets()
     }
 }
