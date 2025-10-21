@@ -20,6 +20,7 @@
 
     <!-- Contenido principal -->
     <LinearLayout
+        android:id="@+id/insets_container"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

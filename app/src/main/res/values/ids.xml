@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tag IDs used to track one-time attachment of WindowInsets listener -->
+    <item name="tag_insets_listener_attached" type="id"/>
+    <!-- Optional container id to receive window insets instead of the root -->
+    <item name="insets_container" type="id"/>
+</resources>
