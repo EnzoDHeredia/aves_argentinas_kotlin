@@ -67,5 +67,10 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <!-- Información del ave -->
+        <activity
+            android:name=".ui.bird.BirdInfoActivity"
+            android:exported="false" />
+
     </application>
 </manifest>

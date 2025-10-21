@@ -6,7 +6,10 @@
     <dimen name="screen_padding">16dp</dimen>
     <dimen name="screen_padding_small">12dp</dimen>
     <dimen name="screen_padding_large">24dp</dimen>
-    
+
     <!-- Diálogos -->
     <dimen name="dialog_horizontal_inset">5dp</dimen>
+
+    <!-- Alturas fijas -->
+    <dimen name="result_card_height">180dp</dimen>
 </resources>

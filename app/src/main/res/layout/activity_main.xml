@@ -39,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:visibility="gone"/>
 
-            <!-- Estado vacío con mensaje -->
+            <!-- Estado vacÃ­o con mensaje -->
             <LinearLayout
                 android:id="@+id/emptyState"
                 android:layout_width="match_parent"
@@ -96,13 +96,54 @@
                 app:srcCompat="@drawable/ic_arrow_back"
                 app:tint="@color/brand_on_surface"/>
 
+            <!-- Contenedor de informaciÃ³n: icono + pista "Ver info del ave" -->
+            <LinearLayout
+                android:id="@+id/infoContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/btnBirdInfo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/bird_info_view"
+                    android:padding="8dp"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_info_exclamation"
+                    app:tint="@color/brand_on_surface"/>
+            </LinearLayout>
+
+            <!-- Hint flotante superpuesto que no empuja el layout -->
+            <TextView
+                android:id="@+id/infoHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="72dp"
+                android:layout_marginBottom="16dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:background="@drawable/bg_result_panel"
+                android:elevation="10dp"
+                android:text="@string/bird_info_view"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Resultado -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/result_card_height"
         android:layout_marginTop="12dp"
         app:cardCornerRadius="18dp"
         app:cardElevation="0dp"
@@ -112,7 +153,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="match_parent"
             android:background="@drawable/bg_result_panel"
             android:clipToPadding="false">
 
@@ -122,10 +163,10 @@
                 android:clipToPadding="false"
                 android:fillViewport="true"
                 android:overScrollMode="never"
-                android:paddingStart="24dp"
-                android:paddingTop="28dp"
-                android:paddingEnd="24dp"
-                android:paddingBottom="28dp"
+                android:paddingStart="16dp"
+                android:paddingTop="18dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="18dp"
                 android:scrollbarStyle="outsideOverlay">
 
                 <LinearLayout
@@ -133,16 +174,68 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
+                    <!-- Encabezado del resultado enriquecido -->
+                    <LinearLayout
+                        android:id="@+id/resultHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:letterSpacing="0.08"
-                        android:text="Resultado"
-                        android:textAllCaps="true"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginBottom="1dp">
+
+                        <TextView
+                            android:id="@+id/txtBirdName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/txtScientificName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp"/>
+
+                        <!-- Icono de advertencia para modo experto (visible segun estado) -->
+                        <ImageView
+                            android:id="@+id/imgExpertWarning"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="Advertencia"
+                            android:elevation="2dp"
+                            android:padding="2dp"
+                            android:scaleType="centerInside"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/ic_warning_triangle"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipConfidence"
+                            style="@style/Widget.Material3.Chip.Assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Confianza"
+                            app:chipBackgroundColor="@color/brand_surface"
+                            app:chipStrokeColor="@color/brand_outline"
+                            app:chipStrokeWidth="1dp"
+                            app:checkedIconVisible="false"/>
+
+                        <TextView
+                            android:id="@+id/txtPositiveMsg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            android:visibility="gone"/>
+
+                        <!-- BotÃ³n de ver informaciÃ³n del ave reemplazado por Ã­cono sobre la imagen -->
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/txt"
@@ -151,7 +244,7 @@
                         android:fontFamily="sans-serif"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="6dp"
-                        android:text="Seleccioná una imagen de la galería o tomá una foto para identificar el ave."
+                        android:text="Selecciona una imagen de la galeria o toma una foto para identificar el ave."
                         android:textColor="@color/text_primary"
                         android:textSize="16sp" />
 
@@ -189,7 +282,7 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <!-- Botones principales: Galería y Cámara -->
+            <!-- Botones principales: GalerÃ­a y CÃ¡mara -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -202,7 +295,7 @@
                     android:layout_width="0dp"
                     android:layout_height="56dp"
                     android:layout_weight="1"
-                    android:text="Galería"
+                    android:text="Galeria"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="6dp"
@@ -217,7 +310,7 @@
                     android:layout_width="0dp"
                     android:layout_height="56dp"
                     android:layout_weight="1"
-                    android:text="Cámara"
+                    android:text="Camara"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginStart="6dp"
@@ -283,3 +376,4 @@
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
+

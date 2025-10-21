@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
@@ -52,12 +53,22 @@ class MainActivity : BaseActivity() {
     private lateinit var photoView: InteractiveZoomageView
     private lateinit var focusOverlay: FocusOverlayView
     private lateinit var txtResult: TextView
+    private var labelResultado: TextView? = null // Optional: only present in certain layouts
+    private lateinit var resultHeader: View
+    private lateinit var txtBirdNameHeader: TextView
+    private lateinit var txtScientificNameHeader: TextView
+    private lateinit var chipConfidence: com.google.android.material.chip.Chip
+    private lateinit var imgExpertWarning: ImageView
+    private lateinit var txtPositiveMsg: TextView
     private lateinit var progressBar: ProgressBar
     private lateinit var emptyState: View
     private lateinit var btnPick: MaterialButton
     private lateinit var btnCamera: MaterialButton
     private lateinit var btnSave: MaterialButton
     private lateinit var btnLog: MaterialButton
+    private lateinit var btnBirdInfo: ImageButton
+    private lateinit var infoHint: TextView
+    private lateinit var infoContainer: View
     private lateinit var btnThemeToggle: ImageButton
     private lateinit var btnBackMain: ImageButton
 
@@ -70,12 +81,13 @@ class MainActivity : BaseActivity() {
     private var lastMatrixChangeTime = 0L
     private var pendingMatrixChange = false
     private var lastPrediction: Prediction? = null
+    private var lastAnyPrediction: Prediction? = null
     private var pendingSaveAfterPermission = false
     private var pendingObservationCount: Int = 1
     private var currentImageUri: Uri? = null
 
-    // Configuración
-    private val CONF_THRESH = 0.65f
+    // ConfiguraciÃƒÂ³n
+    private val CONF_THRESH = 0.60f
     private val MATRIX_CHANGE_DEBOUNCE_MS = 500L
 
     // Dependencias auxiliares
@@ -119,7 +131,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Sin ajuste dinámico de insets: el sistema maneja los WindowInsets.
+        // Sin ajuste dinÃƒÂ¡mico de insets: el sistema maneja los WindowInsets.
 
         initializeViews()
         initializeComponents()
@@ -137,12 +149,25 @@ class MainActivity : BaseActivity() {
         photoView = findViewById(R.id.photoView)
         focusOverlay = findViewById(R.id.focusOverlay)
         txtResult = findViewById(R.id.txt)
+        val labelResourceId = resources.getIdentifier("labelResultado", "id", packageName)
+        if (labelResourceId != 0) {
+            labelResultado = findViewById(labelResourceId)
+        }
+        resultHeader = findViewById(R.id.resultHeader)
+        txtBirdNameHeader = findViewById(R.id.txtBirdName)
+        txtScientificNameHeader = findViewById(R.id.txtScientificName)
+        chipConfidence = findViewById(R.id.chipConfidence)
+        imgExpertWarning = findViewById(R.id.imgExpertWarning)
+        txtPositiveMsg = findViewById(R.id.txtPositiveMsg)
         progressBar = findViewById(R.id.progress)
         emptyState = findViewById(R.id.emptyState)
         btnPick = findViewById(R.id.btnPick)
         btnCamera = findViewById(R.id.btnCamera)
         btnSave = findViewById(R.id.btnSave)
         btnLog = findViewById(R.id.btnLog)
+        btnBirdInfo = findViewById(R.id.btnBirdInfo)
+        infoHint = findViewById(R.id.infoHint)
+        infoContainer = findViewById(R.id.infoContainer)
         btnThemeToggle = findViewById(R.id.btnThemeToggle)
         btnBackMain = findViewById(R.id.btnBackMain)
     }
@@ -181,10 +206,10 @@ class MainActivity : BaseActivity() {
                     lastMatrixChangeTime = System.currentTimeMillis()
 
                     if (isProcessing) {
-                        // Si está procesando, marcar que hay cambios pendientes
+                        // Si estÃƒÂ¡ procesando, marcar que hay cambios pendientes
                         pendingMatrixChange = true
                     } else {
-                        // Si no está procesando, actualizar y programar clasificación
+                        // Si no estÃƒÂ¡ procesando, actualizar y programar clasificaciÃƒÂ³n
                         focusManager.updateOverlay()
                         scheduleReclassify()
                     }
@@ -204,6 +229,18 @@ class MainActivity : BaseActivity() {
             ThemeManager.toggleTheme(this)
             updateThemeToggleIcon()
         }
+        btnBirdInfo.setOnClickListener {
+            val pred = lastAnyPrediction ?: return@setOnClickListener
+            runCatching {
+                val intent = Intent(this, com.example.avesargentinas.ui.bird.BirdInfoActivity::class.java)
+                intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_COMMON_NAME, pred.displayName)
+                intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_SCIENTIFIC_NAME, pred.scientificName)
+                intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_CONFIDENCE, pred.probability)
+                startActivity(intent)
+            }.onFailure { e ->
+                Toast.makeText(this, "No pude abrir info del ave: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
         btnBackMain.setOnClickListener {
             finish()
         }
@@ -212,8 +249,8 @@ class MainActivity : BaseActivity() {
     private fun setupBackNavigation() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                // Al presionar atrás, ir al menú principal
-                // Añadir flag para indicar que venimos de un back press
+                // Al presionar atrÃƒÂ¡s, ir al menÃƒÂº principal
+                // AÃƒÂ±adir flag para indicar que venimos de un back press
                 val intent = Intent(this@MainActivity, MainMenuActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                 intent.putExtra("from_back_press", true)
@@ -266,7 +303,7 @@ class MainActivity : BaseActivity() {
             photoUri = createImageUri()
             photoUri?.let { uri -> takePhoto.launch(uri) }
         } else {
-            Toast.makeText(this, "Permiso de cámara necesario", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Permiso de cÃƒÂ¡mara necesario", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -292,7 +329,7 @@ class MainActivity : BaseActivity() {
         val isExpertMode = SettingsManager.isExpertMode(this@MainActivity)
         if (isExpertMode) {
             showBirdSelectorDialog { scientificName, commonName ->
-                // Actualizar la predicción con la ave seleccionada
+                // Actualizar la predicciÃƒÂ³n con la ave seleccionada
                 val currentPrediction = lastPrediction
                 if (currentPrediction != null) {
                     lastPrediction = currentPrediction.copy(
@@ -301,7 +338,7 @@ class MainActivity : BaseActivity() {
                     )
                 }
                 
-                // Mostrar diálogo de cantidad
+                // Mostrar diÃƒÂ¡logo de cantidad
                 showObservationCountDialog { count ->
                     pendingObservationCount = count
                     if (!hasLocationPermission()) {
@@ -429,7 +466,7 @@ class MainActivity : BaseActivity() {
         var selectedScientificName: String? = null
         var selectedCommonName: String? = null
         
-        // Función auxiliar para formatear el nombre científico
+        // FunciÃƒÂ³n auxiliar para formatear el nombre cientÃƒÂ­fico
         fun formatScientificName(name: String): String {
             return name.replace("_", " ")
                 .split(" ")
@@ -438,18 +475,18 @@ class MainActivity : BaseActivity() {
                 }
         }
         
-        // Listener para actualizar el nombre científico
+        // Listener para actualizar el nombre cientÃƒÂ­fico
         autoComplete.setOnItemClickListener { _, _, position, _ ->
             val capitalizedName = adapter.getItem(position)
             selectedCommonName = capitalizedName
             selectedScientificName = BirdLabelsManager.getScientificName(this, capitalizedName!!)
             
             txtScientific.visibility = View.VISIBLE
-            txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+            txtScientific.text = "Nombre cientÃƒÂ­fico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
             btnConfirm.isEnabled = true
         }
         
-        // También detectar cuando se escribe manualmente
+        // TambiÃƒÂ©n detectar cuando se escribe manualmente
         autoComplete.addTextChangedListener(object : android.text.TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -461,7 +498,7 @@ class MainActivity : BaseActivity() {
                     selectedCommonName = matchingName
                     selectedScientificName = BirdLabelsManager.getScientificName(this@MainActivity, matchingName)
                     txtScientific.visibility = View.VISIBLE
-                    txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+                    txtScientific.text = "Nombre cientÃƒÂ­fico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
                     btnConfirm.isEnabled = true
                 } else {
                     selectedScientificName = null
@@ -490,7 +527,7 @@ class MainActivity : BaseActivity() {
         
         dialog.show()
 
-        // Preseleccionar la predicción del modelo si existe (buscar coincidencia exacta en adapter)
+        // Preseleccionar la predicciÃƒÂ³n del modelo si existe (buscar coincidencia exacta en adapter)
         lastPrediction?.displayName?.let { predictedCommonRaw ->
             val predictedCommon = predictedCommonRaw.trim()
             if (predictedCommon.isNotEmpty()) {
@@ -501,9 +538,9 @@ class MainActivity : BaseActivity() {
                     selectedCommonName = match
                     selectedScientificName = lastPrediction?.scientificName ?: BirdLabelsManager.getScientificName(this, match)
                     txtScientific.visibility = View.VISIBLE
-                    txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+                    txtScientific.text = "Nombre cientÃƒÂ­fico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
                     btnConfirm.isEnabled = true
-                    // no desplegar las opciones automáticamente; dejar el valor preseleccionado
+                    // no desplegar las opciones automÃƒÂ¡ticamente; dejar el valor preseleccionado
                 }
             }
         }
@@ -565,7 +602,7 @@ class MainActivity : BaseActivity() {
                 }
             }
         } catch (e: Exception) {
-            Log.e("MainActivity", "Error al guardar observación: ${e.message}", e)
+            Log.e("MainActivity", "Error al guardar observaciÃƒÂ³n: ${e.message}", e)
             showMessage("Error al guardar: ${e.message}")
         } finally {
             ignoreMatrixChanges = previousIgnore
@@ -574,7 +611,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    // ==================== Gestión de Imágenes ====================
+    // ==================== GestiÃƒÂ³n de ImÃƒÂ¡genes ====================
 
     private fun loadAndClassifyImage(uri: Uri, restored: Boolean = false) {
         val bitmap = imageProcessor.decodeBitmap(contentResolver, uri)
@@ -589,20 +626,28 @@ class MainActivity : BaseActivity() {
     }
 
     private fun displayImageAndClassify(bitmap: Bitmap) {
-        // Cancelar cualquier clasificación pendiente
+        // Cancelar cualquier clasificaciÃƒÂ³n pendiente
         reclassifyJob?.cancel()
         pendingMatrixChange = false
         lastPrediction = null
         btnSave.isEnabled = false
 
+        // Restablecer visibilidad inicial: mostrar texto base y ocultar encabezado
+        resultHeader.visibility = View.GONE
+        // Ocultar botÃƒÂ³n e hint de informaciÃƒÂ³n hasta tener una predicciÃƒÂ³n
+        btnBirdInfo.visibility = View.GONE
+        hideInfoHintImmediate()
+        labelResultado?.visibility = View.GONE
+        txtResult.visibility = View.GONE
+
         // Limpiar bitmap anterior
         originalBitmap?.recycle()
         originalBitmap = bitmap
 
-        // Bloquear detección de cambios temporalmente
+        // Bloquear detecciÃƒÂ³n de cambios temporalmente
         ignoreMatrixChanges = true
 
-        // Mostrar imagen - el visor no debe ajustar zoom automáticamente
+        // Mostrar imagen - el visor no debe ajustar zoom automÃƒÂ¡ticamente
         photoView.setImageBitmap(bitmap)
         emptyState.visibility = View.GONE
         focusManager.showOverlay()
@@ -611,13 +656,13 @@ class MainActivity : BaseActivity() {
         photoView.post {
             focusManager.updateOverlay()
 
-            // Esperar a que termine cualquier animación automática del visor
+            // Esperar a que termine cualquier animaciÃƒÂ³n automÃƒÂ¡tica del visor
             photoView.postDelayed({
-                // Reactivar detección
+                // Reactivar detecciÃƒÂ³n
                 ignoreMatrixChanges = false
                 lastMatrixChangeTime = System.currentTimeMillis()
 
-                // Primera clasificación
+                // Primera clasificaciÃƒÂ³n
                 scheduleReclassify()
             }, 200)
         }
@@ -641,13 +686,13 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    // ==================== Clasificación ====================
+    // ==================== ClasificaciÃƒÂ³n ====================
 
     private fun scheduleReclassify() {
         // Cancelar job anterior
         reclassifyJob?.cancel()
 
-        // Programar nueva clasificación con debounce inteligente
+        // Programar nueva clasificaciÃƒÂ³n con debounce inteligente
         reclassifyJob = lifecycleScope.launch {
             delay(MATRIX_CHANGE_DEBOUNCE_MS)
 
@@ -676,7 +721,7 @@ class MainActivity : BaseActivity() {
 
         isProcessing = true
 
-        // Bloquear listener durante TODO el proceso de clasificación
+        // Bloquear listener durante TODO el proceso de clasificaciÃƒÂ³n
         withContext(Dispatchers.Main) {
             ignoreMatrixChanges = true
         }
@@ -684,7 +729,7 @@ class MainActivity : BaseActivity() {
         setLoading(true)
 
         try {
-            // Recortar según el recuadro de enfoque
+            // Recortar segÃƒÂºn el recuadro de enfoque
             val cropResult = withContext(Dispatchers.Default) {
                 focusManager.cropToFocus(original)
             }
@@ -706,7 +751,7 @@ class MainActivity : BaseActivity() {
             }
 
         } catch (e: Exception) {
-            Log.e("MainActivity", "Error en clasificación: ${e.message}", e)
+            Log.e("MainActivity", "Error en clasificaciÃƒÂ³n: ${e.message}", e)
             withContext(Dispatchers.Main) {
                 showMessage("Error: ${e.message}")
                 lastPrediction = null
@@ -747,53 +792,137 @@ class MainActivity : BaseActivity() {
         val topPrediction = result.topPrediction
         val isExpertMode = SettingsManager.isExpertMode(this@MainActivity)
         val meetsThreshold = topPrediction?.probability?.let { it >= CONF_THRESH } == true
-        val resultText = buildResultText(result)
 
         withContext(Dispatchers.Main) {
-            txtResult.text = resultText
-            // En modo experto, permitir guardar siempre que haya predicción
-            // En modo normal, solo si cumple el umbral
+            val hasPrediction = topPrediction != null
+            val showConfidentHeader = hasPrediction && (isExpertMode || meetsThreshold)
+            val showLowConfidenceBanner = hasPrediction && !isExpertMode && !meetsThreshold
+            val confidenceText = topPrediction?.confidencePercentage?.format(1)
+            val thresholdPercent = (CONF_THRESH * 100f).format(0)
+
             lastPrediction = if (isExpertMode || meetsThreshold) topPrediction else null
-            btnSave.isEnabled = (isExpertMode || meetsThreshold) && topPrediction != null
-        }
-    }
+            lastAnyPrediction = topPrediction
+            btnSave.isEnabled = showConfidentHeader
 
-    private fun buildResultText(result: ClassificationResult): String {
-        return buildString {
-            val best = result.topPrediction
-            if (best == null) {
-                append("No se pudo clasificar la imagen")
-                return@buildString
-            }
+            when {
+                showConfidentHeader && topPrediction != null -> {
+                    resultHeader.visibility = View.VISIBLE
+                    txtBirdNameHeader.text = topPrediction.displayName
+                    txtScientificNameHeader.visibility = View.VISIBLE
+                    txtScientificNameHeader.text = getString(
+                        R.string.observation_scientific_format,
+                        topPrediction.scientificName
+                    )
+                    chipConfidence.visibility = View.VISIBLE
+                    chipConfidence.text = getString(
+                        R.string.result_confidence_value,
+                        topPrediction.confidencePercentage.format(1)
+                    )
+                    if (isExpertMode && !meetsThreshold) {
+                        txtPositiveMsg.visibility = View.VISIBLE
+                        txtPositiveMsg.text = getString(
+                            R.string.result_expert_low_confidence_message,
+                            thresholdPercent
+                        )
+                    } else {
+                        txtPositiveMsg.visibility = View.GONE
+                    }
+                    imgExpertWarning.visibility =
+                        if (isExpertMode && !meetsThreshold) View.VISIBLE else View.GONE
+                    labelResultado?.visibility = View.GONE
+                    txtResult.visibility = View.GONE
 
-            val isExpertMode = SettingsManager.isExpertMode(this@MainActivity)
-            val meetsThreshold = best.probability >= CONF_THRESH
-
-            if (meetsThreshold || isExpertMode) {
-                append(best.displayName)
-                append("\nNombre científico: ${best.scientificName}")
-                append("\nConfianza: ${best.confidencePercentage.format(1)}%")
-                
-                if (!meetsThreshold && isExpertMode) {
-                    append(" ⚠️ (Modo experto)")
-                }
-
-                val alternatives = result.predictions.drop(1).filter { it.probability > 0.1f }
-                if (alternatives.isNotEmpty()) {
-                    append("\n\nOtras posibilidades:\n")
-                    alternatives.forEach { pred ->
-                        append("• ${pred.displayName} (${pred.confidencePercentage.format(1)}%)\n")
+                    val wasVisible = btnBirdInfo.visibility == View.VISIBLE
+                    btnBirdInfo.visibility = View.VISIBLE
+                    if (!wasVisible) {
+                        showInfoHintOnce()
                     }
                 }
-            } else {
-                append("Confianza baja: ${best.confidencePercentage.format(1)}%")
-                append("\n\nIntenta:\n")
-                append("• Acercar más al ave\n")
-                append("• Mejor iluminación\n")
-                append("• Imagen más clara")
+
+                showLowConfidenceBanner && topPrediction != null -> {
+                    resultHeader.visibility = View.VISIBLE
+                    txtBirdNameHeader.text = getString(R.string.result_low_confidence_title)
+                    txtScientificNameHeader.visibility = View.VISIBLE
+                    txtScientificNameHeader.text =
+                        getString(R.string.result_low_confidence_subtitle, thresholdPercent)
+                    chipConfidence.visibility = View.VISIBLE
+                    chipConfidence.text =
+                        getString(R.string.result_confidence_value, confidenceText ?: "--")
+                    txtPositiveMsg.visibility = View.VISIBLE
+                    txtPositiveMsg.text =
+                        getString(R.string.result_low_confidence_message, topPrediction.displayName)
+                    imgExpertWarning.visibility = View.GONE
+                    labelResultado?.visibility = View.GONE
+                    txtResult.visibility = View.GONE
+                    btnBirdInfo.visibility = View.GONE
+                    hideInfoHintImmediate()
+                }
+
+                else -> {
+                    resultHeader.visibility = View.GONE
+                    imgExpertWarning.visibility = View.GONE
+                    chipConfidence.visibility = View.GONE
+                    txtPositiveMsg.visibility = View.GONE
+                    txtScientificNameHeader.visibility = View.GONE
+                    labelResultado?.visibility = View.VISIBLE
+                    txtResult.visibility = View.VISIBLE
+                    txtResult.text = getString(R.string.result_no_detection_message)
+                    btnBirdInfo.visibility = View.GONE
+                    hideInfoHintImmediate()
+                }
             }
         }
     }
+
+    private var infoHintJob: Job? = null
+
+    private fun showInfoHintOnce() {
+        infoHintJob?.cancel()
+        infoHint.bringToFront()
+        infoHint.translationZ = dp(8f)
+        infoHint.visibility = View.VISIBLE
+        // Colocar la pista levemente contraÃƒÂ­da hacia la izquierda y transparente
+        infoHint.alpha = 0f
+        // Al estar el ÃƒÂ­cono en la derecha, la pista sale hacia la izquierda
+        infoHint.translationX = dp(16f)
+        // Animar apariciÃƒÂ³n
+        infoHint.animate()
+            .alpha(1f)
+            .translationX(0f)
+            .setDuration(220)
+            .withEndAction {
+                // Mantener visible un momento y ocultar
+                infoHintJob = lifecycleScope.launch {
+                    delay(1600)
+                    hideInfoHintAnimated()
+                }
+            }
+            .start()
+    }
+
+    private fun hideInfoHintAnimated() {
+        if (infoHint.visibility != View.VISIBLE) return
+        infoHint.animate()
+            .alpha(0f)
+            .translationX(dp(16f))
+            .setDuration(180)
+            .withEndAction {
+                infoHint.visibility = View.GONE
+            }
+            .start()
+    }
+
+    private fun hideInfoHintImmediate() {
+        infoHintJob?.cancel()
+        infoHint.clearAnimation()
+        infoHint.alpha = 0f
+        infoHint.translationX = 0f
+        infoHint.visibility = View.GONE
+    }
+
+    private fun dp(value: Float): Float = value * resources.displayMetrics.density
+
+
 
     // ==================== Permisos ====================
 
@@ -879,3 +1008,5 @@ class MainActivity : BaseActivity() {
         private const val KEY_CURRENT_IMAGE_URI = "current_image_uri"
     }
 }
+
+

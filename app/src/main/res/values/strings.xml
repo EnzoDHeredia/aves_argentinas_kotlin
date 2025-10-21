@@ -34,6 +34,19 @@
     <string name="back">Volver</string>
     <string name="settings">Opciones</string>
 
+    <string name="bird_info_title">Información del ave</string>
+    <string name="bird_info_view">Ver información del ave</string>
+    <string name="bird_info_distribution">Distribución</string>
+    <string name="bird_info_population">Abundancia / Población</string>
+    <string name="bird_info_no_image">Sin imagen disponible</string>
+
+    <string name="result_confidence_value">Confianza %1$s%%</string>
+    <string name="result_low_confidence_title">Identificación no confirmada</string>
+    <string name="result_low_confidence_subtitle">El modelo no alcanzó el %1$s%% de confianza mínima.</string>
+    <string name="result_low_confidence_message">Posible: %1$s\nEl modelo no logró suficiente certeza. Intenta acercarte más, mejorar la iluminación o usar otra foto.</string>
+    <string name="result_no_detection_message">No se pudo clasificar la imagen\n\nIntenta:\n- Acercarte más al ave\n- Mejorar la iluminación\n- Usar una imagen más clara</string>
+    <string name="result_expert_low_confidence_message">Modo experto activo. El modelo quedó por debajo del %1$s%% de confianza: revisá la identificación antes de continuar.</string>
+
     <plurals name="observation_individuals">
         <item quantity="one">%d individuo</item>
         <item quantity="other">%d individuos</item>
