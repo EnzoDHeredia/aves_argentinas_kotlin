@@ -230,14 +230,22 @@ class MainActivity : BaseActivity() {
             updateThemeToggleIcon()
         }
         btnBirdInfo.setOnClickListener {
-            val pred = lastAnyPrediction ?: return@setOnClickListener
+            Log.d("MainActivity", "btnBirdInfo clicked")
+            val pred = lastAnyPrediction
+            if (pred == null) {
+                Log.w("MainActivity", "lastAnyPrediction is null, cannot open bird info")
+                Toast.makeText(this, "No hay información del ave disponible", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             runCatching {
+                Log.d("MainActivity", "Opening BirdInfoActivity for: ${pred.displayName}")
                 val intent = Intent(this, com.example.avesargentinas.ui.bird.BirdInfoActivity::class.java)
                 intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_COMMON_NAME, pred.displayName)
                 intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_SCIENTIFIC_NAME, pred.scientificName)
                 intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_CONFIDENCE, pred.probability)
                 startActivity(intent)
             }.onFailure { e ->
+                Log.e("MainActivity", "Error opening BirdInfoActivity", e)
                 Toast.makeText(this, "No pude abrir info del ave: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
@@ -286,7 +294,7 @@ class MainActivity : BaseActivity() {
         btnThemeToggle.setImageDrawable(AppCompatResources.getDrawable(this, iconRes))
         btnThemeToggle.contentDescription = getString(descriptionRes)
         btnThemeToggle.imageTintList = ColorStateList.valueOf(
-            ContextCompat.getColor(this, R.color.brand_on_surface)
+            ContextCompat.getColor(this, R.color.toolbar_icon_tint)
         )
     }
 
@@ -818,17 +826,21 @@ class MainActivity : BaseActivity() {
                         R.string.result_confidence_value,
                         topPrediction.confidencePercentage.format(1)
                     )
-                    if (isExpertMode && !meetsThreshold) {
+                    if (isExpertMode) {
                         txtPositiveMsg.visibility = View.VISIBLE
-                        txtPositiveMsg.text = getString(
-                            R.string.result_expert_low_confidence_message,
-                            thresholdPercent
-                        )
+                        txtPositiveMsg.text = if (meetsThreshold) {
+                            getString(R.string.result_expert_mode_active_message)
+                        } else {
+                            getString(
+                                R.string.result_expert_low_confidence_message,
+                                thresholdPercent
+                            )
+                        }
                     } else {
                         txtPositiveMsg.visibility = View.GONE
                     }
                     imgExpertWarning.visibility =
-                        if (isExpertMode && !meetsThreshold) View.VISIBLE else View.GONE
+                        if (isExpertMode) View.VISIBLE else View.GONE
                     labelResultado?.visibility = View.GONE
                     txtResult.visibility = View.GONE
 
@@ -880,6 +892,8 @@ class MainActivity : BaseActivity() {
         infoHintJob?.cancel()
         infoHint.bringToFront()
         infoHint.translationZ = dp(8f)
+        infoHint.isClickable = false
+        infoHint.isFocusable = false
         infoHint.visibility = View.VISIBLE
         // Colocar la pista levemente contraÃƒÂ­da hacia la izquierda y transparente
         infoHint.alpha = 0f

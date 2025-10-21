@@ -46,6 +46,8 @@
     <string name="result_low_confidence_message">Posible: %1$s\nEl modelo no logró suficiente certeza. Intenta acercarte más, mejorar la iluminación o usar otra foto.</string>
     <string name="result_no_detection_message">No se pudo clasificar la imagen\n\nIntenta:\n- Acercarte más al ave\n- Mejorar la iluminación\n- Usar una imagen más clara</string>
     <string name="result_expert_low_confidence_message">Modo experto activo. El modelo quedó por debajo del %1$s%% de confianza: revisá la identificación antes de continuar.</string>
+    <string name="result_expert_mode_active_message">Modo experto activo. Revisá la identificación antes de continuar.</string>
+    <string name="result_expert_mode_icon_description">Advertencia de modo experto activo</string>
 
     <plurals name="observation_individuals">
         <item quantity="one">%d individuo</item>

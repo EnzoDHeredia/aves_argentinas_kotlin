@@ -1,8 +1,9 @@
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/imageViewPager"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:adjustViewBounds="true"
-    android:scaleType="fitCenter"
+    android:layout_height="match_parent"
+    android:scaleType="centerCrop"
     android:background="@color/accent_soft"
+    android:clickable="true"
+    android:focusable="true"
     android:contentDescription="@string/bird_info_no_image" />
-

@@ -1,17 +1,21 @@
 package com.example.avesargentinas.ui.bird
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.avesargentinas.BaseActivity
 import com.example.avesargentinas.R
 import com.example.avesargentinas.ThemeManager
+import com.example.avesargentinas.ui.log.ImageZoomActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -20,16 +24,24 @@ import androidx.recyclerview.widget.RecyclerView
 
 class BirdInfoActivity : BaseActivity() {
 
+    private var imageUris: List<String?> = emptyList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        ThemeManager.applySavedTheme(this)
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bird_info)
+        try {
+            ThemeManager.applySavedTheme(this)
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_bird_info)
 
-        setupToolbar()
-        bindDataFromIntent()
+            setupToolbar()
+            bindDataFromIntent()
 
-        val backBtn: ImageButton? = findViewById(R.id.btnBackBirdInfo)
-        backBtn?.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
+            val backBtn: ImageButton? = findViewById(R.id.btnBackBirdInfo)
+            backBtn?.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
+        } catch (e: Exception) {
+            Log.e("BirdInfoActivity", "Error in onCreate", e)
+            Toast.makeText(this, "Error al cargar información: ${e.message}", Toast.LENGTH_LONG).show()
+            finish()
+        }
     }
 
     private fun setupToolbar() {
@@ -39,46 +51,55 @@ class BirdInfoActivity : BaseActivity() {
     }
 
     private fun bindDataFromIntent() {
-        val commonName = intent.getStringExtra(EXTRA_COMMON_NAME)
-        val scientificName = intent.getStringExtra(EXTRA_SCIENTIFIC_NAME)
-        val confidence = intent.getFloatExtra(EXTRA_CONFIDENCE, -1f)
-        val distUri = intent.getStringExtra(EXTRA_DISTRIBUTION_URI)?.let { Uri.parse(it) }
-        val popUri = intent.getStringExtra(EXTRA_POPULATION_URI)?.let { Uri.parse(it) }
+        try {
+            val commonName = intent.getStringExtra(EXTRA_COMMON_NAME)
+            val scientificName = intent.getStringExtra(EXTRA_SCIENTIFIC_NAME)
+            val confidence = intent.getFloatExtra(EXTRA_CONFIDENCE, -1f)
+            val distUri = intent.getStringExtra(EXTRA_DISTRIBUTION_URI)?.let { Uri.parse(it) }
+            val popUri = intent.getStringExtra(EXTRA_POPULATION_URI)?.let { Uri.parse(it) }
 
-        val title: TextView = findViewById(R.id.txtTitle)
-        val scientific: TextView = findViewById(R.id.txtScientific)
-        val confidenceView: TextView = findViewById(R.id.txtConfidence)
-        val tabLayout: TabLayout = findViewById(R.id.tabLayout)
-        val viewPager: ViewPager2 = findViewById(R.id.viewPager)
+            Log.d("BirdInfoActivity", "Binding data: $commonName / $scientificName")
 
-        // Título principal en card
-        title.text = commonName ?: "-"
-        scientific.text = scientificName?.let { getString(R.string.observation_scientific_format, it) } ?: ""
+            val tabLayout: TabLayout = findViewById(R.id.tabLayout)
+            val viewPager: ViewPager2 = findViewById(R.id.viewPager)
 
-        if (confidence >= 0) {
-            confidenceView.text = getString(R.string.observation_confidence_format, confidence * 100)
-            confidenceView.alpha = 1f
-        } else {
-            confidenceView.text = ""
-            confidenceView.alpha = 0.6f
+            // Load images if provided; otherwise placeholder
+            val placeholder = R.drawable.ic_image_placeholder
+
+            // Resolve distribution image
+            val (distSource, popSource) = resolveDefaultImages(scientificName)
+
+            // Preparar pager con dos páginas (Distribución / Abundancia)
+            val pages = listOf(distUri ?: distSource, popUri ?: popSource)
+            
+            // Guardar URIs como strings para el zoom
+            imageUris = pages.map { source ->
+                when (source) {
+                    is Uri -> source.toString()
+                    is String -> source
+                    is Int -> "android.resource://$packageName/$source"
+                    else -> null
+                }
+            }
+            
+            Log.d("BirdInfoActivity", "Setting up ViewPager with ${pages.size} pages")
+            viewPager.adapter = ImagePagerAdapter(pages, placeholder) { position ->
+                openImageZoom(position)
+            }
+            
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                tab.text = if (position == 0) getString(R.string.bird_info_distribution) else getString(R.string.bird_info_population)
+            }.attach()
+
+            // Poner el nombre común como título del toolbar
+            val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
+            toolbar.title = commonName ?: getString(R.string.bird_info_title)
+            
+            Log.d("BirdInfoActivity", "Data binding completed successfully")
+        } catch (e: Exception) {
+            Log.e("BirdInfoActivity", "Error in bindDataFromIntent", e)
+            Toast.makeText(this, "Error al configurar la vista: ${e.message}", Toast.LENGTH_LONG).show()
         }
-
-        // Load images if provided; otherwise placeholder
-        val placeholder = R.drawable.ic_image_placeholder
-
-        // Resolve distribution image
-        val (distSource, popSource) = resolveDefaultImages(scientificName)
-
-        // Preparar pager con dos páginas (Distribución / Abundancia)
-        val pages = listOf(distUri ?: distSource, popUri ?: popSource)
-        viewPager.adapter = ImagePagerAdapter(pages, placeholder)
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = if (position == 0) getString(R.string.bird_info_distribution) else getString(R.string.bird_info_population)
-        }.attach()
-
-        // Poner el nombre común como título del toolbar
-        val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
-        toolbar.title = commonName ?: getString(R.string.bird_info_title)
     }
 
     // Try to resolve images by convention:
@@ -111,9 +132,22 @@ class BirdInfoActivity : BaseActivity() {
         return Pair(dist, pop)
     }
 
+    private fun openImageZoom(position: Int) {
+        val imageUri = imageUris.getOrNull(position)
+        if (imageUri != null) {
+            Log.d("BirdInfoActivity", "Opening image zoom for position $position: $imageUri")
+            val intent = Intent(this, ImageZoomActivity::class.java)
+            intent.putExtra(ImageZoomActivity.EXTRA_IMAGE_URI, imageUri)
+            startActivity(intent)
+        } else {
+            Toast.makeText(this, "Imagen no disponible", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private class ImagePagerAdapter(
         private val sources: List<Any?>,
-        private val placeholder: Int
+        private val placeholder: Int,
+        private val onImageClick: (Int) -> Unit
     ) : RecyclerView.Adapter<ImagePagerAdapter.Holder>() {
         class Holder(val imageView: ImageView) : RecyclerView.ViewHolder(imageView)
 
@@ -131,6 +165,11 @@ class BirdInfoActivity : BaseActivity() {
                 .placeholder(placeholder)
                 .error(placeholder)
                 .into(holder.imageView)
+            
+            // Configurar click listener
+            holder.imageView.setOnClickListener {
+                onImageClick(position)
+            }
         }
     }
 

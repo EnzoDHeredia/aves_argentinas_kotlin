@@ -82,7 +82,7 @@
                 android:contentDescription="@string/theme_toggle_dark"
                 android:padding="8dp"
                 app:srcCompat="@drawable/ic_sun"
-                app:tint="@color/brand_on_surface"/>
+                app:tint="@color/toolbar_icon_tint"/>
 
             <ImageButton
                 android:id="@+id/btnBackMain"
@@ -94,7 +94,7 @@
                 android:contentDescription="Volver"
                 android:padding="8dp"
                 app:srcCompat="@drawable/ic_arrow_back"
-                app:tint="@color/brand_on_surface"/>
+                app:tint="@color/toolbar_icon_tint"/>
 
             <!-- Contenedor de informaciÃ³n: icono + pista "Ver info del ave" -->
             <LinearLayout
@@ -114,7 +114,7 @@
                     android:padding="8dp"
                     android:visibility="gone"
                     app:srcCompat="@drawable/ic_info_exclamation"
-                    app:tint="@color/brand_on_surface"/>
+                    app:tint="@color/toolbar_icon_tint"/>
             </LinearLayout>
 
             <!-- Hint flotante superpuesto que no empuja el layout -->
@@ -181,60 +181,71 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone"
-                        android:layout_marginBottom="1dp">
+                        android:layout_marginBottom="4dp">
 
-                        <TextView
-                            android:id="@+id/txtBirdName"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/text_primary"
-                            android:textStyle="bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtBirdName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:textColor="@color/text_primary"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
+                            <!-- Icono de advertencia para modo experto -->
+                            <ImageView
+                                android:id="@+id/imgExpertWarning"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_marginStart="8dp"
+                                android:contentDescription="@string/result_expert_mode_icon_description"
+                                android:padding="2dp"
+                                android:scaleType="centerInside"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_warning_triangle"
+                                app:tint="@color/expert_warning_tint" />
+                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/txtScientificName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
-                            android:layout_marginTop="2dp"/>
-
-                        <!-- Icono de advertencia para modo experto (visible segun estado) -->
-                        <ImageView
-                            android:id="@+id/imgExpertWarning"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
                             android:layout_marginTop="2dp"
-                            android:layout_marginEnd="4dp"
-                            android:contentDescription="Advertencia"
-                            android:elevation="2dp"
-                            android:padding="2dp"
-                            android:scaleType="centerInside"
-                            android:visibility="gone"
-                            app:srcCompat="@drawable/ic_warning_triangle"/>
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
 
                         <com.google.android.material.chip.Chip
                             android:id="@+id/chipConfidence"
                             style="@style/Widget.Material3.Chip.Assist"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="6dp"
+                            android:minHeight="36dp"
                             android:text="Confianza"
+                            android:textSize="13sp"
                             app:chipBackgroundColor="@color/brand_surface"
                             app:chipStrokeColor="@color/brand_outline"
                             app:chipStrokeWidth="1dp"
-                            app:checkedIconVisible="false"/>
+                            app:checkedIconVisible="false" />
 
                         <TextView
                             android:id="@+id/txtPositiveMsg"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="6dp"
                             android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
-                            android:visibility="gone"/>
+                            android:textSize="13sp"
+                            android:visibility="gone" />
 
-                        <!-- BotÃ³n de ver informaciÃ³n del ave reemplazado por Ã­cono sobre la imagen -->
+                        <!-- Boton de ver informacion del ave reemplazado por icono sobre la imagen -->
                     </LinearLayout>
 
                     <TextView
