@@ -1,4 +1,4 @@
-<resources>
+﻿<resources>
     <string name="app_name">Aves Argentinas</string>
     <string name="observation_thumbnail">Miniatura de observación</string>
     <string name="observation_log_title">Historial de observaciones</string>
@@ -39,7 +39,8 @@
     <string name="bird_info_distribution">Distribución</string>
     <string name="bird_info_population">Abundancia / Población</string>
     <string name="bird_info_no_image">Sin imagen disponible</string>
-
+    <string name="bird_info_legend_title">Información</string>
+    <string name="bird_info_legend_distribution">Distribución: Las zonas en verde indican el área geográfica donde habita el ave.</string>
     <string name="result_confidence_value">Confianza %1$s%%</string>
     <string name="result_low_confidence_title">Identificación no confirmada</string>
     <string name="result_low_confidence_subtitle">El modelo no alcanzó el %1$s%% de confianza mínima.</string>

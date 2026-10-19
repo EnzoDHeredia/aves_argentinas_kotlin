@@ -1,0 +1,621 @@
+[
+  {
+    "scientific_name": "Geranoaetus melanoleucus",
+    "species_code": "bcbeag1",
+    "input_name": "geranoaetus_melanoleucus",
+    "gpkg": "descargas_ebird\\bcbeag1\\geranoaetus_melanoleucus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\bcbeag1\\geranoaetus_melanoleucus_pop.tif"
+  },
+  {
+    "scientific_name": "Megascops choliba",
+    "species_code": "trsowl",
+    "input_name": "megascops_choliba",
+    "gpkg": "descargas_ebird\\trsowl\\megascops_choliba_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\trsowl\\megascops_choliba_pop.tif"
+  },
+  {
+    "scientific_name": "Sayornis nigricans",
+    "species_code": "blkpho",
+    "input_name": "sayornis_nigricans",
+    "gpkg": "descargas_ebird\\blkpho\\sayornis_nigricans_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\blkpho\\sayornis_nigricans_pop.tif"
+  },
+  {
+    "scientific_name": "Chiroxiphia caudata",
+    "species_code": "swtman1",
+    "input_name": "chiroxiphia_caudata_hembra"
+  },
+  {
+    "scientific_name": "Gallinago paraguaiae",
+    "species_code": "soasni2",
+    "input_name": "gallinago_paraguaiae"
+  },
+  {
+    "scientific_name": "Pitangus sulphuratus",
+    "species_code": "grekis",
+    "input_name": "pitangus_sulphuratus",
+    "gpkg": "descargas_ebird\\grekis\\pitangus_sulphuratus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\grekis\\pitangus_sulphuratus_pop.tif"
+  },
+  {
+    "scientific_name": "Nannopterum brasilianum",
+    "species_code": "neocor",
+    "input_name": "phalacrocorax_brasilianus",
+    "gpkg": "descargas_ebird\\neocor\\phalacrocorax_brasilianus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\neocor\\phalacrocorax_brasilianus_pop.tif"
+  },
+  {
+    "scientific_name": "Ammodramus humeralis",
+    "species_code": "graspa1",
+    "input_name": "ammodramus_humeralis"
+  },
+  {
+    "scientific_name": "Mimus saturninus",
+    "species_code": "chbmoc1",
+    "input_name": "mimus_saturninus",
+    "gpkg": "descargas_ebird\\chbmoc1\\mimus_saturninus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\chbmoc1\\mimus_saturninus_pop.tif"
+  },
+  {
+    "scientific_name": "Asthenes pyrrholeuca",
+    "species_code": "shbcan2",
+    "input_name": "asthenes_pyrrholeuca",
+    "gpkg": "descargas_ebird\\shbcan2\\asthenes_pyrrholeuca_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\shbcan2\\asthenes_pyrrholeuca_pop.tif"
+  },
+  {
+    "scientific_name": "Caracara plancus",
+    "species_code": "y00678",
+    "input_name": "caracara_plancus",
+    "gpkg": "descargas_ebird\\y00678\\caracara_plancus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\y00678\\caracara_plancus_pop.tif"
+  },
+  {
+    "scientific_name": "Aramus guarauna",
+    "species_code": "limpki",
+    "input_name": "aramus_guarauna",
+    "gpkg": "descargas_ebird\\limpki\\aramus_guarauna_dist.gpkg"
+  },
+  {
+    "scientific_name": "Paroaria coronata",
+    "species_code": "reccar",
+    "input_name": "paroaria_coronata",
+    "gpkg": "descargas_ebird\\reccar\\paroaria_coronata_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\reccar\\paroaria_coronata_pop.tif"
+  },
+  {
+    "scientific_name": "Paroaria capitata",
+    "species_code": "yebcar",
+    "input_name": "paroaria_capitata"
+  },
+  {
+    "scientific_name": "Colaptes campestris",
+    "species_code": "camfli1",
+    "input_name": "colaptes_campestris"
+  },
+  {
+    "scientific_name": "Dryocopus lineatus",
+    "species_code": "linwoo1",
+    "input_name": "dryocopus_lineatus",
+    "gpkg": "descargas_ebird\\linwoo1\\dryocopus_lineatus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\linwoo1\\dryocopus_lineatus_pop.tif"
+  },
+  {
+    "scientific_name": "Chloephaga picta",
+    "species_code": "uplgoo1",
+    "input_name": "chloephaga_picta",
+    "gpkg": "descargas_ebird\\uplgoo1\\chloephaga_picta_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\uplgoo1\\chloephaga_picta_pop.tif"
+  },
+  {
+    "scientific_name": "Chauna torquata",
+    "species_code": "souscr1",
+    "input_name": "chauna_torquata",
+    "gpkg": "descargas_ebird\\souscr1\\chauna_torquata_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\souscr1\\chauna_torquata_pop.tif"
+  },
+  {
+    "scientific_name": "Daptrius chimango",
+    "species_code": "chicar1",
+    "input_name": "milvago_chimango",
+    "gpkg": "descargas_ebird\\chicar1\\milvago_chimango_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\chicar1\\milvago_chimango_pop.tif"
+  },
+  {
+    "scientific_name": "Tapera naevia",
+    "species_code": "strcuc1",
+    "input_name": "tapera_naevia",
+    "gpkg": "descargas_ebird\\strcuc1\\tapera_naevia_dist.gpkg"
+  },
+  {
+    "scientific_name": "Pyrocephalus rubinus",
+    "species_code": "verfly",
+    "input_name": "pyrocephalus_rubinus_hembra",
+    "gpkg": "descargas_ebird\\verfly\\pyrocephalus_rubinus_hembra_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\verfly\\pyrocephalus_rubinus_hembra_pop.tif"
+  },
+  {
+    "scientific_name": "Ciconia maguari",
+    "species_code": "magsto1",
+    "input_name": "ciconia_maguari",
+    "gpkg": "descargas_ebird\\magsto1\\ciconia_maguari_dist.gpkg"
+  },
+  {
+    "scientific_name": "Vultur gryphus",
+    "species_code": "andcon1",
+    "input_name": "vultur_gryphus",
+    "gpkg": "descargas_ebird\\andcon1\\vultur_gryphus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\andcon1\\vultur_gryphus_pop.tif"
+  },
+  {
+    "scientific_name": "Coscoroba coscoroba",
+    "species_code": "cosswa1",
+    "input_name": "coscoroba_coscoroba",
+    "gpkg": "descargas_ebird\\cosswa1\\coscoroba_coscoroba_dist.gpkg"
+  },
+  {
+    "scientific_name": "Myiopsitta monachus",
+    "species_code": "monpar",
+    "input_name": "myiopsitta_monachus",
+    "gpkg": "descargas_ebird\\monpar\\myiopsitta_monachus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\monpar\\myiopsitta_monachus_pop.tif"
+  },
+  {
+    "scientific_name": "Certhiaxis cinnamomeus",
+    "species_code": "yecspi2",
+    "input_name": "certhiaxis_cinnamomeus",
+    "gpkg": "descargas_ebird\\yecspi2\\certhiaxis_cinnamomeus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\yecspi2\\certhiaxis_cinnamomeus_pop.tif"
+  },
+  {
+    "scientific_name": "Asthenes hudsoni",
+    "species_code": "hudcan1",
+    "input_name": "asthenes_hudsoni"
+  },
+  {
+    "scientific_name": "Elaenia albiceps",
+    "species_code": "whcela1",
+    "input_name": "elaenia_albiceps",
+    "gpkg": "descargas_ebird\\whcela1\\elaenia_albiceps_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\whcela1\\elaenia_albiceps_pop.tif"
+  },
+  {
+    "scientific_name": "Phoenicopterus chilensis",
+    "species_code": "chifla1",
+    "input_name": "phoenicopterus_chilensis",
+    "gpkg": "descargas_ebird\\chifla1\\phoenicopterus_chilensis_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\chifla1\\phoenicopterus_chilensis_pop.tif"
+  },
+  {
+    "scientific_name": "Fulica rufifrons",
+    "species_code": "refcoo1",
+    "input_name": "fulica_rufifrons",
+    "gpkg": "descargas_ebird\\refcoo1\\fulica_rufifrons_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\refcoo1\\fulica_rufifrons_pop.tif"
+  },
+  {
+    "scientific_name": "Ardea alba",
+    "species_code": "greegr",
+    "input_name": "ardea_alba",
+    "gpkg": "descargas_ebird\\greegr\\ardea_alba_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\greegr\\ardea_alba_pop.tif"
+  },
+  {
+    "scientific_name": "Nycticorax nycticorax",
+    "species_code": "bcnher",
+    "input_name": "nycticorax_nycticorax",
+    "gpkg": "descargas_ebird\\bcnher\\nycticorax_nycticorax_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\bcnher\\nycticorax_nycticorax_pop.tif"
+  },
+  {
+    "scientific_name": "Ardea cocoi",
+    "species_code": "cocher1",
+    "input_name": "ardea_cocoi",
+    "gpkg": "descargas_ebird\\cocher1\\ardea_cocoi_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\cocher1\\ardea_cocoi_pop.tif"
+  },
+  {
+    "scientific_name": "Parabuteo unicinctus",
+    "species_code": "hrshaw",
+    "input_name": "parabuteo_unicinctus",
+    "gpkg": "descargas_ebird\\hrshaw\\parabuteo_unicinctus_dist.gpkg"
+  },
+  {
+    "scientific_name": "Larus dominicanus",
+    "species_code": "kelgul",
+    "input_name": "larus_dominicanus",
+    "gpkg": "descargas_ebird\\kelgul\\larus_dominicanus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\kelgul\\larus_dominicanus_pop.tif"
+  },
+  {
+    "scientific_name": "Passer domesticus",
+    "species_code": "houspa",
+    "input_name": "passer_domesticus_macho",
+    "gpkg": "descargas_ebird\\houspa\\passer_domesticus_macho_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\houspa\\passer_domesticus_macho_pop.tif"
+  },
+  {
+    "scientific_name": "Falco peregrinus",
+    "species_code": "perfal",
+    "input_name": "falco_peregrinus",
+    "gpkg": "descargas_ebird\\perfal\\falco_peregrinus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\perfal\\falco_peregrinus_pop.tif"
+  },
+  {
+    "scientific_name": "Falco sparverius",
+    "species_code": "amekes",
+    "input_name": "falco_sparverius",
+    "gpkg": "descargas_ebird\\amekes\\falco_sparverius_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\amekes\\falco_sparverius_pop.tif"
+  },
+  {
+    "scientific_name": "Furnarius rufus",
+    "species_code": "rufhor2",
+    "input_name": "furnarius_rufus"
+  },
+  {
+    "scientific_name": "Jacana jacana",
+    "species_code": "watjac1",
+    "input_name": "jacana_jacana",
+    "gpkg": "descargas_ebird\\watjac1\\jacana_jacana_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\watjac1\\jacana_jacana_pop.tif"
+  },
+  {
+    "scientific_name": "Sicalis flaveola",
+    "species_code": "saffin",
+    "input_name": "sicalis_flaveola_macho",
+    "gpkg": "descargas_ebird\\saffin\\sicalis_flaveola_macho_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\saffin\\sicalis_flaveola_macho_pop.tif"
+  },
+  {
+    "scientific_name": "Coragyps atratus",
+    "species_code": "blkvul",
+    "input_name": "coragyps_atratus",
+    "gpkg": "descargas_ebird\\blkvul\\coragyps_atratus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\blkvul\\coragyps_atratus_pop.tif"
+  },
+  {
+    "scientific_name": "Athene cunicularia",
+    "species_code": "burowl",
+    "input_name": "athene_cunicularia",
+    "gpkg": "descargas_ebird\\burowl\\athene_cunicularia_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\burowl\\athene_cunicularia_pop.tif"
+  },
+  {
+    "scientific_name": "Tyto alba",
+    "species_code": "webowl1",
+    "input_name": "tyto_alba"
+  },
+  {
+    "scientific_name": "Asio clamator",
+    "species_code": "strowl1",
+    "input_name": "asio_clamator",
+    "gpkg": "descargas_ebird\\strowl1\\asio_clamator_dist.gpkg"
+  },
+  {
+    "scientific_name": "Rollandia rolland",
+    "species_code": "whtgre3",
+    "input_name": "rollandia_rolland",
+    "gpkg": "descargas_ebird\\whtgre3\\rollandia_rolland_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\whtgre3\\rollandia_rolland_pop.tif"
+  },
+  {
+    "scientific_name": "Podiceps major",
+    "species_code": "gregre1",
+    "input_name": "podiceps_major",
+    "gpkg": "descargas_ebird\\gregre1\\podiceps_major_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\gregre1\\podiceps_major_pop.tif"
+  },
+  {
+    "scientific_name": "Podiceps gallardoi",
+    "species_code": "hoogre1",
+    "input_name": "podiceps_gallardoi",
+    "gpkg": "descargas_ebird\\hoogre1\\podiceps_gallardoi_dist.gpkg"
+  },
+  {
+    "scientific_name": "Megaceryle torquata",
+    "species_code": "rinkin1",
+    "input_name": "megaceryle_torquata",
+    "gpkg": "descargas_ebird\\rinkin1\\megaceryle_torquata_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\rinkin1\\megaceryle_torquata_pop.tif"
+  },
+  {
+    "scientific_name": "Tigrisoma lineatum",
+    "species_code": "ruther1",
+    "input_name": "tigrisoma_lineatum",
+    "gpkg": "descargas_ebird\\ruther1\\tigrisoma_lineatum_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\ruther1\\tigrisoma_lineatum_pop.tif"
+  },
+  {
+    "scientific_name": "Elanus leucurus",
+    "species_code": "whtkit",
+    "input_name": "elanus_leucurus",
+    "gpkg": "descargas_ebird\\whtkit\\elanus_leucurus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\whtkit\\elanus_leucurus_pop.tif"
+  },
+  {
+    "scientific_name": "Xolmis irupero",
+    "species_code": "whimon1",
+    "input_name": "xolmis_irupero"
+  },
+  {
+    "scientific_name": "Nengetus cinereus",
+    "species_code": "grymon1",
+    "input_name": "xolmis_cinereus",
+    "gpkg": "descargas_ebird\\grymon1\\xolmis_cinereus_dist.gpkg"
+  },
+  {
+    "scientific_name": "Rhea americana",
+    "species_code": "grerhe1",
+    "input_name": "rhea_americana",
+    "gpkg": "descargas_ebird\\grerhe1\\rhea_americana_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\grerhe1\\rhea_americana_pop.tif"
+  },
+  {
+    "scientific_name": "Anas flavirostris",
+    "species_code": "yebtea1",
+    "input_name": "anas_flavirostris",
+    "gpkg": "descargas_ebird\\yebtea1\\anas_flavirostris_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\yebtea1\\anas_flavirostris_pop.tif"
+  },
+  {
+    "scientific_name": "Spatula platalea",
+    "species_code": "redsho1",
+    "input_name": "anas_platalea",
+    "gpkg": "descargas_ebird\\redsho1\\anas_platalea_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\redsho1\\anas_platalea_pop.tif"
+  },
+  {
+    "scientific_name": "Anas georgica",
+    "species_code": "yebpin1",
+    "input_name": "anas_georgica",
+    "gpkg": "descargas_ebird\\yebpin1\\anas_georgica_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\yebpin1\\anas_georgica_pop.tif"
+  },
+  {
+    "scientific_name": "Chlorostilbon lucidus",
+    "species_code": "glbeme1",
+    "input_name": "chlorostilbon_lucidus",
+    "gpkg": "descargas_ebird\\glbeme1\\chlorostilbon_lucidus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\glbeme1\\chlorostilbon_lucidus_pop.tif"
+  },
+  {
+    "scientific_name": "Synallaxis frontalis",
+    "species_code": "sofspi1",
+    "input_name": "synallaxis_frontalis"
+  },
+  {
+    "scientific_name": "Calidris melanotos",
+    "species_code": "pecsan",
+    "input_name": "calidris_melanotos",
+    "gpkg": "descargas_ebird\\pecsan\\calidris_melanotos_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\pecsan\\calidris_melanotos_pop.tif"
+  },
+  {
+    "scientific_name": "Troglodytes aedon",
+    "species_code": "houwre",
+    "input_name": "troglodytes_aedon"
+  },
+  {
+    "scientific_name": "Rynchops niger",
+    "species_code": "blkski",
+    "input_name": "rynchops_niger",
+    "gpkg": "descargas_ebird\\blkski\\rynchops_niger_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\blkski\\rynchops_niger_pop.tif"
+  },
+  {
+    "scientific_name": "Empidonomus varius",
+    "species_code": "varfly",
+    "input_name": "empidonomus_varius",
+    "gpkg": "descargas_ebird\\varfly\\empidonomus_varius_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\varfly\\empidonomus_varius_pop.tif"
+  },
+  {
+    "scientific_name": "Tyrannus melancholicus",
+    "species_code": "trokin",
+    "input_name": "tyrannus_melancholicus",
+    "gpkg": "descargas_ebird\\trokin\\tyrannus_melancholicus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\trokin\\tyrannus_melancholicus_pop.tif"
+  },
+  {
+    "scientific_name": "Poecilotriccus plumbeiceps",
+    "species_code": "ocftof1",
+    "input_name": "poecilotriccus_plumbeiceps"
+  },
+  {
+    "scientific_name": "Polioptila dumicola",
+    "species_code": "masgna1",
+    "input_name": "polioptila_dumicola"
+  },
+  {
+    "scientific_name": "Thraupis sayaca",
+    "species_code": "saytan1",
+    "input_name": "thraupis_sayaca",
+    "gpkg": "descargas_ebird\\saytan1\\thraupis_sayaca_dist.gpkg"
+  },
+  {
+    "scientific_name": "Vanellus chilensis",
+    "species_code": "soulap1",
+    "input_name": "vanellus_chilensis",
+    "gpkg": "descargas_ebird\\soulap1\\vanellus_chilensis_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\soulap1\\vanellus_chilensis_pop.tif"
+  },
+  {
+    "scientific_name": "Zenaida auriculata",
+    "species_code": "eardov1",
+    "input_name": "zenaida_auriculata",
+    "gpkg": "descargas_ebird\\eardov1\\zenaida_auriculata_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\eardov1\\zenaida_auriculata_pop.tif"
+  },
+  {
+    "scientific_name": "Xanthopsar flavus",
+    "species_code": "sacbla2",
+    "input_name": "xanthopsar_flavus",
+    "gpkg": "descargas_ebird\\sacbla2\\xanthopsar_flavus_dist.gpkg"
+  },
+  {
+    "scientific_name": "Agelaioides badius",
+    "species_code": "bawcow4",
+    "input_name": "agelaioides_badius"
+  },
+  {
+    "scientific_name": "Molothrus bonariensis",
+    "species_code": "shicow",
+    "input_name": "molothrus_bonariensis_hembra",
+    "gpkg": "descargas_ebird\\shicow\\molothrus_bonariensis_hembra_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\shicow\\molothrus_bonariensis_hembra_pop.tif"
+  },
+  {
+    "scientific_name": "Ramphastos toco",
+    "species_code": "toctou1",
+    "input_name": "ramphastos_toco"
+  },
+  {
+    "scientific_name": "Knipolegus aterrimus",
+    "species_code": "whwblt1",
+    "input_name": "knipolegus_aterrimus"
+  },
+  {
+    "scientific_name": "Turdus rufiventris",
+    "species_code": "rubthr1",
+    "input_name": "zorzal_colorado_turdus_rufiventris"
+  },
+  {
+    "scientific_name": "Crotophaga ani",
+    "species_code": "smbani",
+    "input_name": "crotophaga_ani",
+    "gpkg": "descargas_ebird\\smbani\\crotophaga_ani_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\smbani\\crotophaga_ani_pop.tif"
+  },
+  {
+    "scientific_name": "Gubernatrix cristata",
+    "species_code": "yelcar1",
+    "input_name": "gubernatrix_cristata_hembra",
+    "gpkg": "descargas_ebird\\yelcar1\\gubernatrix_cristata_hembra_dist.gpkg"
+  },
+  {
+    "scientific_name": "Cygnus melancoryphus",
+    "species_code": "blnswa2",
+    "input_name": "cygnus_melancoryphus",
+    "gpkg": "descargas_ebird\\blnswa2\\cygnus_melancoryphus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\blnswa2\\cygnus_melancoryphus_pop.tif"
+  },
+  {
+    "scientific_name": "Thectocercus acuticaudatus",
+    "species_code": "bucpar",
+    "input_name": "thectocercus_acuticaudatus",
+    "gpkg": "descargas_ebird\\bucpar\\thectocercus_acuticaudatus_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\bucpar\\thectocercus_acuticaudatus_pop.tif"
+  },
+  {
+    "scientific_name": "Platalea ajaja",
+    "species_code": "rosspo1",
+    "input_name": "platalea_ajaja",
+    "gpkg": "descargas_ebird\\rosspo1\\platalea_ajaja_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\rosspo1\\platalea_ajaja_pop.tif"
+  },
+  {
+    "scientific_name": "Ardea ibis",
+    "species_code": "categr1",
+    "input_name": "bubulcus_ibis",
+    "gpkg": "descargas_ebird\\categr1\\bubulcus_ibis_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\categr1\\bubulcus_ibis_pop.tif"
+  },
+  {
+    "scientific_name": "Chroicocephalus maculipennis",
+    "species_code": "brhgul2",
+    "input_name": "chroicocephalus_maculipennis",
+    "gpkg": "descargas_ebird\\brhgul2\\chroicocephalus_maculipennis_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\brhgul2\\chroicocephalus_maculipennis_pop.tif"
+  },
+  {
+    "scientific_name": "Hirundo rustica",
+    "species_code": "barswa",
+    "input_name": "hirundo_rustica",
+    "gpkg": "descargas_ebird\\barswa\\hirundo_rustica_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\barswa\\hirundo_rustica_pop.tif"
+  },
+  {
+    "scientific_name": "Zonotrichia capensis",
+    "species_code": "rucspa1",
+    "input_name": "zonotrichia_capensis",
+    "gpkg": "descargas_ebird\\rucspa1\\zonotrichia_capensis_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\rucspa1\\zonotrichia_capensis_pop.tif"
+  },
+  {
+    "scientific_name": "Podiceps nigricollis",
+    "species_code": "eargre",
+    "input_name": "podiceps_nigricollis",
+    "gpkg": "descargas_ebird\\eargre\\podiceps_nigricollis_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\eargre\\podiceps_nigricollis_pop.tif"
+  },
+  {
+    "scientific_name": "Patagioenas picazuro",
+    "species_code": "picpig2",
+    "input_name": "patagioenas_picazuro",
+    "gpkg": "descargas_ebird\\picpig2\\patagioenas_picazuro_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\picpig2\\patagioenas_picazuro_pop.tif"
+  },
+  {
+    "scientific_name": "Leucochloris albicollis",
+    "species_code": "whthum2",
+    "input_name": "leucochloris_albicollis",
+    "gpkg": "descargas_ebird\\whthum2\\leucochloris_albicollis_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\whthum2\\leucochloris_albicollis_pop.tif"
+  },
+  {
+    "scientific_name": "Patagona gigas",
+    "species_code": "giahum1",
+    "input_name": "patagona_gigas",
+    "gpkg": "descargas_ebird\\giahum1\\patagona_gigas_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\giahum1\\patagona_gigas_pop.tif"
+  },
+  {
+    "scientific_name": "Hymenops perspicillatus",
+    "species_code": "spetyr1",
+    "input_name": "hymenops_perspicillatus_hembra",
+    "gpkg": "descargas_ebird\\spetyr1\\hymenops_perspicillatus_hembra_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\spetyr1\\hymenops_perspicillatus_hembra_pop.tif"
+  },
+  {
+    "scientific_name": "Spheniscus magellanicus",
+    "species_code": "magpen1",
+    "input_name": "spheniscus_magellanicus",
+    "gpkg": "descargas_ebird\\magpen1\\spheniscus_magellanicus_dist.gpkg"
+  },
+  {
+    "scientific_name": "Dendrocygna viduata",
+    "species_code": "wfwduc1",
+    "input_name": "dendrocygna_viduata",
+    "gpkg": "descargas_ebird\\wfwduc1\\dendrocygna_viduata_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\wfwduc1\\dendrocygna_viduata_pop.tif"
+  },
+  {
+    "scientific_name": "Rupornis magnirostris",
+    "species_code": "roahaw",
+    "input_name": "rupornis_magnirostris",
+    "gpkg": "descargas_ebird\\roahaw\\rupornis_magnirostris_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\roahaw\\rupornis_magnirostris_pop.tif"
+  },
+  {
+    "scientific_name": "Tyrannus savana",
+    "species_code": "fotfly",
+    "input_name": "tyrannus_savana",
+    "gpkg": "descargas_ebird\\fotfly\\tyrannus_savana_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\fotfly\\tyrannus_savana_pop.tif"
+  },
+  {
+    "scientific_name": "Columbina talpacoti",
+    "species_code": "rugdov",
+    "input_name": "columbina_talpacoti",
+    "gpkg": "descargas_ebird\\rugdov\\columbina_talpacoti_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\rugdov\\columbina_talpacoti_pop.tif"
+  },
+  {
+    "scientific_name": "Turdus falcklandii",
+    "species_code": "austhr1",
+    "input_name": "turdus_falcklandii",
+    "gpkg": "descargas_ebird\\austhr1\\turdus_falcklandii_dist.gpkg",
+    "tif_weekly": "descargas_ebird\\austhr1\\turdus_falcklandii_pop.tif"
+  }
+]

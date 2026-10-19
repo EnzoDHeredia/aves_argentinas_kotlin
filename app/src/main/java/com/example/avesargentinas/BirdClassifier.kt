@@ -21,7 +21,7 @@ class BirdClassifier(
 ) {
     companion object {
         private const val TAG = "BirdClassifier"
-        private const val MODEL_FILE = "birds_float32.tflite"
+        private const val MODEL_FILE = "birds_float32_v2_b3.tflite"
         private const val LABELS_FILE = "labels.txt"
         private const val LABELS_JSON_FILE = "labels_map.json"
 
@@ -39,7 +39,7 @@ class BirdClassifier(
 
     private lateinit var tflite: Interpreter
     private lateinit var labelInfos: List<LabelInfo>
-    private val inputSize = 256  // Tamaño de entrada que espera el modelo
+    private val inputSize = 300  // Tamaño de entrada que espera el modelo
     private var numClasses = 0
 
     // Configuración de normalización: ImageNet (usado en entrenamiento PyTorch)

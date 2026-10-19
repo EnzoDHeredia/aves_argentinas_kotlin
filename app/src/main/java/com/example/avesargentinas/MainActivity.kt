@@ -490,7 +490,7 @@ class MainActivity : BaseActivity() {
             selectedScientificName = BirdLabelsManager.getScientificName(this, capitalizedName!!)
             
             txtScientific.visibility = View.VISIBLE
-            txtScientific.text = "Nombre cientÃƒÂ­fico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+            txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
             btnConfirm.isEnabled = true
         }
         
@@ -506,7 +506,7 @@ class MainActivity : BaseActivity() {
                     selectedCommonName = matchingName
                     selectedScientificName = BirdLabelsManager.getScientificName(this@MainActivity, matchingName)
                     txtScientific.visibility = View.VISIBLE
-                    txtScientific.text = "Nombre cientÃƒÂ­fico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+                    txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
                     btnConfirm.isEnabled = true
                 } else {
                     selectedScientificName = null
@@ -546,7 +546,7 @@ class MainActivity : BaseActivity() {
                     selectedCommonName = match
                     selectedScientificName = lastPrediction?.scientificName ?: BirdLabelsManager.getScientificName(this, match)
                     txtScientific.visibility = View.VISIBLE
-                    txtScientific.text = "Nombre cientÃƒÂ­fico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
+                    txtScientific.text = "Nombre científico: ${selectedScientificName?.let { formatScientificName(it) } ?: "-"}"
                     btnConfirm.isEnabled = true
                     // no desplegar las opciones automÃƒÂ¡ticamente; dejar el valor preseleccionado
                 }
