@@ -7,6 +7,11 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.graphics.Color
 import android.graphics.Typeface
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.drawable.Drawable
@@ -212,7 +217,7 @@ class LearningGameActivity : BaseActivity() {
         }
         if (summary.review > 0) {
             entries.add(PieEntry(summary.review.toFloat(), getString(R.string.learning_mark)))
-            colors.add(getColor(R.color.brand_secondary))
+            colors.add(getColor(R.color.learning_review_btn_bg))
         }
         if (entries.isEmpty()) {
             entries.add(PieEntry(1f, ""))
@@ -220,7 +225,7 @@ class LearningGameActivity : BaseActivity() {
         }
         val dataSet = PieDataSet(entries, "").apply {
             this.colors = colors
-            sliceSpace = if (entries.size > 1) 4f else 0f
+            sliceSpace = if (entries.size > 1) 3f else 0f
             setDrawValues(false)
         }
         val pct = if (summary.total > 0) (summary.known * 100) / summary.total else 0
@@ -229,20 +234,28 @@ class LearningGameActivity : BaseActivity() {
             pct >= 50 -> getString(R.string.learning_summary_great)
             else -> getString(R.string.learning_summary_keep_practicing)
         }
+        val pctText = "$pct%"
+        val subText = "${summary.known}/${summary.total}"
+        val centerSpannable = SpannableString("$pctText\n$subText").apply {
+            setSpan(RelativeSizeSpan(1.45f), 0, pctText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(StyleSpan(Typeface.BOLD), 0, pctText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(ForegroundColorSpan(getColor(R.color.brand_primary)), 0, pctText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(RelativeSizeSpan(0.75f), pctText.length + 1, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(ForegroundColorSpan(getColor(R.color.text_secondary)), pctText.length + 1, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
         chart.apply {
             description.isEnabled = false
             legend.isEnabled = false
             isDrawHoleEnabled = true
-            holeRadius = 72f
-            transparentCircleRadius = 76f
+            holeRadius = 78f
+            transparentCircleRadius = 82f
             setHoleColor(Color.TRANSPARENT)
             setDrawEntryLabels(false)
             setTouchEnabled(false)
             isRotationEnabled = false
-            centerText = "$pct%\n${summary.known}/${summary.total}"
+            centerText = centerSpannable
             setCenterTextSize(18f)
             setCenterTextTypeface(Typeface.DEFAULT_BOLD)
-            setCenterTextColor(getColor(R.color.text_primary))
             data = PieData(dataSet)
             invalidate()
         }
@@ -353,6 +366,8 @@ class LearningGameActivity : BaseActivity() {
             val state = model.state.value.session
             val canAssessSwipe = !busy && !openingBirdInfo && photoReady &&
                 state.screen == LearningScreen.CARD && state.face == CardFace.BACK && state.canAssess
+            val canFlipSwipe = !busy && !openingBirdInfo && photoReady &&
+                state.screen == LearningScreen.CARD && state.face == CardFace.FRONT
             val isPhotoTouch = view === photo
 
             when (event.actionMasked) {
@@ -366,40 +381,48 @@ class LearningGameActivity : BaseActivity() {
                     val dx = event.rawX - downX
                     val dy = event.rawY - downY
                     if (!swiping && abs(dx) > slop && abs(dx) > abs(dy)) {
-                        if (canAssessSwipe) {
+                        if (canAssessSwipe || canFlipSwipe) {
                             swiping = true
                             card.parent?.requestDisallowInterceptTouchEvent(true)
                         }
                     }
                     if (swiping) {
                         val width = card.width.coerceAtLeast(1)
-                        val progress = (abs(dx) / (width * 0.35f)).coerceIn(0f, 1f)
-                        card.translationX = dx
-                        card.rotation = (dx / width) * 14f
-                        card.alpha = 1f - progress * 0.12f
-
-                        val stampKnown = findViewById<View>(R.id.learning_stamp_known)
-                        val stampReview = findViewById<View>(R.id.learning_stamp_review)
-                        val knownBtn = findViewById<View>(R.id.learning_known)
-                        val markBtn = findViewById<View>(R.id.learning_mark)
-                        if (dx > 0f) {
-                            stampKnown?.alpha = progress
-                            stampReview?.alpha = 0f
-                            knownBtn?.scaleX = 1f + 0.12f * progress
-                            knownBtn?.scaleY = 1f + 0.12f * progress
-                            markBtn?.scaleX = 1f
-                            markBtn?.scaleY = 1f
-                            markBtn?.alpha = 1f - 0.45f * progress
-                            knownBtn?.alpha = 1f
+                        if (canFlipSwipe) {
+                            val progress = (abs(dx) / (width * 0.35f)).coerceIn(0f, 1f)
+                            card.cameraDistance = 8000f * resources.displayMetrics.density
+                            card.rotationY = (dx / width) * 35f
+                            card.translationX = dx * 0.25f
+                            card.alpha = 1f - progress * 0.08f
                         } else {
-                            stampReview?.alpha = progress
-                            stampKnown?.alpha = 0f
-                            markBtn?.scaleX = 1f + 0.12f * progress
-                            markBtn?.scaleY = 1f + 0.12f * progress
-                            knownBtn?.scaleX = 1f
-                            knownBtn?.scaleY = 1f
-                            knownBtn?.alpha = 1f - 0.45f * progress
-                            markBtn?.alpha = 1f
+                            val progress = (abs(dx) / (width * 0.35f)).coerceIn(0f, 1f)
+                            card.translationX = dx
+                            card.rotation = (dx / width) * 14f
+                            card.alpha = 1f - progress * 0.12f
+
+                            val stampKnown = findViewById<View>(R.id.learning_stamp_known)
+                            val stampReview = findViewById<View>(R.id.learning_stamp_review)
+                            val knownBtn = findViewById<View>(R.id.learning_known)
+                            val markBtn = findViewById<View>(R.id.learning_mark)
+                            if (dx > 0f) {
+                                stampKnown?.alpha = progress
+                                stampReview?.alpha = 0f
+                                knownBtn?.scaleX = 1f + 0.12f * progress
+                                knownBtn?.scaleY = 1f + 0.12f * progress
+                                markBtn?.scaleX = 1f
+                                markBtn?.scaleY = 1f
+                                markBtn?.alpha = 1f - 0.45f * progress
+                                knownBtn?.alpha = 1f
+                            } else {
+                                stampReview?.alpha = progress
+                                stampKnown?.alpha = 0f
+                                markBtn?.scaleX = 1f + 0.12f * progress
+                                markBtn?.scaleY = 1f + 0.12f * progress
+                                knownBtn?.scaleX = 1f
+                                knownBtn?.scaleY = 1f
+                                knownBtn?.alpha = 1f - 0.45f * progress
+                                markBtn?.alpha = 1f
+                            }
                         }
                         true
                     } else false
@@ -412,8 +435,11 @@ class LearningGameActivity : BaseActivity() {
 
                     if (swiping) {
                         swiping = false
-                        val threshold = (card.width * 0.25f).coerceAtLeast(48f * resources.displayMetrics.density)
-                        if (canAssessSwipe && token != null && abs(dx) >= threshold) {
+                        val threshold = (card.width * 0.20f).coerceAtLeast(36f * resources.displayMetrics.density)
+                        if (canFlipSwipe && token != null && abs(dx) >= threshold) {
+                            resetCardSwipe()
+                            flip(token)
+                        } else if (canAssessSwipe && token != null && abs(dx) >= threshold) {
                             val assessment = if (dx > 0f) SelfAssessment.KNOWN else SelfAssessment.REVIEW
                             if (!animationsEnabled()) {
                                 resetCardSwipe()
@@ -444,6 +470,13 @@ class LearningGameActivity : BaseActivity() {
                                 start()
                             }
                             SpringAnimation(card, DynamicAnimation.ROTATION, 0f).apply {
+                                spring = SpringForce(0f).apply {
+                                    dampingRatio = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY
+                                    stiffness = SpringForce.STIFFNESS_LOW
+                                }
+                                start()
+                            }
+                            SpringAnimation(card, DynamicAnimation.ROTATION_Y, 0f).apply {
                                 spring = SpringForce(0f).apply {
                                     dampingRatio = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY
                                     stiffness = SpringForce.STIFFNESS_LOW
@@ -497,6 +530,7 @@ class LearningGameActivity : BaseActivity() {
         card.animate().cancel()
         card.translationX = 0f
         card.rotation = 0f
+        card.rotationY = 0f
         card.alpha = 1f
         findViewById<View>(R.id.learning_stamp_known)?.let { it.animate().cancel(); it.alpha = 0f }
         findViewById<View>(R.id.learning_stamp_review)?.let { it.animate().cancel(); it.alpha = 0f }
