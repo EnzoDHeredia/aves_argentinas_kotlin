@@ -75,9 +75,9 @@
     <string name="learning_photo_description">Fotografía de un ave para reconocer</string>
     <string name="learning_reveal">Mostrar respuesta</string>
     <string name="learning_front">Volver al frente</string>
-    <string name="learning_self_assessment">← Repasar · Deslizá o tocá · La sabía →</string>
-    <string name="learning_known">La sabía →</string>
-    <string name="learning_mark">← Quiero repasarla</string>
+    <string name="learning_self_assessment">Repasar · Deslizá o tocá · La sabía</string>
+    <string name="learning_known">La sabía</string>
+    <string name="learning_mark">Quiero repasar</string>
     <string name="learning_summary">Tu pasada, en resumen</string>
     <string name="learning_total">Tarjetas evaluadas: %1$d</string>
     <string name="learning_known_total">La sabía: %1$d</string>

@@ -168,6 +168,10 @@ class LearningGameActivity : BaseActivity() {
             resetCardSwipe()
             Glide.with(this).clear(photo)
             photo.setImageDrawable(null)
+            findViewById<ImageView>(R.id.learning_photo_backdrop)?.let {
+                Glide.with(this).clear(it)
+                it.setImageDrawable(null)
+            }
             // No conservar una respuesta abandonada en una vista oculta.
             findViewById<TextView>(R.id.learning_card_text).text = ""
             findViewById<TextView>(R.id.learning_back_text).text = ""
@@ -281,6 +285,7 @@ class LearningGameActivity : BaseActivity() {
         val isPhoto = current is LearningCard.Photo
         findViewById<View>(R.id.learning_photo_container).isVisible = isPhoto
         photo.isVisible = isPhoto
+        findViewById<View>(R.id.learning_photo_backdrop)?.isVisible = isPhoto
         findViewById<View>(R.id.learning_scrim).isVisible = isPhoto
         findViewById<View>(R.id.learning_question_background).isVisible = !isPhoto
 
@@ -323,6 +328,10 @@ class LearningGameActivity : BaseActivity() {
             photoReady = !isPhoto
             Glide.with(this).clear(photo)
             photo.setImageDrawable(null)
+            findViewById<ImageView>(R.id.learning_photo_backdrop)?.let {
+                Glide.with(this).clear(it)
+                it.setImageDrawable(null)
+            }
             if (isPhoto) loadPhoto(current as LearningCard.Photo, token)
             findViewById<androidx.core.widget.NestedScrollView>(R.id.learning_scroll).scrollTo(0, 0)
         }
@@ -503,9 +512,19 @@ class LearningGameActivity : BaseActivity() {
     }
 
     private fun loadPhoto(current: LearningCard.Photo, token: Long) {
-        Glide.with(this).load("file:///android_asset/${current.imagePath}")
-            .override(resources.displayMetrics.widthPixels, resources.getDimensionPixelSize(R.dimen.learning_card_height))
-            .diskCacheStrategy(DiskCacheStrategy.NONE).centerCrop().dontAnimate()
+        val assetUri = "file:///android_asset/${current.imagePath}"
+        findViewById<ImageView>(R.id.learning_photo_backdrop)?.let { backdrop ->
+            Glide.with(this).load(assetUri)
+                .override(120, 180)
+                .centerCrop()
+                .dontAnimate()
+                .into(backdrop)
+        }
+
+        Glide.with(this).load(assetUri)
+            .override(resources.displayMetrics.widthPixels, resources.displayMetrics.heightPixels)
+            .fitCenter()
+            .dontAnimate()
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(error: GlideException?, model: Any?, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
                     photo.post {
@@ -547,34 +566,26 @@ class LearningGameActivity : BaseActivity() {
             isEnabled = ready && showBirdInfo
         }
 
-        val revealAlpha = if (isBack) 0.65f else 1.0f
+        setFaceVisibility(R.id.learning_reveal, !isBack)
+        setFaceVisibility(R.id.learning_assessment, isBack)
+
         findViewById<View>(R.id.learning_reveal)?.apply {
-            isEnabled = ready
-            alpha = revealAlpha
-            contentDescription = getString(if (isBack) R.string.learning_front else R.string.learning_reveal)
-        }
-        findViewById<TextView>(R.id.learning_reveal_label)?.apply {
-            alpha = revealAlpha
-            text = getString(if (isBack) R.string.learning_flip_short else R.string.learning_reveal_short)
+            isEnabled = ready && !isBack
+            contentDescription = getString(R.string.learning_reveal)
         }
 
         val assessReady = ready && isBack && state.canAssess
-        val sideAlpha = if (isBack) 1.0f else 0.25f
         findViewById<View>(R.id.learning_known)?.apply {
             isEnabled = assessReady
-            alpha = sideAlpha
             importantForAccessibility = if (isBack && !busy) View.IMPORTANT_FOR_ACCESSIBILITY_YES
                 else View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
         }
-        findViewById<View>(R.id.learning_known_label)?.alpha = sideAlpha
 
         findViewById<View>(R.id.learning_mark)?.apply {
             isEnabled = assessReady
-            alpha = sideAlpha
             importantForAccessibility = if (isBack && !busy) View.IMPORTANT_FOR_ACCESSIBILITY_YES
                 else View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
         }
-        findViewById<View>(R.id.learning_mark_label)?.alpha = sideAlpha
     }
 
     private fun assess(token: Long, assessment: SelfAssessment) {
