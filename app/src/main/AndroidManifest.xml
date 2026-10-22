@@ -29,6 +29,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.learning.LearningGameActivity"
+            android:exported="false" />
+
         <!-- Pantalla de opciones -->
         <activity
             android:name=".SettingsActivity"

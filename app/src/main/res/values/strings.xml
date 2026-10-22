@@ -1,4 +1,4 @@
-﻿<resources>
+<resources>
     <string name="app_name">Aves Argentinas</string>
     <string name="observation_thumbnail">Miniatura de observación</string>
     <string name="observation_log_title">Historial de observaciones</string>
@@ -36,9 +36,11 @@
 
     <string name="bird_info_title">Información del ave</string>
     <string name="bird_info_view">Ver información del ave</string>
+    <string name="learning_bird_info_failed">No se pudo abrir la información del ave. Podés volver a intentarlo.</string>
     <string name="bird_info_distribution">Distribución</string>
     <string name="bird_info_population">Abundancia / Población</string>
     <string name="bird_info_no_image">Sin imagen disponible</string>
+    <string name="bird_info_map_unavailable">Mapa de distribución no disponible.</string>
     <string name="bird_info_legend_title">Información</string>
     <string name="bird_info_legend_distribution">Distribución: Las zonas en verde indican el área geográfica donde habita el ave.</string>
     <string name="result_confidence_value">Confianza %1$s%%</string>
@@ -54,4 +56,45 @@
         <item quantity="one">%d individuo</item>
         <item quantity="other">%d individuos</item>
     </plurals>
+    <string name="learning_title">Aprender jugando</string>
+    <string name="learning_choose">Elegí cómo aprender</string>
+    <string name="learning_intro">Pensá tu respuesta, girá la tarjeta y elegí qué querés repasar.</string>
+    <string name="learning_questions">Preguntas sobre aves</string>
+    <string name="learning_species">Reconocé la especie</string>
+    <string name="learning_questions_description">Explorá cómo viven las aves, sus ambientes y cómo cuidarlas.</string>
+    <string name="learning_species_description">Observá la fotografía e intentá reconocer el ave.</string>
+    <string name="learning_loading">Preparando las tarjetas…</string>
+    <string name="learning_available">Rondas de 10 tarjetas.</string>
+    <string name="learning_insufficient">Tarjetas disponibles: %1$d. La ronda tendrá ese total.</string>
+    <string name="learning_unavailable">Esta modalidad no tiene tarjetas disponibles. Podés elegir otra modalidad o volver.</string>
+    <string name="learning_load_failed">No se pudieron cargar las tarjetas. Volvé a entrar para intentarlo de nuevo.</string>
+    <string name="learning_card_unavailable">No se pudo mostrar una tarjeta. La omitimos sin evaluarla y ajustamos la pasada.</string>
+    <string name="learning_progress">Tarjeta %1$d de %2$d</string>
+    <string name="learning_review_progress">Repaso · Tarjeta %1$d de %2$d</string>
+    <string name="learning_species_prompt">¿Qué especie es?</string>
+    <string name="learning_photo_description">Fotografía de un ave para reconocer</string>
+    <string name="learning_reveal">Mostrar respuesta</string>
+    <string name="learning_front">Volver al frente</string>
+    <string name="learning_self_assessment">← Repasar · Deslizá o tocá · La sabía →</string>
+    <string name="learning_known">La sabía →</string>
+    <string name="learning_mark">← Quiero repasarla</string>
+    <string name="learning_summary">Tu pasada, en resumen</string>
+    <string name="learning_total">Tarjetas evaluadas: %1$d</string>
+    <string name="learning_known_total">La sabía: %1$d</string>
+    <string name="learning_review_total">Quiero repasarla: %1$d</string>
+    <string name="learning_summary_explanation">Estas son tus autoevaluaciones de esta pasada. No se guardan al salir.</string>
+    <string name="learning_review">Repasar marcadas</string>
+    <string name="learning_again">Jugar de nuevo</string>
+    <string name="learning_choose_mode">Elegir modalidad</string>
+    <string name="learning_exit">Volver al menú</string>
+    <string name="learning_summary_excellent">¡Excelente pasada! 🎉</string>
+    <string name="learning_summary_great">¡Muy buena pasada! 👍</string>
+    <string name="learning_summary_keep_practicing">¡A seguir practicando! 💪</string>
+    <string name="learning_stamp_known">LA SABÍA</string>
+    <string name="learning_stamp_review">REPASAR</string>
+    <string name="learning_tap_hint">Tocá para ver la respuesta</string>
+    <string name="learning_mark_short">Repasar</string>
+    <string name="learning_known_short">La sabía</string>
+    <string name="learning_flip_short">Girar</string>
+    <string name="learning_reveal_short">Revelar</string>
 </resources>

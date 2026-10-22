@@ -1,0 +1,227 @@
+[
+  {
+    "id": "PHOTO-001",
+    "speciesKey": "phalacrocorax_brasilianus",
+    "imagePath": "learning/photos/photo-001.webp"
+  },
+  {
+    "id": "PHOTO-002",
+    "speciesKey": "aramus_guarauna",
+    "imagePath": "learning/photos/photo-002.webp"
+  },
+  {
+    "id": "PHOTO-003",
+    "speciesKey": "chauna_torquata",
+    "imagePath": "learning/photos/photo-003.webp"
+  },
+  {
+    "id": "PHOTO-004",
+    "speciesKey": "syrigma_sibilatrix",
+    "imagePath": "learning/photos/photo-004.webp"
+  },
+  {
+    "id": "PHOTO-005",
+    "speciesKey": "ciconia_maguari",
+    "imagePath": "learning/photos/photo-005.webp"
+  },
+  {
+    "id": "PHOTO-006",
+    "speciesKey": "cygnus_melancoryphus",
+    "imagePath": "learning/photos/photo-006.webp"
+  },
+  {
+    "id": "PHOTO-007",
+    "speciesKey": "coscoroba_coscoroba",
+    "imagePath": "learning/photos/photo-007.webp"
+  },
+  {
+    "id": "PHOTO-008",
+    "speciesKey": "phimosus_infuscatus",
+    "imagePath": "learning/photos/photo-008.webp"
+  },
+  {
+    "id": "PHOTO-009",
+    "speciesKey": "plegadis_chihi",
+    "imagePath": "learning/photos/photo-009.webp"
+  },
+  {
+    "id": "PHOTO-010",
+    "speciesKey": "platalea_ajaja",
+    "imagePath": "learning/photos/photo-010.webp"
+  },
+  {
+    "id": "PHOTO-011",
+    "speciesKey": "phoenicopterus_chilensis",
+    "imagePath": "learning/photos/photo-011.webp"
+  },
+  {
+    "id": "PHOTO-012",
+    "speciesKey": "fulica_leucoptera",
+    "imagePath": "learning/photos/photo-012.webp"
+  },
+  {
+    "id": "PHOTO-013",
+    "speciesKey": "fulica_rufifrons",
+    "imagePath": "learning/photos/photo-013.webp"
+  },
+  {
+    "id": "PHOTO-014",
+    "speciesKey": "fulica_armillata",
+    "imagePath": "learning/photos/photo-014.webp"
+  },
+  {
+    "id": "PHOTO-015",
+    "speciesKey": "egretta_thula",
+    "imagePath": "learning/photos/photo-015.webp"
+  },
+  {
+    "id": "PHOTO-016",
+    "speciesKey": "ardea_alba",
+    "imagePath": "learning/photos/photo-016.webp"
+  },
+  {
+    "id": "PHOTO-017",
+    "speciesKey": "nycticorax_nycticorax",
+    "imagePath": "learning/photos/photo-017.webp"
+  },
+  {
+    "id": "PHOTO-018",
+    "speciesKey": "ardea_cocoi",
+    "imagePath": "learning/photos/photo-018.webp"
+  },
+  {
+    "id": "PHOTO-019",
+    "speciesKey": "chroicocephalus_maculipennis",
+    "imagePath": "learning/photos/photo-019.webp"
+  },
+  {
+    "id": "PHOTO-020",
+    "speciesKey": "chroicocephalus_cirrocephalus",
+    "imagePath": "learning/photos/photo-020.webp"
+  },
+  {
+    "id": "PHOTO-021",
+    "speciesKey": "larus_dominicanus",
+    "imagePath": "learning/photos/photo-021.webp"
+  },
+  {
+    "id": "PHOTO-022",
+    "speciesKey": "progne_chalybea",
+    "imagePath": "learning/photos/photo-022.webp"
+  },
+  {
+    "id": "PHOTO-023",
+    "speciesKey": "hirundo_rustica",
+    "imagePath": "learning/photos/photo-023.webp"
+  },
+  {
+    "id": "PHOTO-024",
+    "speciesKey": "tigrisoma_lineatum",
+    "imagePath": "learning/photos/photo-024.webp"
+  },
+  {
+    "id": "PHOTO-025",
+    "speciesKey": "aramides_ypecaha",
+    "imagePath": "learning/photos/photo-025.webp"
+  },
+  {
+    "id": "PHOTO-026",
+    "speciesKey": "jacana_jacana",
+    "imagePath": "learning/photos/photo-026.webp"
+  },
+  {
+    "id": "PHOTO-027",
+    "speciesKey": "rollandia_rolland",
+    "imagePath": "learning/photos/photo-027.webp"
+  },
+  {
+    "id": "PHOTO-028",
+    "speciesKey": "podiceps_major",
+    "imagePath": "learning/photos/photo-028.webp"
+  },
+  {
+    "id": "PHOTO-029",
+    "speciesKey": "podilymbus_podiceps",
+    "imagePath": "learning/photos/photo-029.webp"
+  },
+  {
+    "id": "PHOTO-030",
+    "speciesKey": "anas_flavirostris",
+    "imagePath": "learning/photos/photo-030.webp"
+  },
+  {
+    "id": "PHOTO-031",
+    "speciesKey": "anas_versicolor",
+    "imagePath": "learning/photos/photo-031.webp"
+  },
+  {
+    "id": "PHOTO-032",
+    "speciesKey": "anas_cyanoptera",
+    "imagePath": "learning/photos/photo-032.webp"
+  },
+  {
+    "id": "PHOTO-033",
+    "speciesKey": "anas_platalea",
+    "imagePath": "learning/photos/photo-033.webp"
+  },
+  {
+    "id": "PHOTO-034",
+    "speciesKey": "amazonetta_brasiliensis",
+    "imagePath": "learning/photos/photo-034.webp"
+  },
+  {
+    "id": "PHOTO-035",
+    "speciesKey": "callonetta_leucophrys",
+    "imagePath": "learning/photos/photo-035.webp"
+  },
+  {
+    "id": "PHOTO-036",
+    "speciesKey": "anas_bahamensis",
+    "imagePath": "learning/photos/photo-036.webp"
+  },
+  {
+    "id": "PHOTO-037",
+    "speciesKey": "anas_georgica",
+    "imagePath": "learning/photos/photo-037.webp"
+  },
+  {
+    "id": "PHOTO-038",
+    "speciesKey": "anas_sibilatrix",
+    "imagePath": "learning/photos/photo-038.webp"
+  },
+  {
+    "id": "PHOTO-039",
+    "speciesKey": "netta_peposaca",
+    "imagePath": "learning/photos/photo-039.webp"
+  },
+  {
+    "id": "PHOTO-040",
+    "speciesKey": "dendrocygna_bicolor",
+    "imagePath": "learning/photos/photo-040.webp"
+  },
+  {
+    "id": "PHOTO-041",
+    "speciesKey": "dendrocygna_viduata",
+    "imagePath": "learning/photos/photo-041.webp"
+  },
+  {
+    "id": "PHOTO-042",
+    "speciesKey": "oxyura_vittata",
+    "imagePath": "learning/photos/photo-042.webp"
+  },
+  {
+    "id": "PHOTO-043",
+    "speciesKey": "gallinula_galeata",
+    "imagePath": "learning/photos/photo-043.webp"
+  },
+  {
+    "id": "PHOTO-044",
+    "speciesKey": "vanellus_chilensis",
+    "imagePath": "learning/photos/photo-044.webp"
+  },
+  {
+    "id": "PHOTO-045",
+    "speciesKey": "himantopus_mexicanus",
+    "imagePath": "learning/photos/photo-045.webp"
+  }
+]

@@ -42,11 +42,17 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.activity:activity-ktx:1.8.0")
 
     // Material Design
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("androidx.dynamicanimation:dynamicanimation:1.0.0")
+
+    // Gráficos y animaciones de celebración
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation("nl.dionsegijn:konfetti-xml:2.0.4")
 
     // ZoomageView para zoom
     implementation("com.jsibbold:zoomage:1.3.1")
@@ -63,9 +69,9 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
 
     // Room (persistencia de observaciones)
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.7.2")
+    implementation("androidx.room:room-ktx:2.7.2")
+    kapt("androidx.room:room-compiler:2.7.2")
 
     // Ubicación y media
     implementation("com.google.android.gms:play-services-location:21.3.0")

@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/insets_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/brand_background">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_padding_small"
+        android:layout_marginEnd="@dimen/screen_padding_small"
+        android:layout_marginTop="@dimen/screen_padding_small"
+        app:cardBackgroundColor="@color/brand_surface"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/brand_outline"
+        app:strokeWidth="1dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/learning_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@color/text_primary"
+            app:navigationContentDescription="@string/back"
+            app:titleTextColor="@color/text_primary">
+            <TextView
+                android:id="@+id/learning_header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingTop="@dimen/screen_padding_small"
+                android:paddingBottom="@dimen/screen_padding_small"
+                android:text="@string/learning_title"
+                android:textColor="@color/text_primary"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:accessibilityHeading="true" />
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.card.MaterialCardView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/learning_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/screen_padding_small"
+                android:paddingEnd="@dimen/screen_padding_small"
+                android:paddingTop="@dimen/screen_padding_small"
+                android:paddingBottom="@dimen/screen_padding_large">
+
+                <LinearLayout
+                    android:id="@+id/learning_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/learning_notice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/screen_padding_small"
+                        android:accessibilityLiveRegion="polite"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                    <!-- Selector de modalidad (Estilo tarjetas grandes Top Picks) -->
+                    <LinearLayout
+                        android:id="@+id/learning_selector"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/learning_choose"
+                            android:textColor="@color/text_primary"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="12dp"
+                            android:text="@string/learning_intro"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp" />
+
+                        <!-- Tarjeta 1: Preguntas sobre aves -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            app:cardCornerRadius="22dp"
+                            app:cardElevation="2dp"
+                            app:strokeColor="@color/brand_outline"
+                            app:strokeWidth="1dp">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_learning_questions_gradient">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="18dp">
+
+                                    <ImageView
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:src="@drawable/ic_learning_quiz"
+                                        app:tint="#FFFFFF"
+                                        android:importantForAccessibility="no" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:importantForAccessibility="no"
+                                        android:text="@string/learning_questions"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/learning_questions_description"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:lineSpacingMultiplier="1.15"
+                                        android:text="@string/learning_questions_description"
+                                        android:textColor="#D9FFFFFF"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:id="@+id/learning_questions_availability"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:accessibilityLiveRegion="polite"
+                                        android:background="@drawable/bg_learning_chip"
+                                        android:paddingStart="12dp"
+                                        android:paddingTop="5dp"
+                                        android:paddingEnd="12dp"
+                                        android:paddingBottom="5dp"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/learning_questions"
+                                        style="@style/Widget.AvesArgentinas.Button.Outlined"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="16dp"
+                                        android:minHeight="@dimen/learning_button_height"
+                                        android:text="@string/learning_questions"
+                                        android:textColor="@color/brand_primary"
+                                        app:backgroundTint="@color/brand_surface"
+                                        app:strokeColor="@color/brand_surface"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </FrameLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Tarjeta 2: Reconocé la especie -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:cardCornerRadius="22dp"
+                            app:cardElevation="2dp"
+                            app:strokeColor="@color/brand_outline"
+                            app:strokeWidth="1dp">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/learning_species_preview_photo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:importantForAccessibility="no" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/bg_learning_scrim" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="18dp">
+
+                                    <ImageView
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:src="@drawable/ic_learning_zoom"
+                                        app:tint="#FFFFFF"
+                                        android:importantForAccessibility="no" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:importantForAccessibility="no"
+                                        android:text="@string/learning_species"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/learning_species_description"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:lineSpacingMultiplier="1.15"
+                                        android:text="@string/learning_species_description"
+                                        android:textColor="#D9FFFFFF"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:id="@+id/learning_species_availability"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:accessibilityLiveRegion="polite"
+                                        android:background="@drawable/bg_learning_chip"
+                                        android:paddingStart="12dp"
+                                        android:paddingTop="5dp"
+                                        android:paddingEnd="12dp"
+                                        android:paddingBottom="5dp"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold" />
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/learning_species"
+                                        style="@style/Widget.AvesArgentinas.Button.Outlined"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="16dp"
+                                        android:minHeight="@dimen/learning_button_height"
+                                        android:text="@string/learning_species"
+                                        android:textColor="@color/brand_primary"
+                                        app:backgroundTint="@color/brand_surface"
+                                        app:strokeColor="@color/brand_surface"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </FrameLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <!-- Ronda de juego (Estilo Tinder) -->
+                    <LinearLayout
+                        android:id="@+id/learning_round"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/learning_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:accessibilityLiveRegion="polite"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <!-- Tarjeta principal Tinder -->
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/learning_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/learning_card_height"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:importantForAccessibility="yes"
+                            app:cardBackgroundColor="@color/brand_surface"
+                            app:cardCornerRadius="@dimen/learning_card_radius"
+                            app:cardElevation="4dp"
+                            app:strokeColor="@color/brand_outline"
+                            app:strokeWidth="1dp">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:importantForAccessibility="no">
+
+                                <!-- Fondo para modo preguntas -->
+                                <View
+                                    android:id="@+id/learning_question_background"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/bg_learning_questions_gradient"
+                                    android:visibility="gone"
+                                    android:importantForAccessibility="no" />
+
+                                <!-- Contenedor e imagen de la foto del ave -->
+                                <FrameLayout
+                                    android:id="@+id/learning_photo_container"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:importantForAccessibility="noHideDescendants">
+
+                                    <ImageView
+                                        android:id="@+id/learning_photo"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="centerCrop"
+                                        android:contentDescription="@string/learning_photo_description"
+                                        android:importantForAccessibility="no"
+                                        android:visibility="gone" />
+                                </FrameLayout>
+
+                                <!-- Velo inferior para legibilidad del texto blanco -->
+                                <View
+                                    android:id="@+id/learning_scrim"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="240dp"
+                                    android:layout_gravity="bottom"
+                                    android:background="@drawable/bg_learning_scrim"
+                                    android:importantForAccessibility="no" />
+
+                                <!-- Sellos de autoevaluación dinámicos al deslizar -->
+                                <TextView
+                                    android:id="@+id/learning_stamp_known"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="top|start"
+                                    android:layout_marginStart="24dp"
+                                    android:layout_marginTop="28dp"
+                                    android:rotation="-14"
+                                    android:alpha="0"
+                                    android:text="@string/learning_stamp_known"
+                                    android:textColor="#6FA0FF"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/bg_learning_stamp_known"
+                                    android:paddingStart="14dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingEnd="14dp"
+                                    android:paddingBottom="6dp"
+                                    android:importantForAccessibility="no" />
+
+                                <TextView
+                                    android:id="@+id/learning_stamp_review"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="top|end"
+                                    android:layout_marginEnd="24dp"
+                                    android:layout_marginTop="28dp"
+                                    android:rotation="14"
+                                    android:alpha="0"
+                                    android:text="@string/learning_stamp_review"
+                                    android:textColor="#FFA726"
+                                    android:textSize="22sp"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/bg_learning_stamp_review"
+                                    android:paddingStart="14dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingEnd="14dp"
+                                    android:paddingBottom="6dp"
+                                    android:importantForAccessibility="no" />
+
+                                <!-- Información sobre el degradado inferior -->
+                                <FrameLayout
+                                    android:id="@+id/learning_card_header"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:minHeight="@dimen/learning_species_header_min_height"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:paddingBottom="22dp"
+                                    android:paddingTop="12dp"
+                                    android:importantForAccessibility="no">
+
+                                    <LinearLayout
+                                        android:id="@+id/learning_front_panel"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:importantForAccessibility="noHideDescendants">
+
+                                        <TextView
+                                            android:id="@+id/learning_card_text"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:lineSpacingMultiplier="1.15"
+                                            android:textColor="#FFFFFF"
+                                            android:textSize="26sp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/learning_card_hint"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:text="@string/learning_tap_hint"
+                                            android:textColor="#B3FFFFFF"
+                                            android:textSize="14sp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/learning_back_panel"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:gravity="bottom"
+                                        android:visibility="invisible"
+                                        android:importantForAccessibility="no">
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical"
+                                            android:importantForAccessibility="noHideDescendants">
+
+                                            <TextView
+                                                android:id="@+id/learning_back_text"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:lineSpacingMultiplier="1.12"
+                                                android:textColor="#FFFFFF"
+                                                android:textSize="26sp"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:id="@+id/learning_card_detail"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="6dp"
+                                                android:background="@drawable/bg_learning_chip"
+                                                android:paddingStart="12dp"
+                                                android:paddingTop="4dp"
+                                                android:paddingEnd="12dp"
+                                                android:paddingBottom="4dp"
+                                                android:textColor="#FFFFFF"
+                                                android:textSize="14sp" />
+                                        </LinearLayout>
+
+                                        <ImageButton
+                                            android:id="@+id/learning_bird_info"
+                                            android:layout_width="48dp"
+                                            android:layout_height="48dp"
+                                            android:layout_marginStart="12dp"
+                                            android:background="@drawable/bg_learning_glass_circle"
+                                            android:contentDescription="@string/bird_info_view"
+                                            android:importantForAccessibility="noHideDescendants"
+                                            android:padding="11dp"
+                                            android:scaleType="fitCenter"
+                                            android:visibility="gone"
+                                            app:srcCompat="@drawable/ic_info_exclamation"
+                                            app:tint="#FFFFFF" />
+                                    </LinearLayout>
+                                </FrameLayout>
+
+                            </FrameLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <!-- Botones circulares inferiores estilo Tinder -->
+                        <FrameLayout
+                            android:id="@+id/learning_actions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:baselineAligned="false"
+                                android:importantForAccessibility="no">
+
+                                <!-- Columna Izquierda: Repasar -->
+                                <LinearLayout
+                                    android:id="@+id/learning_mark_container"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:importantForAccessibility="no">
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/learning_mark"
+                                        style="@style/Widget.AvesArgentinas.Button.LearningRound"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        app:icon="@drawable/ic_learning_replay"
+                                        app:iconTint="@color/brand_secondary"
+                                        app:backgroundTint="@color/brand_secondary_container"
+                                        app:strokeColor="@color/brand_secondary"
+                                        app:strokeWidth="1.5dp"
+                                        android:contentDescription="@string/learning_mark" />
+
+                                    <TextView
+                                        android:id="@+id/learning_mark_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="@string/learning_mark_short"
+                                        android:textColor="@color/brand_secondary"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:importantForAccessibility="no" />
+                                </LinearLayout>
+
+                                <!-- Columna Centro: Girar / Revelar -->
+                                <LinearLayout
+                                    android:id="@+id/learning_reveal_container"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:importantForAccessibility="no">
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/learning_reveal"
+                                        style="@style/Widget.AvesArgentinas.Button.LearningRound"
+                                        android:layout_width="54dp"
+                                        android:layout_height="54dp"
+                                        app:icon="@drawable/ic_learning_flip"
+                                        app:iconTint="@color/brand_primary"
+                                        app:backgroundTint="@color/brand_surface"
+                                        app:strokeColor="@color/brand_outline"
+                                        app:strokeWidth="1.5dp"
+                                        android:contentDescription="@string/learning_reveal" />
+
+                                    <TextView
+                                        android:id="@+id/learning_reveal_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="@string/learning_flip_short"
+                                        android:textColor="@color/text_secondary"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:importantForAccessibility="no" />
+                                </LinearLayout>
+
+                                <!-- Columna Derecha: La sabía -->
+                                <LinearLayout
+                                    android:id="@+id/learning_known_container"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:importantForAccessibility="no">
+
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/learning_known"
+                                        style="@style/Widget.AvesArgentinas.Button.LearningRound"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        app:icon="@drawable/ic_learning_check"
+                                        app:iconTint="@color/brand_primary"
+                                        app:backgroundTint="@color/accent_soft"
+                                        app:strokeColor="@color/brand_primary"
+                                        app:strokeWidth="1.5dp"
+                                        android:contentDescription="@string/learning_known" />
+
+                                    <TextView
+                                        android:id="@+id/learning_known_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="@string/learning_known_short"
+                                        android:textColor="@color/brand_primary"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        android:importantForAccessibility="no" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <!-- Contenedor oculto que conserva compatibilidad con código existente -->
+                            <View
+                                android:id="@+id/learning_assessment"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:visibility="invisible"
+                                android:importantForAccessibility="no" />
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <!-- Pantalla de resumen final con rosca y celebración -->
+                    <LinearLayout
+                        android:id="@+id/learning_summary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/learning_summary_congrats"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/learning_summary_great"
+                            android:textColor="@color/text_primary"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:text="@string/learning_summary"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="15sp" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/learning_summary_results"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:cardBackgroundColor="@color/brand_surface"
+                            app:cardCornerRadius="22dp"
+                            app:cardElevation="2dp"
+                            app:strokeColor="@color/brand_outline"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal"
+                                android:padding="@dimen/screen_padding">
+
+                                <com.github.mikephil.charting.charts.PieChart
+                                    android:id="@+id/learning_donut_chart"
+                                    android:layout_width="190dp"
+                                    android:layout_height="190dp"
+                                    android:importantForAccessibility="no" />
+
+                                <TextView
+                                    android:id="@+id/learning_total"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:gravity="center"
+                                    android:textColor="@color/text_primary"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="14dp"
+                                    android:orientation="horizontal"
+                                    android:baselineAligned="false">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:layout_marginEnd="6dp"
+                                        app:cardBackgroundColor="@color/accent_soft"
+                                        app:cardCornerRadius="16dp"
+                                        app:cardElevation="0dp"
+                                        app:strokeColor="@color/brand_primary"
+                                        app:strokeWidth="1.5dp">
+
+                                        <TextView
+                                            android:id="@+id/learning_known_total"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:padding="12dp"
+                                            android:textColor="@color/brand_primary"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:layout_marginStart="6dp"
+                                        app:cardBackgroundColor="@color/brand_secondary_container"
+                                        app:cardCornerRadius="16dp"
+                                        app:cardElevation="0dp"
+                                        app:strokeColor="@color/brand_secondary"
+                                        app:strokeWidth="1.5dp">
+
+                                        <TextView
+                                            android:id="@+id/learning_review_total"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:padding="12dp"
+                                            android:textColor="@color/brand_on_secondary_container"
+                                            android:textSize="15sp"
+                                            android:textStyle="bold" />
+                                    </com.google.android.material.card.MaterialCardView>
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:gravity="center"
+                                    android:text="@string/learning_summary_explanation"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="13sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/learning_review"
+                            style="@style/Widget.AvesArgentinas.Button.LearningPrimary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:minHeight="@dimen/learning_button_height"
+                            android:text="@string/learning_review"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/learning_again"
+                            style="@style/Widget.AvesArgentinas.Button.LearningOutlined"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:minHeight="@dimen/learning_button_height"
+                            android:text="@string/learning_again"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/learning_choose_mode"
+                            style="@style/Widget.AvesArgentinas.Button.LearningOutlined"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:minHeight="@dimen/learning_button_height"
+                            android:text="@string/learning_choose_mode"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/learning_exit"
+                            style="@style/Widget.AvesArgentinas.Button.Tonal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:minHeight="@dimen/learning_button_height"
+                            android:text="@string/learning_exit"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <nl.dionsegijn.konfetti.xml.KonfettiView
+            android:id="@+id/learning_confetti"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:focusable="false"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+</LinearLayout>
