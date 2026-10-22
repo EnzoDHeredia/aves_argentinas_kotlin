@@ -18,11 +18,15 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -291,10 +295,6 @@ class LearningGameActivity : BaseActivity() {
             if (state.pass == LearningPass.REVIEW) R.string.learning_review_progress else R.string.learning_progress,
             state.position, state.total
         )
-        findViewById<View>(R.id.learning_card_header).minimumHeight = resources.getDimensionPixelSize(
-            if (current is LearningCard.Photo) R.dimen.learning_species_header_min_height
-            else R.dimen.learning_question_header_min_height
-        )
         val isPhoto = current is LearningCard.Photo
         findViewById<View>(R.id.learning_photo_container).isVisible = isPhoto
         photo.isVisible = isPhoto
@@ -302,9 +302,45 @@ class LearningGameActivity : BaseActivity() {
         findViewById<View>(R.id.learning_scrim).isVisible = isPhoto
         findViewById<View>(R.id.learning_question_background).isVisible = !isPhoto
 
+        val header = findViewById<FrameLayout>(R.id.learning_card_header)
+        (header?.layoutParams as? FrameLayout.LayoutParams)?.let { lp ->
+            if (isPhoto) {
+                lp.gravity = Gravity.BOTTOM
+                val padH = resources.getDimensionPixelSize(R.dimen.screen_padding_small) + 8
+                val padBottom = resources.getDimensionPixelSize(R.dimen.screen_padding_small) + 10
+                val padTop = resources.getDimensionPixelSize(R.dimen.screen_padding_small)
+                header.setPaddingRelative(padH, padTop, padH, padBottom)
+                header.minimumHeight = resources.getDimensionPixelSize(R.dimen.learning_species_header_min_height)
+            } else {
+                lp.gravity = Gravity.CENTER_VERTICAL
+                val padH = (26 * resources.displayMetrics.density).toInt()
+                val padV = (20 * resources.displayMetrics.density).toInt()
+                header.setPaddingRelative(padH, padV, padH, padV)
+                header.minimumHeight = 0
+            }
+            header.layoutParams = lp
+        }
+        findViewById<LinearLayout>(R.id.learning_back_panel)?.gravity = if (isPhoto) Gravity.BOTTOM else Gravity.CENTER_VERTICAL
+
         val title = findViewById<TextView>(R.id.learning_card_text)
         val answer = findViewById<TextView>(R.id.learning_back_text)
         val detail = findViewById<TextView>(R.id.learning_card_detail)
+
+        if (isPhoto) {
+            title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26f)
+            answer.setTextSize(TypedValue.COMPLEX_UNIT_SP, 26f)
+            title.setLineSpacing(0f, 1.15f)
+            answer.setLineSpacing(0f, 1.12f)
+        } else {
+            val qLen = (current as? LearningCard.Question)?.question?.length ?: 0
+            val aLen = (current as? LearningCard.Question)?.answer?.length ?: 0
+            val qSize = if (qLen < 65) 32f else 28f
+            val aSize = if (aLen < 80) 28f else 25f
+            title.setTextSize(TypedValue.COMPLEX_UNIT_SP, qSize)
+            answer.setTextSize(TypedValue.COMPLEX_UNIT_SP, aSize)
+            title.setLineSpacing(0f, 1.25f)
+            answer.setLineSpacing(0f, 1.22f)
+        }
         title.text = when (current) {
             is LearningCard.Question -> current.question
             is LearningCard.Photo -> getString(R.string.learning_species_prompt)
