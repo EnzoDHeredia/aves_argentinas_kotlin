@@ -26,7 +26,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:navigationIcon="@drawable/ic_arrow_back"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:titleTextColor="@color/text_primary"
@@ -34,8 +33,8 @@
 
         <ImageButton
             android:id="@+id/btnBackBirdInfo"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="4dp"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -63,9 +62,14 @@
         app:strokeColor="@color/brand_outline"
         app:strokeWidth="1dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:padding="12dp">
 
             <TextView
@@ -93,6 +97,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtSectionTitle"
+                app:layout_constraintHeight_min="96dp"
                 app:strokeColor="@color/brand_outline"
                 app:strokeWidth="1dp">
 
@@ -102,6 +107,20 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/bird_info_distribution"
                     android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/distributionUnavailable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:accessibilityLiveRegion="polite"
+                    android:importantForAccessibility="yes"
+                    android:background="@color/accent_soft"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/bird_info_map_unavailable"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -148,6 +167,7 @@
             </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
     </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

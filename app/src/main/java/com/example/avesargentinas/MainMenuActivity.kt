@@ -2,12 +2,13 @@ package com.example.avesargentinas
 
 import android.content.Intent
 import android.os.Bundle
+import com.example.avesargentinas.ui.learning.LearningGameActivity
 import com.example.avesargentinas.ui.log.ObservationLogActivity
 import com.google.android.material.button.MaterialButton
 
 /**
  * Actividad principal del menú.
- * Permite navegar a identificación, historial de observaciones y opciones.
+ * Permite navegar a identificación, observaciones, aprendizaje y opciones.
  */
 class MainMenuActivity : BaseActivity() {
 
@@ -31,6 +32,7 @@ class MainMenuActivity : BaseActivity() {
 
         val btnCapture = findViewById<MaterialButton>(R.id.btnCapture)
         val btnObservationLog = findViewById<MaterialButton>(R.id.btnObservationLog)
+        val btnLearning = findViewById<MaterialButton>(R.id.btnLearning)
         val btnSettings = findViewById<MaterialButton>(R.id.btnSettings)
 
         btnCapture.setOnClickListener {
@@ -41,6 +43,10 @@ class MainMenuActivity : BaseActivity() {
         btnObservationLog.setOnClickListener {
             val intent = Intent(this, ObservationLogActivity::class.java)
             startActivity(intent)
+        }
+
+        btnLearning.setOnClickListener {
+            startActivity(Intent(this, LearningGameActivity::class.java))
         }
 
         btnSettings.setOnClickListener {

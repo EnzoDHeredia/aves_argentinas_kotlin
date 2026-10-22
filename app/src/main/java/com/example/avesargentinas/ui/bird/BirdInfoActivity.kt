@@ -1,13 +1,22 @@
 package com.example.avesargentinas.ui.bird
 
 import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.view.WindowCompat
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.avesargentinas.BaseActivity
 import com.example.avesargentinas.R
 import com.example.avesargentinas.ThemeManager
@@ -17,6 +26,17 @@ import com.google.android.material.appbar.MaterialToolbar
 class BirdInfoActivity : BaseActivity() {
 
     private var distributionImageUri: String? = null
+
+    override fun onResume() {
+        super.onResume()
+        // Desde API 35 la barra de estado es transparente; antes conserva el fondo oscuro del tema.
+        if (Build.VERSION.SDK_INT < 35) return
+        val light = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK != Configuration.UI_MODE_NIGHT_YES
+        WindowCompat.getInsetsController(window, window.decorView).apply {
+            isAppearanceLightStatusBars = light
+            isAppearanceLightNavigationBars = light
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         try {
@@ -51,25 +71,51 @@ class BirdInfoActivity : BaseActivity() {
             Log.d("BirdInfoActivity", "Binding data: $commonName / $scientificName")
 
             val imageDistribution: ImageView = findViewById(R.id.imageDistribution)
+            val unavailable: View = findViewById(R.id.distributionUnavailable)
             val placeholder = R.drawable.ic_image_placeholder
 
             val distSource = distUri ?: resolveDefaultDistributionImage(scientificName)
-            distributionImageUri = when (distSource) {
+            val sourceUri = when (distSource) {
                 is Uri -> distSource.toString()
                 is String -> distSource
                 is Int -> "android.resource://$packageName/$distSource"
                 else -> null
             }
 
+            distributionImageUri = null
+            unavailable.visibility = View.GONE
+            imageDistribution.setOnClickListener { openImageZoom() }
+            imageDistribution.isEnabled = false
+            imageDistribution.isClickable = false
+            imageDistribution.isFocusable = false
+            imageDistribution.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+
             Glide.with(this)
                 .load(distSource)
                 .placeholder(placeholder)
                 .error(placeholder)
-                .into(imageDistribution)
+                .listener(object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?, model: Any?, target: Target<Drawable>, isFirstResource: Boolean
+                    ): Boolean {
+                        distributionImageUri = null
+                        unavailable.visibility = View.VISIBLE
+                        return false
+                    }
 
-            imageDistribution.setOnClickListener {
-                openImageZoom()
-            }
+                    override fun onResourceReady(
+                        resource: Drawable, model: Any, target: Target<Drawable>?,
+                        dataSource: DataSource, isFirstResource: Boolean
+                    ): Boolean {
+                        distributionImageUri = sourceUri
+                        imageDistribution.isEnabled = sourceUri != null
+                        imageDistribution.isClickable = sourceUri != null
+                        imageDistribution.isFocusable = sourceUri != null
+                        imageDistribution.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_AUTO
+                        return false
+                    }
+                })
+                .into(imageDistribution)
 
             val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
             toolbar.title = commonName ?: getString(R.string.bird_info_title)
@@ -77,6 +123,8 @@ class BirdInfoActivity : BaseActivity() {
             Log.d("BirdInfoActivity", "Data binding completed successfully")
         } catch (e: Exception) {
             Log.e("BirdInfoActivity", "Error in bindDataFromIntent", e)
+            distributionImageUri = null
+            findViewById<View>(R.id.distributionUnavailable).visibility = View.VISIBLE
             Toast.makeText(this, "Error al configurar la vista: ${e.message}", Toast.LENGTH_LONG).show()
         }
     }
@@ -91,7 +139,13 @@ class BirdInfoActivity : BaseActivity() {
             ?.replace("-", "_")
             ?: return null
 
-        val distCandidates = listOf("bird_${sci}_dist", "${sci}_dist")
+        val alternate = when (sci) {
+            "anas_versicolor" -> "spatula_versicolor_dist"
+            "anas_cyanoptera" -> "spatula_cyanoptera_dist"
+            "anas_sibilatrix" -> "mareca_sibilatrix_dist"
+            else -> null
+        }
+        val distCandidates = listOfNotNull("bird_${sci}_dist", "${sci}_dist", alternate)
 
         for (name in distCandidates) {
             val id = resources.getIdentifier(name, "drawable", packageName)
