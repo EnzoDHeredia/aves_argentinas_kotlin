@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colores fijos: el texto blanco debe contrastar en tema claro y oscuro. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:startColor="#102A57"
+        android:centerColor="#1F4B99"
+        android:endColor="#4D6CB5" />
+</shape>

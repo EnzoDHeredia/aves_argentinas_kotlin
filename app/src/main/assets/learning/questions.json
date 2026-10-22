@@ -1,0 +1,402 @@
+[
+  {
+    "id": "AVE-001",
+    "topic": "Anatomía y plumaje",
+    "level": "Intermedia",
+    "question": "¿De qué material están hechas principalmente las plumas?",
+    "answer": "De queratina, una proteína que forma estructuras resistentes y livianas.",
+    "sources": [
+      "[F01]: https://academy.allaboutbirds.org/feathers-article/"
+    ]
+  },
+  {
+    "id": "AVE-002",
+    "topic": "Anatomía y plumaje",
+    "level": "Inicial",
+    "question": "¿Cómo ayuda el plumón a mantener caliente a un ave?",
+    "answer": "Atrapa una capa de aire junto al cuerpo y reduce la pérdida de calor.",
+    "sources": [
+      "[F01]: https://academy.allaboutbirds.org/feathers-article/"
+    ]
+  },
+  {
+    "id": "AVE-003",
+    "topic": "Anatomía y plumaje",
+    "level": "Inicial",
+    "question": "¿Qué es la muda del plumaje?",
+    "answer": "Es el proceso de perder plumas y reemplazarlas por otras nuevas.",
+    "sources": [
+      "[F01]: https://academy.allaboutbirds.org/feathers-article/"
+    ]
+  },
+  {
+    "id": "AVE-004",
+    "topic": "Anatomía y plumaje",
+    "level": "Inicial",
+    "question": "¿Por qué las aves se acomodan las plumas con el pico?",
+    "answer": "Para mantenerlas en buen estado y volver a unir las pequeñas estructuras que forman su superficie. Este cuidado se llama acicalamiento.",
+    "sources": [
+      "[F01]: https://academy.allaboutbirds.org/feathers-article/"
+    ]
+  },
+  {
+    "id": "AVE-005",
+    "topic": "Anatomía y plumaje",
+    "level": "Inicial",
+    "question": "¿Cómo puede ayudar el plumaje a que un ave pase inadvertida?",
+    "answer": "Sus colores y dibujos pueden confundirse con el ambiente. Eso es camuflaje.",
+    "sources": [
+      "[F01]: https://academy.allaboutbirds.org/feathers-article/"
+    ]
+  },
+  {
+    "id": "AVE-006",
+    "topic": "Vuelo y desplazamiento",
+    "level": "Inicial",
+    "question": "¿Todas las aves pueden volar?",
+    "answer": "No. Los pingüinos, por ejemplo, son aves que no vuelan por el aire.",
+    "sources": [
+      "[F02]: https://www.allaboutbirds.org/news/why-cant-penguins-fly"
+    ]
+  },
+  {
+    "id": "AVE-007",
+    "topic": "Vuelo y desplazamiento",
+    "level": "Inicial",
+    "question": "¿Para qué usan las alas los pingüinos?",
+    "answer": "Para impulsarse bajo el agua. Sus alas cortas y rígidas funcionan como aletas.",
+    "sources": [
+      "[F02]: https://www.allaboutbirds.org/news/why-cant-penguins-fly"
+    ]
+  },
+  {
+    "id": "AVE-008",
+    "topic": "Vuelo y desplazamiento",
+    "level": "Intermedia",
+    "question": "¿Cómo pueden algunas aves ganar altura sin aletear continuamente?",
+    "answer": "Aprovechan corrientes de aire ascendentes, como las térmicas, que las elevan.",
+    "sources": [
+      "[F03]: https://academy.allaboutbirds.org/golden-eagle-soaring-on-a-thermal/"
+    ]
+  },
+  {
+    "id": "AVE-009",
+    "topic": "Vuelo y desplazamiento",
+    "level": "Inicial",
+    "question": "¿Cómo ayuda la cola a un ave durante el vuelo?",
+    "answer": "Puede ayudarla a dirigir sus movimientos, como un timón.",
+    "sources": [
+      "[F03]: https://academy.allaboutbirds.org/golden-eagle-soaring-on-a-thermal/"
+    ]
+  },
+  {
+    "id": "AVE-010",
+    "topic": "Vuelo y desplazamiento",
+    "level": "Inicial",
+    "question": "¿Qué aves pueden mantenerse suspendidas frente a una flor mientras se alimentan?",
+    "answer": "Los picaflores. Su vuelo les permite permanecer casi en el mismo lugar mientras baten las alas.",
+    "sources": [
+      "[F04]: https://nationalzoo.si.edu/animals/news/how-do-you-weigh-hummingbird"
+    ]
+  },
+  {
+    "id": "AVE-011",
+    "topic": "Alimentación",
+    "level": "Intermedia",
+    "question": "¿Qué puede indicar la forma del pico sobre la alimentación de un ave?",
+    "answer": "Puede dar pistas sobre cómo obtiene y manipula el alimento. Sin embargo, su forma también responde a otras funciones.",
+    "sources": [
+      "[F05]: https://www.allaboutbirds.org/news/a-birds-beak-is-shaped-by-more-than-what-it-eats/"
+    ]
+  },
+  {
+    "id": "AVE-012",
+    "topic": "Alimentación",
+    "level": "Inicial",
+    "question": "¿Para qué sirve un pico grueso y fuerte en muchas aves que comen semillas?",
+    "answer": "Para romper o abrir las cubiertas de las semillas y acceder a su interior.",
+    "sources": [
+      "[F06]: https://www.rspb.org.uk/birds-and-wildlife/linnet"
+    ]
+  },
+  {
+    "id": "AVE-013",
+    "topic": "Alimentación",
+    "level": "Inicial",
+    "question": "¿Los picaflores se alimentan únicamente de néctar?",
+    "answer": "No. También comen pequeños insectos y otros artrópodos, como arañas.",
+    "sources": [
+      "[F07]: https://nationalzoo.si.edu/migratory-birds/hummingbirds"
+    ]
+  },
+  {
+    "id": "AVE-014",
+    "topic": "Alimentación",
+    "level": "Intermedia",
+    "question": "¿Qué función cumple la molleja en la digestión de las aves?",
+    "answer": "Tritura el alimento mediante sus músculos. En algunas aves, pequeñas piedras ingeridas ayudan en ese trabajo.",
+    "sources": [
+      "[F08]: https://dnr.illinois.gov/content/dam/soi/en/web/dnr/education/documents/birds.pdf"
+    ]
+  },
+  {
+    "id": "AVE-015",
+    "topic": "Alimentación",
+    "level": "Intermedia",
+    "question": "¿Por qué muchas aves alimentan a sus pichones con insectos?",
+    "answer": "Porque aportan proteínas necesarias para el crecimiento. La alimentación de las crías varía según la especie.",
+    "sources": [
+      "[F09]: https://info.allaboutbirds.org/hs-fs/hub/95627/file-656525205-pdf/docs/birdcamslesson_2014_final.pdf"
+    ]
+  },
+  {
+    "id": "AVE-016",
+    "topic": "Nidos y reproducción",
+    "level": "Inicial",
+    "question": "¿Cuál es la función principal de un nido durante la reproducción?",
+    "answer": "Ofrecer un lugar para el desarrollo de los huevos y, en muchas especies, de los pichones.",
+    "sources": [
+      "[F10]: https://nestwatch.org/learn/general-bird-nest-info/nesting-cycle/"
+    ]
+  },
+  {
+    "id": "AVE-017",
+    "topic": "Nidos y reproducción",
+    "level": "Inicial",
+    "question": "¿Para qué incuban sus huevos las aves?",
+    "answer": "Para mantenerlos a una temperatura adecuada para el desarrollo del embrión.",
+    "sources": [
+      "[F10]: https://nestwatch.org/learn/general-bird-nest-info/nesting-cycle/"
+    ]
+  },
+  {
+    "id": "AVE-018",
+    "topic": "Nidos y reproducción",
+    "level": "Inicial",
+    "question": "¿Todas las aves hacen sus nidos en los árboles?",
+    "answer": "No. También pueden nidificar en el suelo, en cuevas, en acantilados o en construcciones.",
+    "sources": [
+      "[F10]: https://nestwatch.org/learn/general-bird-nest-info/nesting-cycle/"
+    ]
+  },
+  {
+    "id": "AVE-019",
+    "topic": "Nidos y reproducción",
+    "level": "Intermedia",
+    "question": "¿Todos los pichones nacen con el mismo grado de desarrollo?",
+    "answer": "No. Algunos nacen con los ojos cerrados y muy dependientes; otros, como los patitos, nacen con plumón, ojos abiertos y pueden desplazarse.",
+    "sources": [
+      "[F10]: https://nestwatch.org/learn/general-bird-nest-info/nesting-cycle/"
+    ]
+  },
+  {
+    "id": "AVE-020",
+    "topic": "Nidos y reproducción",
+    "level": "Inicial",
+    "question": "¿Solo las hembras incuban los huevos?",
+    "answer": "No. En algunas especies también incuban los machos. El reparto de tareas varía según la especie.",
+    "sources": [
+      "[F10]: https://nestwatch.org/learn/general-bird-nest-info/nesting-cycle/"
+    ]
+  },
+  {
+    "id": "AVE-021",
+    "topic": "Comunicación y comportamiento",
+    "level": "Inicial",
+    "question": "¿Para qué cantan muchas aves durante la época reproductiva?",
+    "answer": "Entre otras funciones, para atraer pareja y anunciar o defender un territorio.",
+    "sources": [
+      "[F11]: https://academy.allaboutbirds.org/birdsong/"
+    ]
+  },
+  {
+    "id": "AVE-022",
+    "topic": "Comunicación y comportamiento",
+    "level": "Inicial",
+    "question": "¿Qué puede comunicar una llamada de alarma?",
+    "answer": "La presencia de un posible peligro, como un depredador cercano.",
+    "sources": [
+      "[F12]: https://info.allaboutbirds.org/hs-fs/hub/95627/file-20090696-pdf/docs/penningtonlessons_allmonths.pdf"
+    ]
+  },
+  {
+    "id": "AVE-023",
+    "topic": "Comunicación y comportamiento",
+    "level": "Intermedia",
+    "question": "¿Qué es el cortejo en las aves?",
+    "answer": "Son comportamientos relacionados con la elección y atracción de pareja, como cantos, movimientos o exhibiciones del plumaje.",
+    "sources": [
+      "[F13]: https://www.allaboutbirds.org/news/why-do-birds-have-such-elaborate-and-varied-courtship-rituals/"
+    ]
+  },
+  {
+    "id": "AVE-024",
+    "topic": "Comunicación y comportamiento",
+    "level": "Inicial",
+    "question": "¿El canto es exclusivo de los machos?",
+    "answer": "No. En muchas especies las hembras también cantan.",
+    "sources": [
+      "[F14]: https://www.allaboutbirds.org/news/many-female-birds-sing-beautiful-songs-all-we-have-to-do-is-listen/"
+    ]
+  },
+  {
+    "id": "AVE-025",
+    "topic": "Comunicación y comportamiento",
+    "level": "Intermedia",
+    "question": "¿Qué es el territorio de un ave?",
+    "answer": "Es un área que defiende frente a otros individuos, por ejemplo, para disponer de recursos o de un lugar donde reproducirse.",
+    "sources": [
+      "[F10]: https://nestwatch.org/learn/general-bird-nest-info/nesting-cycle/"
+    ]
+  },
+  {
+    "id": "AVE-026",
+    "topic": "Migración",
+    "level": "Inicial",
+    "question": "¿Todas las aves migran?",
+    "answer": "No. Algunas permanecen en una región durante todo el año y otras realizan desplazamientos estacionales.",
+    "sources": [
+      "[F15]: https://www.allaboutbirds.org/news/the-basics-how-why-and-where-of-bird-migration/"
+    ]
+  },
+  {
+    "id": "AVE-027",
+    "topic": "Migración",
+    "level": "Inicial",
+    "question": "¿Por qué migran muchas aves?",
+    "answer": "Para aprovechar recursos y condiciones favorables en distintos lugares, como alimento y sitios de reproducción.",
+    "sources": [
+      "[F15]: https://www.allaboutbirds.org/news/the-basics-how-why-and-where-of-bird-migration/"
+    ]
+  },
+  {
+    "id": "AVE-028",
+    "topic": "Migración",
+    "level": "Intermedia",
+    "question": "¿Qué cambio en la duración del día puede ayudar a iniciar la migración?",
+    "answer": "El aumento o la disminución de las horas de luz. Es una de las señales que pueden influir en el inicio del viaje.",
+    "sources": [
+      "[F15]: https://www.allaboutbirds.org/news/the-basics-how-why-and-where-of-bird-migration/"
+    ]
+  },
+  {
+    "id": "AVE-029",
+    "topic": "Migración",
+    "level": "Intermedia",
+    "question": "¿Qué referencias pueden usar las aves para orientarse durante la migración?",
+    "answer": "Según la especie, combinan señales como el Sol, las estrellas, el campo magnético terrestre y referencias del paisaje.",
+    "sources": [
+      "[F15]: https://www.allaboutbirds.org/news/the-basics-how-why-and-where-of-bird-migration/"
+    ]
+  },
+  {
+    "id": "AVE-030",
+    "topic": "Migración",
+    "level": "Inicial",
+    "question": "¿Por qué son importantes los sitios de parada en una ruta migratoria?",
+    "answer": "Permiten que las aves descansen y repongan energía alimentándose antes de continuar el viaje.",
+    "sources": [
+      "[F15]: https://www.allaboutbirds.org/news/the-basics-how-why-and-where-of-bird-migration/"
+    ]
+  },
+  {
+    "id": "AVE-031",
+    "topic": "Ambientes y funciones ecológicas",
+    "level": "Inicial",
+    "question": "¿Qué es el hábitat de un ave?",
+    "answer": "Es el ambiente donde encuentra las condiciones y los recursos que necesita para vivir.",
+    "sources": [
+      "[F16]: https://academy.allaboutbirds.org/inside-birding-habitat/"
+    ]
+  },
+  {
+    "id": "AVE-032",
+    "topic": "Ambientes y funciones ecológicas",
+    "level": "Inicial",
+    "question": "¿Por qué los humedales son importantes para muchas aves?",
+    "answer": "Ofrecen lugares para alimentarse, reproducirse y detenerse durante la migración.",
+    "sources": [
+      "[F17]: https://www.birdlife.org/news/2026/02/02/wetlands-a-shared-heritage-for-birds-and-people/"
+    ]
+  },
+  {
+    "id": "AVE-033",
+    "topic": "Ambientes y funciones ecológicas",
+    "level": "Intermedia",
+    "question": "¿Cómo pueden las aves que comen frutos ayudar a las plantas?",
+    "answer": "Pueden dispersar semillas: las transportan y luego las depositan en otros lugares con sus excrementos.",
+    "sources": [
+      "[F18]: https://www.birdlife.org/news/2019/01/04/why-we-need-birds-far-more-than-they-need-us/"
+    ]
+  },
+  {
+    "id": "AVE-034",
+    "topic": "Ambientes y funciones ecológicas",
+    "level": "Intermedia",
+    "question": "¿Cómo pueden los picaflores ayudar a la reproducción de algunas plantas?",
+    "answer": "Al visitar flores para alimentarse, pueden transportar polen de una a otra y favorecer la polinización.",
+    "sources": [
+      "[F18]: https://www.birdlife.org/news/2019/01/04/why-we-need-birds-far-more-than-they-need-us/"
+    ]
+  },
+  {
+    "id": "AVE-035",
+    "topic": "Ambientes y funciones ecológicas",
+    "level": "Inicial",
+    "question": "¿Qué función cumplen las aves carroñeras en un ecosistema?",
+    "answer": "Consumen restos de animales muertos y contribuyen a su eliminación.",
+    "sources": [
+      "[F18]: https://www.birdlife.org/news/2019/01/04/why-we-need-birds-far-more-than-they-need-us/"
+    ]
+  },
+  {
+    "id": "AVE-036",
+    "topic": "Conservación y observación responsable",
+    "level": "Inicial",
+    "question": "¿Cómo puede ayudar a las aves plantar especies nativas de la zona?",
+    "answer": "Puede aportar alimento, refugio y sitios de nidificación, además de sostener insectos que muchas aves comen.",
+    "sources": [
+      "[F19]: https://www.birds.cornell.edu/home/seven-simple-actions-to-help-birds/"
+    ]
+  },
+  {
+    "id": "AVE-037",
+    "topic": "Conservación y observación responsable",
+    "level": "Inicial",
+    "question": "¿Por qué una ventana puede representar un peligro para las aves?",
+    "answer": "Pueden confundir el reflejo del cielo o de la vegetación con un espacio por donde volar y chocar contra el vidrio.",
+    "sources": [
+      "[F19]: https://www.birds.cornell.edu/home/seven-simple-actions-to-help-birds/"
+    ]
+  },
+  {
+    "id": "AVE-038",
+    "topic": "Conservación y observación responsable",
+    "level": "Inicial",
+    "question": "¿Por qué mantener a los gatos en casa o en espacios exteriores cerrados ayuda a las aves?",
+    "answer": "Reduce la posibilidad de que las cacen. Los gatos pueden cazar incluso cuando están bien alimentados.",
+    "sources": [
+      "[F19]: https://www.birds.cornell.edu/home/seven-simple-actions-to-help-birds/"
+    ]
+  },
+  {
+    "id": "AVE-039",
+    "topic": "Conservación y observación responsable",
+    "level": "Inicial",
+    "question": "¿Cómo conviene observar un nido activo?",
+    "answer": "Desde una distancia que no altere a las aves, sin tocar los huevos o los pichones ni modificar el nido.",
+    "sources": [
+      "[F20]: https://nestwatch.org/learn/how-to-nestwatch/code-of-conduct/"
+    ]
+  },
+  {
+    "id": "AVE-040",
+    "topic": "Conservación y observación responsable",
+    "level": "Intermedia",
+    "question": "¿Cómo puede ayudar a la conservación compartir observaciones en proyectos de ciencia participativa?",
+    "answer": "Los registros permiten estudiar dónde están las aves y cómo cambian sus poblaciones, y orientar acciones de conservación.",
+    "sources": [
+      "[F19]: https://www.birds.cornell.edu/home/seven-simple-actions-to-help-birds/"
+    ]
+  }
+]

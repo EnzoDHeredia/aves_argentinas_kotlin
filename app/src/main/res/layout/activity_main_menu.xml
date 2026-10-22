@@ -19,11 +19,20 @@
         android:background="#CC000000" />
 
     <!-- Contenido principal -->
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/insets_container"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
@@ -63,11 +72,6 @@
             android:textStyle="bold"
             android:letterSpacing="0.01"
             android:gravity="center"
-            android:maxLines="1"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="20sp"
-            android:autoSizeMaxTextSize="32sp"
-            android:autoSizeStepGranularity="1sp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp" />
 
@@ -80,11 +84,6 @@
             android:textColor="#B0B0B0"
             android:textSize="14sp"
             android:gravity="center"
-            android:maxLines="1"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="10sp"
-            android:autoSizeMaxTextSize="14sp"
-            android:autoSizeStepGranularity="1sp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp" />
 
@@ -110,7 +109,8 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCapture"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
+                android:layout_height="wrap_content"
+                android:minHeight="62dp"
                 android:text="Indentificar Ave"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -144,7 +144,8 @@
                 android:id="@+id/btnObservationLog"
                 style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
+                android:layout_height="wrap_content"
+                android:minHeight="54dp"
                 android:text="Mis Observaciones"
                 android:textSize="15sp"
                 android:textColor="@color/text_primary"
@@ -154,6 +155,32 @@
                 app:iconSize="22dp"
                 app:iconTint="@color/brand_primary"
                 app:iconPadding="8dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="14dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/brand_surface"
+            app:strokeColor="@color/brand_outline"
+            app:strokeWidth="2dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLearning"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="54dp"
+                android:text="@string/learning_title"
+                android:textSize="15sp"
+                android:textColor="@color/text_primary"
+                app:backgroundTint="@android:color/transparent"
+                app:cornerRadius="16dp" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -172,7 +199,8 @@
                 android:id="@+id/btnSettings"
                 style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
+                android:layout_height="wrap_content"
+                android:minHeight="54dp"
                 android:text="Opciones"
                 android:textSize="15sp"
                 android:textColor="@color/text_primary"
@@ -192,5 +220,7 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
 
 </FrameLayout>

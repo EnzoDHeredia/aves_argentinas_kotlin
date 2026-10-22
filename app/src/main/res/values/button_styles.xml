@@ -69,4 +69,31 @@
         <item name="iconPadding">0dp</item>
     </style>
 
+<!-- Aprender jugando: botones tipo píldora y botones circulares de acción. -->
+    <style name="Widget.AvesArgentinas.Button.LearningPrimary" parent="Widget.AvesArgentinas.Button.Primary">
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <style name="Widget.AvesArgentinas.Button.LearningOutlined" parent="Widget.AvesArgentinas.Button.Outlined">
+        <item name="cornerRadius">28dp</item>
+    </style>
+
+    <style name="Widget.AvesArgentinas.Button.LearningRound" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="cornerRadius">36dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconSize">32dp</item>
+        <item name="backgroundTint">@color/brand_surface</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="rippleColor">@color/brand_primary_light</item>
+    </style>
+
 </resources>
