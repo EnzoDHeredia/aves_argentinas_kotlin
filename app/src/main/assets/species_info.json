@@ -1,0 +1,5190 @@
+{
+  "sources": [
+    {
+      "id": "atlas-formosa-2014",
+      "title": "Contreras y colaboradores (2014). Atlas ornitogeográfico de Formosa. I. No Passeriformes; movimientos: pp. 54, 62–63, 67–68, 70–71, 73–74 y 195–196",
+      "organization": "Fundación de Historia Natural Félix de Azara",
+      "url": "https://www.fundacionazara.org.ar/img/libros/atlas-ornitogeografico-de-la-provincia-de-formosa.pdf",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "audubon-bigua",
+      "title": "Neotropic Cormorant — Nannopterum brasilianum; categoría global UICN sin año de evaluación indicado",
+      "organization": "National Audubon Society",
+      "url": "https://www.audubon.org/field-guide/bird/neotropic-cormorant",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "birdlife-flamenco-2018",
+      "title": "Laguna Guayatayoc — tabla de especies: Phoenicopterus chilensis, NT, evaluación global 2018",
+      "organization": "BirdLife International",
+      "url": "https://datazone.birdlife.org/site/factsheet/19400-laguna-guayatayoc",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "adw-chaja",
+      "title": "Jessica Nolle. Chauna torquata — residencia permanente en Sudamérica",
+      "organization": "Animal Diversity Web / University of Michigan",
+      "url": "https://animaldiversity.org/accounts/Chauna_torquata/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "fw-chiflon",
+      "title": "Chiflón (Syrigma sibilatrix) — distribución y desplazamientos asociados a recursos",
+      "organization": "Fundación Federico Wildermuth",
+      "url": "https://fundacionfw.org.ar/fauna/chiflon-syrigma-sibilatrix/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "cornell-spoonbill",
+      "title": "Roseate Spoonbill — Life History; nombre inglés y ecología",
+      "organization": "Cornell Lab of Ornithology",
+      "url": "https://www.allaboutbirds.org/guide/Roseate_Spoonbill/lifehistory",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-001",
+      "title": "SIB — Biguá (phalacrocorax brasilianus); categoría nacional MADS/AA 2017",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/phalacrocorax-brasilianus",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-001",
+      "title": "Biblioteca de aves — Biguá: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/phalacrocoracidae/bigua/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-001-diet",
+      "title": "Biblioteca de aves — Biguá: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6238",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-001-range",
+      "title": "Biblioteca de aves — Biguá: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6257",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-001-habitat",
+      "title": "Biblioteca de aves — Biguá: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6242",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-002",
+      "title": "SIB — Carau (aramus guarauna); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/aramus-guarauna",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-002",
+      "title": "Biblioteca de aves — Carau: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/aramidae/carau/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-002-diet",
+      "title": "Biblioteca de aves — Carau: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1403",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-002-range",
+      "title": "Biblioteca de aves — Carau: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1419",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-002-habitat",
+      "title": "Biblioteca de aves — Carau: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1411",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-003",
+      "title": "SIB — Chajá (chauna torquata); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/Chauna-torquata",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-003",
+      "title": "Biblioteca de aves — Chajá: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/anhimidae/chaja/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-003-diet",
+      "title": "Biblioteca de aves — Chajá: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1271",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-003-range",
+      "title": "Biblioteca de aves — Chajá: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1287",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-003-habitat",
+      "title": "Biblioteca de aves — Chajá: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1275",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-004",
+      "title": "SIB — Chiflón (syrigma sibilatrix); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/syrigma-sibilatrix",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-004",
+      "title": "Biblioteca de aves — Chiflón: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/ardeidae/chiflon/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-004-diet",
+      "title": "Biblioteca de aves — Chiflón: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1996",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-004-range",
+      "title": "Biblioteca de aves — Chiflón: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2007",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-004-habitat",
+      "title": "Biblioteca de aves — Chiflón: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1998",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-005",
+      "title": "SIB — Cigüeña americana (ciconia maguari); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/ciconia-maguari",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-005",
+      "title": "Biblioteca de aves — Cigüeña americana: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/ciconiidae/ciguena-americana/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-005-diet",
+      "title": "Biblioteca de aves — Cigüeña americana: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2784",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-005-range",
+      "title": "Biblioteca de aves — Cigüeña americana: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2795",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-005-habitat",
+      "title": "Biblioteca de aves — Cigüeña americana: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2786",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-006",
+      "title": "SIB — Cisne cuello negro (cygnus melancoryphus); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/cygnus-melancoryphus",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-006",
+      "title": "Biblioteca de aves — Cisne cuello negro: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/anatidae/cisne-cuello-negro/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-006-diet",
+      "title": "Biblioteca de aves — Cisne cuello negro: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1441",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-006-range",
+      "title": "Biblioteca de aves — Cisne cuello negro: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1451",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-006-habitat",
+      "title": "Biblioteca de aves — Cisne cuello negro: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1443",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-007",
+      "title": "SIB — Coscoroba (coscoroba coscoroba); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/coscoroba-coscoroba",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-007",
+      "title": "Biblioteca de aves — Coscoroba: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/anatidae/coscoroba/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-007-diet",
+      "title": "Biblioteca de aves — Coscoroba: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1478",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-007-range",
+      "title": "Biblioteca de aves — Coscoroba: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1490",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-007-habitat",
+      "title": "Biblioteca de aves — Coscoroba: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1480",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-008",
+      "title": "SIB — Cuervillo cara pelada (phimosus infuscatus); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/phimosus-infuscatus?area%5B%5D=APN-CH&tab=fuentes",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-008",
+      "title": "Biblioteca de aves — Cuervillo cara pelada: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/threskiornithidae/cuervillo-cara-pelada/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-008-diet",
+      "title": "Biblioteca de aves — Cuervillo cara pelada: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8479",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-008-range",
+      "title": "Biblioteca de aves — Cuervillo cara pelada: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8490",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-008-habitat",
+      "title": "Biblioteca de aves — Cuervillo cara pelada: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8481",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-009",
+      "title": "SIB — Cuervillo de cañada (plegadis chihi); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/plegadis-chihi",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-009",
+      "title": "Biblioteca de aves — Cuervillo de cañada: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/threskiornithidae/cuervillo-de-canada/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-009-diet",
+      "title": "Biblioteca de aves — Cuervillo de cañada: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8501",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-009-range",
+      "title": "Biblioteca de aves — Cuervillo de cañada: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8514",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-009-habitat",
+      "title": "Biblioteca de aves — Cuervillo de cañada: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8504",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-010",
+      "title": "SIB — Espátula rosada (platalea ajaja); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/platalea-ajaja",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-010",
+      "title": "Biblioteca de aves — Espátula rosada: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/threskiornithidae/espatula-rosada/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-010-diet",
+      "title": "Biblioteca de aves — Espátula rosada: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8525",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-010-range",
+      "title": "Biblioteca de aves — Espátula rosada: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8536",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-010-habitat",
+      "title": "Biblioteca de aves — Espátula rosada: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=8527",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-011",
+      "title": "SIB — Flamenco austral (phoenicopterus chilensis); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/phoenicopterus-chilensis?tab=info-general",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-011",
+      "title": "Biblioteca de aves — Flamenco austral: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/phoenicopteridae/flamenco/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-011-diet",
+      "title": "Biblioteca de aves — Flamenco austral: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6379",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-011-range",
+      "title": "Biblioteca de aves — Flamenco austral: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6391",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-011-habitat",
+      "title": "Biblioteca de aves — Flamenco austral: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6382",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-012",
+      "title": "SIB — Gallareta chica (fulica leucoptera); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/fulica-leucoptera",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-012",
+      "title": "Biblioteca de aves — Gallareta chica: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/rallidae/gallareta-chica/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-012-diet",
+      "title": "Biblioteca de aves — Gallareta chica: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7410",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-012-range",
+      "title": "Biblioteca de aves — Gallareta chica: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7421",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-012-habitat",
+      "title": "Biblioteca de aves — Gallareta chica: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7412",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-013",
+      "title": "SIB — Gallareta escudete rojo (fulica rufifrons); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/fulica-rufifrons",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-013",
+      "title": "Biblioteca de aves — Gallareta escudete rojo: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/rallidae/gallareta-escudete-rojo/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-013-diet",
+      "title": "Biblioteca de aves — Gallareta escudete rojo: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7392",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-013-range",
+      "title": "Biblioteca de aves — Gallareta escudete rojo: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7402",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-013-habitat",
+      "title": "Biblioteca de aves — Gallareta escudete rojo: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7394",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-014",
+      "title": "SIB — Gallareta ligas rojas (fulica armillata); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/fulica-armillata",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-014",
+      "title": "Biblioteca de aves — Gallareta ligas rojas: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/rallidae/gallareta-ligas-rojas/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-014-diet",
+      "title": "Biblioteca de aves — Gallareta ligas rojas: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7372",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-014-range",
+      "title": "Biblioteca de aves — Gallareta ligas rojas: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7382",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-014-habitat",
+      "title": "Biblioteca de aves — Gallareta ligas rojas: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7374",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-015",
+      "title": "SIB — Garcita blanca (egretta thula); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/egretta-thula",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-015",
+      "title": "Biblioteca de aves — Garcita blanca: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/ardeidae/garcita-blanca/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-015-diet",
+      "title": "Biblioteca de aves — Garcita blanca: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2142",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-015-range",
+      "title": "Biblioteca de aves — Garcita blanca: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2152",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-015-habitat",
+      "title": "Biblioteca de aves — Garcita blanca: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2144",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "mads-aa-eval-2015",
+      "title": "Categorización de las aves de la Argentina (publicación 2017): evaluación 2015; metodología pp. 7–9 y Apéndice I, pp. 75–79",
+      "organization": "Ministerio de Ambiente y Desarrollo Sustentable de la Nación y Aves Argentinas",
+      "url": "https://www.avesargentinas.org.ar/sites/default/files/Categorizacion-de-aves-de-la-Argentina.pdf",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "temaiken-flamenco",
+      "title": "Flamenco austral — alimentación por filtración y distribución",
+      "organization": "Fundación Temaikèn",
+      "url": "https://www.temaiken.org.ar/ficha-tecnica-flamenco-austral-67",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "mads-aa-t4-2015",
+      "title": "Categorización de las aves de la Argentina (2017): proceso 2015, metodología pp. 7–9 y Apéndice I pp. 74–79 y 86",
+      "organization": "Ministerio de Ambiente y Desarrollo Sustentable de la Nación y Aves Argentinas",
+      "url": "https://www.avesargentinas.org.ar/sites/default/files/Categorizacion-de-aves-de-la-Argentina.pdf",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "atlas-t4",
+      "title": "Contreras y colaboradores (2014). Atlas ornitogeográfico de Formosa, I. No Passeriformes: pp. 49–50, 177, 205–206 y 236–237; movimientos regionales",
+      "organization": "Fundación de Historia Natural Félix de Azara",
+      "url": "https://www.fundacionazara.org.ar/img/libros/atlas-ornitogeografico-de-la-provincia-de-formosa.pdf",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "winkler-2017",
+      "title": "Winkler y colaboradores (2017). Long-Distance Range Expansion and Rapid Adjustment of Migration in a Newly Established Population of Barn Swallows Breeding in Argentina. Current Biology 27:1080–1084. DOI 10.1016/j.cub.2017.03.006; resumen",
+      "organization": "Cornell University / IBIGEO-CONICET y colaboradores; registro PubMed",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28318974/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "uci-jacana",
+      "title": "Avise’s Birds of the World — Wattled Jacana (Jacana jacana): nombre inglés y rasgos",
+      "organization": "John C. Avise, University of California, Irvine",
+      "url": "https://avise-birds.bio.uci.edu/charadriiformes/jacanidae/jacana_jacana/index.html",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "naturfoto-26215",
+      "title": "Ostnák jihoamerický (Jacana jacana), foto ID 26215, firma Luboš Mráz; Pantanal, Brasil, agosto 2017",
+      "organization": "NaturFoto.cz / Luboš Mráz",
+      "url": "https://www.naturfoto.cz/ostnak-jihoamericky-fotografie-26215.html",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "naturfoto-terms",
+      "title": "Pravidla a podmínky užití fotografií — condiciones de uso; licencia de publicación requerida, no adquirida",
+      "organization": "NaturFoto.cz",
+      "url": "https://www.naturfoto.cz/obchodni-informace.html",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "audubon-egret",
+      "title": "Great Egret — Ardea alba; categoría global UICN, año de evaluación no indicado",
+      "organization": "National Audubon Society",
+      "url": "https://www.audubon.org/field-guide/bird/great-egret",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "audubon-kelp",
+      "title": "Kelp Gull — Larus dominicanus; categoría global UICN, año de evaluación no indicado",
+      "organization": "National Audubon Society",
+      "url": "https://www.audubon.org/field-guide/bird/kelp-gull",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-golondrinas-2014",
+      "title": "¿Volverán antes las golondrinas? (26/08/2014). Entrevista a Rodrigo Lorenzón, INALI: ciclo de Progne chalybea en Santa Fe e inmediaciones",
+      "organization": "Universidad Nacional del Litoral / INALI",
+      "url": "https://www.unl.edu.ar/noticias/news/view/%C2%BFvolver%C3%A1n_antes_las_golondrinas",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "rao-tijerita-2026",
+      "title": "León y colaboradores (2026). Ampliando las fronteras: nuevos datos sobre la nidificación de la Golondrina Tijerita en su límite norte de distribución (Santa Fe, Argentina); resumen de póster XXI RAO, relevamientos 2025",
+      "organization": "INALI-CONICET-UNL / FHUC-UNL / FCYT-UADER; Aves Argentinas",
+      "url": "https://rao.avesargentinas.org.ar/sobre/xxi-rao/ampliando-las-fronteras-nuevos-datos-sobre-la-nidificacion-de-la-golondrina-tijerita-hirundo-rustica-en-su-limite-norte-de-distribucion-santa-fe-argentina/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-016",
+      "title": "SIB — Garza blanca (Ardea alba); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/ardea-alba",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-016",
+      "title": "Biblioteca de aves — Garza blanca: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/garza-blanca/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-016-diet",
+      "title": "Biblioteca de aves — Garza blanca: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2215",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-016-range",
+      "title": "Biblioteca de aves — Garza blanca: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2228",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-016-habitat",
+      "title": "Biblioteca de aves — Garza blanca: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2220",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-017",
+      "title": "SIB — Garza bruja (Nycticorax nycticorax); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/nycticorax-nycticorax",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-017",
+      "title": "Biblioteca de aves — Garza bruja: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/garza-bruja/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-017-diet",
+      "title": "Biblioteca de aves — Garza bruja: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2254",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-017-range",
+      "title": "Biblioteca de aves — Garza bruja: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2265",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-017-habitat",
+      "title": "Biblioteca de aves — Garza bruja: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2257",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-018",
+      "title": "SIB — Garza mora (Ardea cocoi); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/ardea-cocoi",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-018",
+      "title": "Biblioteca de aves — Garza mora: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/garza-mora/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-018-diet",
+      "title": "Biblioteca de aves — Garza mora: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2279",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-018-range",
+      "title": "Biblioteca de aves — Garza mora: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2290",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-018-habitat",
+      "title": "Biblioteca de aves — Garza mora: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2292",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-019",
+      "title": "SIB — Gaviota capucho café (Chroicocephalus maculipennis); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/chroicocephalus-maculipennis",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-019",
+      "title": "Biblioteca de aves — Gaviota capucho café: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/gaviota-capucho-cafe/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-019-diet",
+      "title": "Biblioteca de aves — Gaviota capucho café: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5094",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-019-range",
+      "title": "Biblioteca de aves — Gaviota capucho café: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5108",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-019-habitat",
+      "title": "Biblioteca de aves — Gaviota capucho café: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5098",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-020",
+      "title": "SIB — Gaviota capucho gris (Chroicocephalus cirrocephalus); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/chroicocephalus-cirrocephalus",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-020",
+      "title": "Biblioteca de aves — Gaviota capucho gris: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/gaviota-capucho-gris/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-020-diet",
+      "title": "Biblioteca de aves — Gaviota capucho gris: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5121",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-020-range",
+      "title": "Biblioteca de aves — Gaviota capucho gris: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5133",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-020-habitat",
+      "title": "Biblioteca de aves — Gaviota capucho gris: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5125",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-021",
+      "title": "SIB — Gaviota cocinera (Larus dominicanus); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/larus-dominicanus",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-021",
+      "title": "Biblioteca de aves — Gaviota cocinera: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/gaviota-cocinera/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-021-diet",
+      "title": "Biblioteca de aves — Gaviota cocinera: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5141",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-021-range",
+      "title": "Biblioteca de aves — Gaviota cocinera: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5152",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-021-habitat",
+      "title": "Biblioteca de aves — Gaviota cocinera: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5143",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-022",
+      "title": "SIB — Golondrina doméstica (Progne chalybea); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/progne-chalybea",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-022",
+      "title": "Biblioteca de aves — Golondrina doméstica: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/golondrina-domestica/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-022-diet",
+      "title": "Biblioteca de aves — Golondrina doméstica: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=4300",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-022-range",
+      "title": "Biblioteca de aves — Golondrina doméstica: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=4312",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-022-habitat",
+      "title": "Biblioteca de aves — Golondrina doméstica: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=4302",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-023",
+      "title": "SIB — Golondrina tijerita (Hirundo rustica); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/hirundo-rustica",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-023",
+      "title": "Biblioteca de aves — Golondrina tijerita: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/golondrina-tijerita/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-023-diet",
+      "title": "Biblioteca de aves — Golondrina tijerita: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=4427",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-023-range",
+      "title": "Biblioteca de aves — Golondrina tijerita: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=4437",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-023-habitat",
+      "title": "Biblioteca de aves — Golondrina tijerita: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=4429",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-024",
+      "title": "SIB — Hocó colorado (Tigrisoma lineatum); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/tigrisoma-lineatum",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-024",
+      "title": "Biblioteca de aves — Hocó colorado: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/hoco-colorado/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-024-diet",
+      "title": "Biblioteca de aves — Hocó colorado: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2310",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-024-range",
+      "title": "Biblioteca de aves — Hocó colorado: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2320",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-024-habitat",
+      "title": "Biblioteca de aves — Hocó colorado: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2312",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-025",
+      "title": "SIB — Ipacaá (Aramides ypecaha); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/aramides-ypecaha",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-025",
+      "title": "Biblioteca de aves — Ipacaá: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/ipacaa/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-025-diet",
+      "title": "Biblioteca de aves — Ipacaá: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7130",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-025-range",
+      "title": "Biblioteca de aves — Ipacaá: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7143",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-025-habitat",
+      "title": "Biblioteca de aves — Ipacaá: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7132",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-026",
+      "title": "SIB — Jacana (Jacana jacana); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/jacana-jacana",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-026",
+      "title": "Biblioteca de aves — Jacana: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/jacana/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-026-diet",
+      "title": "Biblioteca de aves — Jacana: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5011",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-026-range",
+      "title": "Biblioteca de aves — Jacana: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5030",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-026-habitat",
+      "title": "Biblioteca de aves — Jacana: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=5018",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-027",
+      "title": "SIB — Macá común (Rollandia rolland); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/rollandia-rolland",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-027",
+      "title": "Biblioteca de aves — Macá común: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/maca-cara-blanca/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-027-diet",
+      "title": "Biblioteca de aves — Macá común: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6269",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-027-range",
+      "title": "Biblioteca de aves — Macá común: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6279",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-027-habitat",
+      "title": "Biblioteca de aves — Macá común: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6271",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-028",
+      "title": "SIB — Macá grande (Podiceps major); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/podiceps-major",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-028",
+      "title": "Biblioteca de aves — Macá grande: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/categorias/podicipedidae/maca-grande/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-028-diet",
+      "title": "Biblioteca de aves — Macá grande: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6291",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-028-range",
+      "title": "Biblioteca de aves — Macá grande: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6302",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-028-habitat",
+      "title": "Biblioteca de aves — Macá grande: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6294",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-029",
+      "title": "SIB — Macá pico grueso (Podilymbus podiceps); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/podilymbus-podiceps",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-029",
+      "title": "Biblioteca de aves — Macá pico grueso: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/maca-pico-grueso/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-029-diet",
+      "title": "Biblioteca de aves — Macá pico grueso: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6330",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-029-range",
+      "title": "Biblioteca de aves — Macá pico grueso: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6340",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-029-habitat",
+      "title": "Biblioteca de aves — Macá pico grueso: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6332",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-030",
+      "title": "SIB — Pato barcino (Anas flavirostris); categoría nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/anas-flavirostris",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-030",
+      "title": "Biblioteca de aves — Pato barcino: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-barcino/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-030-diet",
+      "title": "Biblioteca de aves — Pato barcino: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1508",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-030-range",
+      "title": "Biblioteca de aves — Pato barcino: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1523",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-030-habitat",
+      "title": "Biblioteca de aves — Pato barcino: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1510",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "audubon-cinnamon",
+      "title": "Cinnamon Teal — Spatula cyanoptera; UICN LC, año de evaluación no indicado",
+      "organization": "National Audubon Society",
+      "url": "https://www.audubon.org/field-guide/bird/cinnamon-teal",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "photo-oxyura-426947693",
+      "title": "Oxyura vittata, foto 426947693, Mariano Cosentino / iNaturalist. Copia convertida a WebP y reducida, sin recorte; procedencia y licencia contrastadas en T2",
+      "organization": "Wikimedia Commons / iNaturalist",
+      "url": "https://commons.wikimedia.org/wiki/File:Oxyura_vittata_426947693.jpg",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "photo-ccby4",
+      "title": "Creative Commons Attribution 4.0 International — licencia de la foto 426947693",
+      "organization": "Creative Commons",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "photo-collar-651502",
+      "title": "Pato de Collar, fotografía 651502 — Hernán Tolosa, hembra adulta, 09/09/2025, Laguna de Navarro",
+      "organization": "EcoRegistros / Hernán Tolosa",
+      "url": "https://www.ecoregistros.org/site/imagen.php?id=651502",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "photo-ecoregistros-terms",
+      "title": "Términos y condiciones — reutilización de fotografías sujeta a autorización expresa del autor; permiso pendiente",
+      "organization": "EcoRegistros",
+      "url": "https://www.ecoregistros.org/site/terminosycondiciones.php",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "capllonch-2008",
+      "title": "Capllonch, Ortiz y Soria (2008). Importancia del Litoral fluvial argentino como corredor migratorio de aves. Miscelánea INSUGEO 17:107–120; lista pp. 108–109 y anillado p. 114",
+      "organization": "CENAA / Instituto Miguel Lillo / Universidad Nacional de Tucumán; copia BFA-UNLP",
+      "url": "https://www.bfa.fcnym.unlp.edu.ar/catalogo/doc_num.php?explnum_id=2752",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "perez-2011",
+      "title": "Pérez, Zaccagnini y Pereda (2011). La influenza aviar y sus implicancias para la salud de las aves silvestres de América del Sur. El Hornero 26(1):29–44; movimientos de anátidos, p. 36",
+      "organization": "SENASA / INTA; Aves Argentinas",
+      "url": "https://elhornero.avesargentinas.org.ar/index.php/home/article/download/694/680",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-031",
+      "title": "SIB — Pato capuchino (Spatula versicolor); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/spatula-versicolor",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-031",
+      "title": "Biblioteca de aves — Pato capuchino: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-capuchino/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-031-diet",
+      "title": "Biblioteca de aves — Pato capuchino: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1608",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-031-range",
+      "title": "Biblioteca de aves — Pato capuchino: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1620",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-031-habitat",
+      "title": "Biblioteca de aves — Pato capuchino: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1610",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-032",
+      "title": "SIB — Pato colorado (Spatula cyanoptera); nacional MADS/AA 2017",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/spatula-cyanoptera",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-032",
+      "title": "Biblioteca de aves — Pato colorado: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-colorado/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-032-diet",
+      "title": "Biblioteca de aves — Pato colorado: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1632",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-032-range",
+      "title": "Biblioteca de aves — Pato colorado: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1642",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-032-habitat",
+      "title": "Biblioteca de aves — Pato colorado: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1634",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-033",
+      "title": "SIB — Pato cuchara (Spatula platalea); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/spatula-platalea",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-033",
+      "title": "Biblioteca de aves — Pato cuchara: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-cuchara/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-033-diet",
+      "title": "Biblioteca de aves — Pato cuchara: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1673",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-033-range",
+      "title": "Biblioteca de aves — Pato cuchara: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1683",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-033-habitat",
+      "title": "Biblioteca de aves — Pato cuchara: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1675",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-034",
+      "title": "SIB — Pato cutirí (Amazonetta brasiliensis); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/amazonetta-brasiliensis",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-034",
+      "title": "Biblioteca de aves — Pato cutirí: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-cutiri/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-034-diet",
+      "title": "Biblioteca de aves — Pato cutirí: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1696",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-034-range",
+      "title": "Biblioteca de aves — Pato cutirí: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1708",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-034-habitat",
+      "title": "Biblioteca de aves — Pato cutirí: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1698",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-035",
+      "title": "SIB — Pato de collar (Callonetta leucophrys); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/callonetta-leucophrys",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-035",
+      "title": "Biblioteca de aves — Pato de collar: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-de-collar/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-035-diet",
+      "title": "Biblioteca de aves — Pato de collar: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1726",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-035-range",
+      "title": "Biblioteca de aves — Pato de collar: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1739",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-035-habitat",
+      "title": "Biblioteca de aves — Pato de collar: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1728",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-036",
+      "title": "SIB — Pato gargantilla (Anas bahamensis); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/anas-bahamensis",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-036",
+      "title": "Biblioteca de aves — Pato gargantilla: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-gargantilla/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-036-diet",
+      "title": "Biblioteca de aves — Pato gargantilla: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1775",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-036-range",
+      "title": "Biblioteca de aves — Pato gargantilla: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1785",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-036-habitat",
+      "title": "Biblioteca de aves — Pato gargantilla: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1777",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-037",
+      "title": "SIB — Pato maicero (Anas georgica); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/anas-georgica",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-037",
+      "title": "Biblioteca de aves — Pato maicero: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-maicero/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-037-diet",
+      "title": "Biblioteca de aves — Pato maicero: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1798",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-037-range",
+      "title": "Biblioteca de aves — Pato maicero: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1809",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-037-habitat",
+      "title": "Biblioteca de aves — Pato maicero: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1801",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-038",
+      "title": "SIB — Pato overo (Mareca sibilatrix); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/mareca-sibilatrix",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-038",
+      "title": "Biblioteca de aves — Pato overo: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-overo/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-038-diet",
+      "title": "Biblioteca de aves — Pato overo: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1836",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-038-range",
+      "title": "Biblioteca de aves — Pato overo: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1850",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-038-habitat",
+      "title": "Biblioteca de aves — Pato overo: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1839",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-039",
+      "title": "SIB — Pato picazo (Netta peposaca); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/netta-peposaca",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-039",
+      "title": "Biblioteca de aves — Pato picazo: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-picazo/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-039-diet",
+      "title": "Biblioteca de aves — Pato picazo: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1859",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-039-range",
+      "title": "Biblioteca de aves — Pato picazo: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1869",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-039-habitat",
+      "title": "Biblioteca de aves — Pato picazo: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1861",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-040",
+      "title": "SIB — Sirirí colorado (Dendrocygna bicolor); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/dendrocygna-bicolor",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-040",
+      "title": "Biblioteca de aves — Sirirí colorado: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/siriri-colorado/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-040-diet",
+      "title": "Biblioteca de aves — Sirirí colorado: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1925",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-040-range",
+      "title": "Biblioteca de aves — Sirirí colorado: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1935",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-040-habitat",
+      "title": "Biblioteca de aves — Sirirí colorado: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1927",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-041",
+      "title": "SIB — Sirirí pampa (Dendrocygna viduata); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/dendrocygna-viduata?area%5B%5D=APN-CH&tab=fuentes",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-041",
+      "title": "Biblioteca de aves — Sirirí pampa: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/siriri-pampa/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-041-diet",
+      "title": "Biblioteca de aves — Sirirí pampa: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1948",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-041-range",
+      "title": "Biblioteca de aves — Sirirí pampa: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1961",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-041-habitat",
+      "title": "Biblioteca de aves — Sirirí pampa: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1950",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-042",
+      "title": "SIB — Pato zambullidor chico (Oxyura vittata); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/oxyura-vittata",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-042",
+      "title": "Biblioteca de aves — Pato zambullidor chico: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pato-zambullidor-ch/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-042-diet",
+      "title": "Biblioteca de aves — Pato zambullidor chico: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1903",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-042-range",
+      "title": "Biblioteca de aves — Pato zambullidor chico: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1913",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-042-habitat",
+      "title": "Biblioteca de aves — Pato zambullidor chico: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=1905",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-043",
+      "title": "SIB — Pollona negra (Gallinula galeata); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/gallinula-galeata",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-043",
+      "title": "Biblioteca de aves — Pollona negra: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/pollona-negra/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-043-diet",
+      "title": "Biblioteca de aves — Pollona negra: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7262",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-043-range",
+      "title": "Biblioteca de aves — Pollona negra: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7274",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-043-habitat",
+      "title": "Biblioteca de aves — Pollona negra: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=7264",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-044",
+      "title": "SIB — Tero (Vanellus chilensis); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/vanellus-chilensis",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-044",
+      "title": "Biblioteca de aves — Tero: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/tero/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-044-diet",
+      "title": "Biblioteca de aves — Tero: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2741",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-044-range",
+      "title": "Biblioteca de aves — Tero: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=2761",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "sib-045",
+      "title": "SIB — Tero real (Himantopus mexicanus); nacional MADS/AA 2017; global UICN API sin año de evaluación",
+      "organization": "Administración de Parques Nacionales",
+      "url": "https://sib.gob.ar/especies/himantopus-mexicanus",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-045",
+      "title": "Biblioteca de aves — Tero real: descripción e identificación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/tero-real/",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-045-diet",
+      "title": "Biblioteca de aves — Tero real: alimentación",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6979",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-045-range",
+      "title": "Biblioteca de aves — Tero real: distribución geográfica",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6989",
+      "consultedOn": "2026-10-22"
+    },
+    {
+      "id": "unl-045-habitat",
+      "title": "Biblioteca de aves — Tero real: hábitat",
+      "organization": "Facultad de Ciencias Veterinarias, Universidad Nacional del Litoral",
+      "url": "https://www.fcv.unl.edu.ar/aves/?post_type=post&p=6981",
+      "consultedOn": "2026-10-22"
+    }
+  ],
+  "species": [
+    {
+      "speciesKey": "phalacrocorax_brasilianus",
+      "commonName": "Biguá",
+      "scientificName": "Nannopterum brasilianum",
+      "englishName": "Neotropic Cormorant",
+      "family": "Phalacrocoracidae",
+      "group": "Cormoranes",
+      "order": "Suliformes",
+      "argentineRegions": "Humedales del norte, centro y Patagonia; también costas marinas. Su distribución abarca el país.",
+      "description": "Cormorán de plumaje muy oscuro, cuello alargado y piel amarillenta en la garganta. En época reproductiva puede mostrar bordes y plumas blancas alrededor de la cara.",
+      "habitat": "Utiliza aguas interiores, desde ríos y arroyos hasta lagunas y embalses, y también el litoral marino.",
+      "diet": "Captura peces bajo el agua; también consume crustáceos y moluscos.",
+      "seasonalMovements": "En Patagonia se registra como residente permanente; esa descripción regional no implica que todas las poblaciones del país permanezcan inmóviles.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "audubon-bigua"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-001",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-001"
+        ],
+        "scientificName": [
+          "audubon-bigua"
+        ],
+        "englishName": [
+          "sib-001"
+        ],
+        "family": [
+          "sib-001"
+        ],
+        "group": [
+          "sib-001"
+        ],
+        "order": [
+          "sib-001"
+        ],
+        "argentineRegions": [
+          "unl-001-range"
+        ],
+        "description": [
+          "unl-001",
+          "sib-001"
+        ],
+        "habitat": [
+          "unl-001-habitat"
+        ],
+        "diet": [
+          "unl-001-diet"
+        ],
+        "seasonalMovements": [
+          "sib-001"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-001.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "aramus_guarauna",
+      "commonName": "Carau",
+      "scientificName": "Aramus guarauna",
+      "englishName": "Limpkin",
+      "family": "Aramidae",
+      "group": "Caraúes",
+      "order": "Gruiformes",
+      "argentineRegions": "Norte y centro argentino, con presencia hacia Cuyo, la región pampeana y el norte de Patagonia, hasta Río Negro.",
+      "description": "Ave parda de pico, cuello y patas largos. Las pequeñas marcas blancas de cabeza, cuello y parte alta del dorso contrastan con el cuerpo oscuro.",
+      "habitat": "Frecuenta esteros y bañados, además de márgenes de lagunas y cursos de agua con árboles cercanos.",
+      "diet": "Come caracoles y también insectos.",
+      "seasonalMovements": "En Formosa es residente anual; no se establece aquí un calendario migratorio nacional.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-002"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-002",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-002"
+        ],
+        "scientificName": [
+          "sib-002"
+        ],
+        "englishName": [
+          "sib-002"
+        ],
+        "family": [
+          "sib-002"
+        ],
+        "group": [
+          "sib-002"
+        ],
+        "order": [
+          "sib-002"
+        ],
+        "argentineRegions": [
+          "unl-002-range"
+        ],
+        "description": [
+          "unl-002"
+        ],
+        "habitat": [
+          "unl-002-habitat"
+        ],
+        "diet": [
+          "unl-002-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-formosa-2014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-002.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "chauna_torquata",
+      "commonName": "Chajá",
+      "scientificName": "Chauna torquata",
+      "englishName": "Southern Screamer",
+      "family": "Anhimidae",
+      "group": "Chajáes",
+      "order": "Anseriformes",
+      "argentineRegions": "Norte y centro del país, incluida la región pampeana; se extiende hacia el sureste de San Juan, este de Mendoza, La Pampa y Río Negro.",
+      "description": "Ave grande y gris, con copete y patas rojizas. En el cuello se distinguen una banda clara y otra negra; las alas poseen espolones.",
+      "habitat": "Ocupa esteros, lagunas y bañados; también utiliza campos abiertos próximos al agua.",
+      "diet": "Consume sobre todo plantas y semillas; incorpora insectos ocasionalmente.",
+      "seasonalMovements": "Se describe como residente permanente en su área sudamericana. No se atribuye a la especie una migración estacional obligatoria.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-003"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-003",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-003"
+        ],
+        "scientificName": [
+          "sib-003"
+        ],
+        "englishName": [
+          "sib-003"
+        ],
+        "family": [
+          "sib-003"
+        ],
+        "group": [
+          "sib-003"
+        ],
+        "order": [
+          "sib-003"
+        ],
+        "argentineRegions": [
+          "unl-003-range"
+        ],
+        "description": [
+          "unl-003",
+          "sib-003"
+        ],
+        "habitat": [
+          "unl-003-habitat",
+          "adw-chaja"
+        ],
+        "diet": [
+          "unl-003-diet"
+        ],
+        "seasonalMovements": [
+          "adw-chaja"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-003.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "syrigma_sibilatrix",
+      "commonName": "Chiflón",
+      "scientificName": "Syrigma sibilatrix",
+      "englishName": "Whistling Heron",
+      "family": "Ardeidae",
+      "group": "Garzas",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Norte y centro argentino, hasta La Pampa y Buenos Aires; incluye el Litoral y la región pampeana.",
+      "description": "Garza de dorso gris y cuello amarillento. La piel azul alrededor del ojo y el pico rosado con extremo negro ayudan a reconocerla.",
+      "habitat": "Se alimenta en praderas y áreas rurales, bordes de monte y terrenos con charcos o bañados.",
+      "diet": "Captura insectos y otros invertebrados, además de peces, anfibios, reptiles y pequeños mamíferos.",
+      "seasonalMovements": "Puede cambiar de área según la estación y la disponibilidad de recursos, especialmente durante sequías; no se fija un calendario único para Argentina.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-004"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-004",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-004"
+        ],
+        "scientificName": [
+          "sib-004"
+        ],
+        "englishName": [
+          "sib-004"
+        ],
+        "family": [
+          "sib-004"
+        ],
+        "group": [
+          "sib-004"
+        ],
+        "order": [
+          "sib-004"
+        ],
+        "argentineRegions": [
+          "unl-004-range"
+        ],
+        "description": [
+          "unl-004"
+        ],
+        "habitat": [
+          "unl-004-habitat"
+        ],
+        "diet": [
+          "unl-004-diet"
+        ],
+        "seasonalMovements": [
+          "fw-chiflon"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-004.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "ciconia_maguari",
+      "commonName": "Cigüeña americana",
+      "scientificName": "Ciconia maguari",
+      "englishName": "Maguari Stork",
+      "family": "Ciconiidae",
+      "group": "Cigüeñas",
+      "order": "Ciconiiformes",
+      "argentineRegions": "Norte, centro y región pampeana, con registros hacia Patagonia hasta Chubut. El extremo patagónico corresponde a presencia ocasional según el Atlas de Formosa.",
+      "description": "Adulto mayormente blanco, con sectores negros en alas y cola, patas rojizas y pico largo. Los juveniles pueden ser mucho más oscuros.",
+      "habitat": "Utiliza bañados, esteros, lagunas y praderas.",
+      "diet": "Consume peces, crustáceos, moluscos e insectos; puede capturar pequeños roedores.",
+      "seasonalMovements": "En Formosa es residente, con movimientos ligados al agua; posibles migraciones amplias siguen poco conocidas.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-005"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-005",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-005"
+        ],
+        "scientificName": [
+          "sib-005"
+        ],
+        "englishName": [
+          "sib-005"
+        ],
+        "family": [
+          "sib-005"
+        ],
+        "group": [
+          "sib-005"
+        ],
+        "order": [
+          "sib-005"
+        ],
+        "argentineRegions": [
+          "unl-005-range",
+          "atlas-formosa-2014"
+        ],
+        "description": [
+          "unl-005"
+        ],
+        "habitat": [
+          "unl-005-habitat"
+        ],
+        "diet": [
+          "unl-005-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-formosa-2014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-005.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "cygnus_melancoryphus",
+      "commonName": "Cisne cuello negro",
+      "scientificName": "Cygnus melancoryphus",
+      "englishName": "Black-necked Swan",
+      "family": "Anatidae",
+      "group": "Cisnes",
+      "order": "Anseriformes",
+      "argentineRegions": "Centro, región pampeana y Patagonia hasta Tierra del Fuego y Malvinas; también el noreste durante desplazamientos hacia el norte.",
+      "description": "El cuerpo blanco contrasta con la cabeza y el cuello negros. Presenta una carúncula rojiza sobre la base del pico gris azulado y una fina marca blanca alrededor del ojo.",
+      "habitat": "Habita lagunas, esteros con agua abierta y costas marinas.",
+      "diet": "Consume vegetación; obtiene plantas sumergidas introduciendo cabeza y cuello en el agua.",
+      "seasonalMovements": "Parte de la población se desplaza al norte en otoño e invierno, alcanzando Formosa, Chaco, Corrientes y Misiones.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-006"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-006",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-006"
+        ],
+        "scientificName": [
+          "sib-006"
+        ],
+        "englishName": [
+          "sib-006"
+        ],
+        "family": [
+          "sib-006"
+        ],
+        "group": [
+          "sib-006"
+        ],
+        "order": [
+          "sib-006"
+        ],
+        "argentineRegions": [
+          "unl-006-range"
+        ],
+        "description": [
+          "unl-006"
+        ],
+        "habitat": [
+          "unl-006-habitat"
+        ],
+        "diet": [
+          "unl-006-diet",
+          "sib-006"
+        ],
+        "seasonalMovements": [
+          "unl-006-range"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-006.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "coscoroba_coscoroba",
+      "commonName": "Coscoroba",
+      "scientificName": "Coscoroba coscoroba",
+      "englishName": "Coscoroba Swan",
+      "family": "Anatidae",
+      "group": "Cisnes",
+      "order": "Anseriformes",
+      "argentineRegions": "Desde la región chaqueña y Santiago del Estero, por el centro y Patagonia, hasta Tierra del Fuego y Malvinas; alcanza el noreste en invierno.",
+      "description": "Ave blanca de pico y patas rojos. Las puntas negras de las plumas de vuelo pueden quedar ocultas cuando nada.",
+      "habitat": "Se encuentra en lagunas, esteros con sectores de agua libre y costas marinas.",
+      "diet": "Come plantas, incluida vegetación sumergida.",
+      "seasonalMovements": "En invierno se desplaza hacia el norte, con presencia en Formosa, Chaco y Corrientes. La ocurrencia local puede variar entre años.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-007"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-007",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-007"
+        ],
+        "scientificName": [
+          "sib-007"
+        ],
+        "englishName": [
+          "sib-007"
+        ],
+        "family": [
+          "sib-007"
+        ],
+        "group": [
+          "sib-007"
+        ],
+        "order": [
+          "sib-007"
+        ],
+        "argentineRegions": [
+          "unl-007-range"
+        ],
+        "description": [
+          "unl-007"
+        ],
+        "habitat": [
+          "unl-007-habitat"
+        ],
+        "diet": [
+          "unl-007-diet",
+          "sib-007"
+        ],
+        "seasonalMovements": [
+          "unl-007-range",
+          "sib-007"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-007.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "phimosus_infuscatus",
+      "commonName": "Cuervillo cara pelada",
+      "scientificName": "Phimosus infuscatus",
+      "englishName": "Bare-faced Ibis",
+      "family": "Threskiornithidae",
+      "group": "Ibis",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Norte y centro del país, hasta Mendoza, San Luis, La Pampa y Buenos Aires; presente en el Litoral.",
+      "description": "Ibis oscuro con reflejos verdes y violetas, cara desnuda rojiza y pico curvo claro o rosado. Las patas también son rosadas.",
+      "habitat": "Frecuenta lagunas, esteros, bañados y charcos.",
+      "diet": "Busca insectos y lombrices.",
+      "seasonalMovements": "Se desplaza posiblemente en relación con el agua; su alcance es poco conocido. En Formosa también es residente.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-008"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-008",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-008"
+        ],
+        "scientificName": [
+          "sib-008"
+        ],
+        "englishName": [
+          "sib-008"
+        ],
+        "family": [
+          "sib-008"
+        ],
+        "group": [
+          "sib-008"
+        ],
+        "order": [
+          "sib-008"
+        ],
+        "argentineRegions": [
+          "unl-008-range"
+        ],
+        "description": [
+          "unl-008"
+        ],
+        "habitat": [
+          "unl-008-habitat"
+        ],
+        "diet": [
+          "unl-008-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-formosa-2014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-008.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "plegadis_chihi",
+      "commonName": "Cuervillo de cañada",
+      "scientificName": "Plegadis chihi",
+      "englishName": "White-faced Ibis",
+      "family": "Threskiornithidae",
+      "group": "Ibis",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Norte, centro, región pampeana y Patagonia hasta Santa Cruz; su presencia en Tierra del Fuego es ocasional.",
+      "description": "Ibis de pico largo y curvado, iris rojo y plumaje adulto castaño con brillos violáceos y verdes. Fuera de reproducción resulta más oscuro; los jóvenes muestran estrías claras en cabeza y cuello.",
+      "habitat": "Utiliza humedales someros, praderas y campos rurales, además de esteros y lagunas.",
+      "diet": "Come insectos, moluscos y otros pequeños animales; también se registran semillas.",
+      "seasonalMovements": "En Formosa es residente con desplazamientos irregulares amplios, documentados mediante anillado.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-009"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-009",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-009"
+        ],
+        "scientificName": [
+          "sib-009"
+        ],
+        "englishName": [
+          "sib-009"
+        ],
+        "family": [
+          "sib-009"
+        ],
+        "group": [
+          "sib-009"
+        ],
+        "order": [
+          "sib-009"
+        ],
+        "argentineRegions": [
+          "unl-009-range"
+        ],
+        "description": [
+          "unl-009"
+        ],
+        "habitat": [
+          "unl-009-habitat"
+        ],
+        "diet": [
+          "unl-009-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-formosa-2014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-009.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "platalea_ajaja",
+      "commonName": "Espátula rosada",
+      "scientificName": "Platalea ajaja",
+      "englishName": "Roseate Spoonbill",
+      "family": "Threskiornithidae",
+      "group": "Espátulas",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Noroeste, noreste y centro del país, región pampeana y Patagonia hasta Chubut; más al sur y en Malvinas se registra ocasionalmente.",
+      "description": "Ave rosada con pico largo, ancho y aplanado en el extremo. El adulto presenta la cabeza desnuda y zonas rojas más intensas en las alas.",
+      "habitat": "Frecuenta esteros, bañados y lagunas con sectores someros.",
+      "diet": "Obtiene moluscos, insectos y peces al mover el pico en el agua; también hay registros de semillas.",
+      "seasonalMovements": "En Formosa es residente, con presencia variable por desplazamientos; no se establece un calendario nacional.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-010"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-010",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-010"
+        ],
+        "scientificName": [
+          "sib-010"
+        ],
+        "englishName": [
+          "cornell-spoonbill"
+        ],
+        "family": [
+          "sib-010"
+        ],
+        "group": [
+          "sib-010"
+        ],
+        "order": [
+          "sib-010"
+        ],
+        "argentineRegions": [
+          "unl-010-range"
+        ],
+        "description": [
+          "unl-010"
+        ],
+        "habitat": [
+          "unl-010-habitat"
+        ],
+        "diet": [
+          "unl-010-diet",
+          "unl-010"
+        ],
+        "seasonalMovements": [
+          "atlas-formosa-2014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-010.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "phoenicopterus_chilensis",
+      "commonName": "Flamenco austral",
+      "scientificName": "Phoenicopterus chilensis",
+      "englishName": "Chilean Flamingo",
+      "family": "Phoenicopteridae",
+      "group": "Flamencos",
+      "order": "Phoenicopteriformes",
+      "argentineRegions": "Humedales de amplia distribución en Argentina, desde el norte hasta Tierra del Fuego; ocasional en Malvinas.",
+      "description": "Ave rosada de cuello y patas muy largos. El pico curvado tiene base clara y un amplio extremo negro; las patas grisáceas contrastan con las articulaciones rojizas.",
+      "habitat": "Utiliza lagunas salobres y estuarios marinos.",
+      "diet": "Filtra pequeños organismos del agua, incluidos crustáceos, y consume también materia vegetal.",
+      "seasonalMovements": "Parte de la población alcanza la costa atlántica en invierno. En Formosa se registra especialmente de paso, antes y después de la reproducción.",
+      "conservationGlobal": {
+        "category": "Casi amenazada (NT)",
+        "assessmentYear": 2018,
+        "sourceIds": [
+          "birdlife-flamenco-2018"
+        ]
+      },
+      "conservationNational": {
+        "category": "Vulnerable (VU)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-011",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-011"
+        ],
+        "scientificName": [
+          "sib-011"
+        ],
+        "englishName": [
+          "sib-011"
+        ],
+        "family": [
+          "sib-011"
+        ],
+        "group": [
+          "sib-011"
+        ],
+        "order": [
+          "sib-011"
+        ],
+        "argentineRegions": [
+          "unl-011-range",
+          "mads-aa-eval-2015"
+        ],
+        "description": [
+          "unl-011"
+        ],
+        "habitat": [
+          "unl-011-habitat"
+        ],
+        "diet": [
+          "unl-011-diet",
+          "temaiken-flamenco"
+        ],
+        "seasonalMovements": [
+          "atlas-formosa-2014",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-011.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "fulica_leucoptera",
+      "commonName": "Gallareta chica",
+      "scientificName": "Fulica leucoptera",
+      "englishName": "White-winged Coot",
+      "family": "Rallidae",
+      "group": "Gallaretas",
+      "order": "Gruiformes",
+      "argentineRegions": "Amplia presencia en humedales del norte, centro y Patagonia; accidental en Malvinas. La distribución no implica ocupación continua de todo el territorio.",
+      "description": "Gallareta oscura de escudete pequeño, redondeado y amarillo o anaranjado. El borde claro del ala se aprecia mejor al volar; no presenta la línea roja de la gallareta ligas rojas.",
+      "habitat": "Habita lagunas, esteros, bañados y lagos, especialmente con vegetación acuática.",
+      "diet": "Consume plantas y semillas; también pequeños animales como moluscos e insectos.",
+      "seasonalMovements": "El SIB describe presencia estival en sectores de la estepa patagónica, fuera de los parques Nahuel Huapi y Lanín; no se generaliza al país.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-012"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-012",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-012"
+        ],
+        "scientificName": [
+          "sib-012"
+        ],
+        "englishName": [
+          "sib-012"
+        ],
+        "family": [
+          "sib-012"
+        ],
+        "group": [
+          "sib-012"
+        ],
+        "order": [
+          "sib-012"
+        ],
+        "argentineRegions": [
+          "unl-012-range",
+          "sib-012"
+        ],
+        "description": [
+          "unl-012",
+          "sib-012"
+        ],
+        "habitat": [
+          "unl-012-habitat"
+        ],
+        "diet": [
+          "unl-012-diet"
+        ],
+        "seasonalMovements": [
+          "sib-012"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-012.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "fulica_rufifrons",
+      "commonName": "Gallareta escudete rojo",
+      "scientificName": "Fulica rufifrons",
+      "englishName": "Red-fronted Coot",
+      "family": "Rallidae",
+      "group": "Gallaretas",
+      "order": "Gruiformes",
+      "argentineRegions": "Desde sectores del noroeste, Chaco y Corrientes hacia el centro, región pampeana y Patagonia, hasta Tierra del Fuego y Malvinas.",
+      "description": "De cabeza negra y cuerpo gris oscuro, posee pico amarillo y escudete rojo estrecho terminado en punta. Las zonas blancas bajo la cola pueden resultar conspicuas.",
+      "habitat": "Vive en lagunas y esteros; suele mantenerse junto a juncales.",
+      "diet": "Se alimenta de plantas y semillas.",
+      "seasonalMovements": "La referencia del noroeste patagónico registra presencia de verano en sectores fuera de Nahuel Huapi y Lanín. Ese patrón se mantiene como regional.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-013"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-013",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-013"
+        ],
+        "scientificName": [
+          "sib-013"
+        ],
+        "englishName": [
+          "sib-013"
+        ],
+        "family": [
+          "sib-013"
+        ],
+        "group": [
+          "sib-013"
+        ],
+        "order": [
+          "sib-013"
+        ],
+        "argentineRegions": [
+          "unl-013-range"
+        ],
+        "description": [
+          "unl-013",
+          "sib-013"
+        ],
+        "habitat": [
+          "unl-013-habitat"
+        ],
+        "diet": [
+          "unl-013-diet"
+        ],
+        "seasonalMovements": [
+          "sib-013"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-013.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "fulica_armillata",
+      "commonName": "Gallareta ligas rojas",
+      "scientificName": "Fulica armillata",
+      "englishName": "Red-gartered Coot",
+      "family": "Rallidae",
+      "group": "Gallaretas",
+      "order": "Gruiformes",
+      "argentineRegions": "Desde sectores del noroeste, Chaco y Corrientes por el centro y Patagonia, hasta Tierra del Fuego y Malvinas.",
+      "description": "Gallareta grande y oscura, con pico y escudete amarillos separados por una banda roja. La marca rojiza de la tibia se observa mejor fuera del agua.",
+      "habitat": "Ocupa lagunas y esteros, y también lagos y ríos lentos con vegetación costera.",
+      "diet": "Come hojas y semillas; incorpora insectos y cangrejos.",
+      "seasonalMovements": "El SIB la registra como residente permanente en el noroeste patagónico. No se usa esa observación para fijar el comportamiento de todas las poblaciones.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-014"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-014",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-014"
+        ],
+        "scientificName": [
+          "sib-014"
+        ],
+        "englishName": [
+          "sib-014"
+        ],
+        "family": [
+          "sib-014"
+        ],
+        "group": [
+          "sib-014"
+        ],
+        "order": [
+          "sib-014"
+        ],
+        "argentineRegions": [
+          "unl-014-range"
+        ],
+        "description": [
+          "unl-014",
+          "sib-014"
+        ],
+        "habitat": [
+          "unl-014-habitat",
+          "sib-014"
+        ],
+        "diet": [
+          "unl-014-diet"
+        ],
+        "seasonalMovements": [
+          "sib-014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-014.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "egretta_thula",
+      "commonName": "Garcita blanca",
+      "scientificName": "Egretta thula",
+      "englishName": "Snowy Egret",
+      "family": "Ardeidae",
+      "group": "Garzas",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Norte, centro, región pampeana y Patagonia hasta Santa Cruz. FCV/UNL considera accidental su presencia en Malvinas.",
+      "description": "Garza pequeña y blanca, normalmente de pico negro, patas oscuras y dedos amarillos. Durante la reproducción desarrolla plumas largas en pecho y dorso.",
+      "habitat": "Busca alimento en charcos, bañados, esteros y márgenes de lagunas, ríos y arroyos; también utiliza islas.",
+      "diet": "Captura peces, anfibios, insectos, crustáceos y arácnidos.",
+      "seasonalMovements": "En Formosa es residente, con dispersión posterior a la cría; no se extrapolan migraciones norteamericanas.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-015"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-015",
+          "mads-aa-eval-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-015"
+        ],
+        "scientificName": [
+          "sib-015"
+        ],
+        "englishName": [
+          "sib-015"
+        ],
+        "family": [
+          "sib-015"
+        ],
+        "group": [
+          "sib-015"
+        ],
+        "order": [
+          "sib-015"
+        ],
+        "argentineRegions": [
+          "unl-015-range"
+        ],
+        "description": [
+          "unl-015"
+        ],
+        "habitat": [
+          "unl-015-habitat"
+        ],
+        "diet": [
+          "unl-015-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-formosa-2014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-015.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "ardea_alba",
+      "commonName": "Garza blanca",
+      "scientificName": "Ardea alba",
+      "englishName": "Great Egret",
+      "family": "Ardeidae",
+      "group": "Garzas",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Ampliamente distribuida desde el norte hasta Patagonia. En Tierra del Fuego y las islas Malvinas su presencia es ocasional.",
+      "description": "Garza grande y enteramente blanca, con cuello y pico largos. El pico es amarillo y las patas negras; durante la reproducción desarrolla plumas largas en el dorso.",
+      "habitat": "Aguas someras y márgenes de lagunas, esteros, bañados, ríos y arroyos, incluidas islas fluviales.",
+      "diet": "Consume peces y anfibios, además de insectos, arácnidos y crustáceos.",
+      "seasonalMovements": "En el noroeste patagónico se registra como visitante ocasional, principalmente en primavera y verano; no se extrapola ese patrón a todo el país.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "audubon-egret"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-016",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-016"
+        ],
+        "scientificName": [
+          "sib-016",
+          "audubon-egret"
+        ],
+        "englishName": [
+          "audubon-egret"
+        ],
+        "family": [
+          "sib-016"
+        ],
+        "group": [
+          "sib-016"
+        ],
+        "order": [
+          "sib-016"
+        ],
+        "argentineRegions": [
+          "unl-016-range"
+        ],
+        "description": [
+          "unl-016",
+          "sib-016"
+        ],
+        "habitat": [
+          "unl-016-habitat"
+        ],
+        "diet": [
+          "unl-016-diet"
+        ],
+        "seasonalMovements": [
+          "sib-016"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-016.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "nycticorax_nycticorax",
+      "commonName": "Garza bruja",
+      "scientificName": "Nycticorax nycticorax",
+      "englishName": "Black-crowned Night-heron",
+      "family": "Ardeidae",
+      "group": "Garzas",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Humedales desde el norte argentino hasta Tierra del Fuego y las islas Malvinas.",
+      "description": "Garza de aspecto robusto. El adulto tiene corona y dorso negros, alas grises, región ventral clara e iris rojizo; puede presentar largas plumas blancas en la nuca. El juvenil es pardo con manchas y estrías claras.",
+      "habitat": "Orillas de lagos, lagunas, ríos y esteros, con vegetación donde resguardarse; también costas marinas.",
+      "diet": "Captura peces, anfibios, crustáceos, moluscos e insectos; también puede consumir pequeños mamíferos y pichones de aves.",
+      "seasonalMovements": "Se describe como residente permanente en el noroeste patagónico; esta referencia regional no establece el comportamiento de todas las poblaciones argentinas.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-017"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-017",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-017"
+        ],
+        "scientificName": [
+          "sib-017"
+        ],
+        "englishName": [
+          "sib-017"
+        ],
+        "family": [
+          "sib-017"
+        ],
+        "group": [
+          "sib-017"
+        ],
+        "order": [
+          "sib-017"
+        ],
+        "argentineRegions": [
+          "unl-017-range"
+        ],
+        "description": [
+          "unl-017",
+          "sib-017"
+        ],
+        "habitat": [
+          "unl-017-habitat",
+          "sib-017"
+        ],
+        "diet": [
+          "unl-017-diet"
+        ],
+        "seasonalMovements": [
+          "sib-017"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-017.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "ardea_cocoi",
+      "commonName": "Garza mora",
+      "scientificName": "Ardea cocoi",
+      "englishName": "Cocoi Heron",
+      "family": "Ardeidae",
+      "group": "Garzas",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Se encuentra desde el norte y centro del país hasta Patagonia y Tierra del Fuego. En el noroeste patagónico se considera ocasional; también hay registros ocasionales en las islas Malvinas.",
+      "description": "Garza muy grande, de cuello largo y dorso gris. Presenta corona y plumas de la nuca negras, cuello blanco con marcas oscuras y vientre negro. El juvenil es más apagado y carece de las largas plumas ornamentales del adulto.",
+      "habitat": "Costas de ríos y lagos, lagunas, esteros y bañados, especialmente sectores con vegetación emergente.",
+      "diet": "Consume peces y anfibios, junto con insectos y otros pequeños vertebrados, incluidas aves y mamíferos.",
+      "seasonalMovements": "En el noroeste patagónico es visitante ocasional de verano y otoño, con algún registro invernal. No se aplica esa estacionalidad a toda Argentina.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-018"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-018",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-018"
+        ],
+        "scientificName": [
+          "sib-018"
+        ],
+        "englishName": [
+          "sib-018"
+        ],
+        "family": [
+          "sib-018"
+        ],
+        "group": [
+          "sib-018"
+        ],
+        "order": [
+          "sib-018"
+        ],
+        "argentineRegions": [
+          "unl-018-range",
+          "sib-018"
+        ],
+        "description": [
+          "unl-018",
+          "sib-018"
+        ],
+        "habitat": [
+          "unl-018-habitat"
+        ],
+        "diet": [
+          "unl-018-diet"
+        ],
+        "seasonalMovements": [
+          "sib-018"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-018.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "chroicocephalus_maculipennis",
+      "commonName": "Gaviota capucho café",
+      "scientificName": "Chroicocephalus maculipennis",
+      "englishName": "Brown-hooded Gull",
+      "family": "Laridae",
+      "group": "Gaviotas",
+      "order": "Charadriiformes",
+      "argentineRegions": "Desde Córdoba, Santa Fe y Entre Ríos hacia Patagonia, Tierra del Fuego y las islas Malvinas. En invierno alcanza provincias del norte argentino.",
+      "description": "Gaviota de dorso gris y cuerpo blanco, con pico y patas rojos. En plumaje nupcial tiene capucho pardo y un borde blanco alrededor del ojo; en reposo la cabeza se aclara y suele conservar una mancha auricular. Los jóvenes tienen manchas pardas y una banda oscura en la cola.",
+      "habitat": "Lagunas, esteros, praderas y costas marinas; también utiliza campos arados.",
+      "diet": "Consume insectos, moluscos, crustáceos y peces; puede aprovechar restos de origen humano.",
+      "seasonalMovements": "Durante el invierno se desplaza hacia el norte, con registros en Tucumán, Salta, Jujuy, Chaco y Corrientes. La permanencia local varía entre ambientes.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-019"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-019",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-019"
+        ],
+        "scientificName": [
+          "sib-019"
+        ],
+        "englishName": [
+          "sib-019"
+        ],
+        "family": [
+          "sib-019"
+        ],
+        "group": [
+          "sib-019"
+        ],
+        "order": [
+          "sib-019"
+        ],
+        "argentineRegions": [
+          "unl-019-range"
+        ],
+        "description": [
+          "unl-019",
+          "sib-019"
+        ],
+        "habitat": [
+          "unl-019-habitat"
+        ],
+        "diet": [
+          "unl-019-diet"
+        ],
+        "seasonalMovements": [
+          "unl-019-range",
+          "sib-019"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-019.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "chroicocephalus_cirrocephalus",
+      "commonName": "Gaviota capucho gris",
+      "scientificName": "Chroicocephalus cirrocephalus",
+      "englishName": "Grey-hooded Gull",
+      "family": "Laridae",
+      "group": "Gaviotas",
+      "order": "Charadriiformes",
+      "argentineRegions": "Principalmente humedales del norte y centro, hasta Buenos Aires. Tiene registros más australes en Río Negro y Santa Cruz, y presencia accidental en las islas Malvinas; en Formosa es ocasional.",
+      "description": "Adulto de cuerpo blanco y dorso gris, con pico y patas rojos, iris claro y capucho gris. Los juveniles son más manchados de pardo y muestran una banda oscura cerca del extremo de la cola.",
+      "habitat": "Lagunas, esteros, costas marinas y ambientes rurales; también aprovecha basurales y tierras aradas.",
+      "diet": "Consume peces, crustáceos y otros invertebrados, además de carroña y desperdicios.",
+      "seasonalMovements": "Puede frecuentar costas marinas en invierno. En Formosa sus apariciones son ocasionales; no se ha establecido aquí un calendario migratorio para todo el país.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-020"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-020",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-020"
+        ],
+        "scientificName": [
+          "sib-020"
+        ],
+        "englishName": [
+          "sib-020"
+        ],
+        "family": [
+          "sib-020"
+        ],
+        "group": [
+          "sib-020"
+        ],
+        "order": [
+          "sib-020"
+        ],
+        "argentineRegions": [
+          "unl-020-range",
+          "atlas-t4"
+        ],
+        "description": [
+          "unl-020",
+          "sib-020"
+        ],
+        "habitat": [
+          "unl-020-habitat"
+        ],
+        "diet": [
+          "unl-020-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-t4"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-020.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "larus_dominicanus",
+      "commonName": "Gaviota cocinera",
+      "scientificName": "Larus dominicanus",
+      "englishName": "Kelp Gull",
+      "family": "Laridae",
+      "group": "Gaviotas",
+      "order": "Charadriiformes",
+      "argentineRegions": "Costas e islas desde Buenos Aires hasta Tierra del Fuego e islas australes. En el interior aparece desde Córdoba, Santa Fe y Entre Ríos hacia Patagonia.",
+      "description": "Gaviota grande, con cabeza y partes inferiores blancas y manto negro en el adulto. El pico amarillo lleva una marca roja en la mandíbula inferior y las patas son amarillentas o verdosas. El juvenil es pardo moteado y tiene el pico oscuro.",
+      "habitat": "Costas marinas, islas, ríos, lagunas y lagos.",
+      "diet": "Dieta variada: peces, moluscos, crustáceos y otros animales; también consume carroña y residuos.",
+      "seasonalMovements": "En el noroeste patagónico se describe como residente permanente; no se presupone inmovilidad de todas sus poblaciones.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "audubon-kelp"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-021",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-021"
+        ],
+        "scientificName": [
+          "sib-021"
+        ],
+        "englishName": [
+          "audubon-kelp"
+        ],
+        "family": [
+          "sib-021"
+        ],
+        "group": [
+          "sib-021"
+        ],
+        "order": [
+          "sib-021"
+        ],
+        "argentineRegions": [
+          "unl-021-range"
+        ],
+        "description": [
+          "unl-021",
+          "sib-021"
+        ],
+        "habitat": [
+          "unl-021-habitat"
+        ],
+        "diet": [
+          "unl-021-diet"
+        ],
+        "seasonalMovements": [
+          "sib-021"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-021.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "progne_chalybea",
+      "commonName": "Golondrina doméstica",
+      "scientificName": "Progne chalybea",
+      "englishName": "Grey-breasted Martin",
+      "family": "Hirundinidae",
+      "group": "Golondrinas",
+      "order": "Passeriformes",
+      "argentineRegions": "Norte y centro argentino, desde Salta y Formosa por Santiago del Estero, Córdoba y Santa Fe hasta Buenos Aires.",
+      "description": "Golondrina de cabeza y dorso azulados, garganta y pecho grises y vientre blanquecino. Las alas y la cola son oscuras. La hembra presenta el dorso más pardusco.",
+      "habitat": "Praderas, sabanas, poblaciones, serranías, márgenes de ríos y costas marinas.",
+      "diet": "Se alimenta de insectos.",
+      "seasonalMovements": "En la ciudad de Santa Fe y sus alrededores está presente desde primavera hasta fines del verano; luego parte hacia áreas de invernada más al norte. Esta descripción local no define un calendario uniforme para toda la especie.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-022"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-022",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-022"
+        ],
+        "scientificName": [
+          "sib-022"
+        ],
+        "englishName": [
+          "sib-022"
+        ],
+        "family": [
+          "sib-022"
+        ],
+        "group": [
+          "sib-022"
+        ],
+        "order": [
+          "sib-022"
+        ],
+        "argentineRegions": [
+          "unl-022-range"
+        ],
+        "description": [
+          "unl-022",
+          "sib-022"
+        ],
+        "habitat": [
+          "unl-022-habitat"
+        ],
+        "diet": [
+          "unl-022-diet"
+        ],
+        "seasonalMovements": [
+          "unl-golondrinas-2014"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-022.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "hirundo_rustica",
+      "commonName": "Golondrina tijerita",
+      "scientificName": "Hirundo rustica",
+      "englishName": "Barn Swallow",
+      "family": "Hirundinidae",
+      "group": "Golondrinas",
+      "order": "Passeriformes",
+      "argentineRegions": "Se registra en gran parte del país hasta Tierra del Fuego; es accidental en las islas Malvinas. Además de visitantes del norte, existe una población que se reproduce en Argentina.",
+      "description": "Golondrina de dorso azul oscuro brillante, frente y garganta castañas y banda oscura en el pecho. La región ventral es canela y la cola, larga y profundamente ahorquillada, tiene manchas blancas en sus plumas externas.",
+      "habitat": "Ambientes abiertos como praderas, sabanas y bañados.",
+      "diet": "Se alimenta de insectos.",
+      "seasonalMovements": "Llegan aves migratorias de Norteamérica. La población que cría en Argentina tiene otro ciclo: ejemplares seguidos con geolocalizadores migraron hacia el norte de Sudamérica durante el invierno austral.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-023"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-023",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-023"
+        ],
+        "scientificName": [
+          "sib-023"
+        ],
+        "englishName": [
+          "sib-023"
+        ],
+        "family": [
+          "sib-023"
+        ],
+        "group": [
+          "sib-023"
+        ],
+        "order": [
+          "sib-023"
+        ],
+        "argentineRegions": [
+          "unl-023-range",
+          "rao-tijerita-2026"
+        ],
+        "description": [
+          "unl-023",
+          "sib-023"
+        ],
+        "habitat": [
+          "unl-023-habitat"
+        ],
+        "diet": [
+          "unl-023-diet"
+        ],
+        "seasonalMovements": [
+          "unl-023-range",
+          "winkler-2017"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-023.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "tigrisoma_lineatum",
+      "commonName": "Hocó colorado",
+      "scientificName": "Tigrisoma lineatum",
+      "englishName": "Rufescent Tiger-heron",
+      "family": "Ardeidae",
+      "group": "Garzas",
+      "order": "Pelecaniformes",
+      "argentineRegions": "Humedales del norte, noreste y centro, con registros en provincias occidentales como San Juan y Mendoza, hasta el noreste de Buenos Aires.",
+      "description": "El adulto tiene cabeza y cuello castaño rojizos, líneas claras y oscuras por delante del cuello y dorso finamente vermiculado. El juvenil es más barrado y manchado, con tonos pardos y ocres y región ventral clara.",
+      "habitat": "Esteros, bañados, lagunas y márgenes arboladas de cursos de agua, con juncales o vegetación densa.",
+      "diet": "Captura peces, insectos, reptiles y crustáceos.",
+      "seasonalMovements": "En Formosa está registrado durante todo el año y se considera residente permanente. Esa referencia no define los movimientos de toda su distribución argentina.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-024"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-024",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-024"
+        ],
+        "scientificName": [
+          "sib-024"
+        ],
+        "englishName": [
+          "sib-024"
+        ],
+        "family": [
+          "sib-024"
+        ],
+        "group": [
+          "sib-024"
+        ],
+        "order": [
+          "sib-024"
+        ],
+        "argentineRegions": [
+          "unl-024-range"
+        ],
+        "description": [
+          "unl-024",
+          "sib-024"
+        ],
+        "habitat": [
+          "unl-024-habitat"
+        ],
+        "diet": [
+          "unl-024-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-t4"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-024.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "aramides_ypecaha",
+      "commonName": "Ipacaá",
+      "scientificName": "Aramides ypecaha",
+      "englishName": "Giant Wood-rail",
+      "family": "Rallidae",
+      "group": "Gallinetas",
+      "order": "Gruiformes",
+      "argentineRegions": "Norte y noreste argentino, desde Salta, Jujuy, Formosa y Chaco por Santiago del Estero, Córdoba y el Litoral hasta el noreste de Buenos Aires.",
+      "description": "Gallineta grande, de cara y cuello anterior grises, nuca rojiza y dorso pardo oliváceo. Tiene pico amarillo verdoso, patas e iris rojos, zona ventral ocre rosada y flancos oscuros.",
+      "habitat": "Orillas de lagunas, esteros, ríos y bañados; también charcos y pantanos en montes.",
+      "diet": "Consume semillas y frutos, además de insectos, arácnidos, moluscos, peces y crustáceos.",
+      "seasonalMovements": "En Formosa se registra de forma constante durante el año y se considera sedentaria. No se extiende esa caracterización a todas las poblaciones argentinas.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-025"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-025",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-025"
+        ],
+        "scientificName": [
+          "sib-025"
+        ],
+        "englishName": [
+          "sib-025"
+        ],
+        "family": [
+          "sib-025"
+        ],
+        "group": [
+          "sib-025"
+        ],
+        "order": [
+          "sib-025"
+        ],
+        "argentineRegions": [
+          "unl-025-range"
+        ],
+        "description": [
+          "unl-025",
+          "sib-025"
+        ],
+        "habitat": [
+          "unl-025-habitat"
+        ],
+        "diet": [
+          "unl-025-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-t4"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-025.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "jacana_jacana",
+      "commonName": "Jacana",
+      "scientificName": "Jacana jacana",
+      "englishName": "Wattled Jacana",
+      "family": "Jacanidae",
+      "group": "Jacanas",
+      "order": "Charadriiformes",
+      "argentineRegions": "Desde el norte argentino hacia el centro, hasta Neuquén, La Pampa y Buenos Aires según FCV/UNL.",
+      "description": "Adulto con cabeza, cuello y partes inferiores negros, dorso castaño, pico amarillo y escudete rojo. Sus dedos son muy largos y las alas muestran tonos amarillo verdosos. El juvenil tiene la cara y región ventral claras y el dorso pardo.",
+      "habitat": "Lagunas, esteros y bañados; utiliza la vegetación acuática flotante para desplazarse.",
+      "diet": "Consume insectos, moluscos, pequeños peces y semillas.",
+      "seasonalMovements": "En Formosa es residente, con desplazamientos ligados al agua y al alimento. La extensión de esos movimientos no está determinada en la referencia consultada.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-026"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-026",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-026"
+        ],
+        "scientificName": [
+          "sib-026"
+        ],
+        "englishName": [
+          "uci-jacana"
+        ],
+        "family": [
+          "sib-026"
+        ],
+        "group": [
+          "sib-026"
+        ],
+        "order": [
+          "sib-026"
+        ],
+        "argentineRegions": [
+          "unl-026-range"
+        ],
+        "description": [
+          "unl-026",
+          "sib-026"
+        ],
+        "habitat": [
+          "unl-026-habitat",
+          "uci-jacana"
+        ],
+        "diet": [
+          "unl-026-diet"
+        ],
+        "seasonalMovements": [
+          "atlas-t4"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-026.webp",
+          "sex": null,
+          "representative": true,
+          "author": "Luboš Mráz",
+          "license": null,
+          "sourceIds": [
+            "naturfoto-26215",
+            "naturfoto-terms"
+          ]
+        }
+      ]
+    },
+    {
+      "speciesKey": "rollandia_rolland",
+      "commonName": "Macá común",
+      "scientificName": "Rollandia rolland",
+      "englishName": "White-tufted Grebe",
+      "family": "Podicipedidae",
+      "group": "Macáes",
+      "order": "Podicipediformes",
+      "argentineRegions": "Ampliamente distribuido por Argentina y las islas Malvinas. FCV/UNL exceptúa Misiones de su distribución.",
+      "description": "Macá pequeño, con pico fino oscuro e iris rojo. En plumaje nupcial presenta cabeza oscura, un abanico de plumas blancas a los lados de la cara y flancos castaños. En reposo la garganta se aclara y el dorso es más pardo; el joven puede mostrar líneas oscuras en la cara.",
+      "habitat": "Lagunas, esteros, arroyos lentos, bañados y embalses, con vegetación acuática; también utiliza cuerpos de agua pequeños.",
+      "diet": "Consume insectos y otros invertebrados acuáticos, como moluscos y crustáceos, además de peces pequeños.",
+      "seasonalMovements": "En el noroeste patagónico permanece en lagos andinos, mientras que en lagunas de estepa presenta movimientos migratorios. No se aplica un único patrón a todos los humedales.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-027"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-027",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-027",
+          "mads-aa-t4-2015"
+        ],
+        "scientificName": [
+          "sib-027"
+        ],
+        "englishName": [
+          "sib-027"
+        ],
+        "family": [
+          "sib-027"
+        ],
+        "group": [
+          "sib-027"
+        ],
+        "order": [
+          "sib-027"
+        ],
+        "argentineRegions": [
+          "unl-027-range"
+        ],
+        "description": [
+          "unl-027",
+          "sib-027"
+        ],
+        "habitat": [
+          "unl-027-habitat"
+        ],
+        "diet": [
+          "unl-027-diet"
+        ],
+        "seasonalMovements": [
+          "sib-027"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-027.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "podiceps_major",
+      "commonName": "Macá grande",
+      "scientificName": "Podiceps major",
+      "englishName": "Great Grebe",
+      "family": "Podicipedidae",
+      "group": "Macáes",
+      "order": "Podicipediformes",
+      "argentineRegions": "Desde Formosa, Chaco y Corrientes por el centro y este hasta Patagonia, Tierra del Fuego y las islas Malvinas.",
+      "description": "Macá de gran tamaño y cuello largo, con pico largo y recto y dorso oscuro. En plumaje nupcial tiene copete negro y cuello castaño rojizo por delante; en reposo los colores se atenúan y la garganta es clara. El joven puede presentar líneas oscuras en la cara.",
+      "habitat": "Lagos, lagunas, ríos, embalses y costas marinas.",
+      "diet": "Consume peces y diversos invertebrados acuáticos, incluidos insectos, moluscos y crustáceos.",
+      "seasonalMovements": "FCV/UNL describe movimientos hacia el norte en otoño, mientras que la referencia regional del SIB lo considera residente en Patagonia. Se conservan ambos alcances sin afirmar que todos los ejemplares migren.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-028"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-028",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-028"
+        ],
+        "scientificName": [
+          "sib-028"
+        ],
+        "englishName": [
+          "sib-028"
+        ],
+        "family": [
+          "sib-028"
+        ],
+        "group": [
+          "sib-028"
+        ],
+        "order": [
+          "sib-028"
+        ],
+        "argentineRegions": [
+          "unl-028-range"
+        ],
+        "description": [
+          "unl-028",
+          "sib-028"
+        ],
+        "habitat": [
+          "unl-028-habitat"
+        ],
+        "diet": [
+          "unl-028-diet"
+        ],
+        "seasonalMovements": [
+          "unl-028-range",
+          "sib-028"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-028.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "podilymbus_podiceps",
+      "commonName": "Macá pico grueso",
+      "scientificName": "Podilymbus podiceps",
+      "englishName": "Pied-billed Grebe",
+      "family": "Podicipedidae",
+      "group": "Macáes",
+      "order": "Podicipediformes",
+      "argentineRegions": "Humedales de todo el país, desde el norte hasta Patagonia.",
+      "description": "Macá robusto de plumaje pardo, con cuello y pico cortos y gruesos y un anillo claro alrededor del ojo. En plumaje nupcial muestra garganta oscura y una banda negra en el pico; en reposo la garganta se aclara y la banda desaparece.",
+      "habitat": "Lagunas, lagos, embalses, esteros y arroyos; prefiere sectores con vegetación acuática donde ocultarse.",
+      "diet": "Consume crustáceos, moluscos, insectos y otros invertebrados, además de peces y anfibios.",
+      "seasonalMovements": "En Patagonia se describe como residente permanente. La menor cantidad de observaciones estivales de la guía regional se relaciona con su ocultamiento en juncales y no se interpreta como prueba de migración.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-029"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-029",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-029"
+        ],
+        "scientificName": [
+          "sib-029"
+        ],
+        "englishName": [
+          "sib-029"
+        ],
+        "family": [
+          "sib-029"
+        ],
+        "group": [
+          "sib-029"
+        ],
+        "order": [
+          "sib-029"
+        ],
+        "argentineRegions": [
+          "unl-029-range"
+        ],
+        "description": [
+          "unl-029",
+          "sib-029"
+        ],
+        "habitat": [
+          "unl-029-habitat",
+          "sib-029"
+        ],
+        "diet": [
+          "unl-029-diet"
+        ],
+        "seasonalMovements": [
+          "sib-029"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-029.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "anas_flavirostris",
+      "commonName": "Pato barcino",
+      "scientificName": "Anas flavirostris",
+      "englishName": "Yellow-billed Teal",
+      "family": "Anatidae",
+      "group": "Patos",
+      "order": "Anseriformes",
+      "argentineRegions": "Se registra en el noroeste andino y desde áreas del centro hacia Patagonia, Tierra del Fuego e islas Malvinas. La distribución comprende poblaciones de ambientes y altitudes diferentes.",
+      "description": "Pato pequeño, de cabeza parda oscura y cuerpo más claro moteado. Tiene pico amarillo con negro en el dorso y la punta, cuello y cola cortos y espejo alar verde y negro. El joven es más apagado y menos manchado.",
+      "habitat": "Lagunas, esteros, arroyos y ríos; en Patagonia también ocupa mallines y charcos.",
+      "diet": "Consume semillas, crustáceos, insectos y huevos de peces.",
+      "seasonalMovements": "FCV/UNL registra desplazamientos hacia el norte en invierno. En la región patagónica, SIB lo describe principalmente como residente de verano, con algunos ejemplares que permanecen en invierno.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-030"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-030",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-030"
+        ],
+        "scientificName": [
+          "sib-030"
+        ],
+        "englishName": [
+          "sib-030"
+        ],
+        "family": [
+          "sib-030"
+        ],
+        "group": [
+          "sib-030"
+        ],
+        "order": [
+          "sib-030"
+        ],
+        "argentineRegions": [
+          "unl-030-range"
+        ],
+        "description": [
+          "unl-030",
+          "sib-030"
+        ],
+        "habitat": [
+          "unl-030-habitat",
+          "sib-030"
+        ],
+        "diet": [
+          "unl-030-diet"
+        ],
+        "seasonalMovements": [
+          "unl-030-range",
+          "sib-030"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-030.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "anas_versicolor",
+      "commonName": "Pato capuchino",
+      "scientificName": "Spatula versicolor",
+      "englishName": "Silver Teal",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Norte y centro del país y Patagonia hasta Tierra del Fuego; también en las islas Malvinas.",
+      "description": "Pato de capucho pardo oscuro y mejillas claras. Pico celeste con amarillo en la base, pecho moteado y flancos barrados. El juvenil tiene el capucho más claro y el barrado menos definido.",
+      "habitat": "Lagunas, esteros, bañados y charcas; en Patagonia también lagunas de estepa.",
+      "diet": "Plantas y semillas, junto con insectos y sus larvas, moluscos y crustáceos.",
+      "seasonalMovements": "Se describen desplazamientos hacia el norte en invierno; en el noroeste patagónico también mantiene presencia regular. No todas las poblaciones siguen un único calendario.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-031"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-031",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-031"
+        ],
+        "scientificName": [
+          "sib-031"
+        ],
+        "englishName": [
+          "sib-031"
+        ],
+        "family": [
+          "sib-031"
+        ],
+        "group": [
+          "sib-031"
+        ],
+        "order": [
+          "sib-031"
+        ],
+        "argentineRegions": [
+          "unl-031-range"
+        ],
+        "description": [
+          "unl-031",
+          "sib-031"
+        ],
+        "habitat": [
+          "unl-031-habitat"
+        ],
+        "diet": [
+          "unl-031-diet"
+        ],
+        "seasonalMovements": [
+          "unl-031-range",
+          "sib-031"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-031.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "anas_cyanoptera",
+      "commonName": "Pato colorado",
+      "scientificName": "Spatula cyanoptera",
+      "englishName": "Cinnamon Teal",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Desde el noroeste y el centro argentino hasta Tierra del Fuego; registrado también en Malvinas.",
+      "description": "Macho de cabeza y cuerpo castaño rojizo, pico negro e iris rojizo. Hembra parda moteada, con iris oscuro. Ambos muestran cobertoras alares celestes y espejo verde; los juveniles se parecen a la hembra.",
+      "habitat": "Lagunas, esteros y bañados, incluidas costas de lagos de la transición entre bosque y estepa.",
+      "diet": "Semillas y otras partes vegetales, insectos acuáticos y moluscos.",
+      "seasonalMovements": "Presenta desplazamientos invernales hacia el norte; la frecuencia estacional varía regionalmente y SIB lo describe como ocasional en verano y otoño en el noroeste patagónico.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "audubon-cinnamon"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-032",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-032"
+        ],
+        "scientificName": [
+          "sib-032"
+        ],
+        "englishName": [
+          "sib-032"
+        ],
+        "family": [
+          "sib-032"
+        ],
+        "group": [
+          "sib-032"
+        ],
+        "order": [
+          "sib-032"
+        ],
+        "argentineRegions": [
+          "unl-032-range"
+        ],
+        "description": [
+          "unl-032",
+          "sib-032"
+        ],
+        "habitat": [
+          "unl-032-habitat"
+        ],
+        "diet": [
+          "unl-032-diet"
+        ],
+        "seasonalMovements": [
+          "unl-032-range",
+          "sib-032"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-032.webp",
+          "sex": "macho",
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        },
+        {
+          "imagePath": "birds/photos/anas_cyanoptera_hembra.webp",
+          "sex": "hembra",
+          "representative": false,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "anas_platalea",
+      "commonName": "Pato cuchara",
+      "scientificName": "Spatula platalea",
+      "englishName": "Red Shoveler",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Centro y sur argentinos, desde Catamarca, Santiago del Estero, Santa Fe y Entre Ríos hasta Tierra del Fuego y Malvinas; SIB registra una distribución nacional más amplia.",
+      "description": "Pico negro muy ancho y largo. Macho acanelado, moteado de oscuro, con iris claro y hombros celestes. Hembra parda moteada, de iris oscuro; juvenil similar a ella. El pico lo diferencia de otros patos pardos.",
+      "habitat": "Lagunas, esteros, arroyos y ríos de estepa y de transición con el bosque.",
+      "diet": "Invertebrados acuáticos, como crustáceos, insectos y moluscos, además de semillas y otras partes vegetales.",
+      "seasonalMovements": "En el noroeste patagónico se describe como residente estival; se desplaza hacia el norte durante el invierno.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-033"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-033",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-033"
+        ],
+        "scientificName": [
+          "sib-033"
+        ],
+        "englishName": [
+          "sib-033"
+        ],
+        "family": [
+          "sib-033"
+        ],
+        "group": [
+          "sib-033"
+        ],
+        "order": [
+          "sib-033"
+        ],
+        "argentineRegions": [
+          "unl-033-range"
+        ],
+        "description": [
+          "unl-033",
+          "sib-033"
+        ],
+        "habitat": [
+          "unl-033-habitat"
+        ],
+        "diet": [
+          "unl-033-diet"
+        ],
+        "seasonalMovements": [
+          "unl-033-range",
+          "sib-033"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-033.webp",
+          "sex": "macho",
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "amazonetta_brasiliensis",
+      "commonName": "Pato cutirí",
+      "scientificName": "Amazonetta brasiliensis",
+      "englishName": "Brazilian Teal",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Norte argentino y centro este, con distribución señalada por UNL hasta Neuquén y Río Negro.",
+      "description": "Pato pequeño de cuerpo pardo y alas con amplios sectores brillantes verdes y azulados. Macho de pico rojo; hembra de pico oscuro con manchas blancas delante del ojo y junto a la base del pico.",
+      "habitat": "Lagunas, esteros y bañados.",
+      "diet": "Plantas y semillas, insectos y moluscos.",
+      "seasonalMovements": "Hay poblaciones con desplazamientos hacia el norte en otoño e invierno por el litoral fluvial argentino.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-034"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-034",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-034"
+        ],
+        "scientificName": [
+          "sib-034"
+        ],
+        "englishName": [
+          "sib-034"
+        ],
+        "family": [
+          "sib-034"
+        ],
+        "group": [
+          "sib-034"
+        ],
+        "order": [
+          "sib-034"
+        ],
+        "argentineRegions": [
+          "unl-034-range"
+        ],
+        "description": [
+          "unl-034",
+          "sib-034"
+        ],
+        "habitat": [
+          "unl-034-habitat"
+        ],
+        "diet": [
+          "unl-034-diet"
+        ],
+        "seasonalMovements": [
+          "capllonch-2008"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-034.webp",
+          "sex": "macho",
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        },
+        {
+          "imagePath": "birds/photos/amazonetta_brasiliensis_hembra.webp",
+          "sex": "hembra",
+          "representative": false,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "callonetta_leucophrys",
+      "commonName": "Pato de collar",
+      "scientificName": "Callonetta leucophrys",
+      "englishName": "Ringed Teal",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Desde el norte del país por el centro este hasta La Pampa y Buenos Aires; en Santa Fe alcanza el sur mediante humedales e islas del Paraná.",
+      "description": "Macho de pico celeste, semicollar negro, dorso castaño y pecho rosado con puntos oscuros. Hembra parda con ceja, manchas faciales y garganta blancas. Ambos tienen patas rosadas y un parche blanco en el ala.",
+      "habitat": "Esteros, bañados y pequeños cuerpos de agua próximos a vegetación arbórea.",
+      "diet": "Tallos, raíces y semillas.",
+      "seasonalMovements": "Hay poblaciones con desplazamientos hacia el norte en otoño e invierno por el litoral fluvial argentino.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-035"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-035",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-035"
+        ],
+        "scientificName": [
+          "sib-035"
+        ],
+        "englishName": [
+          "sib-035"
+        ],
+        "family": [
+          "sib-035"
+        ],
+        "group": [
+          "sib-035"
+        ],
+        "order": [
+          "sib-035"
+        ],
+        "argentineRegions": [
+          "unl-035-range"
+        ],
+        "description": [
+          "unl-035",
+          "sib-035"
+        ],
+        "habitat": [
+          "unl-035-habitat"
+        ],
+        "diet": [
+          "unl-035-diet"
+        ],
+        "seasonalMovements": [
+          "capllonch-2008"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-035.webp",
+          "sex": "macho",
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        },
+        {
+          "imagePath": "birds/photos/callonetta_leucophrys_hembra.webp",
+          "sex": "hembra",
+          "representative": false,
+          "author": "Hernán Tolosa",
+          "license": null,
+          "sourceIds": [
+            "photo-collar-651502",
+            "photo-ecoregistros-terms"
+          ]
+        }
+      ]
+    },
+    {
+      "speciesKey": "anas_bahamensis",
+      "commonName": "Pato gargantilla",
+      "scientificName": "Anas bahamensis",
+      "englishName": "White-cheeked Pintail",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Desde Salta, Chaco y Corrientes hasta Chubut; ocasional en Tierra del Fuego y Malvinas.",
+      "description": "Cara inferior y garganta blancas que contrastan con la corona parda. Pico gris azulado con rojo en la base; cuerpo pardo moteado, espejo verde y cola apuntada.",
+      "habitat": "Esteros, lagunas y bañados.",
+      "diet": "Semillas, algas y otras partes vegetales.",
+      "seasonalMovements": "Hay poblaciones con desplazamientos hacia el norte en otoño e invierno por el litoral fluvial argentino.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-036"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-036",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-036"
+        ],
+        "scientificName": [
+          "sib-036"
+        ],
+        "englishName": [
+          "sib-036"
+        ],
+        "family": [
+          "sib-036"
+        ],
+        "group": [
+          "sib-036"
+        ],
+        "order": [
+          "sib-036"
+        ],
+        "argentineRegions": [
+          "unl-036-range"
+        ],
+        "description": [
+          "unl-036",
+          "sib-036"
+        ],
+        "habitat": [
+          "unl-036-habitat"
+        ],
+        "diet": [
+          "unl-036-diet"
+        ],
+        "seasonalMovements": [
+          "capllonch-2008"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-036.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "anas_georgica",
+      "commonName": "Pato maicero",
+      "scientificName": "Anas georgica",
+      "englishName": "Yellow-billed Pintail",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Ampliamente distribuido desde el norte argentino hasta Tierra del Fuego; UNL incluye Malvinas y Georgias del Sur.",
+      "description": "Pato pardo moteado, de cuello y cola largos. Pico amarillo con franja dorsal negra y espejo alar oscuro bordeado de ocre. La hembra tiene la cola más corta.",
+      "habitat": "Lagunas, esteros, bañados, arroyos y charcas; también mallines y costas de lagos patagónicos.",
+      "diet": "Semillas, otras partes vegetales y crustáceos.",
+      "seasonalMovements": "En el noroeste patagónico predomina como residente de verano, aunque algunos ejemplares permanecen durante el invierno.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-037"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-037",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-037"
+        ],
+        "scientificName": [
+          "sib-037"
+        ],
+        "englishName": [
+          "sib-037"
+        ],
+        "family": [
+          "sib-037"
+        ],
+        "group": [
+          "sib-037"
+        ],
+        "order": [
+          "sib-037"
+        ],
+        "argentineRegions": [
+          "unl-037-range"
+        ],
+        "description": [
+          "unl-037",
+          "sib-037"
+        ],
+        "habitat": [
+          "unl-037-habitat"
+        ],
+        "diet": [
+          "unl-037-diet"
+        ],
+        "seasonalMovements": [
+          "sib-037"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-037.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "anas_sibilatrix",
+      "commonName": "Pato overo",
+      "scientificName": "Mareca sibilatrix",
+      "englishName": "Chiloe Wigeon",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Principalmente centro y sur del país hasta Tierra del Fuego y Malvinas; los desplazamientos invernales lo llevan hacia el norte.",
+      "description": "Frente y cara blancas, nuca de brillo verdoso, pecho barrado, vientre blanco y flancos canela. El macho tiene colores y reflejos más intensos; la hembra y el juvenil son más apagados.",
+      "habitat": "Lagunas, esteros, bañados y ríos; en Patagonia también bahías protegidas de lagos.",
+      "diet": "Plantas y también insectos.",
+      "seasonalMovements": "Se desplaza al norte en invierno. En Santa Fe es principalmente visitante invernal, con ejemplares también en verano; la posible nidificación indicada por UNL no se presenta como confirmada.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-038"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-038",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-038"
+        ],
+        "scientificName": [
+          "sib-038"
+        ],
+        "englishName": [
+          "sib-038"
+        ],
+        "family": [
+          "sib-038"
+        ],
+        "group": [
+          "sib-038"
+        ],
+        "order": [
+          "sib-038"
+        ],
+        "argentineRegions": [
+          "unl-038-range"
+        ],
+        "description": [
+          "unl-038",
+          "sib-038"
+        ],
+        "habitat": [
+          "unl-038-habitat"
+        ],
+        "diet": [
+          "unl-038-diet"
+        ],
+        "seasonalMovements": [
+          "unl-038-range",
+          "sib-038"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-038.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "netta_peposaca",
+      "commonName": "Pato picazo",
+      "scientificName": "Netta peposaca",
+      "englishName": "Rosy-billed Pochard",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Centro y noreste argentinos, extendiéndose hacia Patagonia; UNL señala registros hasta Santa Cruz.",
+      "description": "Macho negro con flancos grisáceos, iris rojo y pico rosado con gran carúncula roja. Hembra parda con pico gris azulado sin esa carúncula; subcaudales blancas. El juvenil se parece a la hembra.",
+      "habitat": "Lagunas, esteros y bañados; también ríos lentos con vegetación acuática.",
+      "diet": "Plantas y semillas, además de insectos, moluscos, crustáceos y peces.",
+      "seasonalMovements": "Se describen movimientos hacia el norte en invierno; en Lanín y Nahuel Huapi se ha señalado paso a fines de invierno y comienzos de primavera. Esta observación local no define el ciclo de todo el país.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-039"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-039",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-039"
+        ],
+        "scientificName": [
+          "sib-039"
+        ],
+        "englishName": [
+          "sib-039"
+        ],
+        "family": [
+          "sib-039"
+        ],
+        "group": [
+          "sib-039"
+        ],
+        "order": [
+          "sib-039"
+        ],
+        "argentineRegions": [
+          "unl-039-range"
+        ],
+        "description": [
+          "unl-039",
+          "sib-039"
+        ],
+        "habitat": [
+          "unl-039-habitat"
+        ],
+        "diet": [
+          "unl-039-diet"
+        ],
+        "seasonalMovements": [
+          "unl-039-range",
+          "sib-039"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-039.webp",
+          "sex": "macho",
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        },
+        {
+          "imagePath": "birds/photos/netta_peposaca_hembra.webp",
+          "sex": "hembra",
+          "representative": false,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "dendrocygna_bicolor",
+      "commonName": "Sirirí colorado",
+      "scientificName": "Dendrocygna bicolor",
+      "englishName": "Fulvous Whistling-duck",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Norte y centro argentinos hasta Mendoza, La Pampa y Buenos Aires.",
+      "description": "Cuello largo, cabeza y cuerpo canela, dorso oscuro ribeteado de rojizo y línea negra detrás del cuello. Flancos con plumas claras alargadas y pico gris azulado.",
+      "habitat": "Lagunas, esteros, bañados, campos inundados y arrozales.",
+      "diet": "Semillas y otras partes vegetales, insectos y larvas, y moluscos.",
+      "seasonalMovements": "Poblaciones migratorias del centro y norte argentinos se desplazan en otoño e invierno hacia Uruguay y el sur de Brasil; no se atribuye ese recorrido a toda la especie.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-040"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-040",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-040"
+        ],
+        "scientificName": [
+          "sib-040"
+        ],
+        "englishName": [
+          "sib-040"
+        ],
+        "family": [
+          "sib-040"
+        ],
+        "group": [
+          "sib-040"
+        ],
+        "order": [
+          "sib-040"
+        ],
+        "argentineRegions": [
+          "unl-040-range"
+        ],
+        "description": [
+          "unl-040",
+          "sib-040"
+        ],
+        "habitat": [
+          "unl-040-habitat"
+        ],
+        "diet": [
+          "unl-040-diet"
+        ],
+        "seasonalMovements": [
+          "perez-2011"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-040.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "dendrocygna_viduata",
+      "commonName": "Sirirí pampa",
+      "scientificName": "Dendrocygna viduata",
+      "englishName": "White-faced Whistling-duck",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Norte y centro del país hasta Mendoza, Córdoba, La Pampa y Buenos Aires; accidental en Malvinas.",
+      "description": "Mitad anterior de la cabeza blanca y posterior negra, cuello largo, pecho castaño y flancos barrados de blanco y negro. Pico oscuro con una banda clara próxima a la punta.",
+      "habitat": "Lagunas, esteros, bañados, campos inundados y arrozales.",
+      "diet": "Semillas, hojas, tallos y algas.",
+      "seasonalMovements": "Poblaciones migratorias del centro y norte argentinos se desplazan en otoño e invierno hacia Uruguay y el sur de Brasil; no se atribuye ese recorrido a toda la especie.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-041"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-041",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-041"
+        ],
+        "scientificName": [
+          "sib-041"
+        ],
+        "englishName": [
+          "sib-041"
+        ],
+        "family": [
+          "sib-041"
+        ],
+        "group": [
+          "sib-041"
+        ],
+        "order": [
+          "sib-041"
+        ],
+        "argentineRegions": [
+          "unl-041-range"
+        ],
+        "description": [
+          "unl-041",
+          "sib-041"
+        ],
+        "habitat": [
+          "unl-041-habitat"
+        ],
+        "diet": [
+          "unl-041-diet"
+        ],
+        "seasonalMovements": [
+          "perez-2011"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-041.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "oxyura_vittata",
+      "commonName": "Pato zambullidor chico",
+      "scientificName": "Oxyura vittata",
+      "englishName": "Lake Duck",
+      "family": "Anatidae",
+      "group": "Patos y siriríes",
+      "order": "Anseriformes",
+      "argentineRegions": "Ampliamente distribuido en Argentina; UNL señala presencia ocasional en el noreste y Malvinas, y SIB excluye la cordillera de su descripción general.",
+      "description": "Cuerpo compacto y cola larga y rígida. Macho castaño rojizo con cabeza y cuello negros y pico celeste. Hembra y juvenil pardos, con garganta clara, banda blanca bajo el ojo y barrado marcado. El macho requiere cautela frente a otros Oxyura similares.",
+      "habitat": "Lagunas, esteros y bañados, con juncales y otros sectores de vegetación acuática.",
+      "diet": "Semillas y otras partes vegetales, crustáceos, insectos y moluscos.",
+      "seasonalMovements": "En el noroeste patagónico es residente permanente en lagunas grandes y también ocupa lagunas pequeñas en verano; no se generaliza esa residencia a todas las regiones.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-042"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-042",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-042"
+        ],
+        "scientificName": [
+          "sib-042"
+        ],
+        "englishName": [
+          "sib-042"
+        ],
+        "family": [
+          "sib-042"
+        ],
+        "group": [
+          "sib-042"
+        ],
+        "order": [
+          "sib-042"
+        ],
+        "argentineRegions": [
+          "unl-042-range"
+        ],
+        "description": [
+          "unl-042",
+          "sib-042"
+        ],
+        "habitat": [
+          "unl-042-habitat"
+        ],
+        "diet": [
+          "unl-042-diet"
+        ],
+        "seasonalMovements": [
+          "sib-042"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-042.webp",
+          "sex": "hembra",
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        },
+        {
+          "imagePath": "birds/photos/oxyura_vittata_macho.webp",
+          "sex": "macho",
+          "representative": false,
+          "author": "Mariano Cosentino",
+          "license": "CC BY 4.0. Conversión a WebP y reducción; sin recorte.",
+          "sourceIds": [
+            "photo-oxyura-426947693",
+            "photo-ccby4"
+          ]
+        }
+      ]
+    },
+    {
+      "speciesKey": "gallinula_galeata",
+      "commonName": "Pollona negra",
+      "scientificName": "Gallinula galeata",
+      "englishName": "Common Gallinule",
+      "family": "Rallidae",
+      "group": "Gallaretas y pollonas",
+      "order": "Gruiformes",
+      "argentineRegions": "Norte y centro argentinos hasta Mendoza, San Luis y Buenos Aires; accidental en Malvinas.",
+      "description": "Ave oscura de pico rojo con punta amarilla y escudete rojo. Lleva una franja blanca en los flancos y blanco bajo la cola; patas verdosas con sector rojo sobre la articulación. Se diferencia de las gallaretas por sus dedos sin lóbulos.",
+      "habitat": "Lagunas, esteros y bañados.",
+      "diet": "Semillas y hojas, además de insectos, crustáceos y moluscos.",
+      "seasonalMovements": null,
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-043"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-043",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-043"
+        ],
+        "scientificName": [
+          "sib-043"
+        ],
+        "englishName": [
+          "sib-043"
+        ],
+        "family": [
+          "sib-043"
+        ],
+        "group": [
+          "sib-043"
+        ],
+        "order": [
+          "sib-043"
+        ],
+        "argentineRegions": [
+          "unl-043-range"
+        ],
+        "description": [
+          "unl-043",
+          "sib-043"
+        ],
+        "habitat": [
+          "unl-043-habitat"
+        ],
+        "diet": [
+          "unl-043-diet"
+        ],
+        "seasonalMovements": []
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-043.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "vanellus_chilensis",
+      "commonName": "Tero",
+      "scientificName": "Vanellus chilensis",
+      "englishName": "Southern Lapwing",
+      "family": "Charadriidae",
+      "group": "Teros",
+      "order": "Charadriiformes",
+      "argentineRegions": "Ampliamente distribuido por Argentina desde el norte hasta Santa Cruz y Tierra del Fuego.",
+      "description": "Cabeza gris, fino copete negro y pecho negro; vientre blanco y alas con reflejos verdosos. Pico, iris y patas rojizos. El juvenil tiene el dorso jaspeado de ocre.",
+      "habitat": "Pastizales, pampas y mallines, costas de lagunas, lagos y ríos y áreas suburbanas.",
+      "diet": "Insectos, arácnidos, crustáceos y otros invertebrados; también semillas y frutos.",
+      "seasonalMovements": "Hay poblaciones con desplazamientos hacia el norte en otoño e invierno por el litoral fluvial argentino.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-044"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-044",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-044"
+        ],
+        "scientificName": [
+          "sib-044"
+        ],
+        "englishName": [
+          "sib-044"
+        ],
+        "family": [
+          "sib-044"
+        ],
+        "group": [
+          "sib-044"
+        ],
+        "order": [
+          "sib-044"
+        ],
+        "argentineRegions": [
+          "unl-044-range"
+        ],
+        "description": [
+          "unl-044",
+          "sib-044"
+        ],
+        "habitat": [
+          "sib-044"
+        ],
+        "diet": [
+          "unl-044-diet"
+        ],
+        "seasonalMovements": [
+          "capllonch-2008"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-044.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    },
+    {
+      "speciesKey": "himantopus_mexicanus",
+      "commonName": "Tero real",
+      "scientificName": "Himantopus mexicanus",
+      "englishName": "White-backed Stilt",
+      "family": "Recurvirostridae",
+      "group": "Teros reales",
+      "order": "Charadriiformes",
+      "argentineRegions": "Desde el norte del país hasta Santa Cruz; accidental en Malvinas.",
+      "description": "Ave de patas rosadas muy largas y pico negro fino y recto. Plumaje contrastado blanco y negro, con alas oscuras y partes inferiores blancas.",
+      "habitat": "Lagunas, bañados y charcas.",
+      "diet": "Insectos, moluscos, crustáceos y arácnidos.",
+      "seasonalMovements": "Hay poblaciones con desplazamientos hacia el norte en otoño e invierno por el litoral fluvial argentino.",
+      "conservationGlobal": {
+        "category": "Preocupación menor (LC)",
+        "assessmentYear": null,
+        "sourceIds": [
+          "sib-045"
+        ]
+      },
+      "conservationNational": {
+        "category": "No amenazada (NA)",
+        "assessmentYear": 2015,
+        "sourceIds": [
+          "sib-045",
+          "mads-aa-t4-2015"
+        ]
+      },
+      "fieldSources": {
+        "commonName": [
+          "sib-045"
+        ],
+        "scientificName": [
+          "sib-045"
+        ],
+        "englishName": [
+          "sib-045"
+        ],
+        "family": [
+          "sib-045"
+        ],
+        "group": [
+          "sib-045"
+        ],
+        "order": [
+          "sib-045"
+        ],
+        "argentineRegions": [
+          "unl-045-range"
+        ],
+        "description": [
+          "unl-045",
+          "sib-045"
+        ],
+        "habitat": [
+          "unl-045-habitat"
+        ],
+        "diet": [
+          "unl-045-diet"
+        ],
+        "seasonalMovements": [
+          "capllonch-2008"
+        ]
+      },
+      "photos": [
+        {
+          "imagePath": "learning/photos/photo-045.webp",
+          "sex": null,
+          "representative": true,
+          "author": null,
+          "license": null,
+          "sourceIds": []
+        }
+      ]
+    }
+  ]
+}

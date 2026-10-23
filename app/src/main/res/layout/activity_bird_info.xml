@@ -15,6 +15,7 @@
         android:layout_marginEnd="12dp"
         app:cardBackgroundColor="@color/brand_surface"
         app:cardCornerRadius="18dp"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +30,23 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:titleTextColor="@color/text_primary"
-            app:titleCentered="true" />
+            app:titleCentered="true">
+
+            <TextView
+                android:id="@+id/birdInfoName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:paddingStart="@dimen/learning_button_height"
+                android:paddingEnd="@dimen/learning_button_height"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:gravity="center"
+                android:accessibilityHeading="true"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <ImageButton
             android:id="@+id/btnBackBirdInfo"
@@ -62,112 +79,39 @@
         app:strokeColor="@color/brand_outline"
         app:strokeWidth="1dp">
 
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp">
-
-            <TextView
-                android:id="@+id/txtSectionTitle"
-                android:layout_width="0dp"
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/birdInfoTabs"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/bird_info_distribution"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:background="@color/brand_surface"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabMinWidth="0dp"
+                app:tabMaxWidth="0dp"
+                app:tabPaddingStart="0dp"
+                app:tabPaddingEnd="0dp"
+                app:tabIndicatorColor="@color/brand_primary"
+                app:tabIndicatorHeight="3dp"
+                app:tabSelectedTextColor="@color/brand_primary"
+                app:tabTextColor="@color/text_secondary" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/imageCard"
-                android:layout_width="0dp"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/brand_outline"
+                android:alpha="0.3" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/birdInfoPager"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/accent_soft"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toTopOf="@id/legendCard"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtSectionTitle"
-                app:layout_constraintHeight_min="96dp"
-                app:strokeColor="@color/brand_outline"
-                app:strokeWidth="1dp">
-
-                <ImageView
-                    android:id="@+id/imageDistribution"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/bird_info_distribution"
-                    android:scaleType="centerCrop" />
-
-                <TextView
-                    android:id="@+id/distributionUnavailable"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:accessibilityLiveRegion="polite"
-                    android:importantForAccessibility="yes"
-                    android:background="@color/accent_soft"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:text="@string/bird_info_map_unavailable"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:visibility="gone" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/legendCard"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/accent_soft"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:strokeColor="@color/brand_outline"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:id="@+id/txtLegendTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/bird_info_legend_title"
-                        android:textColor="@color/text_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtLegendDistribution"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:lineSpacingExtra="2dp"
-                        android:text="@string/bird_info_legend_distribution"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+                android:layout_weight="1" />
+        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

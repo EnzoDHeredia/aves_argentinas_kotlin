@@ -1,0 +1,28 @@
+{
+  "sources": [
+    {"id":"fixture-source","title":"Referencia ficticia de prueba","organization":"Pruebas","url":"https://example.invalid/fixture","consultedOn":"2026-10-22"}
+  ],
+  "species": [
+    {
+      "speciesKey":"fixture_bird",
+      "commonName":"Ave ficticia (solo pruebas)",
+      "scientificName":"Fixture bird",
+      "englishName":"Test bird",
+      "family":"Familia de prueba",
+      "group":"Grupo de prueba",
+      "order":"Orden de prueba",
+      "argentineRegions":"Región ficticia",
+      "description":"Texto ficticio, sin valor biológico",
+      "habitat":"Hábitat de prueba",
+      "diet":"Dieta de prueba",
+      "seasonalMovements":"Movimientos de prueba",
+      "conservationGlobal":{"category":"Categoría global ficticia","assessmentYear":2020,"sourceIds":["fixture-source"]},
+      "conservationNational":{"category":"Categoría nacional ficticia","assessmentYear":2017,"sourceIds":["fixture-source"]},
+      "fieldSources":{"commonName":["fixture-source"],"description":["fixture-source"]},
+      "photos":[
+        {"imagePath":"learning/photos/fixture-male.webp","sex":"macho","representative":true,"author":"Autor ficticio","license":"Permiso ficticio de prueba","sourceIds":["fixture-source"]},
+        {"imagePath":"birds/photos/fixture-female.webp","sex":"hembra","representative":false,"author":"Autor ficticio","license":"Permiso ficticio de prueba","sourceIds":["fixture-source"]}
+      ]
+    }
+  ]
+}

@@ -242,6 +242,7 @@ class MainActivity : BaseActivity() {
                 val intent = Intent(this, com.example.avesargentinas.ui.bird.BirdInfoActivity::class.java)
                 intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_COMMON_NAME, pred.displayName)
                 intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_SCIENTIFIC_NAME, pred.scientificName)
+                intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_VARIANT, pred.variant)
                 intent.putExtra(com.example.avesargentinas.ui.bird.BirdInfoActivity.EXTRA_CONFIDENCE, pred.probability)
                 startActivity(intent)
             }.onFailure { e ->

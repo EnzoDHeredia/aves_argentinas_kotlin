@@ -23,4 +23,5 @@
     <dimen name="learning_card_radius">28dp</dimen>
     <dimen name="learning_action_btn_size">64dp</dimen>
     <dimen name="learning_action_small_btn_size">52dp</dimen>
+    <dimen name="bird_info_map_height">240dp</dimen>
 </resources>

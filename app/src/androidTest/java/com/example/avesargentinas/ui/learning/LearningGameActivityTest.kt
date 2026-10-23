@@ -214,6 +214,7 @@ class LearningGameActivityTest {
         touch(scenario, R.id.learning_bird_info)
         val openedBird = foreground(BirdInfoActivity::class.java)
         instrumentation.runOnMainSync {
+            openedBird.findViewById<com.google.android.material.tabs.TabLayout>(R.id.birdInfoTabs).getTabAt(1)!!.select()
             openedBird.delegate.localNightMode = theme
             openedBird.requestedOrientation = orientation
         }
@@ -222,8 +223,8 @@ class LearningGameActivityTest {
                 val currentBird = foregroundActivity() as? BirdInfoActivity
                 currentBird != null && currentBird.resources.configuration.uiMode and 48 == (if (theme == 2) 32 else 16) &&
                     currentBird.resources.configuration.orientation == (if (orientation == 1) 1 else 2) &&
-                    (currentBird.findViewById<View>(R.id.imageDistribution).isEnabled ||
-                        currentBird.findViewById<View>(R.id.distributionUnavailable).isShown)
+                    ((currentBird.findViewById<View>(R.id.imageDistribution)?.isEnabled == true) ||
+                        currentBird.findViewById<View>(R.id.distributionUnavailable)?.isShown == true)
             }
         } catch (failure: AssertionError) {
             val currentBird = foreground(BirdInfoActivity::class.java)
@@ -234,7 +235,7 @@ class LearningGameActivityTest {
                 val map = currentBird.findViewById<View>(R.id.imageDistribution)
                 diagnostic = "Expected theme=$theme orientation=$orientation; actual uiMode=${config.uiMode and 48} " +
                     "orientation=${config.orientation} font=${config.fontScale}; map=${map.width}x${map.height} enabled=${map.isEnabled} " +
-                    "unavailable=${currentBird.findViewById<View>(R.id.distributionUnavailable).isShown}"
+                    "unavailable=${currentBird.findViewById<View>(R.id.distributionUnavailable)?.isShown == true}"
             }
             back(currentBird)
             foreground(LearningGameActivity::class.java)
@@ -364,7 +365,24 @@ class LearningGameActivityTest {
                 scenario.onActivity { originalGame = it }
                 touch(scenario, R.id.learning_bird_info)
                 var bird = foreground(BirdInfoActivity::class.java)
-                waitUi { bird.findViewById<View>(R.id.imageDistribution).isEnabled }
+                waitUi { bird.findViewById<android.widget.ImageView>(R.id.speciesPhoto)?.drawable != null }
+                val representative = com.example.avesargentinas.ui.bird.SpeciesInfoLoader(instrumentation.targetContext)
+                    .load().find(card.scientificName)!!.photoForVariant(null)!!
+                val expectedPhoto = "file:///android_asset/${representative.imagePath}"
+                instrumentation.runOnMainSync {
+                    assertNull(bird.intent.getStringExtra(BirdInfoActivity.EXTRA_VARIANT))
+                    assertEquals(expectedPhoto, BirdInfoActivity::class.java.getDeclaredField("photoUri")
+                        .apply { isAccessible = true }.get(bird)?.toString())
+                    bird.findViewById<android.widget.ImageView>(R.id.speciesPhoto).performClick()
+                }
+                val photoZoom = foreground(ImageZoomActivity::class.java)
+                waitUi { photoZoom.findViewById<android.widget.ImageView>(R.id.imgZoom).drawable != null }
+                assertEquals(expectedPhoto, photoZoom.intent.getStringExtra(ImageZoomActivity.EXTRA_IMAGE_URI))
+                back(photoZoom)
+                bird = foreground(BirdInfoActivity::class.java)
+                waitUi { bird.findViewById<android.widget.ImageView>(R.id.speciesPhoto).drawable != null }
+                selectDistribution(bird)
+                waitUi { bird.findViewById<View>(R.id.imageDistribution)?.isEnabled == true }
                 val expected = "android.resource://${instrumentation.targetContext.packageName}/${
                     if (card.speciesKey == "anas_versicolor") R.drawable.spatula_versicolor_dist else R.drawable.vanellus_chilensis_dist}"
                 instrumentation.runOnMainSync {
@@ -375,7 +393,7 @@ class LearningGameActivityTest {
                 }
                 waitUi {
                     val current = foregroundActivity() as? BirdInfoActivity
-                    current?.resources?.configuration?.orientation == 2 && current.findViewById<View>(R.id.imageDistribution).isEnabled
+                    current?.resources?.configuration?.orientation == 2 && current.findViewById<View>(R.id.imageDistribution)?.isEnabled == true
                 }
                 bird = foreground(BirdInfoActivity::class.java)
                 activityTouch(bird, R.id.imageDistribution)
@@ -527,7 +545,6 @@ class LearningGameActivityTest {
             override fun onActivityStarted(activity: Activity) {
                 if (activity is BirdInfoActivity && invalidate) {
                     activity.intent.putExtra(BirdInfoActivity.EXTRA_DISTRIBUTION_URI, "content://invalid.test/missing")
-                    com.bumptech.glide.Glide.with(activity).clear(activity.findViewById<android.widget.ImageView>(R.id.imageDistribution))
                     BirdInfoActivity::class.java.getDeclaredMethod("bindDataFromIntent")
                         .apply { isAccessible = true }.invoke(activity)
                 }
@@ -549,9 +566,10 @@ class LearningGameActivityTest {
                         val before = state(scenario)
                         touch(scenario, R.id.learning_bird_info)
                         val bird = foreground(BirdInfoActivity::class.java)
-                        waitUi { bird.findViewById<View>(R.id.distributionUnavailable).isShown }
+                        selectDistribution(bird)
+                        waitUi { bird.findViewById<View>(R.id.distributionUnavailable)?.isShown == true }
                         instrumentation.runOnMainSync {
-                            assertFalse(bird.findViewById<View>(R.id.imageDistribution).isEnabled)
+                            assertFalse(bird.findViewById<View>(R.id.imageDistribution)?.isEnabled == true)
                             bird.findViewById<View>(R.id.imageDistribution).performClick()
                         }
                         assertSame(bird, foreground(BirdInfoActivity::class.java))
@@ -631,7 +649,8 @@ class LearningGameActivityTest {
                             capture(scenario, "$prefix-actions")
                             touch(scenario, R.id.learning_bird_info)
                             val bird = foreground(BirdInfoActivity::class.java)
-                            waitUi { bird.findViewById<View>(R.id.imageDistribution).isEnabled }
+                            selectDistribution(bird)
+                            waitUi { bird.findViewById<View>(R.id.imageDistribution)?.isEnabled == true }
                             instrumentation.runOnMainSync {
                                 bird.delegate.localNightMode = theme
                                 bird.requestedOrientation = orientation
@@ -642,7 +661,7 @@ class LearningGameActivityTest {
                                     current.resources.configuration.orientation == (if (orientation == 1) 1 else 2)
                             }
                             val themedBird = foreground(BirdInfoActivity::class.java)
-                            waitUi { themedBird.findViewById<View>(R.id.imageDistribution).isEnabled }
+                            waitUi { themedBird.findViewById<View>(R.id.imageDistribution)?.isEnabled == true }
                             captureActivity(themedBird, "$prefix-info")
                             activityTouch(themedBird, R.id.imageDistribution)
                             val initialZoom = foreground(ImageZoomActivity::class.java)
@@ -669,6 +688,14 @@ class LearningGameActivityTest {
             rotation.forEach { (key, value) -> restoreSetting("system", key, value) }
             animations.forEach { (key, value) -> restoreSetting("global", key, value) }
         }
+    }
+
+    private fun selectDistribution(activity: BirdInfoActivity) {
+        instrumentation.runOnMainSync {
+            activity.findViewById<com.google.android.material.tabs.TabLayout>(R.id.birdInfoTabs).getTabAt(1)!!.select()
+        }
+        waitUi { activity.findViewById<View>(R.id.imageDistribution)?.isShown == true &&
+            activity.findViewById<androidx.viewpager2.widget.ViewPager2>(R.id.birdInfoPager).scrollState == 0 }
     }
 
     @Test
@@ -1606,8 +1633,9 @@ class LearningGameActivityTest {
                 assertTrue(info.performAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS))
                 assertTrue(info.performAction(AccessibilityNodeInfo.ACTION_CLICK))
                 val bird = foreground(BirdInfoActivity::class.java)
-                waitUi { bird.findViewById<View>(R.id.imageDistribution).isEnabled ||
-                    bird.findViewById<View>(R.id.distributionUnavailable).isShown }
+                selectDistribution(bird)
+                waitUi { bird.findViewById<View>(R.id.imageDistribution)?.isEnabled == true ||
+                    bird.findViewById<View>(R.id.distributionUnavailable)?.isShown == true }
                 captureActivity(bird, "t4-talkback-info")
                 this@LearningGameActivityTest.back(bird)
                 foreground(LearningGameActivity::class.java)
