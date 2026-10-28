@@ -55,7 +55,7 @@ class BirdClassifier(
         return try {
             Log.d(TAG, "=== INICIANDO CARGA DEL MODELO ===")
             
-            // Cargar modelo con configuración optimizada para TFLite 2.16.1
+            // Cargar el modelo fotográfico y configurar su ejecución en CPU.
             val modelBuffer = loadAssetBytes(MODEL_FILE)
             Log.d(TAG, "Modelo cargado desde assets: ${modelBuffer.capacity()} bytes")
             

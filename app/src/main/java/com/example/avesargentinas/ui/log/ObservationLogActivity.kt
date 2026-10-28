@@ -15,10 +15,12 @@ import android.graphics.Typeface
 import android.util.TypedValue
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.TextViewCompat
 import com.example.avesargentinas.BaseActivity
 import com.example.avesargentinas.HistoryExporter
 import com.example.avesargentinas.R
@@ -36,7 +38,11 @@ class ObservationLogActivity : BaseActivity() {
     private lateinit var fabExport: FloatingActionButton
     private lateinit var fabSelectMode: FloatingActionButton
     private lateinit var historyExporter: HistoryExporter
-    private var isSelectionMode = false
+    private val selectionBackCallback = object : OnBackPressedCallback(false) {
+        override fun handleOnBackPressed() {
+            exitSelectionMode()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.applySavedTheme(this)
@@ -50,6 +56,7 @@ class ObservationLogActivity : BaseActivity() {
         setupRecycler()
         setupExportButton()
         setupSelectionMode()
+        onBackPressedDispatcher.addCallback(this, selectionBackCallback)
         observeData()
 
         // Sin listener de insets; el layout usa m·rgenes fijos.
@@ -101,7 +108,7 @@ class ObservationLogActivity : BaseActivity() {
 
         // Activar modo selecci√≥n
         fabSelectMode.setOnClickListener {
-            isSelectionMode = true
+            selectionBackCallback.isEnabled = true
             adapter.isSelectionMode = true
             cardSelectionToolbar.visibility = View.VISIBLE
             fabSelectMode.visibility = View.GONE
@@ -126,7 +133,7 @@ class ObservationLogActivity : BaseActivity() {
     }
 
     private fun exitSelectionMode() {
-        isSelectionMode = false
+        selectionBackCallback.isEnabled = false
         adapter.isSelectionMode = false
         findViewById<View>(R.id.cardSelectionToolbar).visibility = View.GONE
         // Mostrar FABs solo si hay observaciones
@@ -359,7 +366,7 @@ class ObservationLogActivity : BaseActivity() {
         dialog.window?.findViewById<TextView>(android.R.id.message)?.apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 17f)
             setTextColor(ContextCompat.getColor(context, R.color.text_primary))
-            lineHeight = (textSize * 1.4f).toInt()
+            TextViewCompat.setLineHeight(this, (textSize * 1.4f).toInt())
         }
         
         // Estilizar botones
@@ -374,11 +381,4 @@ class ObservationLogActivity : BaseActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        if (isSelectionMode) {
-            exitSelectionMode()
-        } else {
-            super.onBackPressed()
-        }
-    }
 }

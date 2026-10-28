@@ -3,6 +3,8 @@
     <color name="brand_primary">#7FA5FF</color>
     <color name="brand_primary_dark">#5C7FE0</color>
     <color name="brand_primary_light">#B3C6FF</color>
+    <color name="score_chip_background">#11264F</color>
+    <color name="score_chip_text">#7FA5FF</color>
     <color name="brand_on_primary">#071427</color>
     <color name="brand_on_primary_container">#11264F</color>
 

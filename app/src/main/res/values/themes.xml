@@ -28,7 +28,6 @@
         <item name="android:statusBarColor">@color/brand_primary_dark</item>
         <item name="android:navigationBarColor">@color/brand_background</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">true</item>
         
         <!-- Ajuste automático para barras del sistema -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>

@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Local agent plugins and Python caches
+/.agents/plugins/
+__pycache__/
+*.py[cod]

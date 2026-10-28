@@ -129,4 +129,46 @@
     <string name="learning_known_short">La sabía</string>
     <string name="learning_flip_short">Girar</string>
     <string name="learning_reveal_short">Revelar</string>
+
+    <!-- Identificación por sonido (Spec 004) -->
+    <string name="menu_identify_sound">Identificar por sonido</string>
+    <string name="sound_identification_title">Identificar por sonido</string>
+    <string name="sound_intro_description">Iniciá la escucha para identificar aves continuamente mientras el micrófono está activo. Podés detener la sesión cuando quieras.</string>
+    <string name="sound_capture_duration">Escucha continua</string>
+    <string name="sound_action_listen">Escuchar</string>
+    <string name="sound_action_stop">Detener</string>
+    <string name="sound_action_record">Escuchar</string>
+    <string name="sound_action_cancel">Detener</string>
+    <string name="sound_action_record_again">Escuchar</string>
+    <string name="sound_action_retry">Reintentar</string>
+    <string name="sound_action_settings">Ir a Ajustes</string>
+    <string name="sound_action_view_info">Ver ficha</string>
+    <string name="sound_action_view_info_description">Ver ficha de %1$s</string>
+    <string name="sound_status_ready">Listo para escuchar</string>
+    <string name="sound_status_preparing">Preparando reconocimiento…</string>
+    <string name="sound_status_listening">Escuchando…</string>
+    <string name="sound_status_listening_waiting">Escuchando · Esperando coincidencias…</string>
+    <string name="sound_status_recording">Escuchando…</string>
+    <string name="sound_status_recording_progress">%1$s</string>
+    <string name="sound_status_analyzing">Analizando audio…</string>
+    <string name="sound_status_completed">Sesión detenida</string>
+    <string name="sound_status_stopped">Sesión detenida</string>
+    <string name="sound_status_stopping">Deteniendo…</string>
+    <string name="sound_results_title">Aves detectadas en esta sesión</string>
+    <string name="sound_no_detections">No se identificaron aves con suficiente confianza</string>
+    <string name="sound_score_format">Puntuación: %1$s</string>
+    <string name="sound_score_description">Puntuación del modelo: %1$s</string>
+    <string name="sound_score_explanation">La puntuación expresa una coincidencia del modelo y no un porcentaje garantizado de acierto. Las puntuaciones de especies distintas no suman 100%.</string>
+    <string name="sound_local_info_unavailable">Información local no disponible</string>
+    <string name="sound_common_name_unavailable">Nombre común no disponible</string>
+    <string name="sound_permission_rationale">La captura no puede comenzar sin autorización para el micrófono. Podés reintentar para conceder el permiso o volver al menú.</string>
+    <string name="sound_permission_denied_permanent">El permiso de micrófono está bloqueado. Podés habilitarlo desde los ajustes de la aplicación para poder grabar.</string>
+    <string name="sound_error_interrupted">La captura de audio se interrumpió al pasar a segundo plano.</string>
+    <string name="sound_error_recording">No se pudo acceder al micrófono o ocurrió un problema durante la grabación.</string>
+    <string name="sound_error_recognition">Ocurrió un error al procesar el reconocimiento sonoro.</string>
+    <string name="sound_attribution">Reconocimiento con BirdNET</string>
+    <string name="sound_attribution_dialog_title">Acerca de BirdNET</string>
+    <string name="sound_attribution_dialog_body">Identificación acústica basada en BirdNET (Cornell Lab of Ornithology y Chemnitz University of Technology). Modelo distribuido bajo licencia Apache 2.0. Las inferencias se realizan de manera completamente local en el dispositivo sin conexión a Internet.</string>
+    <string name="sound_new_detection_single">Nueva detección: %1$s</string>
+    <string name="sound_new_detections_batch">Nuevas detecciones: %1$s</string>
 </resources>

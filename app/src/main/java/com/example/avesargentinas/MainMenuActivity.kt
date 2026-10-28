@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.avesargentinas.ui.learning.LearningGameActivity
 import com.example.avesargentinas.ui.log.ObservationLogActivity
+import com.example.avesargentinas.ui.sound.BirdSoundActivity
 import com.google.android.material.button.MaterialButton
 
 /**
  * Actividad principal del menú.
- * Permite navegar a identificación, observaciones, aprendizaje y opciones.
+ * Permite navegar a identificación fotográfica, identificación por sonido, observaciones, aprendizaje y opciones.
  */
 class MainMenuActivity : BaseActivity() {
 
@@ -31,12 +32,18 @@ class MainMenuActivity : BaseActivity() {
         setContentView(R.layout.activity_main_menu)
 
         val btnCapture = findViewById<MaterialButton>(R.id.btnCapture)
+        val btnSoundCapture = findViewById<MaterialButton>(R.id.btnSoundCapture)
         val btnObservationLog = findViewById<MaterialButton>(R.id.btnObservationLog)
         val btnLearning = findViewById<MaterialButton>(R.id.btnLearning)
         val btnSettings = findViewById<MaterialButton>(R.id.btnSettings)
 
         btnCapture.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnSoundCapture?.setOnClickListener {
+            val intent = Intent(this, BirdSoundActivity::class.java)
             startActivity(intent)
         }
 

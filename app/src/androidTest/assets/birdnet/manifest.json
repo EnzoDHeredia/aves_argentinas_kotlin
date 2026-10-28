@@ -1,0 +1,39 @@
+{
+  "runtime": "1.22.0",
+  "model_sha256": "306e74f3edc5b95acc6e87ea7f3f1c701fdc0b18ec868b7615208cd6fc2f9457",
+  "fixtures": [
+    {
+      "frequencies_hz": [
+        440,
+        1200
+      ],
+      "sample_rate_hz": 32000,
+      "files": {
+        "signal-1.f32": "59c9fdaecf52cfe3f7e9784ebaa63ccdf60141711563fdc759fd564a29bfc33e",
+        "reference-1.f32": "696659c62242310d98ab7426863d116e94aafaa451b033285a5b7cf4afe83b04"
+      }
+    },
+    {
+      "frequencies_hz": [
+        750,
+        2700
+      ],
+      "sample_rate_hz": 32000,
+      "files": {
+        "signal-2.f32": "b4deef20023a7c18e7d105b615f37f397ede4b82774476c1299fbbebc1c3e824",
+        "reference-2.f32": "01b10b59c2111836e87f81b190064f85ec53861e3e92d5a21a70d9573e5f2f81"
+      }
+    },
+    {
+      "frequencies_hz": [
+        1800,
+        5100
+      ],
+      "sample_rate_hz": 32000,
+      "files": {
+        "signal-3.f32": "231abf90251a6916b6ff792c67a2d712286efd44ec3624b4e49871ec8dcd4dae",
+        "reference-3.f32": "e4d46af631ed599fc831ea2130843ce922cfdd7a2c66e93e4cabca0c52282bec"
+      }
+    }
+  ]
+}

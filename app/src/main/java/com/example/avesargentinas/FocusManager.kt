@@ -44,8 +44,8 @@ class FocusManager(
         val focusRect = focusOverlay.focusRect
             ?: return CropResult.Error("Recuadro de enfoque no inicializado")
 
-    val displayRect = photoView.currentDisplayRect()
-        ?: return CropResult.Error("Imagen no visible")
+        val displayRect = photoView.currentDisplayRect()
+            ?: return CropResult.Error("Imagen no visible")
 
         Log.d(TAG, "=== RECORTE SEGÚN RECUADRO ===")
         Log.d(TAG, "Bitmap: ${originalBitmap.width}x${originalBitmap.height}")

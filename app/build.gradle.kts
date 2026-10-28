@@ -34,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    androidResources {
+        noCompress += "onnx"
+    }
 }
 
 dependencies {
@@ -57,10 +60,11 @@ dependencies {
     // ZoomageView para zoom
     implementation("com.jsibbold:zoomage:1.3.1")
 
-    // TensorFlow Lite
-    implementation("org.tensorflow:tensorflow-lite:2.16.1")
-    implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
-    implementation("org.tensorflow:tensorflow-lite-metadata:0.4.4")
+    // Motor del modelo fotográfico; API Interpreter conservada, bibliotecas de 16 KB.
+    implementation("com.google.ai.edge.litert:litert:1.4.1")
+
+    // BirdNET+; versión fijada por el plan de identificación por sonido.
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.22.0")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")

@@ -1,0 +1,17 @@
+Reconocimiento con BirdNET
+BirdNET-Team (Cornell Lab of Ornithology / Chemnitz University of Technology).
+Modelo fuente: BirdNET+_V3.0-preview3.1_Global_10K-pruned_FP16.onnx
+Commit de origen: 2b4dbfe6b3ff4e5120b6b2abb1141bd318e1b846
+Pesos: Apache-2.0; texto oficial en MODEL_LICENSE.
+Etiquetas y campos de taxonomía: repositorio BirdNET Live; licencia raíz MIT
+conservada en SOURCE_LICENSE. Se extrajeron solo nombres, identidad y clase;
+no se incorporaron fotografías, descripciones ni sus licencias.
+Las traducciones españolas ausentes son null; no se tradujeron ni inventaron.
+idx es la posición de salida; id es un identificador distinto.
+Clases corregidas con evidencia oficial: 4; detalle en manifest.json.
+El modelo empaquetado es un grafo derivado del original, preparado con
+ONNX Runtime 1.22.0 CPU, optimización desactivada y conversiones de precisión.
+El CSV de etiquetas se conserva íntegro, sin modificar.
+Runtime: Microsoft ONNX Runtime Android 1.22.0 (MIT); conservar también
+ONNX_LICENSE y ONNX_ThirdPartyNotices.txt adquiridos de la etiqueta v1.22.0.
+Fuente y huellas de cada entrada en manifest.json. Sin descarga en Android.

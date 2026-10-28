@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <!-- Aclaración de puntuación (RF-16) -->
+    <TextView
+        android:id="@+id/txtScoreExplanation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/sound_score_explanation"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:lineSpacingMultiplier="1.2"
+        android:visibility="gone" />
+
+    <!-- Botón de atribución y avisos de BirdNET -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAttribution"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/sound_attribution"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+</LinearLayout>

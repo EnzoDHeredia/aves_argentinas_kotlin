@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Tarjeta explicativa inicial (RF-2) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardExplanation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        app:cardBackgroundColor="@color/brand_surface"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="1dp"
+        app:strokeColor="@color/brand_outline"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sound_intro_description"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.2" />
+
+            <TextView
+                android:id="@+id/txtDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/sound_capture_duration"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Título de la sección de resultados -->
+    <TextView
+        android:id="@+id/txtResultsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/sound_results_title"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:targetApi="p"
+        android:accessibilityHeading="true" />
+
+</LinearLayout>

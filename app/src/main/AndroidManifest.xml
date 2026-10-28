@@ -11,8 +11,10 @@
         android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
 
     <application
         android:label="Aves Argentinas"
@@ -76,5 +78,9 @@
             android:name=".ui.bird.BirdInfoActivity"
             android:exported="false" />
 
+        <!-- Identificación por sonido (Spec 003) -->
+        <activity
+            android:name=".ui.sound.BirdSoundActivity"
+            android:exported="false" />
     </application>
 </manifest>
