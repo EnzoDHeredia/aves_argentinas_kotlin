@@ -11,250 +11,281 @@
         android:scaleType="centerCrop"
         android:src="@drawable/campus" />
 
-    <!-- Filtro atenuado - Ajusta la opacidad aquí: #CC = 80%, #B3 = 70%, #99 = 60%, #80 = 50% -->
+    <!-- Filtro atenuado -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#CC000000" />
 
-    <!-- Contenido principal -->
+    <!-- Contenedor principal con gestión de insets -->
     <FrameLayout
         android:id="@+id/insets_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="32dp"
-        android:paddingBottom="12dp"
-        android:gravity="center_horizontal">
-        <!-- Espaciador flexible superior -->
-        <Space
+        <!-- Contenido scrolleable -->
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-        <!-- Logo -->
-        <ImageView
-            android:layout_width="190dp"
-            android:layout_height="190dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="32dp"
+                android:paddingBottom="24dp"
+                android:gravity="center_horizontal">
 
-        <!-- Espaciador flexible inferior -->
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3" />
+                <!-- Espaciador flexible superior -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
 
-        <!-- Título y subtítulo -->
-        <TextView
-            android:id="@+id/txtAppTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="24dp"
-            android:text="Aves de la Argentina"
-            android:textColor="#FFFFFF"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.01"
-            android:gravity="center"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp" />
+                <!-- Logo de la app -->
+                <ImageView
+                    android:id="@+id/appLogo"
+                    android:layout_width="190dp"
+                    android:layout_height="190dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/main_menu_title"
+                    android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="6dp"
-            android:text="Identificación de aves con IA"
-            android:textColor="#B0B0B0"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp" />
+                <!-- Título y subtítulo -->
+                <TextView
+                    android:id="@+id/txtAppTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/main_menu_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.01"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
 
-        <!-- Espaciador flexible medio -->
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5" />
+                <TextView
+                    android:id="@+id/txtAppSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:text="Identificación de aves con IA"
+                    android:textColor="#B0B0B0"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
 
-        <!-- Botón principal con card -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="14dp"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/brand_primary"
+                <!-- Espaciador flexible medio -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4" />
+
+                <!-- MÓDULO 1: Identificación IA (2 columnas lado a lado) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="14dp">
+
+                    <!-- Foto -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/brand_primary"
+                        app:strokeColor="#40FFFFFF"
+                        app:strokeWidth="0dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnCapture"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="96dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+                            android:text="@string/menu_identify_photo"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/brand_on_primary"
+                            android:letterSpacing="0.01"
+                            android:gravity="center"
+                            app:backgroundTint="@color/brand_primary"
+                            app:cornerRadius="18dp"
+                            app:elevation="0dp"
+                            app:icon="@drawable/ic_camera"
+                            app:iconGravity="textTop"
+                            app:iconSize="28dp"
+                            app:iconTint="@color/brand_on_primary"
+                            app:iconPadding="8dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Sonido -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="3dp"
+                        app:cardBackgroundColor="@color/brand_surface"
+                        app:strokeColor="@color/brand_outline"
+                        app:strokeWidth="1.5dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnSoundCapture"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="96dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="16dp"
+                            android:paddingBottom="16dp"
+                            android:text="@string/menu_identify_sound"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:letterSpacing="0.01"
+                            android:gravity="center"
+                            app:backgroundTint="@color/brand_surface"
+                            app:cornerRadius="18dp"
+                            app:elevation="0dp"
+                            app:icon="@drawable/ic_mic"
+                            app:iconGravity="textTop"
+                            app:iconSize="28dp"
+                            app:iconTint="@color/brand_primary"
+                            app:iconPadding="8dp" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <!-- MÓDULO 2: Mis Observaciones (Centrado y con mayor presencia de fuente) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/brand_surface"
+                    app:strokeColor="@color/brand_outline"
+                    app:strokeWidth="1.5dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnObservationLog"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="64dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="@string/menu_observations"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:letterSpacing="0.01"
+                        android:gravity="center"
+                        app:backgroundTint="@color/brand_surface"
+                        app:cornerRadius="18dp"
+                        app:elevation="0dp"
+                        app:icon="@drawable/ic_observations"
+                        app:iconGravity="textStart"
+                        app:iconSize="24dp"
+                        app:iconTint="@color/brand_primary"
+                        app:iconPadding="10dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- MÓDULO 3: Aprender jugando (Centrado y con mayor presencia de fuente) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/brand_surface"
+                    app:strokeColor="@color/brand_outline"
+                    app:strokeWidth="1.5dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLearning"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="64dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="@string/learning_title"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:letterSpacing="0.01"
+                        android:gravity="center"
+                        app:backgroundTint="@color/brand_surface"
+                        app:cornerRadius="18dp"
+                        app:elevation="0dp"
+                        app:icon="@drawable/ic_learning_quiz"
+                        app:iconGravity="textStart"
+                        app:iconSize="24dp"
+                        app:iconTint="@color/brand_primary"
+                        app:iconPadding="10dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Espaciador flexible inferior (balanceado con el superior) -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Botón flotante superior derecho para Opciones / Ajustes -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/settings"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            app:backgroundTint="#33000000"
+            app:cornerRadius="24dp"
+            app:elevation="2dp"
+            app:icon="@drawable/ic_settings"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="24dp"
+            app:iconTint="#FFFFFF"
             app:strokeColor="#40FFFFFF"
-            app:strokeWidth="0dp">
+            app:strokeWidth="1dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCapture"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="62dp"
-                android:text="Indentificar Ave"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="@color/brand_on_primary"
-                android:letterSpacing="0.01"
-                app:backgroundTint="@color/brand_primary"
-                app:cornerRadius="18dp"
-                app:elevation="0dp"
-                app:icon="@android:drawable/ic_menu_camera"
-                app:iconGravity="textStart"
-                app:iconSize="26dp"
-                app:iconTint="@color/brand_on_primary"
-                app:iconPadding="10dp" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Botón Identificar por sonido (Spec 003) -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="18dp"
-            app:cardCornerRadius="18dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/brand_surface"
-            app:strokeColor="@color/brand_outline"
-            app:strokeWidth="2dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSoundCapture"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="60dp"
-                android:text="@string/menu_identify_sound"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
-                android:letterSpacing="0.01"
-                app:backgroundTint="@android:color/transparent"
-                app:cornerRadius="18dp"
-                app:elevation="0dp"
-                app:icon="@drawable/ic_mic"
-                app:iconGravity="textStart"
-                app:iconSize="26dp"
-                app:iconTint="@color/brand_primary"
-                app:iconPadding="10dp" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Botones secundarios con fondo sólido -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="14dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="@color/brand_surface"
-            app:strokeColor="@color/brand_outline"
-            app:strokeWidth="2dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnObservationLog"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="54dp"
-                android:text="Mis Observaciones"
-                android:textSize="15sp"
-                android:textColor="@color/text_primary"
-                app:backgroundTint="@android:color/transparent"
-                app:cornerRadius="16dp"
-                app:iconGravity="textStart"
-                app:iconSize="22dp"
-                app:iconTint="@color/brand_primary"
-                app:iconPadding="8dp" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="14dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="@color/brand_surface"
-            app:strokeColor="@color/brand_outline"
-            app:strokeWidth="2dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLearning"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="54dp"
-                android:text="@string/learning_title"
-                android:textSize="15sp"
-                android:textColor="@color/text_primary"
-                app:backgroundTint="@android:color/transparent"
-                app:cornerRadius="16dp" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="@color/brand_surface"
-            app:strokeColor="@color/brand_outline"
-            app:strokeWidth="2dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSettings"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="54dp"
-                android:text="Opciones"
-                android:textSize="15sp"
-                android:textColor="@color/text_primary"
-                app:backgroundTint="@android:color/transparent"
-                app:cornerRadius="16dp"
-                app:iconGravity="textStart"
-                app:iconSize="22dp"
-                app:iconTint="@color/brand_primary"
-                app:iconPadding="8dp" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Espaciador flexible inferior -->
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
     </FrameLayout>
 
 </FrameLayout>

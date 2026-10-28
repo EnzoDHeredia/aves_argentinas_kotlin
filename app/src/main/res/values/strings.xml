@@ -130,6 +130,11 @@
     <string name="learning_flip_short">Girar</string>
     <string name="learning_reveal_short">Revelar</string>
 
+    <!-- Menú principal -->
+    <string name="main_menu_title">Aves de la Argentina</string>
+    <string name="menu_identify_photo">Identificar por foto</string>
+    <string name="menu_observations">Mis Observaciones</string>
+
     <!-- Identificación por sonido (Spec 004) -->
     <string name="menu_identify_sound">Identificar por sonido</string>
     <string name="sound_identification_title">Identificar por sonido</string>
