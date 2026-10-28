@@ -15,7 +15,7 @@ class BirdSoundCatalogTest {
         val results = catalog.select(scores)
         assertEquals(listOf(748, 833, 0, 9788), results.map { it.modelIndex })
         assertEquals("Aramus guarauna", results[0].scientificName)
-        assertEquals("carau", results[0].commonName)
+        assertEquals("Carau", results[0].commonName)
         assertEquals("aramus_guarauna", results[0].localKey)
         assertNotNull(results[0].distributionUri)
         context.contentResolver.openInputStream(android.net.Uri.parse(results[0].distributionUri)).use { assertNotNull(it) }
@@ -24,8 +24,13 @@ class BirdSoundCatalogTest {
         assertNull(results[1].localKey)
         assertNull(results[1].distributionUri)
         assertEquals("Abeillia abeillei", results[2].scientificName)
+        assertEquals("Colibrí de Abeillé", results[2].commonName)
         assertNull(results[2].localKey)
+        assertNull(results[2].distributionUri)
         assertEquals("Zosterornis whiteheadi", results[3].scientificName)
+        assertEquals("Timalí de Whitehead", results[3].commonName)
+        assertNull(results[3].localKey)
+        assertNull(results[3].distributionUri)
         assertThrows(IllegalArgumentException::class.java) { catalog.select(FloatArray(9788)) }
     }
 

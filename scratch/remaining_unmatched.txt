@@ -1,0 +1,81 @@
+57	Pato cabeza negra	Heteronetta atricapilla	no equiv defined
+73	Macá plateado norteño	Podiceps juninensis	no equiv defined
+84	Pingüino de Snares	Eudyptes robustus	no equiv defined
+85	Pinguïno crestudo	Eudyptes sclateri	no equiv defined
+87	Pingüino de Tristán	Eudyptes moseleyi	no equiv defined
+90	Albatros real del norte	Diomedea sanfordi	no equiv defined
+93	Albatros de Tristán	Diomedea dabbenena	no equiv defined
+94	Albatros oscuro	Phoebetria fusca	no equiv defined
+98	Albatros cabeza gris	Thalassarche chrysostoma	no equiv defined
+99	Albatros corona blanca	Thalassarche steadi	no equiv defined
+105	Petrel antártico	Thalassoica antarctica	no equiv defined
+108	Petrel pizarra	Aphrodroma brevirostris	no equiv defined
+109	Petrel alas grandes	Pterodroma macroptera	no equiv defined
+111	Petrel cabeza parda	Pterodroma incerta	no equiv defined
+112	Petrel cabeza blanca	Pterodroma lessonii	no equiv defined
+113	Petrel de Trinidad	Pterodroma arminjoniana	no equiv defined
+122	Petrel de anteojos	Procellaria conspicillata	no equiv defined
+131	Yunco geórgico	Pelecanoides georgicus	no equiv defined
+132	Yunco magallanico	Pelecanoides magellani	equiv 'Pelecanoides magellanicus' not in model
+133	Paíño vientre blanco	Fregetta grallaria	no equiv defined
+136	Paíño gris	Garrodia nereis	no equiv defined
+137	Paíño cara blanca	Pelagodroma marina	no equiv defined
+138	Paíño boreal	Oceanodroma leucorrhoa	no equiv defined
+149	Guanay	Phalacrocorax bougainvillii	equiv 'Leucocarbo bougainvillii' not in model
+150	Cormorán imperial	Phalacrocorax atriceps	equiv 'Leucocarbo atriceps' not in model
+151	Cormorán antártico	Phalacrocorax bransfieldensis	equiv 'Leucocarbo bransfieldensis' not in model
+152	Cormorán de las Georgias	Phalacrocorax georgianus	equiv 'Leucocarbo georgianus' not in model
+154	Pelícano pardo	Pelecanus thagus	no equiv defined
+156	Hocó obscuro	Tigrisoma fasciatum	no equiv defined
+179	Jote cabeza amarilla chico	Cathartes burrovianus	no equiv defined
+181	Jote real	Sarcoramphus papa	no equiv defined
+203	Esparvero chico	Accipiter superciliosus	no equiv defined
+205	Esparvero variado	Accipiter bicolor	no equiv defined
+206	Esparvero araucano	Accipiter bicolor chilensis	no equiv defined
+227	Burrito enano	Coturnicops notatus	no equiv defined
+236	Burrito negruzco	Porzana spiloptera	no equiv defined
+265	Chorlito pecho canela	Charadrius modestus	equiv 'Anarhynchus modestus' not in model
+276	Playero esquimal	Numenius borealis	no equiv defined
+351	Paloma montera grande	Geotrygon frenata	no equiv defined
+355	Torcacita escamada	Columbina squamata	no equiv defined
+358	Palomita morada	Claravis geoffroyi	equiv 'Paraclaravis geoffroyi' not in model
+391	Caburé grande	Glaucidium nanum	no equiv defined
+413	Atajacaminos coludo	Macropsalis forcipata	no equiv defined
+416	Vencejo parduzco	Cypseloides rothschildi	no equiv defined
+435	Picaflor cometa	Sappho sparganura	no equiv defined
+439	Picaflor frente azul	Eriocnemis glaucopoides	no equiv defined
+451	Picaflor vientre blanco	Amazilia chionogaster	no equiv defined
+452	Picaflor esmeralda	Amazilia versicolor	no equiv defined
+453	Picaflor pecho azul	Amazilia lactea	no equiv defined
+455	Picaflor lazulita	Hylocharis cyanus	no equiv defined
+481	Carpintero oliva oscuro	Picoides fumigatus	equiv 'Dryobates fumigatus' not in model
+486	Carpintero oliva yungeño	Veniliornis frontalis	no equiv defined
+508	Halconcito gris	Spiziapteryx circumcinctus	no equiv defined
+510	Matamico andino	Phalcoboenus megalopterus	no equiv defined
+511	Matamico blanco	Phalcoboenus albogularis	no equiv defined
+512	Matamico grande	Phalcoboenus australis	no equiv defined
+517	Halcón negro grande	Falco deiroleucus	no equiv defined
+538	Guacamayo azul	Anodorhynchus glaucus	no equiv defined
+569	Chululú chico	Hylopezus nattereri	no equiv defined
+628	Ticotico grande	Philydor rufum	no equiv defined
+637	Coludito ocráceo	Leptasthenura yanacensis	no equiv defined
+654	Espartillero serrano	Asthenes sclateri	no equiv defined
+677	Mosqueta pico curvo	Phyllomyias burmeisteri	no equiv defined
+699	Piojito vientre blanco	Serpophaga munda	no equiv defined
+701	Piojito pardo	Phaeomyias murina	no equiv defined
+712	Mosqueta media luna	Phylloscartes eximius	no equiv defined
+714	Mosqueta oreja negra	Phylloscartes paulista	no equiv defined
+731	Birro chico	Pyrrhomyias cinnamomea	no equiv defined
+763	Gaucho chico	Agriornis murinus	no equiv defined
+768	Monjita salinera	Xolmis salinarum	equiv 'Neoxolmis salinarum' not in model
+769	Monjita castaña	Xolmis rubetra	equiv 'Neoxolmis rubetra' not in model
+772	Birro gris	Polioxolmis rufipennis	no equiv defined
+805	Picochato cabezón	Ramphotrigon megacephala	no equiv defined
+856	Mirlo de agua	Cinclus schulzi	no equiv defined
+883	Frutero overo	Cissopis leveriana	no equiv defined
+913	Yal chico	Phrygilus plebejus	equiv 'Geospizopsis plebeja' not in model
+914	Yal carbonero	Phrygilus carbonarius	equiv 'Porphyrospiza carbonaria' not in model
+915	Yal platero	Phrygilus alaudinus	equiv 'Porphyrospiza alaudina' not in model
+926	Monterita pecho gris	Poospiza hypochondria	equiv 'Poospizopsis hypochondria' not in model
+1016	Tordo pico corto	Molothrus rufaxillaris	no equiv defined
+1031	Tangará cabeza celeste	Euphonia cyanocephala	no equiv defined

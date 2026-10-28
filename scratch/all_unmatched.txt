@@ -1,0 +1,161 @@
+7	Tataupá común	Crypturellus tatuapa
+45	Pato overo	Anas sibilatrix
+49	Pato capuchino	Anas versicolor
+50	Pato puneño	Anas puna
+51	Pato media luna	Anas discors
+52	Pato colorado	Anas cyanoptera
+53	Pato cuchara	Anas platalea
+57	Pato cabeza negra	Heteronetta atricapilla
+73	Macá plateado norteño	Podiceps juninensis
+80	Pingüino de Adelia	Pygoscelis adelia
+84	Pingüino de Snares	Eudyptes robustus
+85	Pinguïno crestudo	Eudyptes sclateri
+87	Pingüino de Tristán	Eudyptes moseleyi
+90	Albatros real del norte	Diomedea sanfordi
+93	Albatros de Tristán	Diomedea dabbenena
+94	Albatros oscuro	Phoebetria fusca
+97	Albatros ceja negra	Thalassarche melanophrys
+98	Albatros cabeza gris	Thalassarche chrysostoma
+99	Albatros corona blanca	Thalassarche steadi
+101	Albatros de Salvin	Thalasarche salvini
+104	Petrel plateado	Fulmarius glacialoides
+105	Petrel antártico	Thalassoica antarctica
+108	Petrel pizarra	Aphrodroma brevirostris
+109	Petrel alas grandes	Pterodroma macroptera
+111	Petrel cabeza parda	Pterodroma incerta
+112	Petrel cabeza blanca	Pterodroma lessonii
+113	Petrel de Trinidad	Pterodroma arminjoniana
+122	Petrel de anteojos	Procellaria conspicillata
+131	Yunco geórgico	Pelecanoides georgicus
+132	Yunco magallanico	Pelecanoides magellani
+133	Paíño vientre blanco	Fregetta grallaria
+136	Paíño gris	Garrodia nereis
+137	Paíño cara blanca	Pelagodroma marina
+138	Paíño boreal	Oceanodroma leucorrhoa
+146	Biguá	Phalacrocorax brasilianus
+147	Cormorán gris	Phalacrocorax gaimardi
+148	Cormorán cuello negro	Phalacocorax magallanicus
+149	Guanay	Phalacrocorax bougainvillii
+150	Cormorán imperial	Phalacrocorax atriceps
+151	Cormorán antártico	Phalacrocorax bransfieldensis
+152	Cormorán de las Georgias	Phalacrocorax georgianus
+154	Pelícano pardo	Pelecanus thagus
+156	Hocó obscuro	Tigrisoma fasciatum
+159	Mirasol chico	Ixobrychus exilis
+160	Mirasol común	Ixobrychus involucris
+168	Garcita bueyera	Bubulcus ibis
+179	Jote cabeza amarilla chico	Cathartes burrovianus
+181	Jote real	Sarcoramphus papa
+185	Milano chico	Gampsonyx swansonii
+203	Esparvero chico	Accipiter superciliosus
+205	Esparvero variado	Accipiter bicolor
+206	Esparvero araucano	Accipiter bicolor chilensis
+227	Burrito enano	Coturnicops notatus
+235	Burrito Colorado	Laterallus leucopyrrhus
+236	Burrito negruzco	Porzana spiloptera
+237	Burrito Amarillo	Porzana flaviventer
+238	Burrito Grande	Porzana albicollis
+239	Burrito Pico Rojo	Neocrex erythrops
+244	Pollona Pintada	Gallinula melanops
+258	Chorlo de espolón	Vanellus cayanus
+262	Chorlito de collar	Charadrius collaris
+263	Chorlito puneño	Charadrius alticola
+264	Chorlito doble collar	Charadrius falklandicus
+265	Chorlito pecho canela	Charadrius modestus
+266	Chorlito mongol	Charadrius mongolus
+276	Playero esquimal	Numenius borealis
+280	Playero de rompiente	Aphriza virgata
+289	Playerito canela	Tryngites subruficollis
+351	Paloma montera grande	Geotrygon frenata
+355	Torcacita escamada	Columbina squamata
+358	Palomita morada	Claravis geoffroyi
+375	Yasiyateré grande	Dromococcyx phasianelus
+388	Lechuza estriada	Ciccaba virgata
+389	Lechuza negra	Ciccaba huhula
+391	Caburé grande	Glaucidium nanum
+395	Lechuzón orejudo	Pseudoscops clamator
+411	Atajacaminos ceja blanca	Hydropsalis maculicaudus
+413	Atajacaminos coludo	Macropsalis forcipata
+416	Vencejo parduzco	Cypseloides rothschildi
+426	Ermitaño canela	Phaetornis pretrei
+427	Ermitaño escamado	Phaetornis eurynome
+433	Picaflor rubí	Sephanoides sephanoides
+435	Picaflor cometa	Sappho sparganura
+439	Picaflor frente azul	Eriocnemis glaucopoides
+445	Picaflor común	Chlorostilbon lucidius
+451	Picaflor vientre blanco	Amazilia chionogaster
+452	Picaflor esmeralda	Amazilia versicolor
+453	Picaflor pecho azul	Amazilia lactea
+455	Picaflor lazulita	Hylocharis cyanus
+481	Carpintero oliva oscuro	Picoides fumigatus
+486	Carpintero oliva yungeño	Veniliornis frontalis
+496	Carpintero cara canela	Dryocopus galeatus
+498	Carpintero negro	Dryocopus schulzi
+508	Halconcito gris	Spiziapteryx circumcinctus
+510	Matamico andino	Phalcoboenus megalopterus
+511	Matamico blanco	Phalcoboenus albogularis
+512	Matamico grande	Phalcoboenus australis
+513	Chimachima	Milvago chimachima
+514	Chimango	Milvago chimango
+517	Halcón negro grande	Falco deiroleucus
+538	Guacamayo azul	Anodorhynchus glaucus
+569	Chululú chico	Hylopezus nattereri
+605	Bandurrita cola castaña	Ochetoprhynchus andaecola
+628	Ticotico grande	Philydor rufum
+637	Coludito ocráceo	Leptasthenura yanacensis
+654	Espartillero serrano	Asthenes sclateri
+659	Curutié ocráceo	Cranioleuca sulphurifera
+677	Mosqueta pico curvo	Phyllomyias burmeisteri
+699	Piojito vientre blanco	Serpophaga munda
+701	Piojito pardo	Phaeomyias murina
+712	Mosqueta media luna	Phylloscartes eximius
+714	Mosqueta oreja negra	Phylloscartes paulista
+731	Birro chico	Pyrrhomyias cinnamomea
+763	Gaucho chico	Agriornis murinus
+764	Diucón	Xolmis pyrope
+765	Monjita gris	Xolmis cinereus
+766	Monjita coronada	Xolmis coronatus
+768	Monjita salinera	Xolmis salinarum
+769	Monjita castaña	Xolmis rubetra
+770	Monjita dominica	Xolmis dominicanus
+772	Birro gris	Polioxolmis rufipennis
+789	Benteveo de pico fino	Pitangus lictor
+805	Picochato cabezón	Ramphotrigon megacephala
+814	Bailarin naranja	Pipra fascicauda
+825	Bailarín verde	Piprites cholris
+844	Golondrina patagónica	Tachycineta meyeni
+856	Mirlo de agua	Cinclus schulzi
+873	Cachirla chica	Anthus lutescens
+883	Frutero overo	Cissopis leveriana
+887	Pioró	Pyrrhocoma ruficeps
+892	Pepitero colorado	Saltator rufiventris
+895	Naranjero	Pipraeidea bonariensis
+898	Saíra castaña	Tangara preciosa
+899	Saíra pecho negro	Tangara cayana
+909	Yal negro	Phrygilus fruticeti
+910	Yal plomizo	Phrygilus unicolor
+912	Comesebo puneño	Phrygilus dorsalis
+913	Yal chico	Phrygilus plebejus
+914	Yal carbonero	Phrygilus carbonarius
+915	Yal platero	Phrygilus alaudinus
+926	Monterita pecho gris	Poospiza hypochondria
+927	Monterito ceja rojiza	Poospiza erythrophrys
+930	Monterita litoral	Poospiza lateralis
+931	Monterita de collar	Poospiza torquata
+932	Monerita cabeza negra	Poospiza melanoleuca
+933	Monterita serrana ( e )	Compsospiza baeri
+968	Espiguero pardo	Tiaris obscurus
+969	Espiguero negro	Tiaris fuliginosus
+989	Reinamora grande	Cyanocompsa brissonii
+1005	Boyerito	Icterus pyrroptherus
+1016	Tordo pico corto	Molothrus rufaxillaris
+1020	Pecho colorado	Sturnella superciliaris
+1021	Loica pampeana	Sturnella defilippii
+1022	Loica común	Sturnella loyca
+1023	Cabecitanegra picudo	Sporagra crassirostris
+1024	Cabecitanegra común	Sporagra magellanica
+1025	Negrillo	Sporagra atrata
+1026	Cabecitanegra andino	Sporagra uropygialis
+1027	Cabecitanegra austral	Sporagra barbata
+1031	Tangará cabeza celeste	Euphonia cyanocephala
+1040	Verderón	Carduelis chloris

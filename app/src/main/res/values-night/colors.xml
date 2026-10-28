@@ -34,6 +34,7 @@
     <color name="result_card_background">#111A2E</color>
     <color name="result_card_gradient_start">#1B2742</color>
     <color name="result_card_gradient_end">#111A2E</color>
+    <color name="sound_card_highlight">#1E355B</color>
 
     <color name="expert_warning_tint">#FFB26B</color>
     <color name="toolbar_icon_tint">#E1E6F9</color>

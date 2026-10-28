@@ -11,10 +11,10 @@
         android:id="@+id/cardExplanation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
         app:cardBackgroundColor="@color/brand_surface"
-        app:cardCornerRadius="16dp"
+        app:cardCornerRadius="14dp"
         app:cardElevation="1dp"
         app:strokeColor="@color/brand_outline"
         app:strokeWidth="1dp">
@@ -23,7 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
 
             <TextView
                 android:id="@+id/txtExplanation"

@@ -78,6 +78,7 @@ class BirdSoundActivity : BaseActivity() {
 
     private var savedRecyclerState: Parcelable? = null
     private var lastRenderedDetections: List<BirdDetection>? = null
+    private var pendingScrollToEnd = false
     private var micPulseAnimator: ObjectAnimator? = null
 
     @VisibleForTesting
@@ -176,6 +177,7 @@ class BirdSoundActivity : BaseActivity() {
 
         headerAdapter = HeaderAdapter(this, recyclerResults)
         resultAdapter = BirdSoundResultAdapter { detection -> openBirdInfo(detection) }
+        resultAdapter.animationsEnabledProvider = { animationsEnabled() }
         resultAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         footerAdapter = FooterAdapter(this, recyclerResults) { showAttributionDialog() }
 
@@ -419,7 +421,7 @@ class BirdSoundActivity : BaseActivity() {
         }
     }
 
-    private fun animationsEnabled(): Boolean = try {
+    private fun animationsEnabled(): Boolean = testAnimationsEnabled ?: try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             ValueAnimator.areAnimatorsEnabled()
         } else {
@@ -458,10 +460,12 @@ class BirdSoundActivity : BaseActivity() {
 
     private fun clearResults() {
         savedRecyclerState = null
+        headerAdapter.showExplanation = true
         headerAdapter.showResultsTitle = false
-        footerAdapter.showScoreExplanation = false
-        resultAdapter.submitList(emptyList())
+        resultAdapter.submitList(emptyList(), highlightNewItems = false)
         lastRenderedDetections = null
+        isRestoredFromRotation = false
+        pendingScrollToEnd = false
         recyclerResults.scrollToPosition(0)
     }
 
@@ -559,24 +563,40 @@ class BirdSoundActivity : BaseActivity() {
     private fun renderResults(detections: List<BirdDetection>) {
         if (detections.isEmpty()) {
             savedRecyclerState = null
+            headerAdapter.showExplanation = true
             headerAdapter.showResultsTitle = false
-            footerAdapter.showScoreExplanation = false
-            resultAdapter.submitList(emptyList())
+            resultAdapter.submitList(emptyList(), highlightNewItems = false)
             lastRenderedDetections = null
             isRestoredFromRotation = false
+            pendingScrollToEnd = false
             return
         }
 
+        headerAdapter.showExplanation = false
         headerAdapter.showResultsTitle = true
-        footerAdapter.showScoreExplanation = true
 
         if (detections !== lastRenderedDetections) {
             val previousList = lastRenderedDetections ?: emptyList()
             lastRenderedDetections = detections
-            resultAdapter.submitList(detections) {
-                savedRecyclerState?.let { state ->
-                    recyclerResults.layoutManager?.onRestoreInstanceState(state)
+            val isAddition = !isRestoredFromRotation &&
+                detections.size > previousList.size &&
+                viewModel.state.value.phase == BirdSoundPhase.LISTENING
+
+            if (isAddition) {
+                pendingScrollToEnd = true
+            }
+
+            val shouldHighlight = !isRestoredFromRotation &&
+                viewModel.state.value.phase == BirdSoundPhase.LISTENING
+
+            resultAdapter.submitList(detections, highlightNewItems = shouldHighlight) {
+                if (savedRecyclerState != null) {
+                    recyclerResults.layoutManager?.onRestoreInstanceState(savedRecyclerState)
                     savedRecyclerState = null
+                    pendingScrollToEnd = false
+                } else if (pendingScrollToEnd) {
+                    pendingScrollToEnd = false
+                    scrollToLastResult()
                 }
             }
 
@@ -595,6 +615,17 @@ class BirdSoundActivity : BaseActivity() {
                 accessibilityAnnouncer(announcement)
             }
             isRestoredFromRotation = false
+        }
+    }
+
+    private fun scrollToLastResult() {
+        val targetPos = headerAdapter.itemCount + resultAdapter.itemCount - 1
+        if (targetPos >= headerAdapter.itemCount) {
+            if (animationsEnabled()) {
+                recyclerResults.smoothScrollToPosition(targetPos)
+            } else {
+                recyclerResults.scrollToPosition(targetPos)
+            }
         }
     }
 
@@ -725,6 +756,19 @@ class BirdSoundActivity : BaseActivity() {
             val txtResultsTitle: TextView = view.findViewById(R.id.txtResultsTitle)
         }
 
+        var showExplanation: Boolean = true
+            set(value) {
+                if (field != value) {
+                    field = value
+                    currentView?.findViewById<View>(R.id.cardExplanation)?.visibility =
+                        if (value) View.VISIBLE else View.GONE
+                    notifyItemChanged(0)
+                } else {
+                    currentView?.findViewById<View>(R.id.cardExplanation)?.visibility =
+                        if (value) View.VISIBLE else View.GONE
+                }
+            }
+
         var showResultsTitle: Boolean = false
             set(value) {
                 if (field != value) {
@@ -732,6 +776,9 @@ class BirdSoundActivity : BaseActivity() {
                     currentView?.findViewById<TextView>(R.id.txtResultsTitle)?.visibility =
                         if (value) View.VISIBLE else View.GONE
                     notifyItemChanged(0)
+                } else {
+                    currentView?.findViewById<TextView>(R.id.txtResultsTitle)?.visibility =
+                        if (value) View.VISIBLE else View.GONE
                 }
             }
 
@@ -742,6 +789,7 @@ class BirdSoundActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             currentView = holder.view
+            holder.cardExplanation.visibility = if (showExplanation) View.VISIBLE else View.GONE
             holder.txtResultsTitle.visibility = if (showResultsTitle) View.VISIBLE else View.GONE
         }
 
@@ -756,19 +804,8 @@ class BirdSoundActivity : BaseActivity() {
         var currentView: View? = LayoutInflater.from(context).inflate(R.layout.item_bird_sound_footer, parent, false)
 
         class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-            val txtScoreExplanation: TextView = view.findViewById(R.id.txtScoreExplanation)
             val btnAttribution: MaterialButton = view.findViewById(R.id.btnAttribution)
         }
-
-        var showScoreExplanation: Boolean = false
-            set(value) {
-                if (field != value) {
-                    field = value
-                    currentView?.findViewById<TextView>(R.id.txtScoreExplanation)?.visibility =
-                        if (value) View.VISIBLE else View.GONE
-                    notifyItemChanged(0)
-                }
-            }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = currentView ?: LayoutInflater.from(parent.context).inflate(R.layout.item_bird_sound_footer, parent, false).also { currentView = it }
@@ -777,7 +814,6 @@ class BirdSoundActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             currentView = holder.view
-            holder.txtScoreExplanation.visibility = if (showScoreExplanation) View.VISIBLE else View.GONE
             holder.btnAttribution.setOnClickListener { onAttributionClick() }
         }
 
@@ -797,5 +833,8 @@ class BirdSoundActivity : BaseActivity() {
 
         @VisibleForTesting
         internal var testAccessibilityAnnouncer: ((CharSequence) -> Unit)? = null
+
+        @VisibleForTesting
+        internal var testAnimationsEnabled: Boolean? = null
     }
 }

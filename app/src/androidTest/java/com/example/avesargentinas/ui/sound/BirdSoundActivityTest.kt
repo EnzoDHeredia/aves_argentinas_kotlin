@@ -6,9 +6,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -71,6 +74,7 @@ class BirdSoundActivityTest {
     fun setUp() {
         BirdSoundActivity.testViewModelFactory = null
         BirdSoundActivity.testAccessibilityAnnouncer = null
+        BirdSoundActivity.testAnimationsEnabled = null
         grantPermission()
     }
 
@@ -78,6 +82,7 @@ class BirdSoundActivityTest {
     fun tearDown() {
         BirdSoundActivity.testViewModelFactory = null
         BirdSoundActivity.testAccessibilityAnnouncer = null
+        BirdSoundActivity.testAnimationsEnabled = null
         grantPermission()
     }
 
@@ -368,7 +373,8 @@ class BirdSoundActivityTest {
 
                             matches = txtCommon.text == "Unknownus birdus" &&
                                     txtScientific.text == activity.getString(R.string.sound_common_name_unavailable) &&
-                                    txtScore.text.contains("0.7") &&
+                                    txtScore.text == "74 %" &&
+                                    txtScore.contentDescription == activity.getString(R.string.sound_score_description, 74) &&
                                     btnViewInfo.visibility == View.GONE &&
                                     txtUnavailable.visibility == View.VISIBLE
                         }
@@ -399,17 +405,132 @@ class BirdSoundActivityTest {
                 scenario.onActivity { activity ->
                     if (activity.getResultCount() == 5) {
                         val firstRow = activity.getResultViewAt(0)
-                        val txtScoreNote = activity.findViewById<TextView>(R.id.txtScoreExplanation)
+                        val btnAttribution = activity.findViewById<View>(R.id.btnAttribution)
                         val item3 = activity.getResultItemAt(3)
+                        val footerViewGroup = activity.footerAdapter.currentView as? ViewGroup
+                        val onlyAttributionInFooter = footerViewGroup != null &&
+                                footerViewGroup.childCount == 1 &&
+                                footerViewGroup.getChildAt(0)?.id == R.id.btnAttribution
 
                         if (firstRow != null && item3 != null) {
                             val firstBtn = firstRow.findViewById<View>(R.id.btnViewBirdInfo)
                             matches = firstBtn.visibility == View.VISIBLE &&
                                     item3.localKey == null &&
                                     item3.scientificName == "Species 4" &&
-                                    txtScoreNote.visibility == View.VISIBLE
+                                    onlyAttributionInFooter &&
+                                    btnAttribution != null && btnAttribution.visibility == View.VISIBLE
                         }
                     }
+                }
+                matches
+            }
+        }
+    }
+
+    @Test
+    fun explanationCardVisibilityTogglesWithResultsAndFooterHidesScoreExplanation() {
+        var controlledVm: BirdSoundViewModel? = null
+        val fakeSession = object : SoundSession {
+            override suspend fun prepare() = Unit
+            override fun cancel() = Unit
+            override suspend fun close() = Unit
+        }
+        BirdSoundActivity.testViewModelFactory = {
+            BirdSoundViewModel(app) { fakeSession }.also { controlledVm = it }
+        }
+
+        ActivityScenario.launch<BirdSoundActivity>(BirdSoundActivity::class.java).use { scenario ->
+            val vm = controlledVm ?: error("ViewModel not created")
+
+            // 1. Inicialmente sin resultados: la tarjeta explicativa es visible (RF-7)
+            scenario.onActivity { activity ->
+                val cardExplanation = activity.findViewById<View>(R.id.cardExplanation)
+                assertEquals(View.VISIBLE, cardExplanation.visibility)
+                val txtResultsTitle = activity.findViewById<View>(R.id.txtResultsTitle)
+                assertEquals(View.GONE, txtResultsTitle.visibility)
+            }
+
+            // 2. Al llegar el primer resultado: la tarjeta explicativa se oculta y el título de resultados se muestra (RF-6)
+            val detection = BirdDetection(1, "Furnarius rufus", "Furnarius rufus", "Hornero", 0.92f, "hornero", null)
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(
+                    phase = BirdSoundPhase.LISTENING,
+                    detections = listOf(detection),
+                    elapsedSeconds = 5L
+                )
+            }
+
+            await {
+                var matches = false
+                scenario.onActivity { activity ->
+                    val cardExplanation = activity.findViewById<View>(R.id.cardExplanation)
+                    val txtResultsTitle = activity.findViewById<View>(R.id.txtResultsTitle)
+                    val btnAttribution = activity.findViewById<View>(R.id.btnAttribution)
+                    val firstRow = activity.getResultViewAt(0)
+                    val btnInfo = firstRow?.findViewById<MaterialButton>(R.id.btnViewBirdInfo)
+                    val footerViewGroup = activity.footerAdapter.currentView as? ViewGroup
+                    val onlyAttributionInFooter = footerViewGroup != null &&
+                            footerViewGroup.childCount == 1 &&
+                            footerViewGroup.getChildAt(0)?.id == R.id.btnAttribution
+
+                    matches = activity.getResultCount() == 1 &&
+                            cardExplanation.visibility == View.GONE &&
+                            txtResultsTitle.visibility == View.VISIBLE &&
+                            onlyAttributionInFooter &&
+                            btnAttribution != null && btnAttribution.visibility == View.VISIBLE &&
+                            (btnInfo?.minHeight ?: 0) >= 48
+                }
+                matches
+            }
+
+            // 3. Al detener la escucha con resultados: la explicación sigue oculta (RF-8)
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(
+                    phase = BirdSoundPhase.STOPPED,
+                    detections = listOf(detection),
+                    elapsedSeconds = 10L
+                )
+            }
+
+            await {
+                var matches = false
+                scenario.onActivity { activity ->
+                    val cardExplanation = activity.findViewById<View>(R.id.cardExplanation)
+                    matches = activity.getResultCount() == 1 &&
+                            cardExplanation.visibility == View.GONE
+                }
+                matches
+            }
+
+            // 4. Al iniciar una nueva sesión sin resultados: la explicación vuelve a ser visible (RF-7)
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(
+                    phase = BirdSoundPhase.PREPARING,
+                    detections = emptyList(),
+                    elapsedSeconds = 0L
+                )
+            }
+
+            await {
+                var matches = false
+                scenario.onActivity { activity ->
+                    val cardExplanation = activity.findViewById<View>(R.id.cardExplanation)
+                    val txtResultsTitle = activity.findViewById<View>(R.id.txtResultsTitle)
+                    matches = activity.getResultCount() == 0 &&
+                            cardExplanation.visibility == View.VISIBLE &&
+                            txtResultsTitle.visibility == View.GONE
                 }
                 matches
             }
@@ -1137,7 +1258,7 @@ class BirdSoundActivityTest {
     }
 
     @Test
-    fun incrementalAdditionsAndScoreImprovementsPreservePositionFocusAndDoNotAutoScroll() {
+    fun incrementalAdditionsAutoScrollToLastResultWhileScoreImprovementsMaintainPosition() {
         val fakeSession = object : SoundSession {
             override suspend fun prepare() = Unit
             override fun cancel() = Unit
@@ -1151,6 +1272,7 @@ class BirdSoundActivityTest {
         ActivityScenario.launch<BirdSoundActivity>(BirdSoundActivity::class.java).use { scenario ->
             val vm = controlledVm ?: error("ViewModel not created")
 
+            // Estado inicial durante la escucha con 6 aves
             val initialItems = (1..6).map { i ->
                 BirdDetection(i, "Species $i", "Species $i", "Ave $i", 0.60f, "key_$i", null)
             }
@@ -1160,7 +1282,7 @@ class BirdSoundActivityTest {
                 field.isAccessible = true
                 @Suppress("UNCHECKED_CAST")
                 val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
-                stateFlow.value = BirdSoundState.Results(initialItems)
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = initialItems)
             }
 
             await {
@@ -1171,18 +1293,36 @@ class BirdSoundActivityTest {
                 ready
             }
 
-            // Enfocar el botón de la primera fila
-            scenario.onActivity { activity ->
-                val row0 = activity.getResultViewAt(0)
-                assertNotNull(row0)
-                val btn0 = row0!!.findViewById<MaterialButton>(R.id.btnViewBirdInfo)
-                btn0.isFocusableInTouchMode = true
-                btn0.requestFocus()
-                assertTrue("El botón del primer elemento debe tener el foco", btn0.hasFocus())
+            // 1. Alta individual durante la escucha (especie 7): desplaza al último resultado
+            val singleAddition = initialItems + listOf(
+                BirdDetection(7, "Species 7", "Species 7", "Ave 7", 0.60f, "key_7", null)
+            )
+
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = singleAddition)
             }
 
-            // 1. Altas al final: agregar 4 especies más (total 10)
-            val updatedItemsWithAdditions = initialItems + (7..10).map { i ->
+            await {
+                var verified = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 7) {
+                        val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                        val lastVisible = lm.findLastVisibleItemPosition()
+                        // Posición global en ConcatAdapter: header(1) + 7 - 1 = 7
+                        val targetPos = activity.headerAdapter.itemCount + activity.resultAdapter.itemCount - 1
+                        val targetHolder = activity.recyclerResults.findViewHolderForAdapterPosition(targetPos)
+                        verified = lastVisible >= targetPos && targetHolder != null
+                    }
+                }
+                verified
+            }
+
+            // 2. Lote con varias aves (especies 8 a 10): desplaza mostrando el último resultado sin desplazar al pie
+            val batchAdditions = singleAddition + (8..10).map { i ->
                 BirdDetection(i, "Species $i", "Species $i", "Ave $i", 0.60f, "key_$i", null)
             }
 
@@ -1191,7 +1331,7 @@ class BirdSoundActivityTest {
                 field.isAccessible = true
                 @Suppress("UNCHECKED_CAST")
                 val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
-                stateFlow.value = BirdSoundState.Results(updatedItemsWithAdditions)
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = batchAdditions)
             }
 
             await {
@@ -1199,19 +1339,71 @@ class BirdSoundActivityTest {
                 scenario.onActivity { activity ->
                     if (activity.getResultCount() == 10) {
                         val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
-                        val firstVisible = lm.findFirstVisibleItemPosition()
-                        // Primer elemento visible sigue al inicio (no hubo auto-scroll al final)
-                        val row0 = activity.getResultViewAt(0)
-                        val btn0 = row0?.findViewById<MaterialButton>(R.id.btnViewBirdInfo)
-                        val focusPreserved = btn0?.hasFocus() == true
-                        verified = firstVisible <= 1 && focusPreserved
+                        val lastVisible = lm.findLastVisibleItemPosition()
+                        val targetPos = activity.headerAdapter.itemCount + activity.resultAdapter.itemCount - 1
+                        val targetHolder = activity.recyclerResults.findViewHolderForAdapterPosition(targetPos)
+                        // Último resultado (10) visible; el pie está en targetPos + 1
+                        verified = lastVisible >= targetPos && targetHolder != null
                     }
                 }
                 verified
             }
 
-            // 2. Mejora de puntuación en el elemento 0 (pasa de 0.60 a 0.95)
-            val itemsWithScoreImprovement = updatedItemsWithAdditions.mapIndexed { index, item ->
+            // 3. Alta mientras se revisan resultados anteriores: el usuario sube al inicio
+            scenario.onActivity { activity ->
+                (activity.recyclerResults.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(0, 0)
+            }
+
+            await {
+                var atTop = false
+                scenario.onActivity { activity ->
+                    val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                    atTop = lm.findFirstVisibleItemPosition() <= 1 && lm.findLastVisibleItemPosition() < 9
+                }
+                atTop
+            }
+
+            // Llega una especie nueva (11) mientras el usuario está revisando arriba
+            val additionWhileReviewing = batchAdditions + listOf(
+                BirdDetection(11, "Species 11", "Species 11", "Ave 11", 0.60f, "key_11", null)
+            )
+
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = additionWhileReviewing)
+            }
+
+            await {
+                var scrolledToEnd = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 11) {
+                        val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                        val lastVisible = lm.findLastVisibleItemPosition()
+                        val targetPos = activity.headerAdapter.itemCount + activity.resultAdapter.itemCount - 1
+                        scrolledToEnd = lastVisible >= targetPos
+                    }
+                }
+                scrolledToEnd
+            }
+
+            // 4. Mejora sin alta: el usuario se ubica en una posición intermedia y una especie mejora su puntuación
+            scenario.onActivity { activity ->
+                (activity.recyclerResults.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(5, 0)
+            }
+
+            await {
+                var atPos5 = false
+                scenario.onActivity { activity ->
+                    val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                    atPos5 = lm.findFirstVisibleItemPosition() == 5
+                }
+                atPos5
+            }
+
+            val scoreImprovementOnly = additionWhileReviewing.mapIndexed { index, item ->
                 if (index == 0) item.copy(score = 0.95f) else item
             }
 
@@ -1220,22 +1412,132 @@ class BirdSoundActivityTest {
                 field.isAccessible = true
                 @Suppress("UNCHECKED_CAST")
                 val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
-                stateFlow.value = BirdSoundState.Results(itemsWithScoreImprovement)
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = scoreImprovementOnly)
             }
 
             await {
-                var scoreUpdated = false
+                var scoreUpdatedAndPositionMaintained = false
                 scenario.onActivity { activity ->
-                    val row0 = activity.getResultViewAt(0)
-                    val scoreText = row0?.findViewById<TextView>(R.id.txtBirdScore)?.text?.toString() ?: ""
+                    val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
                     val item0 = activity.getResultItemAt(0)
-                    val btn0 = row0?.findViewById<MaterialButton>(R.id.btnViewBirdInfo)
-                    scoreUpdated = item0?.scientificName == "Species 1" &&
-                            item0.score == 0.95f &&
-                            scoreText.contains("0.9") &&
-                            btn0?.hasFocus() == true
+                    // Mantiene la posición en 5 y no se desplazó al final
+                    val positionMaintained = lm.findFirstVisibleItemPosition() == 5
+                    scoreUpdatedAndPositionMaintained = item0?.score == 0.95f && positionMaintained
                 }
-                scoreUpdated
+                scoreUpdatedAndPositionMaintained
+            }
+
+            // 5. Mejora junto con alta en el mismo lote: mejora especie 2 y se agrega especie 12
+            val scoreImprovementAndAddition = scoreImprovementOnly.mapIndexed { index, item ->
+                if (index == 1) item.copy(score = 0.98f) else item
+            } + listOf(
+                BirdDetection(12, "Species 12", "Species 12", "Ave 12", 0.60f, "key_12", null)
+            )
+
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = scoreImprovementAndAddition)
+            }
+
+            await {
+                var scrolledToLastWithImprovement = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 12) {
+                        val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                        val lastVisible = lm.findLastVisibleItemPosition()
+                        val targetPos = activity.headerAdapter.itemCount + activity.resultAdapter.itemCount - 1
+                        val item1 = activity.getResultItemAt(1)
+                        scrolledToLastWithImprovement = lastVisible >= targetPos && item1?.score == 0.98f
+                    }
+                }
+                scrolledToLastWithImprovement
+            }
+
+            // 6. Cambios consecutivos: dos altas en rápida sucesión
+            val consecutiveAdditionA = scoreImprovementAndAddition + listOf(
+                BirdDetection(13, "Species 13", "Species 13", "Ave 13", 0.60f, "key_13", null)
+            )
+            val consecutiveAdditionB = consecutiveAdditionA + listOf(
+                BirdDetection(14, "Species 14", "Species 14", "Ave 14", 0.60f, "key_14", null)
+            )
+
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = consecutiveAdditionA)
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = consecutiveAdditionB)
+            }
+
+            await {
+                var consecutiveHandled = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 14) {
+                        val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                        val lastVisible = lm.findLastVisibleItemPosition()
+                        val targetPos = activity.headerAdapter.itemCount + activity.resultAdapter.itemCount - 1
+                        consecutiveHandled = lastVisible >= targetPos
+                    }
+                }
+                consecutiveHandled
+            }
+
+            // 7. Restauración tras rotación y alta posterior
+            scenario.onActivity { activity ->
+                (activity.recyclerResults.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(6, 0)
+            }
+
+            await {
+                var atPos6 = false
+                scenario.onActivity { activity ->
+                    val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                    atPos6 = lm.findFirstVisibleItemPosition() == 6
+                }
+                atPos6
+            }
+
+            scenario.recreate()
+
+            await {
+                var restored = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 14) {
+                        val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                        // Posición restaurada tras rotación sin auto-scroll espurio al final
+                        restored = lm.findFirstVisibleItemPosition() in 5..7
+                    }
+                }
+                restored
+            }
+
+            // Alta posterior a la rotación: sí debe desplazar al final
+            val postRotationAddition = consecutiveAdditionB + listOf(
+                BirdDetection(15, "Species 15", "Species 15", "Ave 15", 0.60f, "key_15", null)
+            )
+
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = postRotationAddition)
+            }
+
+            await {
+                var postRotationScrolled = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 15) {
+                        val lm = activity.recyclerResults.layoutManager as LinearLayoutManager
+                        val lastVisible = lm.findLastVisibleItemPosition()
+                        val targetPos = activity.headerAdapter.itemCount + activity.resultAdapter.itemCount - 1
+                        postRotationScrolled = lastVisible >= targetPos
+                    }
+                }
+                postRotationScrolled
             }
 
             main { vm.abandon() }
@@ -1683,5 +1985,289 @@ class BirdSoundActivityTest {
         assertEquals(BirdSoundPhase.READY, cleanVm.state.value.phase)
         assertTrue(cleanVm.state.value.detections.isEmpty())
         assertEquals(0L, cleanVm.state.value.elapsedSeconds)
+    }
+
+    @Test
+    fun scoresAreDisplayedAsRoundedPercentagesWithEquivalentAccessibilityDescriptions() {
+        var controlledVm: BirdSoundViewModel? = null
+        val fakeSession = object : SoundSession {
+            override suspend fun prepare() = Unit
+            override fun cancel() = Unit
+            override suspend fun close() = Unit
+        }
+        BirdSoundActivity.testViewModelFactory = {
+            BirdSoundViewModel(app) { fakeSession }.also { controlledVm = it }
+        }
+
+        ActivityScenario.launch<BirdSoundActivity>(BirdSoundActivity::class.java).use { scenario ->
+            val vm = controlledVm ?: error("ViewModel not created")
+            val detections = listOf(
+                BirdDetection(1, "Species 1", "Species 1", "Ave 1", 0.5f, "key_1", null),
+                BirdDetection(2, "Species 2", "Species 2", "Ave 2", 0.7f, "key_2", null),
+                BirdDetection(3, "Species 3", "Species 3", "Ave 3", 0.0f, "key_3", null),
+                BirdDetection(4, "Species 4", "Species 4", "Ave 4", 1.0f, "key_4", null)
+            )
+
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState.Results(detections)
+            }
+
+            await {
+                var matches = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 4) {
+                        val row0 = activity.getResultViewAt(0)
+                        val row1 = activity.getResultViewAt(1)
+                        val row2 = activity.getResultViewAt(2)
+                        val row3 = activity.getResultViewAt(3)
+
+                        val score0 = row0?.findViewById<TextView>(R.id.txtBirdScore)
+                        val score1 = row1?.findViewById<TextView>(R.id.txtBirdScore)
+                        val score2 = row2?.findViewById<TextView>(R.id.txtBirdScore)
+                        val score3 = row3?.findViewById<TextView>(R.id.txtBirdScore)
+
+                        matches = score0?.text == "50 %" &&
+                                score0.contentDescription == activity.getString(R.string.sound_score_description, 50) &&
+                                score1?.text == "70 %" &&
+                                score1.contentDescription == activity.getString(R.string.sound_score_description, 70) &&
+                                score2?.text == "0 %" &&
+                                score2.contentDescription == activity.getString(R.string.sound_score_description, 0) &&
+                                score3?.text == "100 %" &&
+                                score3.contentDescription == activity.getString(R.string.sound_score_description, 100)
+                    }
+                }
+                matches
+            }
+
+            main { vm.abandon() }
+        }
+    }
+
+    @Test
+    fun newDetectionsAndScoreImprovementsTriggerTemporaryHighlightWhileRecyclingRotationAndNoChangesPreserveOriginalColor() {
+        BirdSoundActivity.testAnimationsEnabled = true
+        var controlledVm: BirdSoundViewModel? = null
+        val fakeSession = object : SoundSession {
+            override suspend fun prepare() = Unit
+            override fun cancel() = Unit
+            override suspend fun close() = Unit
+        }
+        BirdSoundActivity.testViewModelFactory = {
+            BirdSoundViewModel(app) { fakeSession }.also { controlledVm = it }
+        }
+
+        ActivityScenario.launch<BirdSoundActivity>(BirdSoundActivity::class.java).use { scenario ->
+            val vm = controlledVm ?: error("ViewModel not created")
+
+            // Verificar contraste de legibilidad en la paleta actual (Requisito no funcional)
+            scenario.onActivity { activity ->
+                val highlightColor = ContextCompat.getColor(activity, R.color.sound_card_highlight)
+                val textPrimary = ContextCompat.getColor(activity, R.color.text_primary)
+                val contrastRatio = ColorUtils.calculateContrast(textPrimary, highlightColor)
+                assertTrue("El contraste de texto sobre el resaltado debe superar 4.5:1 (fue $contrastRatio)", contrastRatio >= 4.5)
+            }
+
+            // 1. Alta (RF-3): Llegada de la primera especie durante LISTENING
+            val bird1 = BirdDetection(1, "Furnarius rufus", "Furnarius rufus", "Hornero", 0.70f, "hornero", null)
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = listOf(bird1))
+            }
+
+            await {
+                var highlighted = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 1) {
+                        val card = activity.getResultViewAt(0) as? MaterialCardView
+                        val highlightColor = ContextCompat.getColor(activity, R.color.sound_card_highlight)
+                        if (card != null && card.cardBackgroundColor.defaultColor == highlightColor) {
+                            highlighted = true
+                        }
+                    }
+                }
+                highlighted
+            }
+
+            // Esperar que la animación termine y vuelva al color original (@color/brand_surface)
+            await(timeoutMs = 4000) {
+                var returnedToOriginal = false
+                scenario.onActivity { activity ->
+                    val card = activity.getResultViewAt(0) as? MaterialCardView
+                    val originalColor = ContextCompat.getColor(activity, R.color.brand_surface)
+                    if (card != null && card.cardBackgroundColor.defaultColor == originalColor) {
+                        returnedToOriginal = true
+                    }
+                }
+                returnedToOriginal
+            }
+
+            // 2. Mejora de puntuación (RF-3): Hornero sube de 0.70 a 0.85
+            val bird1Improved = bird1.copy(score = 0.85f)
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = listOf(bird1Improved))
+            }
+
+            await {
+                var improvedHighlighted = false
+                scenario.onActivity { activity ->
+                    val card = activity.getResultViewAt(0) as? MaterialCardView
+                    val txtScore = card?.findViewById<TextView>(R.id.txtBirdScore)
+                    val highlightColor = ContextCompat.getColor(activity, R.color.sound_card_highlight)
+                    if (card != null && card.cardBackgroundColor.defaultColor == highlightColor && txtScore?.text == "85 %") {
+                        improvedHighlighted = true
+                    }
+                }
+                improvedHighlighted
+            }
+
+            // 3. Otra mejora durante la transición (RF-4): llega 0.95 mientras aún está en highlight
+            val bird1FurtherImproved = bird1.copy(score = 0.95f)
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = listOf(bird1FurtherImproved))
+            }
+
+            await {
+                var furtherImprovedHighlighted = false
+                scenario.onActivity { activity ->
+                    val card = activity.getResultViewAt(0) as? MaterialCardView
+                    val txtScore = card?.findViewById<TextView>(R.id.txtBirdScore)
+                    val highlightColor = ContextCompat.getColor(activity, R.color.sound_card_highlight)
+                    if (card != null && card.cardBackgroundColor.defaultColor == highlightColor && txtScore?.text == "95 %") {
+                        furtherImprovedHighlighted = true
+                    }
+                }
+                furtherImprovedHighlighted
+            }
+
+            // Esperar que complete y recupere color original
+            await(timeoutMs = 4000) {
+                var returned = false
+                scenario.onActivity { activity ->
+                    val card = activity.getResultViewAt(0) as? MaterialCardView
+                    val originalColor = ContextCompat.getColor(activity, R.color.brand_surface)
+                    if (card != null && card.cardBackgroundColor.defaultColor == originalColor) {
+                        returned = true
+                    }
+                }
+                returned
+            }
+
+            // 4. Actualización sin cambio de puntuación: cambio de nombre común sin mejorar puntuación
+            val bird1SameScore = bird1FurtherImproved.copy(commonName = "Hornero del Sur")
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = listOf(bird1SameScore))
+            }
+
+            SystemClock.sleep(300)
+            scenario.onActivity { activity ->
+                val card = activity.getResultViewAt(0) as? MaterialCardView
+                val originalColor = ContextCompat.getColor(activity, R.color.brand_surface)
+                assertEquals("No debe resaltar si no hay mejora de puntuación", originalColor, card?.cardBackgroundColor?.defaultColor)
+            }
+
+            // 5. Rotación de pantalla: no debe reiniciar resaltado sobre filas existentes
+            scenario.recreate()
+            await {
+                var restoredOk = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 1) {
+                        val card = activity.getResultViewAt(0) as? MaterialCardView
+                        val originalColor = ContextCompat.getColor(activity, R.color.brand_surface)
+                        if (card != null && card.cardBackgroundColor.defaultColor == originalColor) {
+                            restoredOk = true
+                        }
+                    }
+                }
+                restoredOk
+            }
+
+            // 6. Animaciones desactivadas: con animaciones desactivadas no inicia animación y mantiene color original
+            BirdSoundActivity.testAnimationsEnabled = false
+            val bird2 = BirdDetection(2, "Pitangus sulphuratus", "Pitangus sulphuratus", "Benteveo", 0.80f, "benteveo", null)
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = listOf(bird1SameScore, bird2))
+            }
+
+            await {
+                var secondItemReady = false
+                scenario.onActivity { activity ->
+                    if (activity.getResultCount() == 2) {
+                        val card1 = activity.getResultViewAt(1) as? MaterialCardView
+                        val originalColor = ContextCompat.getColor(activity, R.color.brand_surface)
+                        val txtScore1 = card1?.findViewById<TextView>(R.id.txtBirdScore)
+                        // Con animaciones desactivadas, el valor es visible y el color es el original sin animación
+                        if (card1 != null && card1.cardBackgroundColor.defaultColor == originalColor && txtScore1?.text == "80 %") {
+                            secondItemReady = true
+                        }
+                    }
+                }
+                secondItemReady
+            }
+
+            // 7. Reciclado / Scroll sobre filas existentes no dispara resaltado
+            val twentyItems = (1..20).map { i ->
+                BirdDetection(i, "Species $i", "Species $i", "Ave $i", 0.70f, "key_$i", null)
+            }
+            main {
+                val field = BirdSoundViewModel::class.java.getDeclaredField("mutableState")
+                field.isAccessible = true
+                @Suppress("UNCHECKED_CAST")
+                val stateFlow = field.get(vm) as kotlinx.coroutines.flow.MutableStateFlow<BirdSoundState>
+                stateFlow.value = BirdSoundState(phase = BirdSoundPhase.LISTENING, detections = twentyItems)
+            }
+            await {
+                var ready = false
+                scenario.onActivity { activity ->
+                    ready = activity.getResultCount() == 20
+                }
+                ready
+            }
+
+            BirdSoundActivity.testAnimationsEnabled = true
+            // Desplazar a posición 15 y regresar a 0: fila 0 se recicla/revincula sin disparar resaltado
+            scenario.onActivity { activity ->
+                (activity.recyclerResults.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(15, 0)
+            }
+            SystemClock.sleep(200)
+            scenario.onActivity { activity ->
+                (activity.recyclerResults.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(0, 0)
+            }
+            await {
+                var row0RestoredWithoutHighlight = false
+                scenario.onActivity { activity ->
+                    val card0 = activity.getResultViewAt(0) as? MaterialCardView
+                    val originalColor = ContextCompat.getColor(activity, R.color.brand_surface)
+                    if (card0 != null && card0.cardBackgroundColor.defaultColor == originalColor) {
+                        row0RestoredWithoutHighlight = true
+                    }
+                }
+                row0RestoredWithoutHighlight
+            }
+
+            main { vm.abandon() }
+        }
     }
 }

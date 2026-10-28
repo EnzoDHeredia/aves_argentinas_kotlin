@@ -1,0 +1,25 @@
+Avisos de Procedencia y Derechos de Uso — Catálogo de Nombres de Sonido (sound_names_ar.json)
+
+1. Fuente de Prioridad Provincial (Provincia de Buenos Aires - RF-2):
+- Obra: «Lista actualizada de las aves de la provincia de Buenos Aires» (Monografía de la Fundación Azara, 2013).
+- Autores: Carlos Aquiles Darrieu, Aníbal Raúl Camperi, Gabriel Piloni y Natalia R. Bogado.
+- Instituciones: Facultad de Ciencias Naturales y Museo (Universidad Nacional de La Plata - UNLP) y Fundación de Historia Natural «Félix de Azara».
+- Repositorio y Registro: UNLP SEDICI (http://sedici.unlp.edu.ar/handle/10915/134340).
+- Licencia: Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0).
+- Uso en este proyecto: Se extrajeron y adaptaron los nombres vernáculos tradicionales bonaerenses para priorizarlos en las especies con presencia en la provincia de Buenos Aires en un contexto de uso educativo y no comercial.
+- Catálogo complementario de la aplicación: labels_map.json (46 especies pampeanas de Buenos Aires, recurso original del proyecto Aves Argentinas).
+
+2. Fuente Oficial de Referencia Nacional (República Argentina - RF-3):
+- Obra: «Categorización de las Aves de la Argentina según su estado de conservación» (2017).
+- Instituciones: Ministerio de Ambiente y Desarrollo Sustentable de la Nación (MAyDS) y Aves Argentinas / Asociación Ornitológica del Plata (AOP).
+- Autoridades Técnicas: Comité Argentino de Registros Ornitológicos (CARO) y Monografía Nº 12 de Aves Argentinas (Diego Monteleone y Luis Gerardo Pagano, 2022).
+- Uso en este proyecto: Criterio taxonómico binominal oficial y verificación de nombres vernáculos normalizados de alcance nacional. No se redistribuyen textos, capítulos ni volcados editoriales propietarios protegidos por copyright.
+
+3. Compatibilidad Regional y Taxonómica (eBird / Clements):
+- Institución: Cornell Lab of Ornithology / Equipo eBird Argentina (coordinación local por Fabricio Gorleri e Ignacio Areta).
+- Fuente: Clements Checklist / eBird Common Names Matrix (variante es_AR).
+- Términos: Uso no comercial para fines conservacionistas y educativos bajo los Cornell Lab of Ornithology Terms of Use.
+
+4. Independencia y Preservación de Componentes:
+- Los activos del modelo acústico (BirdNET+_V3.0-preview3.1_Global_10K-pruned_FP16_CPU.onnx), las etiquetas originales (BirdNET+_V3.0-preview3.1_Global_10K-pruned_Labels.csv), la taxonomía de clases (species.json) y el catálogo fotográfico preexistente (labels_map.json) no han sido modificados ni alterados.
+- sound_names_ar.json es un recurso distribuible específico e independiente para el selector de nombres de sonido.

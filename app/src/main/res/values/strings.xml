@@ -156,9 +156,8 @@
     <string name="sound_status_stopping">Deteniendo…</string>
     <string name="sound_results_title">Aves detectadas en esta sesión</string>
     <string name="sound_no_detections">No se identificaron aves con suficiente confianza</string>
-    <string name="sound_score_format">Puntuación: %1$s</string>
-    <string name="sound_score_description">Puntuación del modelo: %1$s</string>
-    <string name="sound_score_explanation">La puntuación expresa una coincidencia del modelo y no un porcentaje garantizado de acierto. Las puntuaciones de especies distintas no suman 100%.</string>
+    <string name="sound_score_format">%1$d %%</string>
+    <string name="sound_score_description">Puntuación del modelo: %1$d %%</string>
     <string name="sound_local_info_unavailable">Información local no disponible</string>
     <string name="sound_common_name_unavailable">Nombre común no disponible</string>
     <string name="sound_permission_rationale">La captura no puede comenzar sin autorización para el micrófono. Podés reintentar para conceder el permiso o volver al menú.</string>
