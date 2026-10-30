@@ -60,7 +60,7 @@ class BirdInfoActivityTest {
                 assertTrue(activity.findViewById<TextView>(R.id.specimenSex).text.contains("Hembra"))
                 val fields = texts(activity.findViewById(R.id.speciesFields))
                 assertTrue(fields.contains("Amazonetta brasiliensis"))
-                assertNull(activity.findViewById(R.id.speciesReferences))
+                assertEquals(0, activity.resources.getIdentifier("speciesReferences", "id", context.packageName))
             }
             capture(scenario, "t7-information-female")
             scenario.onActivity {
